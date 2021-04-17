@@ -1,0 +1,624 @@
+<div id="cart-step-3" class="checkout-wrapper shipment-page" style="display: none;">
+  <div class="checkout-stepper-wrapper">
+    <ul class="checkout-stepper" data-track-checkout-step="3">
+      <li class="checkout-step  checkout-step-validated js-stepper-validated">
+        <a class="checkout-step-inner">
+          <span class="checkout-step-number">
+            <svg role="presentation" class="icon-svg icon-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-check"></use>
+            </svg>
+          </span>
+          <span class="checkout-step-name">Bag</span>
+        </a>
+      </li>
+      <li class="checkout-step checkout-step-current">
+        <div class="checkout-step-inner">
+          <span class="checkout-step-number">2</span>
+          <span class="checkout-step-name">Shipping</span>
+        </div>
+      </li>
+      <li class="checkout-step">
+        <div class="checkout-step-inner">
+          <span class="checkout-step-number">3</span>
+          <span class="checkout-step-name">Payment</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="stepshipping" class="checkout-inner js-parallax-wrapper">
+    <div class="left-column">
+      <div class="js-shipment-wrapper custom-shipping-address">
+        <!-- <div class="checkout-block checkout-block-full shipment-list-wrapper ">
+          <h3 class="checkout-block-title">
+            Select a shipping method
+          </h3>
+          <div class="shipment-group-list-wrapper swiper-container-horizontal">
+            <ul class="shipment-group-list" style="width: 506px;">
+              <li class="shipment-group-item js-shipment-group-item shipment-group-item-active shipment-group-delivery swiper-slide-active" data-group="delivery">
+                <span class="shipment-group-icon">
+                  <svg role="presentation" class="icon-svg icon-delivery">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/on/demandware.static/Sites-GB-Site/-/en/v1553649413689/img/svg/non-critical.svg#icon-delivery"></use>
+                  </svg>
+                </span>
+                <span class="shipment-group-item-name">
+                  Shipping
+                </span>
+                <span class="shipment-group-item-price">
+                  £0.00 to £9.95
+                </span>
+              </li>
+              <li class="shipment-group-item js-shipment-group-item shipment-group-store swiper-slide-next" data-group="store">
+                <span class="shipment-group-icon">
+                  <svg role="presentation" class="icon-svg icon-store">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/on/demandware.static/Sites-GB-Site/-/en/v1553649413689/img/svg/non-critical.svg#icon-store"></use>
+                  </svg>
+                </span>
+                <span class="shipment-group-item-name">
+                  CLICK &amp; COLLECT
+                </span>
+                <span class="shipment-group-item-price">
+                  free service
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+        <div id="delivery" class="shipment-method-group js-shipment-method-group shipment-method-group-active" data-group="delivery">
+          <div class="home-delivery-methods-wrapper js-time-in-transit-delivery">
+            <div class="checkout-block checkout-block-full ">
+              <ul class="home-delivery-methods-list">
+                <li class="home-delivery-method-item js-shipping-method-Hermes-Destipost is-active">
+                  <label>
+                    <div class="home-delivery-method-checkbox-wrapper">
+                      <input value="Hermes-Destipost" name="shipping-method" type="radio" class="js-shipping-method" checked="checked" data-shipping-id="Hermes-Destipost" data-group="delivery" data-type="null">
+                    </div>
+                    <div class="home-delivery-method-details " data-shippingmethodid="Hermes-Destipost">
+                      <p class="home-delivery-method-name">Standard Shipping
+                        <span class="home-delivery-method-price">• {% if cart.original_total_price < 500000 %}{{ 20000 | money }}{% else %}FREE{% endif %}</span>
+                      </p>
+                      <p class="home-delivery-method-date">3-5 working days for Metro Manila deliveries<br>5-10 working days for provincial deliveries</p>
+                      <p class="js-shipping-method-error is-error is-hidden"></p>
+                    </div>
+                  </label>
+                  <div class="home-delivery-method-active-details">
+                  </div>
+                </li>
+                {%comment%}<li class="home-delivery-method-item js-shipping-method-lacoste-chronoborne">
+                  <label>
+                    <div class="home-delivery-method-checkbox-wrapper">
+                      <input value="lacoste-chronoborne" name="shipping-method" type="radio" class="js-shipping-method" data-shipping-id="lacoste-chronoborne" data-group="delivery" data-type="null">
+                    </div>
+                    <div class="home-delivery-method-details " data-shippingmethodid="lacoste-chronoborne">
+                      <p class="home-delivery-method-name">
+                        Express (DHL)
+                        <span class="home-delivery-method-price">• £9.95</span>
+                      </p>
+                      <p class="home-delivery-method-date">1-2 days from Monday to Friday (Free on orders over £180).</p>
+                      <p class="js-shipping-method-error is-error is-hidden"></p>
+                    </div>
+                  </label>
+                  <div class="home-delivery-method-active-details">
+                  </div>
+                </li>{%endcomment%}
+              </ul>
+            </div>
+          </div>
+          <div class="home-shipping-address-wrapper">
+            <div class="home-shipping-address-block">
+              <div class="checkout-block">
+                <div class="addressbook-wrapper js-addressbook addressbook-add-address-wrapper-active" data-type="shipping">
+                  <div class="addressbook-add-address-block js-new-address" data-type="shipping">
+                    <h3 class="checkout-block-title">Shipping address <span>(*required)</span></h3>
+                    <form id="checkout-shipping-form" action="/checkout?previous_step=contact_information&step=payment_method" method="get" class="forms flex flex--col checkout-address-form checkout-shipping-form">
+                      <div class="field-wrapper">
+                        <div class="flex">
+                          <span class="label">Civility</span>
+                          <label class="field-radio-wrapper l-field-spaced">
+                            <input type="radio" name="salutation" class="field-radio js-field is-filled" value="MRS">
+                            <span class="label">Mrs.</span>
+                          </label>
+                          <label class="field-radio-wrapper l-field-spaced">
+                            <input type="radio" name="salutation" class="field-radio js-field is-filled" value="MS">
+                            <span class="label">Ms.</span>
+                          </label>
+                          <label class="field-radio-wrapper l-field-spaced">
+                            <input type="radio" name="salutation" class="field-radio js-field is-filled" value="MR">
+                            <span class="label">Mr.</span>
+                          </label>
+                        </div>
+                      </div>
+                      <label class="field-wrapper l-field-margin is-required">
+                        <input type="text" class="field js-field is-filled" id="s-fname" name="checkout[shipping_address][first_name]" value="" maxlength="40" required="true">
+                        <span class="label label--floating">First name</span>
+                      </label>
+                      <label class="field-wrapper l-field-margin is-required">
+                        <input type="text" class="field js-field is-filled" id="s-lname" name="checkout[shipping_address][last_name]" value="" maxlength="50" required="true">
+                        <span class="label label--floating">Last name</span>
+                      </label>
+                      <div class="shipment-zipcode-module-addresses-wrapper js-shipment-zipcode-module-addresses ">
+                        <div class="js-zipcode-module-addresses-result" data-zipcode-empty="Please enter a zipcode"></div>
+                        <div class="shipment-zipcode-module-selected-address-wrapper js-shipment-zipcode-module-selected-address shipment-zipcode-module-selected-address-wrapper-active my-account-zipcode-module-selected-address-wrapper-active">
+                          <div class="forms flex flex--col">
+                            <label class="field-wrapper l-field-margin is-required">
+                              <input type="text" class="field js-field is-filled" id="s-add1" name="checkout[shipping_address][address1]" value="" required="true" maxlength="70">
+                              <span class="label label--floating">Street</span>
+                            </label>
+                            <label class="field-wrapper l-field-margin">
+                              <select id="checkout_shipping_address_address2" data-backup="address2" class="is-filled field js-field field__input field__input--select" aria-required="true" name="checkout[shipping_address][address2]" required="true" onchange="loadCities()"><option label=" "></option><option selected="selected" value="Metro Manila">Metro Manila</option><option value="Ilocos Norte">Ilocos Norte</option><option value="Ilocos Sur">Ilocos Sur</option><option value="La Union">La Union</option><option value="Pangasinan">Pangasinan</option><option value="Batanes">Batanes</option><option value="Cagayan">Cagayan</option><option value="Isabela">Isabela</option><option value="Nueva Vizcaya">Nueva Vizcaya</option><option value="Quirino">Quirino</option><option value="Bataan">Bataan</option><option value="Bulacan">Bulacan</option><option value="Nueva Ecija">Nueva Ecija</option><option value="Pampanga">Pampanga</option><option value="Tarlac">Tarlac</option><option value="Zambales">Zambales</option><option value="Aurora">Aurora</option><option value="Batangas">Batangas</option><option value="Cavite">Cavite</option><option value="Laguna">Laguna</option><option value="Quezon">Quezon</option><option value="Rizal">Rizal</option><option value="Marinduque">Marinduque</option><option value="Occidental Mindoro">Occidental Mindoro</option><option value="Oriental Mindoro">Oriental Mindoro</option><option value="Palawan">Palawan</option><option value="Romblon">Romblon</option><option value="Albay">Albay</option><option value="Camarines Norte">Camarines Norte</option><option value="Camarines Sur">Camarines Sur</option><option value="Catanduanes">Catanduanes</option><option value="Masbate">Masbate</option><option value="Sorsogon">Sorsogon</option><option value="Aklan">Aklan</option><option value="Antique">Antique</option><option value="Capiz">Capiz</option><option value="Iloilo">Iloilo</option><option value="Negros Occidental">Negros Occidental</option><option value="Guimaras">Guimaras</option><option value="Bohol">Bohol</option><option value="Cebu">Cebu</option><option value="Negros Oriental">Negros Oriental</option><option value="Siquijor">Siquijor</option><option value="Eastern Samar">Eastern Samar</option><option value="Leyte">Leyte</option><option value="Northern Samar">Northern Samar</option><option value="Samar (western Samar)">Samar (western Samar)</option><option value="Southern Leyte">Southern Leyte</option><option value="Biliran">Biliran</option><option value="Zamboanga Del Norte">Zamboanga Del Norte</option><option value="Zamboanga Del Sur">Zamboanga Del Sur</option><option value="Zamboanga Sibugay">Zamboanga Sibugay</option><option value="Bukidnon">Bukidnon</option><option value="Camiguin">Camiguin</option><option value="Lanao Del Norte">Lanao Del Norte</option><option value="Misamis Occidental">Misamis Occidental</option><option value="Misamis Oriental">Misamis Oriental</option><option value="Davao Del Norte">Davao Del Norte</option><option value="Davao Del Sur">Davao Del Sur</option><option value="Davao Oriental">Davao Oriental</option><option value="Compostela Valley">Compostela Valley</option><option value="Davao Occidental">Davao Occidental</option><option value="Cotabato (north Cotabato)">Cotabato (north Cotabato)</option><option value="South Cotabato">South Cotabato</option><option value="Sultan Kudarat">Sultan Kudarat</option><option value="Sarangani">Sarangani</option><option value="Abra">Abra</option><option value="Benguet">Benguet</option><option value="Ifugao">Ifugao</option><option value="Kalinga">Kalinga</option><option value="Mountain Province">Mountain Province</option><option value="Apayao">Apayao</option><option value="Basilan">Basilan</option><option value="Lanao Del Sur">Lanao Del Sur</option><option value="Maguindanao">Maguindanao</option><option value="Sulu">Sulu</option><option value="Tawi-tawi">Tawi-tawi</option><option value="Agusan Del Norte">Agusan Del Norte</option><option value="Agusan Del Sur">Agusan Del Sur</option><option value="Surigao Del Norte">Surigao Del Norte</option><option value="Surigao Del Sur">Surigao Del Sur</option><option value="Dinagat Islands">Dinagat Islands</option></select>
+                              <span class="label label--floating">Province</span>
+                            </label>
+                            <label class="field-wrapper l-field-margin is-required">
+                              <select autocomplete="shipping address-level2" autocorrect="off" data-trekkie-id="shipping_city_field" data-backup="city" class="field is-filled field__input field__input--select" aria-required="true" required="true" name="checkout[shipping_address][city]" id="checkout_shipping_address_city"><option label=" "></option><option value="Binondo">Binondo</option><option selected="selected" value="Caloocan">Caloocan</option><option value="Ermita">Ermita</option><option value="Intramuros">Intramuros</option><option value="Las Piñas">Las Piñas</option><option value="Makati">Makati</option><option value="Malabon">Malabon</option><option value="Malate">Malate</option><option value="Mandaluyong">Mandaluyong</option><option value="Marikina">Marikina</option><option value="Muntinlupa">Muntinlupa</option><option value="Navotas">Navotas</option><option value="Paco">Paco</option><option value="Pandacan">Pandacan</option><option value="Parañaque">Parañaque</option><option value="Pasay">Pasay</option><option value="Pasig">Pasig</option><option value="Pateros">Pateros</option><option value="Port Area">Port Area</option><option value="Quezon City">Quezon City</option><option value="Quiapo">Quiapo</option><option value="Sampaloc">Sampaloc</option><option value="San Juan">San Juan</option><option value="San Miguel">San Miguel</option><option value="San Nicolas">San Nicolas</option><option value="Santa Ana">Santa Ana</option><option value="Santa Cruz">Santa Cruz</option><option value="Taguig">Taguig</option><option value="Tondo">Tondo</option><option value="Valenzuela">Valenzuela</option></select>
+                              <span class="label label--floating">City</span>
+                              <div class="address-module"></div>
+                            </label>
+                            <label class="field-wrapper l-field-margin is-required is-filled">
+                              <input type="text" class="field js-field is-filled" id="checkout_shipping_address_country" name="checkout[shipping_address][country]" value="Philippines" disabled="disabled" required="">
+                              <span class="label label--floating">Country</span>
+                            </label>
+                            <label class="field-wrapper l-field-margin is-required">
+                              <input type="text" class="field js-field js-uppercase-field is-filled" id="s-zip" name="checkout[shipping_address][zip]" value="" autocomplete="nope" required="true">
+                              <span class="label label--floating">Zipcode</span>
+                              <div class="address-module"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      {% comment %}<div class="checkout-block-action-wrapper">
+                        <span class="checkout-block-action js-address-entermanually">Enter address manually</span>
+                      </div>{% endcomment %}
+                      <label class="field-wrapper l-field-margin is-required">
+                        <input type="tel" class="field js-field is-filled" id="s-phone" name="checkout[shipping_address][phone]" value="" data-mandatory="true" required="true">
+                        <span class="label label--floating">Phone number</span>
+                      </label>
+                      <input type="hidden" name="needCallValidationAddress" class="suggest-address-active" value="false">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- div id="store" class="shipment-method-group js-shipment-method-group " data-group="store">
+          <div class="home-delivery-methods-wrapper js-time-in-transit-store">
+            <div class="checkout-block checkout-block-full ">
+              <ul class="home-delivery-methods-list">
+                <li class="home-delivery-method-item js-shipping-method-W2S">
+                  <label>
+                    <div class="home-delivery-method-checkbox-wrapper">
+                      <input value="W2S" name="shipping-method" type="radio" class="js-shipping-method" data-shipping-id="W2S" data-group="store" data-type="W2S">
+                    </div>
+                    <div class="home-delivery-method-details " data-shippingmethodid="W2S">
+                      <p class="home-delivery-method-name">
+                        CLICK &amp; COLLECT
+                        <span class="home-delivery-method-price">•
+                          free
+                        </span>
+                      </p>
+                      <p class="home-delivery-method-date">
+                        Collection within 3-4 days from Monday to Friday
+                      </p>
+                      <p class="js-shipping-method-error is-error is-hidden"></p>
+                    </div>
+                  </label>
+                  <div class="home-delivery-method-active-details">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="store-shipping-select-wrapper" data-shipmode="na">
+            <div class="checkout-block checkout-block-full">
+              <h3 class="checkout-block-title">
+                Collect your order at a LACOSTE Boutique
+              </h3>
+              <div class="store-shipping-select-btn-wrapper">
+                <button class="btn btn-new btn-light js-open-select-store-dialog" data-dialog-href="https://www.lacoste.com/on/demandware.store/Sites-GB-Site/en/WebToStore-ChangeStore">
+                  <svg role="presentation" class="icon-svg icon-store">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/on/demandware.static/Sites-GB-Site/-/en/v1553649413689/img/svg/non-critical.svg#icon-store"></use>
+                  </svg>
+                  Select a LACOSTE Boutique
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        {%comment%}<div class="billing-address-wrapper delivery-method-active">
+          <div class="checkout-block">
+            <label class="home-billing-different-ba-wrapper" data-same="true" data-class="">
+              <input type="checkbox" id="different-ba" name="hasSpecificBillingAddress">
+              <span class="checkout-block-text-bigger">Use a different billing address</span>
+            </label>
+            <div class="home-billing-informations-block js-billing-address ">
+              <div class="addressbook-wrapper js-addressbook addressbook-add-address-wrapper-active" data-type="billing">
+                <div class="addressbook-add-address-block js-new-address" data-type="billing">
+                  <h3 class="checkout-block-title">
+                    Billing address <span>(*required)</span>
+                  </h3>
+                  <form id="checkout-billing-form" class="forms flex flex--col checkout-address-form checkout-billing-form">
+                    <div class="field-wrapper">
+                      <div class="flex">
+                        <span class="label">
+                          Civility
+                        </span>
+                        <label class="field-radio-wrapper l-field-spaced">
+                          <input type="radio" name="salutation" class="field-radio js-field is-filled" value="MRS">
+                          <span class="label">
+                            Mrs.
+                          </span>
+                        </label>
+                        <label class="field-radio-wrapper l-field-spaced">
+                          <input type="radio" name="salutation" class="field-radio js-field is-filled" value="MS">
+                          <span class="label">
+                            Ms.
+                          </span>
+                        </label>
+                        <label class="field-radio-wrapper l-field-spaced">
+                          <input type="radio" name="salutation" class="field-radio js-field is-filled" value="MR">
+                          <span class="label">
+                            Mr.
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <label class="field-wrapper l-field-margin is-required">
+                      <input type="text" class="field js-field" name="firstname" value="" maxlength="40" required="">
+                      <span class="label label--floating">
+                        First name
+                      </span>
+                    </label>
+                    <label class="field-wrapper l-field-margin is-required">
+                      <input type="text" class="field js-field" name="lastname" value="" maxlength="50" required="">
+                      <span class="label label--floating">
+                        Last name
+                      </span>
+                    </label>
+                    <input type="hidden" class="js-address-block-module" data-activemodule="CAZipCode" data-page="checkout">
+                    <div class="flex l-field-margin">
+                      <label class="field-wrapper is-required flex--grow">
+                        <input type="text" class="field js-field js-uppercase-field zipcode-field" name="zipCodeSearch" data-error-wrong="Please enter a valid zipcode" data-error-service="The locality service is unavailable" required="">
+                        <span class="label label--floating">
+                          Zipcode
+                        </span>
+                      </label>
+                      <button class="btn btn-new js-zipcode-module l-field-spaced">
+                        Search
+                      </button>
+                    </div>
+                    <div class="shipment-zipcode-module-addresses-wrapper js-shipment-zipcode-module-addresses">
+                      <div class="js-zipcode-module-addresses-result" data-zipcode-empty="Please enter a zipcode"></div>
+                      <div class="shipment-zipcode-module-selected-address-wrapper js-shipment-zipcode-module-selected-address">
+                        <div class="forms flex flex--col">
+                          <label class="field-wrapper l-field-margin is-required">
+                            <input type="text" class="field js-field" name="street1" value="" required="" maxlength="38">
+                            <span class="label label--floating">
+                              Street
+                            </span>
+                          </label>
+                          <label class="field-wrapper l-field-margin">
+                            <input type="text" class="field js-field" name="street2" value="" maxlength="38">
+                            <span class="label label--floating">
+                              Address line 2
+                            </span>
+                          </label>
+                          <input name="cap-street2" type="hidden" max-length="38">
+                          <label class="field-wrapper l-field-margin is-required">
+                            <input type="text" class="field js-field js-uppercase-field" name="zipCode" value="" autocomplete="nope" required="">
+                            <span class="label label--floating">
+                              Zipcode
+                            </span>
+                            <div class="address-module"></div>
+                          </label>
+                          <label class="field-wrapper l-field-margin is-required">
+                            <input type="text" class="field js-field" name="city" value="" autocomplete="nope" required="" maxlength="38">
+                            <span class="label label--floating">
+                              City
+                            </span>
+                            <div class="address-module"></div>
+                          </label>
+                          <label class="field-wrapper l-field-margin is-required is-filled">
+                            <input type="text" class="field js-field is-filled" name="country" value="Great Britain" disabled="disabled" required="">
+                            <span class="label label--floating">
+                              Country
+                            </span>
+                          </label>
+                          <input name="needState" type="hidden" value="false">
+                          <input name="stateCode" type="hidden" value="">
+                          <input name="countryCode" type="hidden" value="GB">
+                          <input name="sa-ignoredavcheck" type="hidden" value="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="checkout-block-action-wrapper">
+                      <span class="checkout-block-action js-address-entermanually">
+                        Enter address manually
+                      </span>
+                    </div>
+                    <label class="field-wrapper l-field-margin is-required">
+                      <input type="tel" class="field js-field " name="phone" value="" data-mandatory="true" required="">
+                      <span class="label label--floating">
+                        Phone number
+                      </span>
+                    </label>
+                    <input type="hidden" name="email" value="miah@xpanse.ph">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%endcomment%}
+        {% unless customer %}<div class="checkout-block shipment-guest-password-wrapper">
+          <h3 class="checkout-block-title">
+            <img src="{{ 'lp-logo-black.png' | asset_url }}" alt="Club Lacoste" class="lp-logo-black">
+            JOIN LE CLUB LACOSTE
+          </h3>
+          <p class="checkout-block-text">
+            Create an account and enjoy all the benefits of LE CLUB LACOSTE!
+          </p>
+          <div class="forms flex flex--col">
+            <label class="field-wrapper l-field-margin">
+              <input type="email" class="field js-field is-filled" name="checkout[email]" value="">
+              <span class="label label--floating">
+                email
+              </span>
+            </label>
+            <label class="field-wrapper l-field-margin">
+              <input type="password" class="field js-field" name="customer[password]">
+              <span class="label label--floating">
+                Enter a password
+              </span>
+            </label>
+          </div>
+          <div class="l-field-margin password-strength">
+            <label>
+              SECURITY LEVEL :
+            </label>
+            <span class="security-level">
+              <strong class="security-level"></strong>
+            </span>
+            <p class="password-security-desc">
+              At least 1 number and one capital letter
+            </p>
+          </div>
+        </div>{% endunless %}
+      </div>
+      <div class="checkout-block checkout-newsletter-wrapper">
+        <h3 class="checkout-block-title">Newsletter</h3>
+        <p>Keep up to date with our new collections and daily offers</p>
+        <label for="receivenews">
+          <input id="receivenews" type="checkbox" name="customer[accepts_marketing]">
+          <span class="checkout-block-text-bigger">
+            I would like to receive emails for Lacoste's latest news and offers
+          </span>
+        </label>
+      </div>
+      <!-- div class="checkout-block checkout-gift-wrapper" data-message="false" data-shipmode="na">
+        <div class="content-asset">
+          <h3 class="checkout-block-title">Is this a gift?</h3>
+          <p class="no-mobile">Add a FREE gift box to your order</p>
+        </div>
+        <label>
+          <input class="js-checkout-gift" type="checkbox" id="checkout-gift" data-hasgiftproduct="false">
+          <span class="checkout-block-text-bigger">
+            Add a free gift box to your order
+          </span>
+        </label>
+      </div> -->
+    </div>
+    <div class="right-column js-parallax checkoutparallax-active">
+      <div class="checkout-block summary-products-wrapper">
+        <div class="js-summary-products-prev summary-products-prev is-hidden no-mob">
+          <svg role="presentation" class="icon-svg ">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-up"></use>
+          </svg>
+        </div>
+        <div class="summary-products-header flex js-summary-products-toggle no-desk no-tab">
+          <span class="summary-products-title">
+            1 product
+            &nbsp;-&nbsp;
+          </span>
+          <span class="summary-products-title-price">
+            £75.00
+          </span>
+          <svg role="presentation" class="icon-svg ">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use>
+          </svg>
+        </div>
+        <div class="summary-products-scroll-wrapper">
+          <div class="summary-products">
+            {% for item in cart.items %}
+            <div class="summary-product" id="pid-3614036326880">
+              <img class="summary-product-image" src="{{ item | img_url: '100x100' }}" alt="{{ item.title }}" title="{{ item.title }}">
+              <div class="summary-product-details">
+                <p class="summary-product-name">{{ item.title }}</p>
+                <p class="summary-product-infos">
+                  <span class="summary-product-color">
+                    color: {{ item.variant.option1 }}
+                  </span>
+                  <span class="summary-product-size">
+                    size: {{ item.variant.option2 }}
+                  </span>
+                  <span class="summary-product-price">
+                    <span class="normal-price">
+                      <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.price | money }}
+                    </span>
+                  </span>
+                </p>
+                <p class="js-error-productline is-error"></p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="js-summary-products-next summary-products-next is-hidden no-mob">
+          <svg role="presentation" class="icon-svg ">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="checkout-block summary-prices-block">
+        <div id="accountOverlay"></div>
+        <div class="overlay-loader">
+          <div class="sprite-loading bg-puce"></div>
+        </div>
+        <div class="cart-price-summary-block">
+          <div class="cart-price-summary-wrapper">
+            <p class="sfschange shippingMethodchange" style="display:none">
+              Product with monogram does not allow store delivery.
+              <br>
+            </p>
+            <ul class="cart-price-summary">{% assign var_net = cart.total_price | divided_by:1.12 %}{% assign var_tax = cart.total_price | minus: var_net %}
+              <li class="cart-price-subtotal js-cart-productlines no-mob" data-nbproductlines="1" data-issingleproduct="true">
+                <span>
+                  {{ cart.item_count }} product{% if cart.item_count > 1 or cart.item_count == 0 %}s{% endif %}
+                </span>
+                <span>
+                  {{ cart.original_total_price | money }}
+                </span>
+              </li>
+              <li class="cart-price-shipping">
+                <span>
+                  Shipping
+                </span>
+                <span>
+                  {% if cart.original_total_price < 500000 %}{{ 20000 | money }}{% else %}FREE{% endif %}
+                </span>
+              </li>
+              <li class="cart-vat-included">
+                <span>
+                  Taxes
+                </span>
+                <span>
+                  {{ var_tax | money }}
+                </span>
+              </li>
+              <li class="cart-price-total">
+                <span>
+                  Total
+                </span>
+                <span>
+                  <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ cart.total_price | money }}
+                </span>
+              </li>
+            </ul>
+            <div class="price-summary-loader">
+              <div class="loader-ctnr hide">
+                <div class="loader show">
+                  <svg class="circular">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10">
+                    </circle>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="shipment-validation-wrapper">
+          <button class="btn btn-full btn-new js-validate-shipping" id="cta-payment" data-href="">
+            Proceed to payment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #checkout-shipping-form {
+    margin-bottom: 0px;
+  }
+</style>
+
+<script>
+// save the province and city values provided by the backup
+// note: this is when a customer goes back from step 2 to 1 and the province/city settings don't persist
+const address2 = document.getElementById('checkout_shipping_address_address2');
+const address_city = document.getElementById('checkout_shipping_address_city');
+const province_data_backup    = (address2) ? address2.value : '';
+const city_data_backup        = (address_city) ? address_city.value : '';
+
+// local provinces json file (see philippines-psgc repo)
+var provinces = [{"METRO MANILA":["TONDO","BINONDO","QUIAPO","SAN NICOLAS","SANTA CRUZ","SAMPALOC","SAN MIGUEL","ERMITA","INTRAMUROS","MALATE","PACO","PANDACAN","PORT AREA","SANTA ANA","MANDALUYONG","MARIKINA","PASIG","QUEZON CITY","SAN JUAN","CALOOCAN","MALABON","NAVOTAS","VALENZUELA","LAS PIÃ‘AS","MAKATI","MUNTINLUPA","PARAÃ‘AQUE","PASAY","PATEROS","TAGUIG"]},{"ILOCOS NORTE":["ADAMS","BACARRA","BADOC","BANGUI","BANNA (ESPIRITU)","BURGOS","CARASI","BATAC","LAOAG","CURRIMAO","DINGRAS","DUMALNEG","MARCOS","NUEVA ERA","PAGUDPUD","PAOAY","PASUQUIN","PIDDIG","PINILI","SAN NICOLAS","SARRAT","SOLSONA","VINTAR"]},{"ILOCOS SUR":["ALILEM","BANAYOYO","BANTAY","BURGOS","CABUGAO","CAOAYAN","CERVANTES","CANDON","VIGAN","GALIMUYOD","GREGORIO DEL PILAR (CONCEPCION)","LIDLIDDA","MAGSINGAL","NAGBUKEL","NARVACAN","QUIRINO (ANGKAKI)","SALCEDO (BAUGEN)","SAN EMILIO","SAN ESTEBAN","SAN ILDEFONSO","SAN JUAN (LAPOG)","SAN VICENTE","SANTA","SANTA CATALINA","SANTA CRUZ","SANTA LUCIA","SANTA MARIA","SANTIAGO","SANTO DOMINGO","SIGAY","SINAIT","SUGPON","SUYO","TAGUDIN"]},{"LA UNION":["AGOO","ARINGAY","BACNOTAN","BAGULIN","BALAOAN","BANGAR","BAUANG","BURGOS","CABA","SAN FERNANDO","LUNA","NAGUILIAN","PUGO","ROSARIO","SAN GABRIEL","SAN JUAN","SANTO TOMAS","SANTOL","SUDIPEN","TUBAO"]},{"PANGASINAN":["AGNO","AGUILAR","ALCALA","ANDA","ASINGAN","BALUNGAO","BANI","BASISTA","BAUTISTA","BAYAMBANG","BINALONAN","BINMALEY","BOLINAO","BUGALLON","BURGOS","CALASIAO","ALAMINOS","DAGUPAN","SAN CARLOS","URDANETA","DASOL","INFANTA","LABRADOR","LAOAC","LINGAYEN","MABINI","MALASIQUI","MANAOAG","MANGALDAN","MANGATAREM","MAPANDAN","NATIVIDAD","POZORRUBIO","ROSALES","SAN FABIAN","SAN JACINTO","SAN MANUEL","SAN NICOLAS","SAN QUINTIN","SANTA BARBARA","SANTA MARIA","SANTO TOMAS","SISON","SUAL","TAYUG","UMINGAN","URBIZTONDO","VILLASIS"]},{"BATANES":["BASCO","ITBAYAT","IVANA","MAHATAO","SABTANG","UYUGAN"]},{"CAGAYAN":["ABULUG","ALCALA","ALLACAPAN","AMULUNG","APARRI","BAGGAO","BALLESTEROS","BUGUEY","CALAYAN","CAMALANIUGAN","CLAVERIA","ENRILE","GATTARAN","GONZAGA","IGUIG","LAL-LO","LASAM","PAMPLONA","PEÃ‘ABLANCA","PIAT","RIZAL","SANCHEZ-MIRA","SANTA ANA","SANTA PRAXEDES","SANTA TERESITA","SANTO NIÃ‘O (FAIRE)","SOLANA","TUAO","TUGUEGARAO"]},{"ISABELA":["ALICIA","ANGADANAN","AURORA","BENITO SOLIVEN","BURGOS","CABAGAN","CABATUAN","CAUAYAN","ILAGAN","SANTIAGO","CORDON","DELFIN ALBANO (MAGSAYSAY)","DINAPIGUE","DIVILACAN","ECHAGUE","GAMU","JONES","LUNA","MACONACON","MALLIG","NAGUILIAN","PALANAN","QUEZON","QUIRINO","RAMON","REINA MERCEDES","ROXAS","SAN AGUSTIN","SAN GUILLERMO","SAN ISIDRO","SAN MANUEL","SAN MARIANO","SAN MATEO","SAN PABLO","SANTA MARIA","SANTO TOMAS","TUMAUINI"]},{"NUEVA VIZCAYA":["ALFONSO CASTANEDA","AMBAGUIO","ARITAO","BAGABAG","BAMBANG","BAYOMBONG","DIADI","DUPAX DEL NORTE","DUPAX DEL SUR","KASIBU","KAYAPA","QUEZON","SANTA FE","SOLANO","VILLAVERDE"]},{"QUIRINO":["AGLIPAY","CABARROGUIS","DIFFUN","MADDELA","NAGTIPUNAN","SAGUDAY"]},{"BATAAN":["ABUCAY","BAGAC","BALANGA","DINALUPIHAN","HERMOSA","LIMAY","MARIVELES","MORONG","ORANI","ORION","PILAR","SAMAL"]},{"BULACAN":["ANGAT","BALAGTAS (BIGAA)","BALIUAG","BOCAUE","BULACAN","BUSTOS","CALUMPIT","MALOLOS","MEYCAUAYAN","SAN JOSE DEL MONTE","DOÃ‘A REMEDIOS TRINIDAD","GUIGUINTO","HAGONOY","MARILAO","NORZAGARAY","OBANDO","PANDI","PAOMBONG","PLARIDEL","PULILAN","SAN ILDEFONSO","SAN MIGUEL","SAN RAFAEL","SANTA MARIA"]},{"NUEVA ECIJA":["ALIAGA","BONGABON","CABIAO","CARRANGLAN","CABANATUAN","GAPAN","PALAYAN","CUYAPO","GABALDON (BITULOK & SABANI)","GENERAL MAMERTO NATIVIDAD","GENERAL TINIO (PAPAYA)","GUIMBA","JAEN","LAUR","LICAB","LLANERA","LUPAO","NAMPICUAN","PANTABANGAN","PEÃ‘ARANDA","QUEZON","RIZAL","SAN ANTONIO","SAN ISIDRO","SAN JOSE CITY","SAN LEONARDO","SANTA ROSA","SANTO DOMINGO","SCIENCE CITY OF MUÃ‘OZ","TALAVERA","TALUGTUG","ZARAGOZA"]},{"PAMPANGA":["APALIT","ARAYAT","BACOLOR","CANDABA","ANGELES","SAN FERNANDO","FLORIDABLANCA","GUAGUA","LUBAO","MABALACAT","MACABEBE","MAGALANG","MASANTOL","MEXICO","MINALIN","PORAC","SAN LUIS","SAN SIMON","SANTA ANA","SANTA RITA","SANTO TOMAS","SASMUAN (Sexmoan)"]},{"TARLAC":["ANAO","BAMBAN","CAMILING","CAPAS","TARLAC","CONCEPCION","GERONA","LA PAZ","MAYANTOC","MONCADA","PANIQUI","PURA","RAMOS","SAN CLEMENTE","SAN JOSE","SAN MANUEL","SANTA IGNACIA","VICTORIA"]},{"ZAMBALES":["BOTOLAN","CABANGAN","CANDELARIA","CASTILLEJOS","OLONGAPO","IBA","MASINLOC","PALAUIG","SAN ANTONIO","SAN FELIPE","SAN MARCELINO","SAN NARCISO","SANTA CRUZ","SUBIC"]},{"AURORA":["BALER","CASIGURAN","DILASAG","DINALUNGAN","DINGALAN","DIPACULAO","MARIA AURORA","SAN LUIS"]},{"BATANGAS":["AGONCILLO","ALITAGTAG","BALAYAN","BALETE","BATANGAS CITY","BAUAN","CALACA","CALATAGAN","LIPA","TANAUAN","CUENCA","IBAAN","LAUREL","LEMERY","LIAN","LOBO","MABINI","MALVAR","MATAASNAKAHOY","NASUGBU","PADRE GARCIA","ROSARIO","SAN JOSE","SAN JUAN","SAN LUIS","SAN NICOLAS","SAN PASCUAL","SANTA TERESITA","SANTO TOMAS","TAAL","TALISAY","TAYSAN","TINGLOY","TUY"]},{"CAVITE":["ALFONSO","AMADEO","CARMONA","BACOOR","CAVITE","DASMARIÃ‘AS","GENERAL TRIAS","IMUS","TAGAYTAY","TRECE MARTIRES","GEN. MARIANO ALVAREZ","GENERAL EMILIO AGUINALDO","INDANG","KAWIT","MAGALLANES","MARAGONDON","MENDEZ (MENDEZ-NUÃ‘EZ)","NAIC","NOVELETA","ROSARIO","SILANG","TANZA","TERNATE"]},{"LAGUNA":["ALAMINOS","BAY","CALAUAN","CAVINTI","BIÃ‘AN","CABUYAO","CALAMBA","SAN PABLO","SAN PEDRO","SANTA ROSA","FAMY","KALAYAAN","LILIW","LOS BAÃ‘OS","LUISIANA","LUMBAN","MABITAC","MAGDALENA","MAJAYJAY","NAGCARLAN","PAETE","PAGSANJAN","PAKIL","PANGIL","PILA","RIZAL","SANTA CRUZ","SANTA MARIA","SINILOAN","VICTORIA"]},{"QUEZON":["AGDANGAN","ALABAT","ATIMONAN","BUENAVISTA","BURDEOS","CALAUAG","CANDELARIA","CATANAUAN","LUCENA","TAYABAS","DOLORES","GENERAL LUNA","GENERAL NAKAR","GUINAYANGAN","GUMACA","INFANTA","JOMALIG","LOPEZ","LUCBAN","MACALELON","MAUBAN","MULANAY","PADRE BURGOS","PAGBILAO","PANUKULAN","PATNANUNGAN","PEREZ","PITOGO","PLARIDEL","POLILLO","QUEZON","REAL","SAMPALOC","SAN ANDRES","SAN ANTONIO","SAN FRANCISCO (AURORA)","SAN NARCISO","SARIAYA","TAGKAWAYAN","TIAONG","UNISAN"]},{"RIZAL":["ANGONO","BARAS","BINANGONAN","CAINTA","CARDONA","ANTIPOLO","JALA-JALA","MORONG","PILILLA","RODRIGUEZ (MONTALBAN)","SAN MATEO","TANAY","TAYTAY","TERESA"]},{"MARINDUQUE":["BOAC","BUENAVISTA","GASAN","MOGPOG","SANTA CRUZ","TORRIJOS"]},{"OCCIDENTAL MINDORO":["ABRA DE ILOG","CALINTAAN","LOOC","LUBANG","MAGSAYSAY","MAMBURAO","PALUAN","RIZAL","SABLAYAN","SAN JOSE","SANTA CRUZ"]},{"ORIENTAL MINDORO":["BACO","BANSUD","BONGABONG","BULALACAO (SAN PEDRO)","CALAPAN","GLORIA","MANSALAY","NAUJAN","PINAMALAYAN","POLA","PUERTO GALERA","ROXAS","SAN TEODORO","SOCORRO","VICTORIA"]},{"PALAWAN":["ABORLAN","AGUTAYA","ARACELI","BALABAC","BATARAZA","BROOKE'S POINT","BUSUANGA","CAGAYANCILLO","PUERTO PRINCESA","CORON","CULION","CUYO","DUMARAN","EL NIDO (BACUIT)","KALAYAAN","LINAPACAN","MAGSAYSAY","NARRA","QUEZON","RIZAL (MARCOS)","ROXAS","SAN VICENTE","SOFRONIO ESPAÃ‘OLA","TAYTAY"]},{"ROMBLON":["ALCANTARA","BANTON","CAJIDIOCAN","CALATRAVA","CONCEPCION","CORCUERA","FERROL","LOOC","MAGDIWANG","ODIONGAN","ROMBLON","SAN AGUSTIN","SAN ANDRES","SAN FERNANDO","SAN JOSE","SANTA FE","SANTA MARIA (IMELDA)"]},{"ALBAY":["BACACAY","CAMALIG","LEGAZPI","LIGAO","TABACO","DARAGA (LOCSIN)","GUINOBATAN","JOVELLAR","LIBON","MALILIPOT","MALINAO","MANITO","OAS","PIO DURAN","POLANGUI","RAPU-RAPU","SANTO DOMINGO (LIBOG)","TIWI"]},{"CAMARINES NORTE":["BASUD","CAPALONGA","DAET","JOSE PANGANIBAN","LABO","MERCEDES","PARACALE","SAN LORENZO RUIZ (IMELDA)","SAN VICENTE","SANTA ELENA","TALISAY","VINZONS"]},{"CAMARINES SUR":["BAAO","BALATAN","BATO","BOMBON","BUHI","BULA","CABUSAO","CALABANGA","CAMALIGAN","CANAMAN","CARAMOAN","IRIGA","NAGA","DEL GALLEGO","GAINZA","GARCHITORENA","GOA","LAGONOY","LIBMANAN","LUPI","MAGARAO","MILAOR","MINALABAC","NABUA","OCAMPO","PAMPLONA","PASACAO","PILI","PRESENTACION (PARUBCAN)","RAGAY","SAGÃ‘AY","SAN FERNANDO","SAN JOSE","SIPOCOT","SIRUMA","TIGAON","TINAMBAC"]},{"CATANDUANES":["BAGAMANOC","BARAS","BATO","CARAMORAN","GIGMOTO","PANDAN","PANGANIBAN (PAYO)","SAN ANDRES (CALOLBON)","SAN MIGUEL","VIGA","VIRAC"]},{"MASBATE":["AROROY","BALENO","BALUD","BATUAN","CATAINGAN","CAWAYAN","MASBATE","CLAVERIA","DIMASALANG","ESPERANZA","MANDAON","MILAGROS","MOBO","MONREAL","PALANAS","PIO V. CORPUZ (LIMBUHAN)","PLACER","SAN FERNANDO","SAN JACINTO","SAN PASCUAL","USON"]},{"SORSOGON":["BARCELONA","BULAN","BULUSAN","CASIGURAN","CASTILLA","SORSOGON","DONSOL","GUBAT","IROSIN","JUBAN","MAGALLANES","MATNOG","PILAR","PRIETO DIAZ","SANTA MAGDALENA"]},{"AKLAN":["ALTAVAS","BALETE","BANGA","BATAN","BURUANGA","IBAJAY","KALIBO","LEZO","LIBACAO","MADALAG","MAKATO","MALAY","MALINAO","NABAS","NEW WASHINGTON","NUMANCIA","TANGALAN"]},{"ANTIQUE":["ANINI-Y","BARBAZA","BELISON","BUGASONG","CALUYA","CULASI","HAMTIC","LAUA-AN","LIBERTAD","PANDAN","PATNONGON","SAN JOSE","SAN REMIGIO","SEBASTE","SIBALOM","TIBIAO","TOBIAS FORNIER (DAO)","VALDERRAMA"]},{"CAPIZ":["ROXAS","CUARTERO","DAO","DUMALAG","DUMARAO","IVISAN","JAMINDAN","MA-AYON","MAMBUSAO","PANAY","PANITAN","PILAR","PONTEVEDRA","PRESIDENT ROXAS","SAPI-AN","SIGMA","TAPAZ"]},{"ILOILO":["AJUY","ALIMODIAN","ANILAO","BADIANGAN","BALASAN","BANATE","BAROTAC NUEVO","BAROTAC VIEJO","BATAD","BINGAWAN","CABATUAN","CALINOG","CARLES","ILOILO","PASSI","CONCEPCION","DINGLE","DUEÃ‘AS","DUMANGAS","ESTANCIA","GUIMBAL","IGBARAS","JANIUAY","LAMBUNAO","LEGANES","LEMERY","LEON","MAASIN","MIAGAO","MINA","NEW LUCENA","OTON","PAVIA","POTOTAN","SAN DIONISIO","SAN ENRIQUE","SAN JOAQUIN","SAN MIGUEL","SAN RAFAEL","SANTA BARBARA","SARA","TIGBAUAN","TUBUNGAN","ZARRAGA"]},{"NEGROS OCCIDENTAL":["BINALBAGAN","CALATRAVA","CANDONI","CAUAYAN","BACOLOD","BAGO","CADIZ","ESCALANTE","HIMAMAYLAN","KABANKALAN","LA CARLOTA","SAGAY","SAN CARLOS","SILAY","SIPALAY","TALISAY","VICTORIAS","ENRIQUE B. MAGALONA (SARAVIA)","HINIGARAN","HINOBA-AN (ASIA)","ILOG","ISABELA","LA CASTELLANA","MANAPLA","MOISES PADILLA (MAGALLON)","MURCIA","PONTEVEDRA","PULUPANDAN","SALVADOR BENEDICTO","SAN ENRIQUE","TOBOSO","VALLADOLID"]},{"GUIMARAS":["BUENAVISTA","JORDAN","NUEVA VALENCIA","SAN LORENZO","SIBUNAG"]},{"BOHOL":["ALBURQUERQUE","ALICIA","ANDA","ANTEQUERA","BACLAYON","BALILIHAN","BATUAN","BIEN UNIDO","BILAR","BUENAVISTA","CALAPE","CANDIJAY","CARMEN","CATIGBIAN","TAGBILARAN","CLARIN","CORELLA","CORTES","DAGOHOY","DANAO","DAUIS","DIMIAO","DUERO","GARCIA HERNANDEZ","GETAFE","GUINDULMAN","INABANGA","JAGNA","LILA","LOAY","LOBOC","LOON","MABINI","MARIBOJOC","PANGLAO","PILAR","PRES. CARLOS P. GARCIA (PITOGO)","SAGBAYAN (BORJA)","SAN ISIDRO","SAN MIGUEL","SEVILLA","SIERRA BULLONES","SIKATUNA","TALIBON","TRINIDAD","TUBIGON","UBAY","VALENCIA"]},{"CEBU":["ALCANTARA","ALCOY","ALEGRIA","ALOGUINSAN","ARGAO","ASTURIAS","BADIAN","BALAMBAN","BANTAYAN","BARILI","BOLJOON","BORBON","CARMEN","CATMON","BOGO","CARCAR","CEBU","LAPU-LAPU","MANDAUE","NAGA","TALISAY","TOLEDO","COMPOSTELA","CONSOLACION","CORDOVA","DAANBANTAYAN","DALAGUETE","DANAO CITY","DUMANJUG","GINATILAN","LILOAN","MADRIDEJOS","MALABUYOC","MEDELLIN","MINGLANILLA","MOALBOAL","OSLOB","PILAR","PINAMUNGAHAN","PORO","RONDA","SAMBOAN","SAN FERNANDO","SAN FRANCISCO","SAN REMIGIO","SANTA FE","SANTANDER","SIBONGA","SOGOD","TABOGON","TABUELAN","TUBURAN","TUDELA"]},{"NEGROS ORIENTAL":["AMLAN (AYUQUITAN)","AYUNGON","BACONG","BASAY","BINDOY (PAYABON)","BAIS","BAYAWAN (TULONG)","CANLAON","DUMAGUETE","GUIHULNGAN","TANJAY","DAUIN","JIMALALUD","LA LIBERTAD","MABINAY","MANJUYOD","PAMPLONA","SAN JOSE","SANTA CATALINA","SIATON","SIBULAN","TAYASAN","VALENCIA (LUZURRIAGA)","VALLEHERMOSO","ZAMBOANGUITA"]},{"SIQUIJOR":["ENRIQUE VILLANUEVA","LARENA","LAZI","MARIA","SAN JUAN","SIQUIJOR"]},{"EASTERN SAMAR":["ARTECHE","BALANGIGA","BALANGKAYAN","CAN-AVID","BORONGAN","DOLORES","GENERAL MACARTHUR","GIPORLOS","GUIUAN","HERNANI","JIPAPAD","LAWAAN","LLORENTE","MASLOG","MAYDOLONG","MERCEDES","ORAS","QUINAPONDAN","SALCEDO","SAN JULIAN","SAN POLICARPO","SULAT","TAFT"]},{"LEYTE":["ABUYOG","ALANGALANG","ALBUERA","BABATNGON","BARUGO","BATO","BURAUEN","CALUBIAN","CAPOOCAN","CARIGARA","BAYBAY","TACLOBAN","DAGAMI","DULAG","HILONGOS","HINDANG","INOPACAN","ISABEL","JARO","JAVIER (BUGHO)","JULITA","KANANGA","LA PAZ","LEYTE","MACARTHUR","MAHAPLAG","MATAG-OB","MATALOM","MAYORGA","MERIDA","ORMOC CITY","PALO","PALOMPON","PASTRANA","SAN ISIDRO","SAN MIGUEL","SANTA FE","TABANGO","TABONTABON","TANAUAN","TOLOSA","TUNGA","VILLABA"]},{"NORTHERN SAMAR":["ALLEN","BIRI","BOBON","CAPUL","CATARMAN","CATUBIG","GAMAY","LAOANG","LAPINIG","LAS NAVAS","LAVEZARES","LOPE DE VEGA","MAPANAS","MONDRAGON","PALAPAG","PAMBUJAN","ROSARIO","SAN ANTONIO","SAN ISIDRO","SAN JOSE","SAN ROQUE","SAN VICENTE","SILVINO LOBOS","VICTORIA"]},{"SAMAR (WESTERN SAMAR)":["ALMAGRO","BASEY","CALBIGA","CALBAYOG","CATBALOGAN","DARAM","GANDARA","HINABANGAN","JIABONG","MARABUT","MATUGUINAO","MOTIONG","PAGSANGHAN","PARANAS (WRIGHT)","PINABACDAO","SAN JORGE","SAN JOSE DE BUAN","SAN SEBASTIAN","SANTA MARGARITA","SANTA RITA","SANTO NIÃ‘O","TAGAPUL-AN","TALALORA","TARANGNAN","VILLAREAL","ZUMARRAGA"]},{"SOUTHERN LEYTE":["ANAHAWAN","BONTOC","MAASIN","HINUNANGAN","HINUNDAYAN","LIBAGON","LILOAN","LIMASAWA","MACROHON","MALITBOG","PADRE BURGOS","PINTUYAN","SAINT BERNARD","SAN FRANCISCO","SAN JUAN (CABALIAN)","SAN RICARDO","SILAGO","SOGOD","TOMAS OPPUS"]},{"BILIRAN":["ALMERIA","BILIRAN","CABUCGAYAN","CAIBIRAN","CULABA","KAWAYAN","MARIPIPI","NAVAL"]},{"ZAMBOANGA DEL NORTE":["BACUNGAN (Leon T. Postigo)","BALIGUIAN","DAPITAN","DIPOLOG","GODOD","GUTALAC","JOSE DALMAN (PONOT)","KALAWIT","KATIPUNAN","LA LIBERTAD","LABASON","LILOY","MANUKAN","MUTIA","PIÃ‘AN (NEW PIÃ‘AN)","POLANCO","PRES. MANUEL A. ROXAS","RIZAL","SALUG","SERGIO OSMEÃ‘A SR.","SIAYAN","SIBUCO","SIBUTAD","SINDANGAN","SIOCON","SIRAWAI","TAMPILISAN"]},{"ZAMBOANGA DEL SUR":["AURORA","BAYOG","PAGADIAN","ZAMBOANGA CITY","DIMATALING","DINAS","DUMALINAO","DUMINGAG","GUIPOS","JOSEFINA","KUMALARANG","LABANGAN","LAKEWOOD","LAPUYAN","MAHAYAG","MARGOSATUBIG","MIDSALIP","MOLAVE","PITOGO","RAMON MAGSAYSAY (LIARGO)","SAN MIGUEL","SAN PABLO","SOMINOT (DON MARIANO MARCOS)","TABINA","TAMBULIG","TIGBAO","TUKURAN","VINCENZO A. SAGUN"]},{"ZAMBOANGA SIBUGAY":["ALICIA","BUUG","DIPLAHAN","IMELDA","IPIL","KABASALAN","MABUHAY","MALANGAS","NAGA","OLUTANGA","PAYAO","ROSELLER LIM","SIAY","TALUSAN","TITAY","TUNGAWAN"]},{"BUKIDNON":["BAUNGON","CABANGLASAN","MALAYBALAY","VALENCIA","DAMULOG","DANGCAGAN","DON CARLOS","IMPASUG-ONG","KADINGILAN","KALILANGAN","KIBAWE","KITAOTAO","LANTAPAN","LIBONA","MALITBOG","MANOLO FORTICH","MARAMAG","PANGANTUCAN","QUEZON","SAN FERNANDO","SUMILAO","TALAKAG"]},{"CAMIGUIN":["CATARMAN","GUINSILIBAN","MAHINOG","MAMBAJAO","SAGAY"]},{"LANAO DEL NORTE":["BACOLOD","BALOI","BAROY","ILIGAN","KAPATAGAN","KAUSWAGAN","KOLAMBUGAN","LALA","LINAMON","MAGSAYSAY","MAIGO","MATUNGAO","MUNAI","NUNUNGAN","PANTAO RAGAT","PANTAR","POONA PIAGAPO","SALVADOR","SAPAD","SULTAN NAGA DIMAPORO (KAROMATAN)","TAGOLOAN","TANGCAL","TUBOD"]},{"MISAMIS OCCIDENTAL":["ALORAN","BALIANGAO","BONIFACIO","CALAMBA","OROQUIETA","OZAMIZ","TANGUB","CLARIN","CONCEPCION","DON VICTORIANO CHIONGBIAN (DON MARIANO MARCOS)","JIMENEZ","LOPEZ JAENA","PANAON","PLARIDEL","SAPANG DALAGA","SINACABAN","TUDELA"]},{"MISAMIS ORIENTAL":["ALUBIJID","BALINGASAG","BALINGOAN","BINUANGAN","CAGAYAN DE ORO","EL SALVADOR","GINGOOG","CLAVERIA","GITAGUM","INITAO","JASAAN","KINOGUITAN","LAGONGLONG","LAGUINDINGAN","LIBERTAD","LUGAIT","MAGSAYSAY (LINUGOS)","MANTICAO","MEDINA","NAAWAN","OPOL","SALAY","SUGBONGCOGON","TAGOLOAN","TALISAYAN","VILLANUEVA"]},{"DAVAO DEL NORTE":["ASUNCION (SAUG)","BRAULIO E. DUJALI","CARMEN","PANABO","TAGUM","ISLAND GARDEN CITY OF SAMAL","KAPALONG","NEW CORELLA","SAN ISIDRO","SANTO TOMAS","TALAINGOD"]},{"DAVAO DEL SUR":["BANSALAN","DAVAO CITY","DIGOS","HAGONOY","KIBLAWAN","MAGSAYSAY","MALALAG","MATANAO","PADADA","SANTA CRUZ","SULOP"]},{"DAVAO ORIENTAL":["BAGANGA","BANAYBANAY","BOSTON","CARAGA","CATEEL","MATI","GOVERNOR GENEROSO","LUPON","MANAY","SAN ISIDRO","TARRAGONA"]},{"COMPOSTELA VALLEY":["COMPOSTELA","LAAK (SAN VICENTE)","MABINI (DOÃ‘A ALICIA)","MACO","MARAGUSAN (SAN MARIANO)","MAWAB","MONKAYO","MONTEVISTA","NABUNTURAN","NEW BATAAN","PANTUKAN"]},{"DAVAO OCCIDENTAL":["DON MARCELINO","JOSE ABAD SANTOS (TRINIDAD)","MALITA","SANTA MARIA","SARANGANI"]},{"COTABATO (NORTH COTABATO)":["ALAMADA","ALEOSAN","ANTIPAS","ARAKAN","BANISILAN","CARMEN","KIDAPAWAN","KABACAN","LIBUNGAN","M'LANG","MAGPET","MAKILALA","MATALAM","MIDSAYAP","PIGKAWAYAN","PIKIT","PRESIDENT ROXAS","TULUNAN"]},{"SOUTH COTABATO":["BANGA","GENERAL SANTOS (DADIANGAS)","KORONADAL","LAKE SEBU","NORALA","POLOMOLOK","SANTO NIÃ‘O","SURALLAH","T'BOLI","TAMPAKAN","TANTANGAN","TUPI"]},{"SULTAN KUDARAT":["BAGUMBAYAN","TACURONG","COLUMBIO","ESPERANZA","ISULAN","KALAMANSIG","LAMBAYONG (MARIANO MARCOS)","LEBAK","LUTAYAN","PALIMBANG","PRESIDENT QUIRINO","SEN. NINOY AQUINO"]},{"SARANGANI":["ALABEL","GLAN","KIAMBA","MAASIM","MAITUM","MALAPATAN","MALUNGON"]},{"ABRA":["BANGUED","BOLINEY","BUCAY","BUCLOC","DAGUIOMAN","DANGLAS","DOLORES","LA PAZ","LACUB","LAGANGILANG","LAGAYAN","LANGIDEN","LICUAN-BAAY (LICUAN)","LUBA","MALIBCONG","MANABO","PEÃ‘ARRUBIA","PIDIGAN","PILAR","SALLAPADAN","SAN ISIDRO","SAN JUAN","SAN QUINTIN","TAYUM","TINEG","TUBO","VILLAVICIOSA"]},{"BENGUET":["ATOK","BAKUN","BOKOD","BUGUIAS","BAGUIO","ITOGON","KABAYAN","KAPANGAN","KIBUNGAN","LA TRINIDAD","MANKAYAN","SABLAN","TUBA","TUBLAY"]},{"IFUGAO":["AGUINALDO","ALFONSO LISTA (POTIA)","ASIPULO","BANAUE","HINGYON","HUNGDUAN","KIANGAN","LAGAWE","LAMUT","MAYOYAO","TINOC"]},{"KALINGA":["BALBALAN","TABUK","LUBUAGAN","PASIL","PINUKPUK","RIZAL (LIWAN)","TANUDAN","TINGLAYAN"]},{"MOUNTAIN PROVINCE":["BARLIG","BAUKO","BESAO","BONTOC","NATONIN","PARACELIS","SABANGAN","SADANGA","SAGADA","TADIAN"]},{"APAYAO":["CALANASAN (BAYAG)","CONNER","FLORA","KABUGAO","LUNA","PUDTOL","SANTA MARCELA"]},{"BASILAN":["AKBAR","AL-BARKA","LAMITAN","HADJI MOHAMMAD AJUL","HADJI MUHTAMAD","ISABELA","LANTAWAN","MALUSO","SUMISIP","TABUAN-LASA","TIPO-TIPO","TUBURAN","UNGKAYA PUKAN"]},{"LANAO DEL SUR":["AMAI MANABILANG (BUMBARAN)","BACOLOD-KALAWI (BACOLOD GRANDE)","BALABAGAN","BALINDONG (WATU)","BAYANG","BINIDAYAN","BUADIPOSO-BUNTONG","BUBONG","BUTIG","CALANOGAS","MARAWI","DITSAAN-RAMAIN","GANASSI","KAPAI","KAPATAGAN","LUMBA-BAYABAO (MAGUING)","LUMBACA-UNAYAN","LUMBATAN","LUMBAYANAGUE","MADALUM","MADAMBA","MAGUING","MALABANG","MARANTAO","MAROGONG","MASIU","MULONDO","PAGAYAWAN (TATARIKAN)","PIAGAPO","PICONG (SULTAN GUMANDER)","POONA BAYABAO (GATA)","PUALAS","SAGUIARAN","SULTAN DUMALONDONG","TAGOLOAN II","TAMPARAN","TARAKA","TUBARAN","TUGAYA","WAO"]},{"MAGUINDANAO":["AMPATUAN","BARIRA","BULDON","BULUAN","COTABATO CITY","DATU ABDULLAH SANGKI","DATU ANGGAL MIDTIMBANG","DATU BLAH T. SINSUAT","DATU HOFFER AMPATUAN","DATU ODIN SINSUAT (DINAIG)","DATU PAGLAS","DATU PIANG","DATU SALIBO","DATU SAUDI-AMPATUAN","DATU UNSAY","GEN. S.K. PENDATUN","GUINDULUNGAN","KABUNTALAN (TUMBAO)","MAMASAPANO","MANGUDADATU","MATANOG","NORTHERN KABUNTALAN","PAGAGAWAN","PAGALUNGAN","PAGLAT","PANDAG","PARANG","RAJAH BUAYAN","SHARIFF AGUAK (MAGANOY)","SHARIFF SAYDONA MUSTAPHA","SOUTH UPI","SULTAN KUDARAT (NULING)","SULTAN MASTURA","SULTAN SA BARONGIS (LAMBAYONG)","TALAYAN","TALITAY","UPI"]},{"SULU":["HADJI PANGLIMA TAHIL (MARUNGGAS)","INDANAN","JOLO","KALINGALAN CALUANG","LUGUS","LUUK","MAIMBUNG","OLD PANAMAO","OMAR","PANDAMI","PANGLIMA ESTINO (NEW PANAMAO)","PANGUTARAN","PARANG","PATA","PATIKUL","SIASI","TALIPAO","TAPUL","TONGKIL"]},{"TAWI-TAWI":["BONGAO","LANGUYAN","MAPUN (CAGAYAN DE TAWI-TAWI)","PANGLIMA SUGALA (BALIMBING)","SAPA-SAPA","SIBUTU","SIMUNUL","SITANGKAI","SOUTH UBIAN","TANDUBAS","TURTLE ISLANDS"]},{"AGUSAN DEL NORTE":["BUENAVISTA","CARMEN","BUTUAN","CABADBARAN","JABONGA","KITCHARAO","LAS NIEVES","MAGALLANES","NASIPIT","REMEDIOS T. ROMUALDEZ","SANTIAGO","TUBAY"]},{"AGUSAN DEL SUR":["BUNAWAN","BAYUGAN","ESPERANZA","LA PAZ","LORETO","PROSPERIDAD","ROSARIO","SAN FRANCISCO","SAN LUIS","SANTA JOSEFA","SIBAGAT","TALACOGON","TRENTO","VERUELA"]},{"SURIGAO DEL NORTE":["ALEGRIA","BACUAG","BURGOS","SURIGAO","CLAVER","DAPA","DEL CARMEN","GENERAL LUNA","GIGAQUIT","MAINIT","MALIMONO","PILAR","PLACER","SAN BENITO","SAN FRANCISCO (ANAO-AON)","SAN ISIDRO","SANTA MONICA (SAPAO)","SISON","SOCORRO","TAGANA-AN","TUBOD"]},{"SURIGAO DEL SUR":["BAROBO","BAYABAS","CAGWAIT","CANTILAN","CARMEN","CARRASCAL","BISLIG","TANDAG","CORTES","HINATUAN","LANUZA","LIANGA","LINGIG","MADRID","MARIHATAG","SAN AGUSTIN","SAN MIGUEL","TAGBINA","TAGO"]},{"DINAGAT ISLANDS":["BASILISA (RIZAL)","CAGDIANAO","DINAGAT","LIBJO (ALBOR)","LORETO","SAN JOSE","TUBAJON"]}]
+
+// properly capitalises the entries
+// TODO: fix capitalisation on entries right after a parentheses
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map(function(word) {
+    return word.replace(word[0], word[0].toUpperCase());
+  }).join(' ');
+}
+
+// populate city list
+function loadCities() {
+  // get selected province id
+  address2_select = document.getElementById('checkout_shipping_address_address2');
+  selected_province_id = address2_select.selectedIndex - 1;
+
+  if (address2_select.selectedIndex != 0) {
+    // get cities from file
+    province_key = Object.keys(provinces[selected_province_id]);
+    city_list = provinces[selected_province_id][province_key].sort();
+
+    // populate list of cities (defaulting to Metro Manila cities)
+    city_select = document.getElementById('checkout_shipping_address_city');
+    city_select.innerHTML = '';
+    city_select.innerHTML += '<option label=" "></option>';
+
+    // loop through all cities of Metro Manila
+    for(i = 0; i < city_list.length; i++) {
+      city_select.innerHTML += '<option value="' + titleCase(city_list[i]) + '">' + titleCase(city_list[i]) + '</option>';
+    }
+  }
+}
+
+function setProvinceField(province_name) {
+  // populate list of provinces (defaulting to Metro Manila)
+  address2_select = document.getElementById('checkout_shipping_address_address2');
+  address2_select.innerHTML = '';
+
+  // create blank default value
+  address2_select.innerHTML += '<option label=" "></option>';
+
+  // loop through all provinces
+  for(i = 0; i < provinces.length; i++) {
+    current_province = Object.keys(provinces[i])[0];
+    current_province = titleCase(current_province);
+
+    if (current_province === province_name) {
+      address2_select.innerHTML += '<option selected="selected" value="' + current_province + '">' + current_province + '</option>';
+    } else {
+      address2_select.innerHTML += '<option value="' + current_province + '">' + current_province + '</option>';
+    }
+  }
+}
+
+// refresh city list
+function setCityField(city_name) {
+  // get selected province id
+  address2_select = document.getElementById('checkout_shipping_address_address2');
+  selected_province_id = address2_select.selectedIndex - 1;
+
+  if (address2_select.value != " " && address2_select.selectedIndex != 0) {
+    // get cities from file
+    province_key = Object.keys(provinces[selected_province_id]);
+    city_list = provinces[selected_province_id][province_key].sort();
+
+    // populate list of cities (defaulting to Metro Manila cities)
+    city_select = document.getElementById('checkout_shipping_address_city');
+    city_select.innerHTML = '';
+    city_select.innerHTML += '<option label=" "></option>';
+
+    // loop through all cities of Metro Manila
+    for(i = 0; i < city_list.length; i++) {
+      current_city = titleCase(city_list[i]);
+
+      if (current_city == city_name) {
+        city_select.innerHTML += '<option selected="selected" value="' + current_city + '">' + current_city + '</option>';
+      } else {
+        city_select.innerHTML += '<option value="' + current_city + '">' + current_city + '</option>';
+      }
+    }
+  }
+}
+</script>

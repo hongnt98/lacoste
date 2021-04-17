@@ -1,0 +1,67 @@
+<div class="js-mcontent-strate mcontent-strate mcontent-cover l-relative l-vmargin-row-and-half home-hero" id="ModularContent_Strate_Cover_WindowSS19_Del1Motion">
+  <div class="l-overflow-hidden ">
+    <video playsinline="true" autoplay="true" muted="true" loop="true" class="img-cover img-cover--top display-desktop" width="101%" height="auto">
+      <source data-desktop="{{ section.settings.desk_video }}" data-mobile="{{ section.settings.mob_video }}" type="video/mp4">
+    </video>
+
+    <img src="{{ section.settings.mob_video }}" class="display-mobile">
+  </div>
+  <div class="l-overlay  l-vspaced-row-2 flex flex--col padding-1 padding-mt-2 flex--justify-center  flex-m--align-start flex-m--justify-end" style="z-index: 1;">
+    <h2 class="cell-9 cell-mt-15 title--xlarge l-vmargin--large ff-bold">{{ section.settings.title}}</h2>
+    <p class="fs--medium l-vmargin--xlarge " style="color: #fff;">
+      {{ section.settings.sub_txt }}
+    </p>
+    <ul class="cell-9 cell-mt-21 grid  ">
+      <li class="l-hmargin--small l-vmargin--medium ">
+        <a class="btn-cta btn--transparent l-hmargin--large fs--medium ff-normal" href="{{ section.settings.men_link }}">{{ section.settings.men_text}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<style>
+  .home-hero h2 {
+    color: #fff;
+  }
+</style>
+
+{% schema %}
+{
+  "name":  "Home Video Hero",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "desk_video",
+      "label": "Desktop Hero Video"
+    },
+    {
+      "type": "url",
+      "id": "mob_video",
+      "label": "Mobile Hero Video"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Styled To Go"
+    },
+    {
+      "type": "text",
+      "id": "sub_txt",
+      "label": "Subheading",
+      "default": "#crocodileinside"
+    },
+    {
+      "type": "text",
+      "id": "men_text",
+      "label": "Button Label",
+      "default": "Men"
+    },
+    {
+      "type": "url",
+      "id": "men_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}

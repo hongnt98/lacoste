@@ -1,0 +1,158 @@
+<div class="js-modular-layer js-promotions-layer js-modular--starter modular-layer modular--starter l-relative bg-white  is-cover js-cover l-viewport-height--static l-behind-nav js-header-transparency" id="lacoste-crocoseries-starter" data-layer="layer_starter" data-tracking="">
+    <div class="js-modular-push js-promotions l-relative cell-25 l-fill-height text-white " data-id="lacoste-crocoseries-starter-component" data-tracking="" data-theme="text-white">
+       <div class="l-relative modular--starter-cover-wrapper">
+          <div class="l-block l-fill-height" data-tracking="">
+             <div id="static-player-8b8dfe1873a687c8ffcbe5250b" class="js-static-video-wrapper static-video-wrapper is-muted l-overflow-hidden is-background l-overlay is-loaded is-ready" data-src-desktop="{{ section.settings.desktop_video }}" data-src-mobile="{{ section.settings.mobile_video }}" data-type="video/mp4" data-autoplay="true" data-background="true">
+                <video playsinline="true" muted="true" class="js-static-video static-video l-block img-cover" width="100%" height="auto" loop="true" autoplay="autoplay">
+                   <source data-desktop="{{ section.settings.desktop_video }}" data-mobile="{{ section.settings.mobile_video }}" type="video/mp4">
+                </video>
+                <div class="js-video-controls static-video-controls text-white flex flex--space-between flex--align-center">
+                   <!---->
+                   <button class="static-video-btn btn-play">
+                      <svg role="presentation" aria-hidden="true" class="icon-svg icon-play">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play-pause"></use>
+                      </svg>
+                      <!---->
+                   </button>
+                   <!---->
+                </div>
+                <div class="js-video-poster l-overlay poster">
+                   <div class="js-lazyload-wrapper with-placeholder l-block lazyload">
+                      <picture class="pict img-cover img-cover--top l-block lazyload">
+                         <source media="(max-width: 767px)" data-srcset="{{ section.settings.mobile_poster | img_url: '320x' }} 320w,{{ section.settings.mobile_poster | img_url: '375x' }} 375w,{{ section.settings.mobile_poster | img_url: '414x' }} 414w,{{ section.settings.mobile_poster | img_url: '767x' }} 767w" sizes="(max-width: 320px) 320px,(min-width: 321px) and (max-width: 375px) 375px,(min-width: 376px) and (max-width: 414px) 414px,(min-width: 415px) and (max-width: 767px) 767px">
+                         <source media="(min-width: 768px)" data-srcset="{{ sectiin.settings.desktop_poster | img_url: '1024x' }} 1024w,{{ sectiin.settings.desktop_poster | img_url: '1190x' }} 1190w,{{ sectiin.settings.desktop_poster | img_url: '1366x' }} 1366w,{{ sectiin.settings.desktop_poster | img_url: '1680x' }} 1680w,{{ sectiin.settings.desktop_poster | img_url: '1920x' }} 1920w" sizes="(min-width: 768px) and (max-width: 1024px) 1024px,(min-width: 1025px) and (max-width: 1190px) 1190px,(min-width: 1191px) and (max-width: 1366px) 1366px,(min-width: 1367px) and (max-width: 1680px) 1680px,1920px">
+                         <img alt="lacoste-crocoseries" width="100%" height="auto" data-src="{{ sectiin.settings.desktop_poster | img_url: 'master' }}?imwidth=1920&amp;impolicy=custom" class="img-cover img-cover--top l-block js-lazyload lazyload" data-was-processed="true">
+                      </picture>
+                   </div>
+                   <div class="btn-big-play l-overlay flex flex--justify-center flex--align-center text-white">
+                      <svg role="presentation" class="icon-svg ">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play-pause"></use>
+                      </svg>
+                   </div>
+                </div>
+                <div class="static-video-loader l-overlay flex flex--justify-center flex--align-center">
+                   <svg class="loader-icon">
+                      <circle class="loader-circle" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
+                   </svg>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="js-video-overlay l-overlay grid pointer-none flex--justify-start flex--align-end flex-m--justify-center text-m-center flex-m--align-end">
+          <div class="cell-13 cell-mt-21 padding-1 l-vspaced-row-1 cell-m-25 padding-m-2   l-btn-scroll-extraspace l-btn-scroll-m-extraspace">
+             <div class="">
+                <h1 class="js-modular-title title--xxlarge  ">
+                    {{ section.settings.heading }}
+                </h1>
+             </div>
+          </div>
+       </div>
+    </div>
+    <a href="#lacoste-crocoseries-title" class="js-btn-scroll btn-scroll is-animated  text-white" data-iscard="false">
+       <svg role="presentation" class="icon-svg ">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use>
+       </svg>
+    </a>
+</div>
+
+<div class="js-modular-layer js-promotions-layer modular-layer l-relative bg-white l-padding-top-row-large l-padding-bottom-row-small" id="lacoste-crocoseries-title" data-layer="layer_title" data-tracking="">
+    <div class="js-promotions offset-7 text-center cell-11 cell-m-21 offset-m-2 ">
+       <div class="">
+           {% if section.settings.subtitle %}
+                <h3 class="overline ff-normal">{{ section.settings.subtitle }}</h3>
+           {% endif %}
+           {% if section.settings.title %}
+                <h2 class="title--xlarge text-black l-vmargin--medium">
+                    {{ section.settings.title }}
+                </h2>
+           {% endif %}
+           {% if section.settings.text %}
+                <div class="text-grey fs--medium l-vmargin--medium">
+                    <div>
+                        {{ section.settings.text }}
+                    </div>
+                </div>
+           {% endif %}
+           {% if section.settings.button_link %}
+                <div class="text-grey fs--medium">
+                    <a class="btn-cta text-white l-hmargin--small l-vmargin--small fs--medium ff-normal" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+                </div>
+           {% endif %}
+       </div>
+    </div>
+ </div>
+
+{% schema %}
+{
+    "name": "Banner",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Lacoste x Polaroid"
+        },
+        {
+            "type": "header",
+            "content": "Desktop"
+        },
+        {
+            "type": "url",
+            "id": "desktop_video",
+            "label": "Video"
+        },
+        {
+            "type": "image_picker",
+            "id": "desktop_poster",
+            "label": "Poster"
+        },
+        {
+            "type": "header",
+            "content": "Mobile"
+        },
+        {
+            "type": "url",
+            "id": "mobile_video",
+            "label": "Mobile Video"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_poster",
+            "label": "Poster"
+        },
+        {
+            "type": "header",
+            "content": "Description"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Multi-colored Style"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default": "Retro-Cool Vibes"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>This season, the Crocodile strikes a pose for Polaroid. Discover a collection high in style and rich in colour that captures the moment in a long-lasting way.</p>"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "The collection"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,54 @@
+<div class="js-mcontent-strate mcontent-strate mcontent-presentation l-vmargin-row-and-half grid flex--align-center text-black text-mt-white l-relative" id="">
+    <a href="#" class="order-1 cell-14 cell-mt-25 offset-mt-0">
+        <picture class="img-fill-width">
+            <source media="(max-width: 800px)" data-srcset="{{ section.settings.mob_image | img_url: 'master' }}">
+            <source media="(min-width: 801px)" data-srcset="{{ section.settings.desk_image | img_url: 'master' }}">
+            <img class="img-fill-width lazyload" data-src="{{ section.settings.desk_image | img_url: 'master' }}" alt="{{ section.settings.title }}" width="100%" height="auto"/>
+        </picture>
+    </a>
+    <div class="order-2 offset-2 cell-6 cell-mt-21 offset-mt-2 l-vspaced-row-2 presentation-title ">
+        <h2 class="title--xlarge cell-mt-16 ff-bold l-vmargin--large">{{ section.settings.title }}</h2>
+        <ul class="grid">
+            <li class="l-hmargin--large l-vmargin--medium">
+                <a class="btn-cta btn--transparent fs--medium ff-normal js-track" href="{{ section.settings.button_url }}" data-tag-id="homepage.promotionClick" data-replace="">{{ section.settings.text }}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name":  "Feature Block",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desk_image",
+      "label": "Desktop Feature Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_image",
+      "label": "Mobile Feature Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Styled To Go"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Button Text",
+      "default": "Discover"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}

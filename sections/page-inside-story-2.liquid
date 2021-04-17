@@ -1,0 +1,88 @@
+<div class="js-modular-layer modular-layer l-relative bg-white l-padding-top-row-small l-padding-bottom-row-small" id="lacosteinside-story-title-2" data-layer="layer_title" data-tracking="">
+    <div class="js-modular-push offset-1 text-left cell-11 cell-m-21 offset-m-2 ">
+       <div class="">
+          <h2 class="title--xlarge text-black">
+             {{ section.settings.title }}
+          </h2>
+          <div class="text-grey fs--medium l-vmargin--large">
+                <p>{{ section.settings.text }}</p>
+          </div>
+
+         {% if section.settings.link != blank %}
+            <ul class="grid anim-from-v-end">
+               <li class="l-hmargin--large l-vmargin--medium">
+                  <a href="{{ section.settings.link }}" class="btn-cta  btn--dark fs--medium ff-normal"> {{ section.settings.button_label }} </a>
+               </li>
+            </ul>
+         {% endif %}
+       </div>
+    </div>
+ </div>
+ <div class="js-modular-layer js-modular--starter modular-layer modular--starter l-relative bg-white l-padding-bottom-row-small no-cover" id="lacosteinside-story-starter-2" data-layer="layer_starter" data-tracking="">
+    <div class="js-modular-push l-relative l-fill-height " data-id="lacosteinside-story-starter-2-component-starter" data-tracking="">
+       <div class="l-relative modular--starter-cover-wrapper">
+          <div class="l-block l-fill-height" data-tracking="">
+             <div class="js-lazyload-wrapper with-placeholder l-fill-height lazyload">
+
+                <picture class="pict modular--starter-cover lazyload">
+                   <source media="(max-width: 767px)" 
+                    data-srcset="{{ section.settings.mobile_image | img_url: '320x' }}?imwidth=320&amp;impolicy=custom 320w, {{ section.settings.mobile_image | img_url: '375x' }}?imwidth=375&amp;impolicy=custom 375w, {{ section.settings.mobile_image | img_url: '414x' }}?imwidth=414&amp;impolicy=custom 414w, {{ section.settings.mobile_image | img_url: '767x' }}?imwidth=767&amp;impolicy=custom 767w"
+                    sizes="(max-width: 320px) 320px,(min-width: 321px) and (max-width: 375px) 375px,(min-width: 376px) and (max-width: 414px) 414px,(min-width: 415px) and (max-width: 767px) 767px">
+                   
+                    <source media="(min-width: 768px)" 
+                   data-srcset="{{ section.settings.image | img_url: '1024x' }}?imwidth=1024&amp;impolicy=custom 1024w,{{ section.settings.image | img_url: '1190x' }}?imwidth=1190&amp;impolicy=custom 1190w,{{ section.settings.image | img_url: '1190x' }}?imwidth=1366&amp;impolicy=custom 1366w,{{ section.settings.image | img_url: '1366x' }}?imwidth=1680&amp;impolicy=custom 1680w,{{ section.settings.image | img_url: '1920x'}}?imwidth=1920&amp;impolicy=custom 1920w" 
+                   sizes="(min-width: 768px) and (max-width: 1024px) 1024px,(min-width: 1025px) and (max-width: 1190px) 1190px,(min-width: 1191px) and (max-width: 1366px) 1366px,(min-width: 1367px) and (max-width: 1680px) 1680px,1920px"">
+                   
+                   <img alt="{{ section.settings.image.alt | img_url: 'master' }}" width="100%" height="auto" data-src="{{ section.settings.image | img_url: 'master' }}" class="js-modular--starter-cover modular--starter-cover js-lazyload lazyload" data-was-processed="true">
+                </picture>
+
+             </div>
+          </div>
+       </div>
+       <div class="l-overlay grid pointer-none flex--justify-start flex--align-end flex-m--justify-start text-m-initial flex-m--align-end">
+          <div class="cell-13 cell-mt-21 padding-1 l-vspaced-row-1 cell-m-25 padding-m-2   ">
+             <div class="">
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ 
+{% schema %}
+{
+    "name": "Inside Story 2",
+    "class": "inside-story-2_block",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile Image"
+        },
+        {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label"
+        },
+        {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+        }
+    ]
+}
+{% endschema %}

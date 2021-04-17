@@ -1,0 +1,42 @@
+<div class="js-modular-layer js-promotions-layer modular-layer l-relative " id="nat-geo" data-layer="layer_story" data-tracking="">
+    <div class="js-modular-push js-promotions grid cell-25 flex-m--col bg-white l-padding-top-row-small l-padding-bottom-row-small " data-id="nat-geo-component" data-tracking="" data-theme="text-black">
+       <div class="cell-14 cell-m-25 offset-m-0">
+          <div class="l-block l-relative" data-tracking="">
+             <div class="js-lazyload-wrapper lazyload">
+             <picture class="pict img-fill-width lazyload">
+                <source media="(max-width: 767px)" data-srcset="{{ section.settings.mobile_image | img_url: '320x' }} 320w,{{ section.settings.mobile_image | img_url: '375x' }} 375w,{{ section.settings.mobile_image | img_url: '414x' }} 414w,{{ section.settings.mobile_image | img_url: '767x' }} 767w" sizes="(max-width: 320px) 320px,(min-width: 321px) and (max-width: 375px) 375px,(min-width: 376px) and (max-width: 414px) 414px,(min-width: 415px) and (max-width: 767px) 767px">
+                <source media="(min-width: 768px)" data-srcset="{{ section.settings.desktop_image | img_url: '594x' }} 594w,{{ section.settings.desktop_image | img_url: '640x' }} 640w,{{ section.settings.desktop_image | img_url: '767x' }} 767w,{{ section.settings.desktop_image | img_url: '914x' }} 914w,{{ section.settings.desktop_image | img_url: '1024x' }} 1024w" sizes="(min-width: 768px) and (max-width: 1024px) 594px,(min-width: 1025px) and (max-width: 1190px) 640px,(min-width: 1191px) and (max-width: 1366px) 767px,(min-width: 1367px) and (max-width: 1680px) 914px,1024px">
+                <img alt="{{ section.settings.title }}" width="100%" height="auto" data-src="{{ section.settings.desktop_image | img_url: '1024x' }}" class="img-fill-width js-lazyload lazyload" data-was-processed="true">
+             </picture>
+                <div class="lqip l-ratio--[object Object] pointer-none"></div>
+             </div>
+          </div>
+       </div>
+       <div class="cell-8 padding-1 offset-1 flex flex--align-center l-vspaced-row-1 cell-m-25 offset-m-0 padding-m-2 l-vspaced-row-m-2 ">
+          <div>
+             <div class="l-vmargin--large">
+                  {% if section.settings.subtitle %}
+                     <h3 class="overline ff-normal">{{ section.settings.subtitle }}</h3>
+                  {% endif %}
+                  {% if section.settings.title %}
+                     <h2 class=" title--xlarge text-black">
+                        {{ section.settings.title }}
+                     </h2>
+                  {% endif %}
+                  {% if section.settings.text %}
+                     <div class="text-grey fs--medium">
+                        <div>
+                           {{ section.settings.text }}
+                        </div>
+                     </div>
+                  {% endif %}
+             </div>
+             {% if section.settings.button_link %}
+               <a class="btn-cta text-white l-hmargin--small l-vmargin--small pointer-auto  fs--medium ff-normal" href="{{ section.settings.button_link }}" data-type="category">
+                  {{ section.settings.button_label }}
+               </a>
+             {% endif %}
+          </div>
+       </div>
+    </div>
+ </div>

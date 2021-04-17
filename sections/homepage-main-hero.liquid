@@ -1,0 +1,65 @@
+<div class="js-mcontent-strate mcontent-strate mcontent-cover l-relative l-vmargin-row-and-half home-hero" id="ModularContent_Strate_Cover_WindowSS19_Del1Motion">
+	<div class="l-overflow-hidden ">
+		<picture class="l-block img-cover img-cover--top">
+			<source media="(max-width: 800px)" srcset="{{ section.settings.mob_image | img_url: 'master' }}">
+			<source media="(min-width: 801px)" srcset="{{ section.settings.desk_image | img_url: 'master' }}">
+			<img class="l-block img-cover img-cover--top" src="{{ section.settings.desk_image | img_url: 'master' }}" alt="" width="100%" height="auto"/>
+		</picture>
+	</div>
+	<div class="l-overlay  l-vspaced-row-2 flex flex--col padding-1 padding-mt-2 flex--justify-center  flex-m--align-start flex-m--justify-end" style="z-index: 1;">
+		<h2 class="cell-9 cell-mt-15 title--xlarge l-vmargin--large ff-bold">{{ section.settings.title}}</h2>
+        <p class="fs--medium l-vmargin--xlarge " style="color: #fff;">
+          #crocodileinside
+        </p>
+		<ul class="cell-9 cell-mt-21 grid  ">
+			<li class="l-hmargin--small l-vmargin--medium ">
+				<a class="btn-cta btn--transparent l-hmargin--large fs--medium ff-normal" href="{{ section.settings.url_link }}">{{ section.settings.url_text}}</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<style>
+  .home-hero h2 {
+    color: #fff;
+  }
+</style>
+
+{% schema %}
+{
+  "name":  "Home Image Hero",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desk_image",
+      "label": "Desktop Hero Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_image",
+      "label": "Mobile Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Styled To Go"
+    },
+    {
+      "type": "text",
+      "id": "url_text",
+      "label": "Button Label",
+      "default": "Men"
+    },
+    {
+      "type": "url",
+      "id": "url_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [{
+        "name": "Home Image Hero",
+        "category": "Advanced layout"
+      }]
+}
+{% endschema %}

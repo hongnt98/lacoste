@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
+  <title>Omnirio Click n collect</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6/css/select2.min.css" rel="stylesheet" />
+</head>
+<div id="pick-n-collect">
+  <div class="omni-container">
+    <main class="omni-main-content">
+      <div class="omni-wrapper">
+        <div class="omni-checkoutMethodsContainer">
+          <div class="omni-checkoutMethod" id="open-ld-modal">
+            <div class="omni-checkoutMethodImage">
+              <div class="omni-shippingIcon"><i class="fas fa-shipping-fast fa-3x"></i></div>
+            </div>
+            <div class="omni-checkoutMethodName">Local Delivery</div>
+          </div>
+          <div class="omni-checkoutMethod omni-mb-1" id="open-sp-modal">
+            <div class="omni-checkoutMethodImage">
+              <div class="omni-shippingIcon"><i class="fas fa-store fa-3x"></i></div>
+            </div>
+            <div class="omni-checkoutMethodName">Store Pickup</div>
+          </div>
+         <div class="omni-checkoutMethod active">
+            <div class="omni-checkoutMethodImage">
+             <div class="omni-shippingIcon"><i class="fas fa-globe-americas fa-3x"></i></div> 
+            </div>
+            <div class="omni-checkoutMethodName">Shipping</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- The Modal -->
+  <div id="myModal" class="omni-modal">
+    <!-- Modal content -->
+    <div class="omni-modal-content">
+      <span class="omni-modal-close"><i class="fas fa-times ico-close-popup"></i></span>
+      <div id="omni-checkout-form" action="#">
+        <div id="omni-checkout-wizard" class="omni-checkout-wizard">          
+          <h3><i class="fas fa-map-marker-alt fa-lg omni-mr-1"></i> <span class="omni-tab-title">Information</span> </h3>
+          <section> 
+            <div class="omni-payment-wrapper omni-mt-1">
+              <div class="omni-payment-area">
+                <div class="omni-top-error-area"><div class="omni-error-area"></div></div>
+                <div class="omni-customer-login">
+                    {% if customer %}
+                      {{ customer.name }}<span> | </span>{{ 'layout.customer.log_out' | t | customer_logout_link }}
+                    {% else %}
+                      Already have an account? {{ 'layout.customer.log_in' | t | customer_login_link }}
+                    {% endif %}                                    
+                </div>
+                <div class="omni-input-fields">
+                  <div class="omni-field ">
+                    <input type="hidden" id="fulfilment-type" name="attributes[Fulfilment Type]" value="Shipping">
+                    <input type="hidden" id="store-name" name="attributes[Store Name]" value="">
+                    <input type="hidden" id="store-address" name="attributes[Store Address]" value="">
+                    <input type="hidden" id="store-details" name="store-details" value="">
+<!--                     <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="confirm">Find your nearest pickup location *</label>
+                      <div class="omni-form-location-map"></div>
+                    </div> -->
+                  </div>
+                </div>
+                <div class="omni-field">
+                  <div class="omni-input-wrapper">
+                    <label class="omni-form-wizard-label " for="confirm">Choose a location *</label>
+                    <select id="pickup-location" name="attributes[Selected Store]" style="width: 100%" class="required omni-form-wizard-input" onchange="managePickupDateAndAddress(this);"></select>
+                    <span id="pickup-location-error" style="display: none;" class="omni-span-error" for="pickup-location"></span>
+                  </div>                          
+                  <div class="omni-input-wrapper hide">
+                    <label class="omni-form-wizard-label" for="confirm">Choose a date and time *</label>
+                    <input id="datetimepicker" name="datetimepicker" type="text" class="required omni-form-wizard-input">
+                    <span id="datetimepicker-error" style="display: none;" class="omni-span-error" for="datetimepicker"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="omni-right-panel">
+                {% if cart.item_count > 0 %}
+                  <div class="omni-sidebar-cart-content ">
+                    <div class="omni-sidebar-cart-section">
+                      <table class="omni-sidebar-cart-product-table">
+                        <tbody>
+                          {% for item in cart.items %}
+                            <tr>
+                              <td class="omni-cart-product-image">
+                                <div class="">
+                                  <div class="omni-cart-product-image-wrapper">
+                                    <img class="cart__image" src="{{ item | img_url: '40x40', scale: 2 }}" alt="{{ item.title | escape }}" data-item-url="{{ item.url }}">                                    
+                                  </div>                                  
+                                </div>
+                              </td>                              
+                              <td class="omni-cart-product-description">
+                                <span class="omni-cart-product-desc-name">
+                                  {{ item.product.title }}                    
+                                  {% if item.quantity > 1 %}
+                              <span class="medium-up--hide"><span class="visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
+                            {% endif %}
+                </span>
+                                <span class="omni-cart-product-desc-variant">
+                                  {% unless item.variant.title contains 'Default' %}
+                                    <div class="cart__meta-text">
+                                      {% for option in item.product.options %}
+                                        {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
+                                      {% endfor %}
+                                    </div>
+                                  {% endunless %}                                  
+                                </span>
+                              </td>
+                              <td>X <span class="product-thumbnail__quantity" aria-hidden="true">{{item.quantity}}</span></td>
+                              <td class="omni-cart-product-price"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money }}</td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                      <div class="omni-cart-summary-totals">
+                        <table class="omni-cart-total-line-table">
+                          <tbody>
+                            <tr class="omni-cart-total-line-subtotal">
+                              <th class="omni-cart-total-line-name" scope="row">Subtotal</th>
+                              <td class="omni-cart-total-line-price">
+                                <div class="cart-item__original-price">{{ cart.items_subtotal_price | money }}</div>
+                              </td>
+                            </tr>
+                            <tr class="omni-cart-total-line-subtotal">
+                              <th class="omni-cart-total-line-name" scope="row">Discounts</th>
+                              <td class="omni-cart-total-line-price">
+                                <div class="cart-item__discount">{{ cart.total_discount | money }}</div>
+                              </td>
+                            </tr>
+                            {% if shop.taxes_included == false and customer and customer.tax_exempt == false %}
+                              <tr class="omni-cart-total-line-subtotal">
+                                <th class="omni-cart-total-line-name" scope="row">Taxes</th>                              
+                                <td class="omni-cart-total-line-price">
+                  {{ 0.0 | money }}
+                                </td>
+                              </tr>
+                            {% endif %}
+                          </tbody>
+                          <tfoot class="omni-cart-table-footer">
+                            <tr>
+                              <th class="omni-cart-table-footer-label" scope="row">Total</th>
+                              <td class="omni-cart-table-footer-amount">{{ cart.original_total_price | money }}</td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </section>
+          <h3><i class="fas fa-address-book fa-lg omni-mr-1"></i><span class="omni-tab-title">Contact</span></h3>
+          <section>
+            <div class="omni-payment-wrapper omni-mt-1">
+              <div class="omni-payment-area">
+                <div class="omni-top-error-area"><div class="omni-error-area"></div></div> 
+                <div class="omni-input-fields">
+                  <div class=" omni-field-half omni-field">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-customer-email">Email *</label>
+                      <input id="omni-customer-email" name="omni-customer-email" type="email" class="required email omni-form-wizard-input" onfocusout="setCustomerContact(this, '#omni-customer-phone');" value={{ customer.email }}>
+                      <span id="omni-customer-email-error" style="display: none;" class="omni-span-error" for="omni-customer-email"></span>
+                    </div>
+                  </div>
+                  <div class=" omni-field-half omni-field">
+                    <div class="omni-input-wrapper">
+                      <!-- <label class="omni-form-wizard-label omni-mt-1" for="email"></label>
+<label class="omni-input-checkbox-container"> Keep me up to date on news and exclusive
+offers
+<input type="checkbox" class="omni-input-checkbox" name="omni-chk-updates"
+value="standard">
+<span class="omni-checkbox-checkmark"></span>
+</label> -->
+                      <label class="omni-form-wizard-label" for="omni-customer-email">Phone number</label>
+                      <input id="omni-customer-phone" name="omni-customer-phone" type="tel" class="required omni-form-wizard-input" placeholder="" onfocusout="setCustomerContact('#omni-customer-email', this);" value={{ customer.phone }}>
+                      <span id="omni-customer-phone-error" style="display: none;" class="omni-span-error" for="omni-customer-phone"></span>
+                    </div>
+                  </div>
+                </div>
+
+<!--                 <h3 class="omni-mt-1" style="width:100%">Pick-up address</h3>
+                <div class="omni-content-box " style="width:94%;">
+                  <div class="omni-content-box-row">
+                    <div class="omni-review-block">
+                      <div class="omni-review-block-inner">
+                        <div class="omni-review-block-inner-label" id="omni-contact-pickup-address-div">Ship to</div>
+                        <div class="omni-review-block-inner-content" id="omni-contact-review-block-inner-content-address"></div>
+                        <div class="omni-review-block-inner-link">
+                          <a class="link omni-change-contact-detail" href="javascript:void(0)" id="omni-change-address">Change</a>
+                        </div>
+                      </div>
+                                                <div class="omni-review-block-inner" >
+<div class="omni-contact-full-address-block-inner-content">
+<span><strong>Apple</strong></span>
+<span>767 5th Ave</span>
+<span>New York, 10153 </span>                           
+</div>
+<div class="omni-review-block-inner-link">
+<a class="link omni-change-contact-detail" href="javascript:void(0)" id="omni-change-address">Change</a>
+</div>
+</div>
+                    </div>
+                  </div>
+                </div>
+ -->
+                <h4 class="omni-mt-1">Receiver Information</h4>
+                <div class="omni-payment-section">
+                  <div class="omni-form-content-box">
+                    <div class="omni-input-fields">
+                      <div class="omni-field-half omni-field ">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-firstName">First name *</label>
+                          <input id="omni-billing-firstName" name="omni-billing-firstName" type="text" class="required omni-form-wizard-input">
+                          <span id="omni-billing-firstName-error" style="display: none;" class="omni-span-error" for="omni-billing-firstName"></span>
+                        </div>
+                      </div>
+                      <div class="omni-field-half omni-field ">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-lastName">Last name *</label>
+                          <input id="omni-billing-lastName" name="omni-billing-lastName" type="text" class="required omni-form-wizard-input">
+                          <span id="omni-billing-lastName-error" style="display: none;" class="omni-span-error" for="omni-billing-lastName"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="omni-input-fields">
+                      <div class="omni-field ">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-address1">Address1 *</label>
+                          <input id="omni-billing-address1" name="omni-billing-address1" type="text" class="required omni-form-wizard-input">
+                          <span id="omni-billing-address1-error" style="display: none;" class="omni-span-error" for="omni-billing-address1"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="omni-input-fields">
+                      <div class="omni-field ">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-address2">Address2 </label>
+                          <input id="omni-billing-address2" name="omni-billing-address2" type="text" class="required omni-form-wizard-input">
+                          <span id="omni-billing-address2-error" style="display: none;" class="omni-span-error" for="omni-billing-address2"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="omni-input-fields">
+                      <div class="omni-field omni-field-half">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-city">City *</label>
+                          <input id="omni-billing-city" name="omni-billing-city" type="text" class="required omni-form-wizard-input">
+                          <span id="omni-billing-city-error" style="display: none;" class="omni-span-error" for="omni-billing-city"></span>
+                        </div>
+                      </div>
+                      <div class="omni-field omni-field-half">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-state">Province *</label>
+                          <!--                           <select class="required omni-form-wizard-input" id="omni-billing-state" style="width: 90%" name="state">
+<option value="AL">Alabama</option>
+<option value="WY">Wyoming</option>
+</select> -->
+                          <input id="omni-billing-state" name="omni-billing-state" type="text" class="required omni-form-wizard-input">
+                          <span id="omni-billing-state-error" style="display: none;" class="omni-span-error" for="omni-billing-state"></span>
+                        </div>
+                      </div>                      
+                    </div>
+                    <div class="omni-input-fields">
+                      <div class="omni-field-half omni-field">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-country">Choose your country *</label>
+                          <select class="required omni-form-wizard-input omni-select-drop" id="omni-billing-country" name="omni-billing-country">{{ country_option_tags }}</select>
+<!--                           <input id="omni-billing-country" name="omni-billing-country" type="text" class="required omni-form-wizard-input"> -->
+                          <span id="omni-billing-country-error" style="display: none;" class="omni-span-error" for="omni-billing-country"></span>
+                        </div>
+                      </div>
+                      <div class="omni-field-half omni-field">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-zip">Postal Code *</label>
+                          <input id="omni-billing-zip" name="omni-billing-zip" type="text" class="required omni-form-wizard-input">
+                          <span id="omni-billing-zip-error" style="display: none;" class="omni-span-error" for="omni-billing-zip"></span>
+                        </div>
+                      </div>                      
+                    </div>
+<!--                     <div class="omni-field-half omni-input-fields">
+                      <div class="omni-field-half omni-field ">
+                        <div class="omni-input-wrapper">
+                          <label class="omni-form-wizard-label" for="omni-billing-phone">Phone number *</label>
+                          <input id="omni-billing-phone" name="omni-billing-phone" type="text" pattern="[0-9]{5}[-][0-9]{7}[-][0-9]{1}" class="required omni-form-wizard-input" placeholder="">
+                          <span id="omni-billing-phone-error" style="display: none;" class="omni-span-error" for="omni-billing-phone"></span>
+                        </div>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+
+                
+                <div id="omni-pickup-address" style="display:none;">
+                  <h3 style="width:100%; float:left">Pick-up address</h3>
+                  <div class="omni-input-fields">
+                    <div class="omni-field-half omni-field ">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-firstName">First name *</label>
+                        <input id="omni-pickup-firstName" name="omni-pickup-firstName" type="text" class="required omni-form-wizard-input">
+                      </div>
+                    </div>
+                    <div class="omni-field-half omni-field ">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-lastName">Last name *</label>
+                        <input id="omni-pickup-lastName" name="omni-pickup-lastName" type="text" class="required omni-form-wizard-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="omni-input-fields">
+                    <div class="omni-field-half omni-field ">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-address1">Address1 *</label>
+                        <input id="omni-pickup-address1" name="omni-pickup-address1" type="text" class="required omni-form-wizard-input">
+                      </div>
+                    </div>
+                    <div class="omni-field-half omni-field ">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-address2">Address2 *</label>
+                        <input id="omni-pickup-address2" name="omni-pickup-address2" type="text" class="required omni-form-wizard-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="omni-input-fields">
+                    <div class="omni-field-third omni-field ">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-city">City *</label>
+                        <input id="omni-pickup-city" name="omni-pickup-city" type="text" class="required omni-form-wizard-input">
+                      </div>
+                    </div>
+                    <div class="omni-field-third omni-field ">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-country">Choose your country *</label>
+                        <!--                                     <select class="required omni-form-wizard-input" id="omni-pickup-country"
+style="width: 90%" name="omni-pickup-country">
+<option value="AL">Alabama</option>
+<option value="WY">Wyoming</option>
+</select> -->
+                        <input id="omni-pickup-country" name="omni-pickup-country" type="text" class="required omni-form-wizard-input">
+                      </div>
+                    </div>
+                    <div class="omni-field-third omni-field">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-state">State *</label>
+                        <!--                                     <select class="required omni-form-wizard-input" id="omni-pickup-state"
+style="width: 90%" name="omni-pickup-state">
+<option value="AL">Alabama</option>
+<option value="WY">Wyoming</option>
+</select> -->
+                        <input id="omni-pickup-state" name="omni-pickup-state" type="text" class="required omni-form-wizard-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="omni-input-fields">
+                    <div class="omni-field-half omni-field ">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-zip">Zip Code *</label>
+                        <input id="omni-pickup-zip" name="omni-pickup-zip" type="text" class="required omni-form-wizard-input">
+                      </div>
+                    </div>
+                    <div class="omni-field-half omni-field ">
+                      <div class="omni-input-wrapper">
+                        <label class="omni-form-wizard-label" for="omni-pickup-phone">Phone *</label>
+                        <input id="omni-pickup-phone" name="omni-pickup-phone" type="text" class="required omni-form-wizard-input" pattern="[0-9]{5}[-][0-9]{7}[-][0-9]{1}" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="omni-shipping-address">
+                  <h3 style="width:100%; float:left">Shipping address</h3>
+                  <div class="omni-field-half omni-field ">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-shipping-firstName">First name *</label>
+                      <input id="omni-shipping-firstName" name="omni-shipping-firstName" type="text" class="required omni-form-wizard-input">
+                    </div>
+                  </div>
+                  <div class="omni-field-half omni-field ">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-shipping-lastName">Last name *</label>
+                      <input id="omni-shipping-lastName" name="omni-shipping-lastName" type="text" class="required omni-form-wizard-input">
+                    </div>
+                  </div>
+
+                  <div class="omni-field-half omni-field ">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-shipping-address1">Address1 *</label>
+                      <input id="omni-shipping-address1" name="omni-shipping-address1" type="text" class="required omni-form-wizard-input">
+                    </div>
+                  </div>
+                  <div class="omni-field-half omni-field ">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-shipping-address2">Address2 *</label>
+                      <input id="omni-shipping-address2" name="omni-shipping-address2" type="text" class="required omni-form-wizard-input">
+                    </div>
+                  </div>
+                  <div class="omni-field-third omni-field ">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-shipping-city">City *</label>
+                      <input id="omni-shipping-city" name="omni-shipping-city" type="text" class="required omni-form-wizard-input">
+                    </div>
+                  </div>
+                  <div class="omni-field-third omni-field ">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-shipping-country">Choose your country *</label>
+                      <select class="required omni-form-wizard-input" id="omni-shipping-country" style="width: 90%" name="omni-shipping-country">
+                        <option value="AL">Alabama</option>
+                        <option value="WY">Wyoming</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="omni-field-third omni-field ">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-shipping-state">Choose your state *</label>
+                      <select class="required omni-form-wizard-input" id="omni-shipping-state" style="width: 90%" name="omni-shipping-state">
+                        <option value="AL">Alabama</option>
+                        <option value="WY">Wyoming</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="omni-field-half omni-field ">
+                    <div class="omni-input-wrapper">
+                      <label class="omni-form-wizard-label" for="omni-shipping-zipcode">Zip Code *</label>
+                      <input id="omni-shipping-zipcode" name="omni-shipping-zipcode" type="text" class="required omni-form-wizard-input">
+                    </div>
+                  </div>
+                  <div class="omni-field-half omni-field "></div>
+                </div>
+              </div>
+              <div class="omni-right-panel">
+                {% if cart.item_count > 0 %}
+                  <div class="omni-sidebar-cart-content ">
+                    <div class="omni-sidebar-cart-section">
+                      <table class="omni-sidebar-cart-product-table">
+                        <tbody>
+                          {% for item in cart.items %}
+                            <tr>
+                              <td class="omni-cart-product-image">
+                                <div class="">
+                                  <div class="omni-cart-product-image-wrapper">
+                                    <img class="cart__image" src="{{ item | img_url: '40x40', scale: 2 }}" alt="{{ item.title | escape }}" data-item-url="{{ item.url }}">                                    
+                                  </div>                                  
+                                </div>
+                              </td>                              
+                              <td class="omni-cart-product-description">
+                                <span class="omni-cart-product-desc-name">
+                                  {{ item.product.title }}                    
+                                  {% if item.quantity > 1 %}
+                              <span class="medium-up--hide"><span class="visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
+                            {% endif %}
+                </span>
+                                <span class="omni-cart-product-desc-variant">
+                                  {% unless item.variant.title contains 'Default' %}
+                                    <div class="cart__meta-text">
+                                      {% for option in item.product.options %}
+                                        {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
+                                      {% endfor %}
+                                    </div>
+                                  {% endunless %}                                  
+                                </span>
+                              </td>
+                              <td>X <span class="product-thumbnail__quantity" aria-hidden="true">{{item.quantity}}</span></td>
+                              <td class="omni-cart-product-price"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total_2" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money }}</td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                      <div class="omni-cart-summary-totals">
+                        <table class="omni-cart-total-line-table">
+                          <tbody>
+                            <tr class="omni-cart-total-line-subtotal">
+                              <th class="omni-cart-total-line-name" scope="row">Subtotal</th>
+                              <td class="omni-cart-total-line-price">
+                                <div class="cart-item__original-price">{{ cart.items_subtotal_price | money }}</div>
+                              </td>
+                            </tr>
+                            <tr class="omni-cart-total-line-subtotal">
+                              <th class="omni-cart-total-line-name" scope="row">Discounts</th>
+                              <td class="omni-cart-total-line-price">
+                                <div class="cart-item__discount">{{ cart.total_discount | money }}</div>
+                              </td>
+                            </tr>
+                            {% if shop.taxes_included == false and customer and customer.tax_exempt == false %}
+                              <tr class="omni-cart-total-line-subtotal">
+                                <th class="omni-cart-total-line-name" scope="row">Taxes</th>                              
+                                <td class="omni-cart-total-line-price">
+                  {{ 0.0 | money }}
+                                </td>
+                              </tr>
+                            {% endif %}
+                          </tbody>
+                          <tfoot class="omni-cart-table-footer">
+                            <tr>
+                              <th class="omni-cart-table-footer-label" scope="row">Total</th>
+                              <td class="omni-cart-table-footer-amount">{{ cart.original_total_price | money }}</td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </section>
+
+          <!--                     <h3><i class="fas fa-shipping-fast fa-lg omni-mr-1"></i>Shipping method</h3>
+<section>
+<div class="omni-shipping-section">
+<div class="omni-content-box">
+<div class="omni-content-box-row">
+<div class="omni-review-block">
+<div class="omni-review-block-inner">
+<div class="omni-review-block-inner-label">
+Contact
+</div>
+<div class="omni-review-block-inner-content">
+nitinthakkar.aspl@gmail.com
+</div>
+<div class="omni-review-block-inner-link">
+<a class="link omni-change-contact-detail" href="javascript:void(0)"
+id="omni-change-contact">Change</a>
+</div>
+</div>
+</div>
+<div class="omni-review-block">
+<div class="omni-review-block-inner">
+<div class="omni-review-block-inner-label">
+Ship to
+</div>
+<div class="omni-review-block-inner-content">
+H-1,Mahavirnagar,satellite, ahmedabad, Ahmedabad HI 96701, United States
+H-1,Mahavirnagar,satellite, ahmedabad, Ahmedabad HI 96701, United States
+</div>
+<div class="omni-review-block-inner-link">
+<a class="link" href="">Change</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h3>Shipping Method</h3>
+<div class="omni-shipping-section">
+<div class="omni-content-box">
+<div class="omni-content-box-row">
+<div class="omni-review-block">
+<div class="omni-review-block-inner">
+<div class="omni-shipping-inner-method">
+<label class="omni-input-radio-container">Standard shipping (3-5 days)
+<input type="radio" class="omni-input-radio"
+name="omni-shipping-method" value="standard" checked>
+<span class="omni-radio-checkmark"></span>
+</label>
+</div>
+<div class="omni-shipping-method-inner-price">
+<span>£3.95
+</span>
+</div>
+</div>
+</div>
+<div class="omni-review-block">
+<div class="omni-review-block-inner">
+
+<div class="omni-shipping-inner-method">
+<label class="omni-input-radio-container">Standard shipping (3-5 days)
+<input type="radio" class="omni-input-radio"
+name="omni-shipping-method" value="standard">
+<span class="omni-radio-checkmark"></span>
+</label>
+</div>
+<div class="omni-shipping-method-inner-price">
+<span>£3.95
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section> -->
+          <h3><i class="fas fa-credit-card fa-lg omni-mr-1"></i><span class="omni-tab-title">Payment</span> 
+          </h3>
+          <section>
+            <div class="omni-payment-wrapper">
+              <div class="omni-payment-area">
+                <div class="omni-top-error-area"><div class="omni-error-area"></div></div> 
+                <div class="omni-payment-section">
+                  <div class="omni-content-box">
+                    <div class="omni-content-box-row">
+                      <div class="omni-review-block">
+                        <div class="omni-review-block-inner">
+                          <div class="omni-review-block-inner-label">Contact</div>
+                          <div class="omni-review-block-inner-content" id="omni-review-block-inner-content-contact"></div>
+                          <div class="omni-review-block-inner-link">
+                            <a class="link omni-change-contact-detail" href="javascript:void(0)" id="omni-change-contact">Change</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="omni-review-block">
+                        <div class="omni-review-block-inner">
+                          <div class="omni-review-block-inner-label" id="omni-shipping-pickup-address-div">Ship to</div>
+                          <div class="omni-review-block-inner-content" id="omni-review-block-inner-content-address"></div>
+                          <div class="omni-review-block-inner-link"></div>
+                        </div>
+                      </div>
+                      <div class="omni-review-block" id="omni-shipping-method-div">
+                        <div class="omni-review-block-inner">
+                          <div class="omni-review-block-inner-label">Method</div>
+                          <div class="omni-review-block-inner-content">Standard shipping (3-5 days) · £3.95</div>
+                          <div class="omni-review-block-inner-link"><a class="link" href="">Change</a></div>
+                        </div>
+                      </div>
+                      <div class="omni-review-block">
+                        <div class="omni-review-block-inner">
+                          <div class="omni-shipping-inner-method">
+                            <div class="omni-review-block-inner-label">Payment Method</div>
+                            <div class="omni-review-block-inner-content" id="omni-payment-method-container"></div>
+                          </div>
+                          <!-- Paypal button code -->
+                          <div class="omni-action-button" id='omni-paypalPayment'>
+                            <div class='omni-paypal-script'>
+                              <input id="omni-payment-method" name="omni-payment-method" type="hidden" class="required omni-form-wizard-input">
+                              <span id="omni-payment-method-error" style="display: none;" class="omni-span-error" for="omni-payment-method"></span>
+                            </div>
+                            <div id="paypal-button-container"></div>
+                          </div>
+                          <!-- Paypal button code -->
+                          <div class="omni-shipping-method-inner-price"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<!--                         <h3>Payment</h3>
+<div class="omni-payment-section">
+<div class="omni-content-box">
+<div class="omni-content-box-row">
+<div class="omni-review-block">
+<div class="omni-review-block-inner">
+<div class="omni-review-block-inner-label">
+Credit card
+</div>
+<div class="omni-review-block-inner-content">
+
+</div>
+<div class="omni-review-block-inner-link">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="omni-form-content-box">
+<div class="omni-field-half omni-field ">
+<div class="omni-input-wrapper">
+<label class="omni-form-wizard-label" for="card-number">Card number *</label>
+<input id="card-number" name="card-number" type="text"
+class="required omni-form-wizard-input">
+</div>
+</div>
+<div class="omni-field-half omni-field ">
+<div class="omni-input-wrapper">
+<label class="omni-form-wizard-label" for="name-on-card">Name on Card *</label>
+<input id="name-on-card" name="name-on-card" type="text"
+class="required omni-form-wizard-input">
+</div>
+</div>
+<div class="omni-field-half omni-field ">
+<div class="omni-input-wrapper">
+<label class="omni-form-wizard-label" for="expiration-date">Expiration date
+(MM/YY) *</label>
+<input id="expiration-date" name="expiration-date" type="text"
+class="required omni-form-wizard-input">
+</div>
+</div>
+<div class="omni-field-half omni-field ">
+<div class="omni-input-wrapper">
+<label class="omni-form-wizard-label" for="security-code">Security Code
+*</label>
+<input id="security-code" name="security-code" type="text"
+class="required omni-form-wizard-input">
+</div>
+</div>
+</div>
+
+</div>
+-->           
+              </div>
+              <div class="omni-right-panel">
+                {% if cart.item_count > 0 %}
+                  <div class="omni-sidebar-cart-content ">
+                    <div class="omni-sidebar-cart-section">
+                      <table class="omni-sidebar-cart-product-table">
+                        <tbody>
+                          {% for item in cart.items %}
+                            <tr>
+                              <td class="omni-cart-product-image">
+                                <div class="">
+                                  <div class="omni-cart-product-image-wrapper">
+                                    <img class="cart__image" src="{{ item | img_url: '40x40', scale: 2 }}" alt="{{ item.title | escape }}" data-item-url="{{ item.url }}">                                    
+                                  </div>                                  
+                                </div>
+                              </td>                              
+                              <td class="omni-cart-product-description">
+                                <span class="omni-cart-product-desc-name">
+                                  {{ item.product.title }}                    
+                                  {% if item.quantity > 1 %}
+                              <span class="medium-up--hide"><span class="visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
+                            {% endif %}
+                </span>
+                                <span class="omni-cart-product-desc-variant">
+                                  {% unless item.variant.title contains 'Default' %}
+                                    <div class="cart__meta-text">
+                                      {% for option in item.product.options %}
+                                        {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
+                                      {% endfor %}
+                                    </div>
+                                  {% endunless %}                                  
+                                </span>
+                              </td>
+                              <td>X <span class="product-thumbnail__quantity" aria-hidden="true">{{item.quantity}}</span></td>
+                              <td class="omni-cart-product-price"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total_3" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money }}</td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                      <div class="omni-cart-summary-totals">
+                        <table class="omni-cart-total-line-table">
+                          <tbody>
+                            <tr class="omni-cart-total-line-subtotal">
+                              <th class="omni-cart-total-line-name" scope="row">Subtotal</th>
+                              <td class="omni-cart-total-line-price">
+                                <div class="cart-item__original-price">{{ cart.items_subtotal_price | money }}</div>
+                              </td>
+                            </tr>
+                            <tr class="omni-cart-total-line-subtotal">
+                              <th class="omni-cart-total-line-name" scope="row">Discounts</th>
+                              <td class="omni-cart-total-line-price">
+                                <div class="cart-item__discount">{{ cart.total_discount | money }}</div>
+                              </td>
+                            </tr>
+                            {% if shop.taxes_included == false and customer and customer.tax_exempt == false %}
+                              <tr class="omni-cart-total-line-subtotal">
+                                <th class="omni-cart-total-line-name" scope="row">Taxes</th>                              
+                                <td class="omni-cart-total-line-price">
+                  {{ 0.0 | money }}
+                                </td>
+                              </tr>
+                            {% endif %}
+                          </tbody>
+                          <tfoot class="omni-cart-table-footer">
+                            <tr>
+                              <th class="omni-cart-table-footer-label" scope="row">Total</th>
+                              <td class="omni-cart-table-footer-amount">{{ cart.original_total_price | money }}</td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </section>
+          <h3><i class="fas fa-edit fa-lg omni-mr-1"></i><span class="omni-tab-title">Summary</span>
+          </h3>
+          <section>
+            <div class="omni-summary-section">
+              <h3>Order Placed Successfully</h3>
+              <div class="omni-order-summary-details">
+                <div class="omni-order-summary-icon">
+                  <i class="far fa-check-circle fa-5x omni-mr-1"></i>
+                </div>
+                <div class="omni-order-summary-text">
+                  <span class="omni-h4">Order <span id="omni-success-order-number"></span></span>
+                  <span class="omni-h2">Thank you <span id="omni-success-customer-name"></span>!</span>
+                </div>
+                <div class="omni-order-summary-note">
+                  <h3 style="color: #17a2b8">  <i class="fas fa-info-circle"></i> Click finish to close this popup!</h3>
+                </div>
+              </div>
+              <div class="omni-order-summary-content-box">
+                <div class="omni-content-box-row">
+                  <div class="omni-review-block">
+                    <div class="omni-review-block-inner ">
+                      <span class="omni-h3">Your order is confirmed</span> 
+                      <span id='omni-confirm-payment-type'>COD</span>
+                    </div>
+                  </div>                                    
+                </div>
+              </div>
+              <div class="omni-order-summary-content-box">
+                <div class="omni-content-box-row">
+                  <div class="omni-review-block">
+                    <div class="omni-review-block-inner ">
+                      <span class="omni-h3">Store Information</span> 
+                      <span class="omni-h4">Pickup Address</span>
+                      <span id="omni-success-pickup-address"></span> 
+                    </div>
+                  </div>                                    
+                </div>
+              </div>
+            </div>
+          </section>          <!-- <h3><i class="fas fa-shipping-fast fa-lg omni-mr-1"></i>Finish</h3>
+<section>
+<input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label
+for="acceptTerms">I agree with the Terms and Conditions.</label>
+</section> -->
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+<script type="text/javascript">
+  
+  // This function is to load paypal SDK
+  function loadPaypalSDK()
+  {
+    var paypalClientId = '';
+    var paypalSecret = '';
+    var currency = {{cart.currency.iso_code | json}};
+    var currency = "PHP";
+    var omnirioSetting = sessionStorage.getItem('omnirio');
+    if(omnirioSetting != undefined && omnirioSetting.length > 0)
+    { 
+      var omnirioSetting = JSON.parse(omnirioSetting);
+      var paymentMethods = omnirioSetting.payment_methods;
+      $.each(paymentMethods, function(key,value) {
+        if (value.code == 'paypal')
+        {
+          paypalClientId = value.client_id;
+          paypalSecret = value.secret;
+          return false;
+        }
+      });
+    }
+    if (paypalClientId.length > 0 && paypalSecret.length > 0)
+    {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = "https://www.paypal.com/sdk/js?client-id="+paypalClientId+"&currency="+currency;
+      document.getElementsByTagName('head')[0].appendChild(script);
+    }  
+  }
+  
+  // This function displays Smart Payment Buttons on your web page.  
+  function loadPaypalMethod()
+  {
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        // This function sets up the details of the transaction, including the amount and line item details.
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: {{cart.total_price | divided_by: 100.0 | json}}
+            },
+            currency: {
+              value: {{cart.currency.iso_code | json}}
+            }  
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        // This function captures the funds from the transaction.
+        return actions.order.capture().then(function(details) {
+          // This function shows a transaction success message to your buyer.
+          $('#omni-payment-method').val(JSON.stringify(details));
+          var message = ('Thanks ' + details.payer.name.given_name+ '! for the successful payment.');                 
+          addFlashErrors([message]);
+          $('.actions > ul > li:first-child').attr('style', 'display:none');
+          $('.omni-modal-close').attr('style', 'display:none');
+          var orderFlag = createShopifyOrder(this);
+        });
+      }
+    }).render('#paypal-button-container');
+  }
+  
+  // Refund paypal call
+  function paypalRefundCall()
+  {
+    var url = '';
+    var method_type = '';
+    var message = '';
+    var paypalClientId = '';
+    var paypalSecret = '';
+    var acccessToken = '';
+    var omnirioSetting = sessionStorage.getItem('omnirio');
+    if(omnirioSetting != undefined && omnirioSetting.length > 0)
+    { 
+      var omnirioSetting = JSON.parse(omnirioSetting);
+      var paymentMethods = omnirioSetting.payment_methods;
+      $.each(paymentMethods, function(key,value) {
+        if (value.code == 'paypal')
+        {
+          paypalClientId = value.client_id;
+          paypalSecret = value.secret;
+          return false;
+        }
+      });
+      
+      var paidDetails = JSON.parse($('#omni-payment-method').val());
+      $.each(paidDetails.purchase_units[0].payments.captures[0].links, function(key,value) {
+        if (value.rel == 'refund')
+        {
+          url = value.href;
+          method_type = value.method;
+          return false;
+        } 
+      });
+
+      //var auth_url = "https://api.sandbox.paypal.com/v1/oauth2/token";
+      var auth_url = "https://api.paypal.com/v1/oauth2/token";
+      basicAuth = window.btoa(paypalClientId+":"+paypalSecret);
+      var settings = {
+        "url": auth_url,
+        "method": method_type.toUpperCase(),
+        "timeout": 0,
+        "headers": {
+          "Authorization": ("Basic "+ basicAuth),
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+          "grant_type": "client_credentials"
+        }
+      };
+
+      $.ajax(settings).done(function (response) {
+        acccessToken = response.access_token;
+        $.ajax({
+          url: url,
+          type: method_type.toUpperCase(),
+          contentType: 'application/json',
+          headers: {'Authorization': ('Bearer '+acccessToken), 'Content-Type': 'application/json'},
+               data : {}     
+               }).done(function() {
+          addFlashErrors(['Your refund has been processed, you will receive your payment within next 2 to 3 working days!']);
+        });              
+      });
+    }
+    return message;  
+  }
+                           
+  // To get sku and quantity hash from cart
+  function getCartSkuQuantity()
+  {    
+    var skus = {};
+    var items = {{cart.items | json}};
+    var currencyIso = {{cart.currency.iso_code | json}};
+    $.each(items, function(index, item){
+      skus[item.sku] = {"quantity": item.quantity, "product_id": item.product_id, "variant_id": item.variant_id, "currency_iso": currencyIso};
+    });
+    return skus;
+  }  
+
+  // Get the existing customer details
+  function getCustomerDetails()
+  {
+    var customerAddress = '';
+	{%- assign customerJson = customer -%}
+    var customerJson = {{customerJson | json}};
+    {%- assign customerAddress = '' -%}
+    {% for address in customer.addresses %}
+      {% if address == customer.default_address %}
+    	{%- assign customerAddress = address | json -%}
+      {% endif %}      
+    {% endfor %}
+    customerAddress = {{customerAddress | json}};
+    if((customerAddress!=undefined && customerAddress.length == 0) || customerAddress=='null' || customerAddress==null || customerAddress==undefined)
+    {
+      {%- assign customerAddress = customerJson.addresses | first | json -%}    
+      customerAddress = {{customerAddress | json}};
+    }
+    if(customerAddress!=undefined && customerAddress!=null && customerAddress!='null' && customerAddress.length > 0)
+    {
+      customerAddress = JSON.parse(customerAddress);
+      $('#omni-customer-phone').val(customerAddress.phone);
+      $('#omni-billing-firstName').val(customerAddress.first_name);
+      $('#omni-billing-lastName').val(customerAddress.last_name);
+      $('#omni-billing-address1').val(customerAddress.address1);
+      $('#omni-billing-address2').val(customerAddress.address2);
+      $('#omni-billing-city').val(customerAddress.city);
+      $('#omni-billing-state').val(customerAddress.province);
+      $('#omni-billing-zip').val(customerAddress.zip);
+      $('#omni-billing-country').val(customerAddress.country_name);
+    }  
+  }
+  
+  // To get the cart details
+  function getCartDetails()
+  {    
+    var cart = {};
+    var lineItems = {};
+    var items = {{cart.items | json}};
+    var currencyIso = {{cart.currency.iso_code | json}};
+    var customer = {"id": {{customer.id | json}}};
+    var noteAttributes = {};
+    var billingAddress = {};
+    var shippingAddress = {};
+    var email = $("#omni-customer-email").val();
+    var phone = $("#omni-customer-phone").val();
+    var paymentType = $("[name='omni-pm-radio']:checked").val();
+    var paymentDetails = $("#omni-payment-method").val();
+    {%- assign cartJson = cart | json -%}
+    {%- assign cartToken = cartJson | split:'token":"' | last | split:'"' | first -%}                                            
+    var cartToken = {{ cartToken | json}};
+    $.each(items, function(index, item){
+      lineItems[item.sku] = {"enable_tax": item.taxable, "price": (item.final_line_price/100.0), "name": item.title, "quantity": item.quantity, "product_id": item.product_id, "variant_id": item.variant_id, "currency_iso": currencyIso};
+    });  
+    noteAttributes = {"Fulfilment Type": ($("#fulfilment-type").val()), "Selected Store": ($("#pickup-location").val()), "Store Name": ($("#store-name").val()), "Store Address": ($("#store-address").val())};
+    shippingAddress = {"first_name": ($("#omni-pickup-firstName").val()), "last_name": ($("#omni-pickup-lastName").val()), "address1": ($("#omni-pickup-address1").val()), "address2": ($("#omni-pickup-address2").val()), "city": ($("#omni-pickup-city").val()), "province": ($("#omni-pickup-state").val()), "country": ($("#omni-pickup-country").val()), "zip": ($("#omni-pickup-zip").val()), "phone": ($("#omni-pickup-phone").val())};
+    billingAddress = {"first_name": ($("#omni-billing-firstName").val()), "last_name": ($("#omni-billing-lastName").val()), "address1": ($("#omni-billing-address1").val()), "address2": ($("#omni-billing-address2").val()), "city": ($("#omni-billing-city").val()), "province": ($("#omni-billing-state").val()), "country": ($("#omni-billing-country").val()), "zip": ($("#omni-billing-zip").val()), "phone": ($("#omni-billing-phone").val())};
+    var addresses = {"shipping_address": shippingAddress, "billing_address": billingAddress};
+    cart = {"line_items": lineItems, "cart_token": cartToken, "customer": customer, "note_attributes": noteAttributes, "addresses": addresses, "phone": phone, "email": email, "total_price": ({{cart.total_price | divided_by: 100.0 | json}}), "total_weight": ({{cart.total_weight | divided_by: 100.0 | json}}), "total_discount": ({{cart.total_discount | divided_by: 100.0 | json}}), "original_total_price": ({{cart.original_total_price | divided_by: 100.0 | json}}), "items_subtotal_price": ({{cart.items_subtotal_price | divided_by: 100.0 | json}}), "item_count": ({{cart.item_count | json}}), "note": ({{cart.note | json}}), "payment_method": ({"payment_type": paymentType, "payment_details": paymentDetails})};
+    return cart;    
+  }
+</script>  

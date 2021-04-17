@@ -1,0 +1,119 @@
+<section class="page-section plp-section grid ">
+{% include 'l-breadcrumbs' %}
+
+{% include 'foc-collection-header' %}
+
+{% include 'foc-collection-grid' %}
+{% include 'foc-filter-popin' %}
+</section>
+{% schema %}
+  {
+    "name": "Collection Header",
+    "class": "page-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading" ,
+        "default": "Collection Name" 
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection Grid Banner" ,
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "image_picker",
+            "id": "banner_image_desk",
+            "label": "Grid Banner Desktop"
+          },
+          {
+            "type": "image_picker",
+            "id": "banner_image_mobile",
+            "label": "Grid Banner Mobile"
+          },
+          {
+            "type": "text",
+            "id": "banner_insert_count",
+            "label": "Insert banner after product count"
+          },
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Link"
+          }
+        ]
+      },
+	  {
+        "type": "headers",
+        "name": "Headers" ,
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "url",
+            "id": "banner_video_desk",
+            "label": "Banner Video Desktop"
+          },
+          {
+            "type": "url",
+            "id": "banner_video_mob",
+            "label": "Banner Video Mobile"
+          },
+          {
+            "type": "image_picker",
+            "id": "video_image_overlay_desktop",
+            "label": "Video Image Overlay Desktop"
+          },
+          {
+            "type": "image_picker",
+            "id": "video_image_overlay_mobile",
+            "label": "Video Image Overlay Mobile"
+          }
+        ]
+      },
+	  {
+        "type": "links",
+        "name": "Links" ,
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "url",
+            "id": "nav_url",
+            "label": "Category URL"
+          },
+          {
+            "type": "text",
+            "id": "nav_txt",
+            "label": "Category text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Banner" ,
+        "category": "Advanced layout"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,90 @@
+<div class="page-width">
+  <div class="section-header text-center">
+    {%comment%}<h1>{{ 'customer.account.title' | t }}</h1>{%endcomment%}
+    {% comment %}{{ 'layout.customer.log_out' | t | customer_logout_link }}{% endcomment %}
+    <input type='hidden' id='omnirio-customer-email' value={{ customer.email }}>
+    <input type='hidden' id='omnirio-customer-phone' value={{ customer.phone }}>    
+  </div>
+  <div class="main-acc">
+    {% section 'account' %}
+  </div>
+  <div class="reset-pass" style="display: none;">
+    {% include  'password-reset' %}
+  </div>
+  <div class="grid" style="display: none;">
+    <div class="grid__item medium-up--two-thirds">
+      <h2>{{ 'customer.orders.title' | t }}</h2>
+
+      {% paginate customer.orders by 20 %}
+        {% if customer.orders.size != 0 %}
+
+          <table class="responsive-table">
+            <thead>
+              <tr>
+                <th>{{ 'customer.orders.order_number' | t }}</th>
+                <th>{{ 'customer.orders.date' | t }}</th>
+                <th>{{ 'customer.orders.payment_status' | t }}</th>
+                <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                <th>{{ 'customer.orders.total' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr>
+                  <td data-label="{{ 'customer.orders.order_number' | t }}">
+                    <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small">{{ order.name }}</a>
+                  </td>
+                  <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                  <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                  <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                  <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        {% else %}
+
+          <p>{{ 'customer.orders.none' | t }}</p>
+
+        {% endif %}
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+      {% endpaginate %}
+    </div>
+    
+ {% comment %}   <div class="grid__item medium-up--one-third">
+      <h2>{{ 'customer.account.details' | t }} <br><a href="/account?view=edit" style="font-size: 14px;">{{ shop.metafields.locales.edit }}</a></h2>
+
+      {{ customer.default_address | format_address }}
+
+      <p><a href="/account/addresses" class="btn btn--small">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+    </div>{% endcomment %}
+  </div>
+</div>
+
+<script>
+  (function($){
+    $('.order-button').click(function() {
+//       location.reload();
+      var $hash = location.hash;
+      var $path = location.pathname;
+      if($hash == '#customer-orders'){
+        $('.fidelity-box, .accountOverviewArea, .customerInformations').hide();
+        $('.fidelityArea').append($('grid'));
+      }
+      $('a[href="'+location.pathname+'"]').parent().addClass('current').siblings().removeClass('current');
+      $('li.dash').addClass('current');
+    });
+    $('.link-changepassword').click(function(e){
+      e.preventDefault();
+      var $this = $(this);
+      $('.reset-pass').toggle().siblings('.main-acc').hide();
+    })
+    var resPas = document.querySelector('.password-success')
+    if(resPas) {
+      alert('Please check your email address to reset your password')
+    }
+  })(jQuery);
+</script>

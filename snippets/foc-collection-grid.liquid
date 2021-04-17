@@ -1,0 +1,46 @@
+<div class="js-plp-body plp-body grid ">
+  <div class="offset-13 cell-11 cell-m-25 offset-m-0 padding-m-1 flex flex--space-between flex--align-end flex-m--col-reverse flex-m--align-start">
+    <div class="js-plp-num-results fs--medium l-vmargin--medium" data-current-page="1" data-nb-pages="5" data-nb-products="122">
+      {% for product in collection.products %}
+<script type='application/json' class='bold-product-json'>{{ product | json }}</script>
+      {% assign item_count = forloop.index %}           
+      {% endfor %}
+      {{ item_count }} results
+    </div>
+    <div class=" js-plp-filter-sort-wrapper flex flex--align-center l-vmargin--medium flex--justify-end flex-m--justify-center fs--medium cell-m-23">
+      <div class="sticky flex js-plp-filter-sort" data-filters-url="/on/demandware.store/Sites-GB-Site/en/SearchController-GetFilters?cgid=Lacoste_Hidden_FestivalOfChic" data-mode="top" data-offset="10">
+        <button class="js-popin-btn js-plp-filter-btn non-critical-skeleton btn-cta text-white fs--medium ff-normal offset-m-1" data-popin-content-id="popin-filters" data-popin-classname="popin--inside popin--panel popin-m--fill" data-tag-id="plp.onFiltersPanelOpen" data-replace="{&quot;%category%&quot;:&quot;Lacoste_Hidden_FestivalOfChic&quot;,&quot;%label%&quot;:&quot;&quot;}" data-open-callback="9ddd5fc8-6466-4865-994e-6d80da2ff0f2">
+          <svg role="presentation" class="icon-svg l-hmargin--small fs--xlarge">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-filter"></use>
+          </svg>
+          <span class="js-plp-filter-btn-label">Sort and filter</span>
+        </button>
+        <div class="visually-hidden js-filter-aria-live" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+  <div class="js-plp-tiles-wrapper cell-25">
+    <div id="bc-sf-filter-products" class="js-plp-tiles grid">
+      {% for product in collection.products %}
+<script type='application/json' class='bold-product-json'>{{ product | json }}</script>
+      	<!-- product grid layout on bc-sf-filter.js -->
+      {%endfor%}
+    </div>
+    <div class="grid l-fill-width">
+      <div id="bc-sf-filter-bottom-pagination"></div>
+      <!--             <div class="pagination ff-normal fs--medium l-vmargin--xlarge">
+        <span class="pagination-item is-active">
+        1
+        </span>
+        <a href="/gb/festival-of-chic/?page=2" class="pagination-item">
+        2
+        </a>
+        <span class="pagination-item-nude">...</span>
+        <a href="/gb/festival-of-chic/?page=5" class="pagination-item">
+        5
+        </a>
+        <a href="/gb/festival-of-chic/?page=2" class="pagination-item-nude" rel="next">&gt;</a>
+        </div> -->
+    </div>
+  </div>
+</div>

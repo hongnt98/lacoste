@@ -1,0 +1,88 @@
+<div  class="js-mcontent-strate mcontent-strate mcontent-cover l-relative l-vmargin-row-and-half " id="ModularContent_Strate_Cover_WindowFW19_Xmas" tabindex="-1" data-strate-title="Cadeaux De Noël">
+   <div class="l-overflow-hidden ">
+      <a href="{{ section.settings.btn_link }}" class="l-block">
+         <picture class="pict img-fill-width l-block">
+            <source media="(max-width: 767px)" data-srcset="{{ section.settings.mob_image | img_url: '320x' }} 320w,{{ section.settings.mob_image | img_url: '375x' }} 375w,{{ section.settings.mob_image | img_url: '414x' }} 414w,{{ section.settings.mob_image | img_url: '767x' }} 767w" sizes="(max-width: 320px) 320px,(min-width: 321px) and (max-width: 375px) 375px,(min-width: 376px) and (max-width: 414px) 414px,(min-width: 415px) and (max-width: 767px) 767px">
+            <source media="(min-width: 768px)" data-srcset="{{ section.settings.desk_image | img_url: '1024x' }} 1024w,{{ section.settings.desk_image | img_url: '1190x' }} 1190w,{{ section.settings.desk_image | img_url: '1366x' }} 1366w,{{ section.settings.desk_image | img_url: '1680x' }} 1680w,{{ section.settings.desk_image | img_url: '1920x' }} 1920w" sizes="(min-width: 768px) and (max-width: 1024px) 1024px,(min-width: 1025px) and (max-width: 1190px) 1190px,(min-width: 1191px) and (max-width: 1366px) 1366px,(min-width: 1367px) and (max-width: 1680px) 1680px,1920px">
+            <img alt="" width="100%" height="auto" data-src="{{ section.settings.desk_image | img_url: '1024x' }}" class="img-fill-width l-block lazyload">
+         </picture>
+      </a>
+   </div>
+   <div class="section-title l-overlay pointer-none  flex flex--col above cover-padding flex--justify-end  flex-m--align-start text-m-initial flex-m--justify-end pointer-none padding-x1">
+      <h2 class="cell-9 cell-mt-19  title-xxlarge l-vmargin--large text-black ff-bold flex-m--justify-start fs-m--xxlarge fs--xxlarge">
+         {{ section.settings.title }}
+      </h2>
+      <ul class="pointer-auto cell-9 cell-mt-21 grid flex-m--justify-start  ">
+         <li class="l-hmargin--small l-vmargin--medium ">
+            <a class="btn-cta l-hmargin--large pointer-auto fs--medium ff-normal {% if section.settings.button_color == 'black' %}btn--dark{% endif %}" href="{{ section.settings.btn_link }}" style="background-color: ;">
+            {{ section.settings.btn_text }}
+            </a>
+         </li>
+      </ul>
+   </div>
+</div>
+<style>
+@media only screen and (max-width:767px){.section-title{padding-bottom:86px}}@media only screen and (max-width:414px){.section-title{padding-bottom:114px}}@media only screen and (max-width:375px){.section-title{padding-bottom:84px}}@media only screen and (max-width:360px){.section-title{padding-bottom:75px}}@media only screen and (max-width:320px){.section-title{padding-bottom:25px}}@media only screen and (max-width:767px){.section-title{padding-bottom:86px}}@media only screen and (max-width:414px){.section-title{padding-bottom:114px}}@media only screen and (max-width:375px){.section-title{padding-bottom:84px}}@media only screen and (max-width:320px){.section-title{padding-bottom:25px}}.padding-x1{padding:7% 4%}@media only screen and (max-width:1440px){.padding-x1{padding:6% 4%}@media only screen and (max-width:1024px){.padding-x1{padding:7% 4%}@media only screen and (min-width:768px){.padding-x1{padding:3.5% 4%}}@media only screen and (max-width:767px){.padding-x1{padding:20% 10%}}@media only screen and (max-width:480px){.padding-x1{padding:15% 10%}}}}
+</style>
+{% schema %}
+{
+  "name":  "Christmas Home Hero",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desk_image",
+      "label": "Desktop Hero Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_image",
+      "label": "Mobile Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Styled To Go"
+    },
+    {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Label",
+        "default": "follow the guide"
+    },
+    {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button Color",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "Christmas Home Hero" ,
+        "category": "Advanced layout"
+      }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

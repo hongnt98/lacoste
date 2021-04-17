@@ -1,0 +1,385 @@
+<!doctype html>
+<html class="no-js lazyload" lang="{{ shop.locale }}" data-template="{{ template }}" data-shop="{{ shop.secure_url }}">
+  <head>
+    <meta charset="utf-8">
+    {% include 'datalayer-prep' %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_button }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta name="facebook-domain-verification" content="9awicmhz459f6yer395baj682voz93" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | asset_url }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | asset_url }} " />
+    {% include 'hreflang' %}
+    {% include 'theme-preload-scripts' %}
+    
+    {% if template contains 'about-lacoste' %}
+    <style type="text/css">
+      a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}:root{--mq-keys:mobile-only|mobile-and-tablet|tablet-only|tablet-and-desktop|desktop-only|desktop-wide-only;--mq-mobile-only:only screen and (max-width: 767px);--mq-mobile-and-tablet:only screen and (max-width: 1190px);--mq-tablet-only:only screen and (min-width: 768px) and (max-width: 1190px);--mq-tablet-and-desktop:only screen and (min-width: 768px);--mq-desktop-only:only screen and (min-width: 1191px);--mq-desktop-wide-only:only screen and (min-width: 1501px);--scrollbar-width:0px;--vh-mob:1vh}*,::after,::before{box-sizing:border-box}html{font:10px metropolis,Arial,Helvetica,sans-serif;font-weight:400;-webkit-text-size-adjust:100%;color:#292929;background-color:#fff;overflow-x:hidden}a,a:hover{text-decoration:none;color:inherit;cursor:pointer}button{padding:0;border:none;background:0 0;color:inherit;font-family:inherit;font-size:inherit;cursor:pointer}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}svg,use{pointer-events:none}.main-container{position:relative;padding-top:85px;overflow:hidden}.page-section{position:relative;min-height:calc(100vh - 500px)}.icon-logo-crocodile{color:#105a33;fill:#e72734}.icon-svg{width:1em;height:1em}.img-fill-width{width:100%;height:auto}.simple-link{color:inherit;text-decoration:none}.text-white{color:#fff}.text-black{color:#292929}.text-grey{color:#545454}.bg-grey{background-color:#f4f4f4}.text-center{text-align:center}.is-hidden{display:none!important}.visually-hidden{border:0!important;clip:rect(0 0 0 0)!important;height:1px!important;margin:-1px!important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important}.visibility-hidden{visibility:hidden}@media only screen and (min-width:1191px){.no-desk{display:none!important}}.title--medium{font-size:2rem;line-height:2.5rem}.title--xsmall{font-weight:700;font-size:1rem;line-height:1.6rem;letter-spacing:1px;text-transform:uppercase}.ff-normal{font-family:metropolis,Arial,Helvetica,sans-serif;font-weight:400}.fs--medium{font-size:1.5rem;line-height:2.5rem}.fs--small{font-size:1.3rem;line-height:1.8rem}.fs--xsmall{font-size:1.1rem;line-height:1.6rem}.grid{display:flex;flex-flow:row wrap}.flex{display:flex}.flex--col{flex-direction:column}.flex--justify-center{justify-content:center}.flex--justify-end{justify-content:flex-end}.flex--space-between{justify-content:space-between}.flex--margin-right{margin-right:auto}.flex--align-center{align-items:center}.flex--centered{align-items:center;justify-content:center}.flex--grow{flex-grow:1}.order-1{order:1}.order-2{order:2}.l-vmargin-row-1{margin-bottom:calc(1 * (100vw - 17px)/ 25);margin-bottom:calc(1 * (100vw)/ 25)}.l-vspaced-row-1{padding-top:calc(1 * (100vw - 17px)/ 25);padding-top:calc(1 * (100vw)/ 25);padding-bottom:calc(1 * (100vw - 17px)/ 25);padding-bottom:calc(1 * (100vw)/ 25)}.l-vmargin-row-and-half{margin-bottom:calc(1.5 * (100vw - 17px)/ 25);margin-bottom:calc(1.5 * (100vw)/ 25)}.offset-1{margin-left:calc(1 * (100vw - 17px)/ 25);margin-left:calc(1 * (100vw)/ 25)}.padding-1{padding-left:calc(1 * (100vw - 17px)/ 25);padding-left:calc(1 * (100vw)/ 25);padding-right:calc(1 * (100vw - 17px)/ 25);padding-right:calc(1 * (100vw)/ 25)}.offset-2{margin-left:calc(2 * (100vw - 17px)/ 25);margin-left:calc(2 * (100vw)/ 25)}.padding-2{padding-left:calc(2 * (100vw - 17px)/ 25);padding-left:calc(2 * (100vw)/ 25);padding-right:calc(2 * (100vw - 17px)/ 25);padding-right:calc(2 * (100vw)/ 25)}.cell-3{flex:0 0 auto;width:calc(3 * (100vw - 17px)/ 25);width:calc(3 * (100vw)/ 25)}.cell-4{flex:0 0 auto;width:calc(4 * (100vw - 17px)/ 25);width:calc(4 * (100vw)/ 25)}.cell-5{flex:0 0 auto;width:calc(5 * (100vw - 17px)/ 25);width:calc(5 * (100vw)/ 25)}.cell-6{flex:0 0 auto;width:calc(6 * (100vw - 17px)/ 25);width:calc(6 * (100vw)/ 25)}.cell-7{flex:0 0 auto;width:calc(7 * (100vw - 17px)/ 25);width:calc(7 * (100vw)/ 25)}.cell-9{flex:0 0 auto;width:calc(9 * (100vw - 17px)/ 25);width:calc(9 * (100vw)/ 25)}.cell-13{flex:0 0 auto;width:calc(13 * (100vw - 17px)/ 25);width:calc(13 * (100vw)/ 25)}.cell-23{flex:0 0 auto;width:calc(23 * (100vw - 17px)/ 25);width:calc(23 * (100vw)/ 25)}.l-block{display:block}.l-relative{position:relative}.l-fill-width{width:100%}.l-padding-around{padding:10px}.l-vmargin--large{margin-bottom:20px}.l-vmargin--medium{margin-bottom:15px}.l-vmargin--small{margin-bottom:10px}.l-vmargin--xsmall{margin-bottom:7px}.l-hmargin--large{margin-right:20px}.l-hmargin--large:last-child,.l-hmargin--small:last-child,.l-hmargin--xsmall:last-child{margin-right:0}.btn-cta{display:inline-flex;justify-content:center;align-items:center;vertical-align:top;height:44px;padding:0 30px;border:1px solid #c8c8c8;border-radius:30px;background-color:#fff;color:#292929;fill:#292929;text-decoration:none;cursor:pointer;transition:all .2s ease-in-out;min-height:4.4rem}.btn-cta.btn--large{height:54px}@media (hover:hover){.btn-cta:not(:disabled):hover,a:hover .btn-cta:not(:disabled){background-color:#292929;border-color:transparent;color:#fff;fill:#fff;text-decoration:none}}.btn-cta.text-white{background-color:#292929;border-color:transparent;color:#fff;fill:#fff}.btn-cta.btn--icon{width:44px;height:44px;min-width:44px;border-radius:50%;padding:0;font-size:2rem}.header{position:fixed;top:0;left:0;z-index:150;width:100%;height:85px;display:flex;align-items:center;justify-content:space-between;background-color:#fff;transition:background-color .4s ease-in-out}.header .menu-icon{display:flex;align-items:center;font-size:2.5rem}@media only screen and (min-width:1191px){.header .menu-icon{height:100%}}.main-nav .icon-indicator{font-size:3rem;fill:#999}@media only screen and (min-width:1191px){.main-nav{flex-grow:1;height:100%}.main-nav .main-nav-tabs{display:flex;align-items:center;justify-content:space-between;height:100%}.main-nav .nav-lvl0-wrapper{display:flex;align-items:center;height:100%;width:100%}.main-nav .nav-lvl0{margin-left:auto;margin-right:20px}.main-nav .nav-footer,.main-nav .nav-lvl0,.main-nav .nav-lvl0-link,.main-nav .nav-lvl0-tab{display:flex;align-items:center;height:100%}.main-nav .nav-lvl0-link{padding:0 18px}.main-nav .nav-lvl0-label{padding-top:5px;border-bottom:2px solid transparent;transition:border .4s ease-out}.main-nav .nav-lvl1{display:flex;flex-flow:row wrap}.main-nav .rich-menu,.main-nav .sub-menu{display:none;position:fixed;top:85px;opacity:0;overflow:hidden;transition:opacity .4s ease-out}.main-nav .nav-bg{position:fixed;top:85px;bottom:0;left:0;z-index:0;height:0;width:100%;background-image:linear-gradient(to bottom,#fff 400px,rgba(41,41,41,.2) 400px);pointer-events:none}.main-nav .rich-menu{left:0;width:100%;z-index:1}.main-nav .nav-lvl0-tab:focus-within .nav-lvl0-label,.main-nav .nav-lvl0-tab:hover .nav-lvl0-label{border-color:#e5e5e5}.main-nav .nav-lvl1,.main-nav .nav-wrapper{height:100%}.main-nav .l-padding-menu{padding-top:40px;padding-bottom:60px}.main-nav .nav-lvl1-link{display:inline-block;margin-bottom:10px}.main-nav .nav-lvl1-label{color:#545454}.main-nav .nav-footer-link{margin-right:20px}}.footer .footer-reinsurance{display:flex;align-items:center;justify-content:space-around;border-top:1px solid #e5e5e5}.footer .footer-reinsurance .footer-reinsurance-item{display:flex;flex-direction:column;justify-content:center;align-items:center;height:115px}.footer .footer-reinsurance .icon-svg{font-size:3rem}.footer .newsletter-field{display:inline-flex;justify-content:center;align-items:center;vertical-align:top;height:44px;min-width:0;padding:0 30px;border:1px solid #fff;border-radius:30px;background-color:#fff;color:#292929}.footer .footer-socials{margin-bottom:40px;transform:translateX(-10px)}.footer .footer-socials .icon-socials{height:2rem}.footer .footer-payment{padding:60px 0;border-top:1px solid #e5e5e5;text-align:center}.footer .footer-payment .icon-payment{width:50px}.footer .footer-payment .icon-secured{vertical-align:sub;font-size:1.5rem}.footer .footer-bottom{padding:30px 0}.footer .footer-bottom .footer-bottom-link{display:inline-block;line-height:3rem}.footer .footer-bottom .footer-bottom-link::after{content:"|";margin:0 10px;color:#999}.footer .footer-bottom .footer-bottom-link:last-child::after{display:none}span.checkbox-link{text-decoration:underline}form.flex{margin-bottom:10px}.announcement-banner{background:#e6e6e6;color:#292929;font-size:1.5rem;padding:10px 10px;text-align:center;font-weight:500;z-index:999;position:relative}.popin-wrapper{display:flex;align-items:center;justify-content:center;position:fixed;top:0;left:0;z-index:250;width:100%;height:100vh;opacity:0;background-color:rgba(0,0,0,.2);overflow-x:hidden;transition:opacity .4s ease}.popin-wrapper.is-active{z-index:251}.popin-wrapper.popin--inside{top:85px;z-index:125;height:calc(100vh - 85px)}.popin-wrapper.popin--inside.is-active{z-index:126}.minicart-wrapper{height:100%}.minicart-count{position:absolute;top:0;right:0;width:13px;height:13px;line-height:13px;border-radius:100%;background:#105a33;color:#fff;font-size:.9rem;text-align:center}.minicart-count.is-empty{background:#292929}.minicart-panel{position:fixed;top:85px;right:0;bottom:0;z-index:160;width:615px;padding:30px 90px;background-color:#fff;color:#292929;overflow:auto;transform:translate(100%,0);transition:all .5s ease}.minicart-overlay{position:fixed;top:85px;right:0;bottom:0;left:0;z-index:120;background-color:rgba(0,0,0,.2);opacity:0;transform:translate(100%,0);transition:opacity .5s ease;pointer-events:none}@media only screen and (min-width:1191px){.minicart-wrapper::before{content:"";width:1px;height:20px;margin-right:15px;background-color:#c8c8c8}}.ff-normal,.forms .field,.forms .field[type=password],.forms .label,.forms .notice{font-family:metropolis,Arial,Helvetica,sans-serif;font-weight:400}@media screen and (min-width:1191px){.main-nav .nav-lvl0-tab .sub-nav{display:block;opacity:0;height:0;transition:all .4s ease-out;transition-delay:.2s}.main-nav .nav-lvl0-tab .nav-bg{background-image:linear-gradient(to bottom,#fff 400px,rgba(41,41,41,0) 400px);transition:height .5s ease-out}.main-nav .nav-lvl0-tab .nav-bg.sale-menu{background-image:linear-gradient(to bottom,#fff 40px,rgba(41,41,41,0) 40px)}.main-nav .nav-lvl0-tab:hover .sub-nav{opacity:1;height:auto;pointer-events:auto}.main-nav .nav-lvl0-tab:hover .nav-bg{height:100%}.sale-menu .nav-lvl1.m-padding-menu{max-width:400px;display:flex;justify-content:center;align-items:center;margin:0 auto}.sale-menu .nav-lvl1.m-padding-menu li{width:auto}}#search-popin.popin-wrapper{transition:opacity .4s ease}.mcontent-fairplay .fairplay-bigbox,.mcontent-fairplay .fairplay-smallbox{position:relative;display:block}.mcontent-fairplay .fairplay-content{position:absolute;left:0}.mcontent-fairplay .fairplay-bigbox .fairplay-content{bottom:100px}.mcontent-fairplay .fairplay-smallbox .fairplay-content{top:50%;transform:translateY(-50%)}button.flickity-button{display:none}
+    </style>
+    {% endif %}
+    {% if template contains 'rene-lacoste' or template contains 'lacoste-crocodileinside' %}
+    <style type="text/css">
+      .swiper-wrapper{position:relative;width:100%;height:100%;z-index:1;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;-o-transition-property:-o-transform;-ms-transition-property:-ms-transform;transition-property:transform;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}.swiper-container-android .swiper-slide,.swiper-wrapper{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate(0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.swiper-slide{-webkit-flex-shrink:0;-ms-flex:0 0 auto;flex-shrink:0;width:100%;height:100%;position:relative}.swiper-button-next,.swiper-button-prev{position:absolute;top:50%;width:27px;height:44px;margin-top:-22px;z-index:10;cursor:pointer;-moz-background-size:27px 44px;-webkit-background-size:27px 44px;background-size:27px 44px;background-position:center;background-repeat:no-repeat}.swiper-button-prev,.swiper-container-rtl .swiper-button-next{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");left:10px;right:auto}.swiper-button-next,.swiper-container-rtl .swiper-button-prev{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");right:10px;left:auto}.swiper-pagination{position:absolute;text-align:center;-webkit-transition:.3s;-moz-transition:.3s;-o-transition:.3s;transition:.3s;-webkit-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:10}:root{--mq-keys:mobile-only|mobile-and-tablet|tablet-only|tablet-and-desktop|desktop-only|desktop-wide-only;--mq-mobile-only:only screen and (max-width: 767px);--mq-mobile-and-tablet:only screen and (max-width: 1190px);--mq-tablet-only:only screen and (min-width: 768px) and (max-width: 1190px);--mq-tablet-and-desktop:only screen and (min-width: 768px);--mq-desktop-only:only screen and (min-width: 1191px);--mq-desktop-wide-only:only screen and (min-width: 1501px);--scrollbar-width:0px;--vh-mob:1vh}*,::after,::before{box-sizing:border-box}html{font:10px metropolis,Arial,Helvetica,sans-serif;font-weight:400;-webkit-text-size-adjust:100%;color:#292929;background-color:#fff;overflow-x:hidden}a,a:hover{text-decoration:none;color:inherit;cursor:pointer}button{padding:0;border:none;background:0 0;color:inherit;font-family:inherit;font-size:inherit;cursor:pointer}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}svg,use{pointer-events:none}.main-container{position:relative;padding-top:85px;overflow:hidden}.page-section{position:relative;min-height:calc(100vh - 500px)}.icon-logo-crocodile{color:#105a33;fill:#e72734}.icon-svg{width:1em;height:1em}.img-fill-width{width:100%;height:auto}.text-white{color:#fff}.text-black{color:#292929}.text-grey{color:#545454}.text-grey-light{color:#767676}.bg-grey{background-color:#f4f4f4}.text-center{text-align:center}.text-start{text-align:start}.is-hidden{display:none!important}.visually-hidden{border:0!important;clip:rect(0 0 0 0)!important;height:1px!important;margin:-1px!important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important}.visibility-hidden{visibility:hidden}.valign-middle{vertical-align:middle}@media only screen and (min-width:1191px){.no-desk{display:none!important}}.title--xlarge{font-size:4rem;line-height:5rem}.title--medium{font-size:2rem;line-height:2.5rem}.title--xsmall{font-weight:700;font-size:1rem;line-height:1.6rem;letter-spacing:1px;text-transform:uppercase}.ff-normal,.forms .field,.forms .field[type=password],.forms .label,.forms .notice{font-family:metropolis,Arial,Helvetica,sans-serif;font-weight:400}.ff-bold{font-family:metropolis,Arial,Helvetica,sans-serif;font-weight:700}.fs--xlarge{font-size:2rem;line-height:3rem}.forms .field,.forms .label,.forms .notice,.fs--medium{font-size:1.5rem;line-height:2.5rem}.forms .field.is-filled+.label.label--floating,.forms .field:focus+.label.label--floating,.fs--small{font-size:1.3rem;line-height:1.8rem}.fs--xsmall{font-size:1.1rem;line-height:1.6rem}.grid{display:flex;flex-flow:row wrap}.flex{display:flex}.flex--col{flex-direction:column}.flex--justify-center{justify-content:center}.flex--justify-end{justify-content:flex-end}.flex--space-between{justify-content:space-between}.flex--margin-right{margin-right:auto}.flex--align-center{align-items:center}.flex--centered{align-items:center;justify-content:center}.flex--grow{flex-grow:1}.order-1{order:1}.order-2{order:2}.l-vmargin-row-1{margin-bottom:calc(1 * (100vw - 17px)/ 25);margin-bottom:calc(1 * (100vw - var(--scrollbar-width))/ 25)}.l-vspaced-row-1{padding-top:calc(1 * (100vw - 17px)/ 25);padding-top:calc(1 * (100vw - var(--scrollbar-width))/ 25);padding-bottom:calc(1 * (100vw - 17px)/ 25);padding-bottom:calc(1 * (100vw - var(--scrollbar-width))/ 25)}.l-vspaced-row-2{padding-top:calc(2 * (100vw - 17px)/ 25);padding-top:calc(2 * (100vw - var(--scrollbar-width))/ 25);padding-bottom:calc(2 * (100vw - 17px)/ 25);padding-bottom:calc(2 * (100vw - var(--scrollbar-width))/ 25)}.l-vmargin-row-and-half{margin-bottom:calc(1.5 * (100vw - 17px)/ 25);margin-bottom:calc(1.5 * (100vw - var(--scrollbar-width))/ 25)}.offset-1{margin-left:calc(1 * (100vw - 17px)/ 25);margin-left:calc(1 * (100vw - var(--scrollbar-width))/ 25)}.padding-1{padding-left:calc(1 * (100vw - 17px)/ 25);padding-left:calc(1 * (100vw - var(--scrollbar-width))/ 25);padding-right:calc(1 * (100vw - 17px)/ 25);padding-right:calc(1 * (100vw - var(--scrollbar-width))/ 25)}.offset-2{margin-left:calc(2 * (100vw - 17px)/ 25);margin-left:calc(2 * (100vw - var(--scrollbar-width))/ 25)}.padding-2{padding-left:calc(2 * (100vw - 17px)/ 25);padding-left:calc(2 * (100vw - var(--scrollbar-width))/ 25);padding-right:calc(2 * (100vw - 17px)/ 25);padding-right:calc(2 * (100vw - var(--scrollbar-width))/ 25)}.cell-3{flex:0 0 auto;width:calc(3 * (100vw - 17px)/ 25);width:calc(3 * (100vw - var(--scrollbar-width))/ 25)}.offset-3{margin-left:calc(3 * (100vw - 17px)/ 25);margin-left:calc(3 * (100vw - var(--scrollbar-width))/ 25)}.cell-4{flex:0 0 auto;width:calc(4 * (100vw - 17px)/ 25);width:calc(4 * (100vw - var(--scrollbar-width))/ 25)}.cell-6{flex:0 0 auto;width:calc(6 * (100vw - 17px)/ 25);width:calc(6 * (100vw - var(--scrollbar-width))/ 25)}.cell-7{flex:0 0 auto;width:calc(7 * (100vw - 17px)/ 25);width:calc(7 * (100vw - var(--scrollbar-width))/ 25)}.cell-8{flex:0 0 auto;width:calc(8 * (100vw - 17px)/ 25);width:calc(8 * (100vw - var(--scrollbar-width))/ 25)}.cell-9{flex:0 0 auto;width:calc(9 * (100vw - 17px)/ 25);width:calc(9 * (100vw - var(--scrollbar-width))/ 25)}.cell-10{flex:0 0 auto;width:calc(10 * (100vw - 17px)/ 25);width:calc(10 * (100vw - var(--scrollbar-width))/ 25)}.cell-11{flex:0 0 auto;width:calc(11 * (100vw - 17px)/ 25);width:calc(11 * (100vw - var(--scrollbar-width))/ 25)}.cell-17{flex:0 0 auto;width:calc(17 * (100vw - 17px)/ 25);width:calc(17 * (100vw - var(--scrollbar-width))/ 25)}.cell-19{flex:0 0 auto;width:calc(19 * (100vw - 17px)/ 25);width:calc(19 * (100vw - var(--scrollbar-width))/ 25)}.cell-23{flex:0 0 auto;width:calc(23 * (100vw - 17px)/ 25);width:calc(23 * (100vw - var(--scrollbar-width))/ 25)}.l-block{display:block}.l-relative{position:relative}.l-fill-width{width:100%}.l-padding-around{padding:10px}.l-overflow-hidden{overflow:hidden}.l-no-margin{margin:0}.l-vmargin--xxlarge{margin-bottom:40px}.l-vmargin--large{margin-bottom:20px}.l-vmargin--medium{margin-bottom:15px}.l-vmargin--small{margin-bottom:10px}.l-vmargin--xsmall{margin-bottom:7px}.l-hmargin--large{margin-right:20px}.l-hmargin--small{margin-right:10px}.l-hmargin--large:last-child,.l-hmargin--small:last-child,.l-hmargin--xsmall:last-child{margin-right:0}.btn-cta{display:inline-flex;justify-content:center;align-items:center;vertical-align:top;height:44px;padding:0 30px;border:1px solid #c8c8c8;border-radius:30px;background-color:#fff;color:#292929;fill:#292929;text-decoration:none;cursor:pointer;transition:all .2s ease-in-out}.btn-cta.btn--large{height:54px}.btn-cta.text-white{background-color:#292929;border-color:transparent;color:#fff;fill:#fff}.btn-cta.btn--icon{width:44px;height:44px;min-width:44px;border-radius:50%;padding:0;font-size:2rem}.swiper-button-next,.swiper-button-prev{width:39px;height:39px;transition:opacity ease .3s;border:none;margin-top:-19px;border-radius:50px;background:#292929!important;z-index:1;-webkit-backface-visibility:hidden}.swiper-button-next::after,.swiper-button-prev::after{content:"";width:11px;height:7px;background-position:-210px -30px;position:relative;display:inline-block;transform:rotate(-90deg);margin-left:4px}.dir-rtl .swiper-button-next,.swiper-button-prev{left:0;right:auto;transform:translateX(-50%) scaleX(-1)}.dir-rtl .swiper-button-prev,.swiper-button-next{left:auto;right:0;transform:translateX(50%)}.swiper-button-offset-left{left:0;margin-left:calc(1 * (100vw - 17px)/ 25);margin-left:calc(1 * (100vw - var(--scrollbar-width))/ 25)}.swiper-button-offset-right{right:0;margin-right:calc(1 * (100vw - 17px)/ 25);margin-right:calc(1 * (100vw - var(--scrollbar-width))/ 25)}.swiper-pagination{position:static;display:block}.banner-nav .banner-nav-item{display:inline-block;vertical-align:bottom;z-index:1;margin:0 20px;padding:15px 0;text-transform:none;text-decoration:none;outline:0;color:inherit;opacity:.5;text-align:center;white-space:normal}.mcontent-chelem .content-text{margin-top:80px}.mcontent-lift .lift-container{position:relative}.mcontent-lift .swiper-container-lift{position:relative;margin:auto;overflow:hidden}.mcontent-lift .lift-content{text-align:center;background-color:#f4f4f4;padding:40px 20%}.mcontent-lift .lift-content.text-white{background-color:#292929}.mcontent-spirit{align-items:baseline}.mcontent-spirit .spirit-content{position:relative;top:-10px;z-index:1}.mcontent-spirit .spirit-title{margin-top:0;font-size:5rem;line-height:6rem}.mcontent-spirit.spirit-left .spirit-image,.mcontent-spirit.spirit-right .spirit-content{position:relative;left:calc(-2 * (100vw - 17px)/ 25);left:calc(-2 * (100vw - var(--scrollbar-width))/ 25)}.mcontent-strate-v2{position:relative;padding-top:30px;padding-bottom:30px}.mcontent-court{position:relative;cursor:pointer}.mcontent-court .court-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9;text-align:center}.mcontent-court .player-btn{border:none;background:0 0;padding:0}.mcontent-court .player-btn .button-play-arrow,.mcontent-court .player-btn .button-play-bg{opacity:0;transition:opacity ease .3s}.mcontent-rene{position:relative}.mcontent-rene .swiper-container-rene{height:100%;overflow:hidden;position:relative;transition:opacity 1s ease}.mcontent-rene .swiper-progressbar{content:"";width:0;height:1px;background:#292929;z-index:2;bottom:35px;left:calc(50% + 4px);position:absolute;transition:width linear 4.7s}.mcontent-rene .slide-content{position:absolute;bottom:80px;width:330px;left:calc(50% - 165px);font-size:1.7rem;color:#292929;transition:opacity .3s}.mcontent-rene .text-white .slide-content,.mcontent-rene .year-pagination ul li.text-white{color:#fff}button.flickity-button{display:none}
+    </style>
+    {% endif %}
+    {%- capture seo_title -%}
+    {%- if template == 'search' and search.performed == true -%}
+    {{ 'general.search.heading' | t: count: search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+    {%- else -%}
+    {{ page_title }}
+    {%- endif -%}
+    {%- if current_tags -%}
+    {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
+    &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {%- endif -%}
+    {%- assign escaped_page_title = page_title | escape -%}
+    {%- unless escaped_page_title contains shop.name -%}
+    &ndash; {{ shop.name }}
+    {%- endunless -%}
+    {%- endcapture -%}
+    <title>{{ seo_title | strip }}</title>
+
+
+
+    {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+    
+    <link rel="dns-prefetch" href="https://specialoffers.suppleapps.com">
+    <link rel="dns-prefetch" href="https://social-login.oxiapps.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google.com">
+    <link rel="dns-prefetch" href="https://www.google.com.ph">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://stats.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://services.mybcapps.com">
+
+    {% include 'social-meta-tags' %}
+    {% include 'inline-style' %}
+    
+    {% unless template.name == 'index' or template.name == 'collection' or template contains 'product' or template == 'collection.foc' or template contains 'cart' %}
+
+    <link rel="preload" href="{{ 'products-list.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'products-list.css' | asset_url }}"></noscript>
+    
+    <link rel="preload" href="{{ '_headings.scss.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ '_headings.scss.css' | asset_url }}"></noscript>
+
+    <link rel="preload" href="{{ '_helper.scss.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ '_helper.scss.css' | asset_url }}"></noscript>
+
+    <link rel="preload" href="{{ '_product-tile.scss.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ '_product-tile.scss.css' | asset_url }}"></noscript>
+
+    <link rel="preload" href="{{ '_popup-banner.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ '_popup-banner.css' | asset_url }}"></noscript>
+
+    <link rel="preload" href="{{ 'foc-col-critical.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'foc-col-critical.css' | asset_url }}"></noscript>
+
+    <link rel="preload" href="{{ 'foc-col-non-critical.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'foc-col-non-critical.css' | asset_url }}"></noscript>
+
+
+
+    <link rel="preload" href="{{ 'flickity.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'flickity.min.css' | asset_url }}"></noscript>
+
+    {% endunless %}
+
+    {% if template contains 'cool-polo' %}
+    {{ 'modularcontent.min.css' | asset_url | stylesheet_tag }}
+	{% endif %}
+	
+    {% unless template contains 'collection' or template != 'collection.foc' %}
+    <link rel="preload" href="{{ '_video.scss.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ '_video.scss.css' | asset_url }}"></noscript>
+
+    <link rel="preload" href="{{ 'local-classic-10_7.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'local-classic-10_7.css' | asset_url }}"></noscript>
+    {% endunless %}
+
+    {% unless template contains 'index' or template == 'collection.foc' or template contains 'collection' or template contains 'cart' %}
+    <link rel="preload" href="{{ 'plp-critical.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'plp-critical.css' | asset_url }}"></noscript>
+    <link rel="preload" href="{{ 'plp-non-critical.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'plp-non-critical.css' | asset_url }}"></noscript>
+    {% endunless %}
+    {% if template contains 'rene-lacoste' or template contains 'l-christmas-2019' or template contains 'polo' or template contains 'l-mylacostepolo' or template contains 'l-sport' or template contains 'l-collab' or template contains 'lacoste-inside' or template contains 'lacoste-history' or template contains 'lacoste-style' or template contains 'savoir' or template contains 'lacoste-sport' or template contains 'l-catalog' or template contains 'timeless-elegance' or template contains 'leclublacoste' or template contains 'cool-polo' or template contains 'novak-djokovic' or template contains 'crocoseries' or template contains 'iconic-women' or template contains 'nat-geo' or template contains 'polaroid' %}
+    <link rel="preload" href="{{ 'modular-critical.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'modular-critical.css' | asset_url }}"></noscript>
+    {% endif %}
+    {% if template contains 'register' %}
+    <link rel="preload" href="{{ 'intlTelInput.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'intlTelInput.css' | asset_url }}"></noscript>
+	{% endif %}
+    {% unless template contains 'index' or template contains 'collection' or template contains 'product' or template contains 'l-christmas-2019' or template contains 'polo' or template contains 'lacoste-inside' or template contains 'cart' %}{{ 'main.min.css' | asset_url | stylesheet_tag }}{% endunless %}
+
+    {% if template contains 'lacoste-contact' or template contains 'account' or template contains 'l-reward' or template contains 'orders' %}{{ 'page-my-account-fid-lecourt.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'privacy' or template contains 'faq' or template contains 'cgv' or template contains 'newsletter-signup' or template contains 'polo-re-edition' or template contains 'terms' %}{{ 'page-text.css' | asset_url | stylesheet_tag }}{% endif %}
+
+    {% if template contains 'find-store' %} 
+    {{ '_responsive-css.scss.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+    {% if template contains '404' %}{{ 'page-404.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'about-landing' %}{{ 'richmenu-landings.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'about-lacoste' or template contains 'lacoste-crocodileinside' or template contains 'novak-djokovic-collection' or template contains 'l-autumn-2019' or template contains 'l-march-content' or template contains 'l-july-content' or template contains 'l-keith-haring' or template contains 'lacoste-sneaker-guide-men' or template contains 'lacoste-sneaker-guide-women' or template contains 'polo-wall-test' or template contains 'leclublacoste' %}{{ 'modularcontent.min.css' | asset_url | stylesheet_tag }}{% endif %}
+
+    {% if template contains 'sizeguide' %}{{ 'size-chart.css' | asset_url | stylesheet_tag }}{% endif %}
+
+    {% if template contains 'account' %}{{ 'page-my-order-fid.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'account' %}{{ 'select2.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'store' %}{{ 'storelocator.css' | asset_url | stylesheet_tag }} {{ 'storefind-css.scss.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'polo-re-edition' %}{{ 'global.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'polo-re-edition' %}{{ 'swiper.min.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'password_recover' %}{{ 'lost-password.scss.css' | asset_url | stylesheet_tag }}{{ '_base.scss.css' | asset_url | stylesheet_tag }}{% endif %}
+    {% if template contains 'tennis-mashup' or template contains 'tennis-terms-condition' or template contains 'tennis-e-raffle-status' or template contains 'tennnis-e-raffle-success-status' %}{{ 'tennis-mashup.scss.css' | asset_url | stylesheet_tag }}{%endif%}
+    {%comment%}{%endcomment%}
+
+    
+    <script>
+      var loggedin = {%if customer%}true{%else%}false{%endif%};var register = (document.referrer.indexOf('register') > -1) ? true : false;var challenge = (document.referrer.indexOf('challenge') > -1) ? true : false;if((challenge || register) && loggedin){location.href = '{{ shop.url }}/account';}
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126388949-5"></script>
+
+    {% if template contains 'corporate-group' %}
+    	<link rel="preload" href="{{ 'corporate-nav.js' | asset_url }}" as="script">
+    	<link rel="preload" href="{{ 'corporate-page.js' | asset_url }}" as="script">
+    {%endif%}
+    {% if template contains 'collection' %}
+    	<link rel="preload" href="{{ 'bc-sf-filter.js' | asset_url }}" as="script">
+    	{%comment%}<link rel="preload" href="{{ 'bc-sf-filter-lib.js' | asset_url }}" as="script">{%endcomment%}
+    {% endif %}
+	{% include 'datalayer-prep' %}
+        <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T4VVKFV');</script>
+<!-- End Google Tag Manager -->
+    
+    <script>
+      var theme = {
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }},
+          regularPrice: {{ 'products.product.regular_price' | t | json }},
+          sale: {{ 'products.product.on_sale' | t | json }},
+          showMore: {{ 'general.filters.show_more' | t | json }},
+          showLess: {{ 'general.filters.show_less' | t | json }},
+          addressError: {{ 'sections.map.address_error' | t | json }},
+          addressNoResults: {{ 'sections.map.address_no_results' | t | json }},
+          addressQueryLimit: {{ 'sections.map.address_query_limit_html' | t | json }},
+          authError: {{ 'sections.map.auth_error_html' | t | json }},
+          newWindow: {{ 'general.accessibility.link_messages.new_window' | t | json }},
+          external: {{ 'general.accessibility.link_messages.external' | t | json }},
+          newWindowExternal: {{ 'general.accessibility.link_messages.new_window_and_external' | t | json }}
+        },
+        moneyFormat: {{ shop.money_format | json }}
+      }
+
+        document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        {% if customer %}window.customer_email = "{{ customer.email }}";window.customer_id = "{{ customer.id }}"; window.customer_phone = "{{ customer.phone }}"{% endif %}
+    </script>
+
+
+    {%- if template.directory == 'customers' -%}
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+
+    
+
+    
+    {% if template contains 'collection' %}
+    	{% if template == 'collection.foc' %}
+    		{% include 'bc-sf-filter-style-foc' %}
+    	{% else %}
+    		{% include 'bc-sf-filter-style' %}
+    	{% endif %}
+    {%endif%}
+    <!-- End Google Tag Manager -->
+    {% if template contains 'customers/register' %}
+    {% render 'customer-fields', customer_api: true, version: '3.0.6' %}
+    {% endif %}
+
+    {{ 'custom.scss.css' | asset_url | stylesheet_tag }}
+  
+    <!-- Omnirio plugin code for Click and Collect -->
+    <script src="{{ 'storepickup.js' | asset_url }}" defer="defer"></script>
+    {{ 'storepickup.scss.css' | asset_url | stylesheet_tag }}
+    <!-- Omnirio plugin code for Click and Collect -->
+
+    
+  </head>
+
+  <body class="template-{{ template | split: '.' | first }} reveal lazyload">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4VVKFV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+    <div style="display: none;">{% include 'non-critical-svg' %}</div>
+
+    
+    {% include 'sprite' %}
+
+    {% include 'l-header' %}
+    <main role="main" class="main-container">
+      <input type="hidden" value="{% if customer %}1{% else %}0{% endif %}" id="custlog">
+      {% section 'l-txt-banner' %}
+
+
+      <section class="page-section l-content-section">
+        {{ content_for_layout }}
+      </section>
+    </main>
+    {% if template contains 'collection' %}
+    	{% if template == 'collection.foc' %}
+            <!--begin-bc-sf-filter-js-->
+            {% include 'bc-sf-filter-foc' %}
+            <!--end-bc-sf-filter-js-->
+            {% comment %} Init BC Action List {% endcomment %}
+            <!--start-bc-al-init-->
+            {% include 'bc-al-init' %}
+            <!--end-bc-al-init-->
+            {% comment %} Init Recently Viewed Products {% endcomment %}
+            <!-- start-bc-recently-viewed-product-init -->
+            {% include 'bc-recently-viewed-product-init' %}
+            <!-- end-bc-recently-viewed-product-init -->
+            {% comment %} Init Most Popular Widgets {% endcomment %}
+            <!--start-bc-most-popular-product-init-->
+            {% include 'bc-most-popular-product-init' %}
+            <!--end-bc-most-popular-product-init-->
+      {% else %}
+    		{% include 'bc-sf-filter' %}
+    	{% endif %}
+    {% endif %}
+    {% section 'footer' %}
+    {% if template contains 'product' %}{% include 'l-pdp-popins' %}{% endif %}
+    {% include 'l-search-popin' %}
+    <script>
+      window.lazySizesConfig = window.lazySizesConfig || {};
+      window.lazySizesConfig.init = false;
+    </script>
+    {% if template contains 'find-store' %}<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOnSvYnH3RqC07mMPbcNBKHvCQFYTH0RU&libraries=places,geometry"></script>
+    <script type="text/javascript">window.m = ["{{ 'm1.png' | file_url }}","{{ 'm2.png' | file_url }}","{{ 'm3.png' | file_url }}","{{ 'm4.png' | file_url }}","{{ 'm5.png' | file_url }}"];window.crocgrey="{{ 'croco_grey.png' | file_url }}";</script>
+    {{ 'markerCluster.js' | asset_url | script_tag }}
+    <script src="{{ 'store-coordinates.js' | asset_url }}" defer></script>
+    {%endif%}
+
+
+    {% if template contains 'rene-lacoste' or template contains 'lacoste-savoir-faire' or template contains 'timeless-elegance' or template contains 'lacoste-history' %}
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="{{ 'vimeoVid.js' | asset_url }}"></script>
+    {%endif%}
+    <script data-cfasync="false" data-no-instant>
+      window.saso_config = {
+        product_title_max_length: 40,
+        crosssell_never_show_popup: false,
+        show_upsell_only_in: "product, cart",
+        hide_shown_upsells_for: 15, //minutes
+        hide_closed_notifications_for: 10, //minutes
+        upsell_variant_choose_option: "please select",
+        upsell_variant_choose_message: "Please select an option",
+        translate_percent_off: '% Off'
+      }
+    </script>
+    {% include 'special-offers' %}
+	
+	{% include 'theme-scripts' %}
+    
+    {% if template contains 'register' %}
+    <script src="{{ 'securitypassword.js' | asset_url }}" defer="defer"></script>
+    {%endif%}
+    {%comment%}
+    {%endcomment%}
+    {% if template contains 'register' %}
+    {{ 'intlTelInput.js' | asset_url | script_tag }}
+    {{ 'utils.js' | asset_url | script_tag }}
+    {{ 'cleave.js' | asset_url | script_tag }}
+    {{ 'cleave-phone.i18n.js' | asset_url | script_tag }}
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        var input = document.querySelector("#Phone");
+        window.intlTelInput(input, {
+//           allowDropdown: false,
+//           initialCountry: "auto",
+//           geoIpLookup: function(callback) {
+//             $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+//               var countryCode = (resp && resp.country) ? resp.country : "";
+//               callback(countryCode);
+//             });
+//           },
+          onlyCountries: ["ph"]
+        });
+      });
+    </script>
+    {% endif %}
+    
+    {%comment%}
+    {%endcomment%}
+    {% if template contains 'customers/register' %}
+    <div class="reg-loader">
+      <div>
+        <img src="{{ 'ajax-loader.gif' | asset_url }}">
+      </div>
+    </div>
+    {% include 'cf-js' %}
+    {% endif %}
+    {% render 'omnirio-api-js' %}    
+    {% render 'inline-scripts' %}
+    {% include 'search-autocomplete' %}
+   
+    {%- comment -%}
+	<noscript class="deferred-cfh">{{ content_for_header }}
+</noscript>
+    {%- endcomment -%}
+    <noscript id="deferred-css" data-test="{{ template.suffix }}">
+      {{ 'lacoste-main.scss.css' | asset_url | stylesheet_tag }}
+      {% if template.name == 'collection' %}
+        {% if template.suffix == 'foc' %}
+      	  {{ 'bc-widget-slider.scss.css' | asset_url | stylesheet_tag }}}
+      	  {{ 'bc-sf-filter-foc.scss.css' | asset_url | stylesheet_tag }}
+      	  {{ 'bc-al-lib.scss.css' | asset_url | stylesheet_tag }}
+      	{% else %}
+      		{{ 'lacoste-collection.scss.css' | asset_url | stylesheet_tag }}
+        {% endif %}
+      {% elsif template.name == 'product' %}
+      	{{ 'critical.css' | asset_url | stylesheet_tag }}
+      	{{ 'non-critical.css' | asset_url | stylesheet_tag }}
+      	{{ 'pdp-critical.css' | asset_url | stylesheet_tag }}
+      	{{ 'pdp-non-critical.css' | asset_url | stylesheet_tag }}
+      	{{ 'plp-critical.css' | asset_url | stylesheet_tag }}
+      	{{ 'plp-non-critical.css' | asset_url | stylesheet_tag }}
+      {% elsif template.name == 'cart' %}
+      	{{ 'cart.css' | asset_url | stylesheet_tag }}
+		{{ 'fonts.css' | asset_url | stylesheet_tag }}
+      	{{ 'special-offers.scss.css' | asset_url | stylesheet_tag }}
+      {% endif %}
+      {%- if template.directory == 'customers' or template.name == 'page' -%}
+		{{ 'fonts.css' | asset_url | stylesheet_tag }}
+      {%- endif -%}
+    </noscript>
+    <script>
+      {% if customer %}
+      var _learnq = _learnq || [];
+      _learnq.push(['identify', {
+        '$email': '{{ customer.email }}',
+        '$first_name': '{{ customer.first_name }}',
+        '$last_name': '{{ customer.last_name }}', 
+      }]);
+      {% endif %}
+    </script>
+    {{ content_for_header }}
+  {% include 'mw_PO_objects' %}
+     {%- render 'bold-pr' -%}
+</body>
+</html>

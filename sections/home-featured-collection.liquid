@@ -1,0 +1,108 @@
+{%- assign collection = collections[section.settings.collection] -%}
+<div class="js-home-recommendations cell-25" data-recommendation="">
+  <div class="is-hidden js-reco-request" data-json="" data-source="EarlyBirds"></div>
+  <article class="js-recommendations-list l-relative l-vmargin-row-1 img-fill-width ">
+    <h2 class="title--xlarge offset-1 offset-mt-2 l-vmargin--xxlarge">{{ section.settings.title }}</h2>
+    <section class="l-relative">
+      <div class="js-slideshow-wrapper slideshow-wrapper l-overflow-visible cell-21 cell-mt-20 -cell-m-20 offset-m-1 swiper-container-horizontal" dir="ltr">
+        <ul class="js-slideshow-controls slideshow-controls flex controls-top no-mob ">
+          <li class="l-hmargin--small">
+            <button class="btn-cta js-slideshow-control-left slideshow-button-prev btn--icon" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false">
+              <svg role="presentation" class="icon-svg ">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-left"></use>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button class="btn-cta js-slideshow-control-right slideshow-button-next btn--icon" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+              <svg role="presentation" class="icon-svg ">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use>
+              </svg>
+            </button>
+          </li>
+        </ul>
+        <div class="js-slideshow slideshow" data-direction="ltr" data-slide-per-view-desk="3" data-slide-per-view-tab="2" data-slide-per-view-mob="1" data-slider-prev="Previous slide" data-slider-next="Next slide" data-slider-first="This is the first slide" data-slider-last="This is the last slide" data-slider-pagination="Go to slide {{index}}" data-slider-notification="" style="">
+          {% for product in collection.products limit: 9 %}
+<script type='application/json' class='bold-product-json'>{{ product | json }}</script>
+          <div class="slide" tabindex="-1">
+            <div class="cell-6 offset-1 cell-mt-9 cell-m-19">
+              <div class="product-box js-product-box l-ratio--5-7 l-ratio-m--3-4" data-request="">
+                <a href="{{ product.url }}" class="js-product-link">
+                  <div class="product-box-image-wrapper">
+                    <div class="loader-wrapper l-overlay js-product-loader">
+                      <svg class="loader-icon">
+                        <circle class="loader-circle" cx="50" cy="50" r="10" fill="none" strokemiterlimit="10"></circle>
+                      </svg>
+                    </div>
+                    {% capture imgurl %}{{ product.images[0] | img_url: '800x800',crop: 'top' }}{% endcapture %}
+                    <picture class="product-box-image js-product-image-load">
+<!--                       <source media="(max-width: 800px)" srcset=""> -->
+                      <source media="(min-width: 801px)" data-srcset="{{ imgurl }}">
+                      <img class="product-box-image js-product-image-load lazyload" data-src="{{ imgurl }}" alt="{{ product.title }}" width="100%" height="auto">
+                    </picture>
+                    <img data-src="{{ product.images[1] | img_url: '800x800',crop: 'top' }}" alt="{{ product.title }}" class="product-box-image product-box-image-hover js-product-image-hover" width="100%" height="auto">
+                  </div>
+                </a>
+                <!--<div class="js-flags">
+                  <div class="item-flag fs--xsmall l-hmargin--small l-vmargin--xsmall" style="color: white;background-color: #0d564d;">30% off</div>
+                </div>-->
+                <div class="product-box-infos">
+                  <div class="fs--small">
+                    <a href="{{ product.url }}" class="product-box-link js-product-link">{{ product.title }}</a>
+                  </div>
+                  <div class="product-box-price-wrapper">
+                    <div data-uprice="80.0" data-currency-code="GBP" class="ff-bold fs--small">
+                      <div class="nowrap strikethrough fs--xsmall text-grey-light">{{ product.compare_at_price | money }}</div>
+                      <div class="nowrap" style="color: #0d564d"><span class="money" data-product-id="{{ product.id }}">{{ product.price | money }}</span></div>
+                    </div>
+                  </div>
+                  <span style="display:none"></span>
+                  <div class="flex flex--align-center fs--medium">
+                    <span>{% include 'color-counter' with product:product %}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+<!--         <div class="js-slideshow-navigation slideshow-navigation bullet text-center swiper-pagination-clickable swiper-pagination-bullets">
+          <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+          <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span>
+          <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span>
+          <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span>
+          <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span>
+          <span class="swiper-pagination-bullet is-active" tabindex="0" role="button" aria-label="Go to slide 6"></span>
+          <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7"></span>
+        </div> -->
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    </section>
+  </article>
+</div>
+
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collection"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

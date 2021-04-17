@@ -1,0 +1,790 @@
+<div id="filter-popin" class="popin-wrapper js-popin-wrapper cell-25 popin--inside popin--panel popin-m--fill is-active is-hidden" data-popin="e4dd62f6-bd30-4e95-9df6-595965515507">
+   <span class="js-ada-loop-start" tabindex="0"></span>
+   <div class="popin" role="dialog">
+      <div class="js-popin-loader croco-loader l-overlay flex flex--centered is-hidden">
+         <svg role="presentation" class="icon-svg js-main-loader-icon icon-croco-loader">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#croco-loader"></use>
+         </svg>
+         <div class="js-loader-error loader-error is-hidden"></div>
+      </div>
+     <div class="js-popin-content popin-content" role="document">
+       <div id="popin-filters" class="popin-filters js-popin-filters l-fill flex flex--col">
+         <div class="popin-filters-loader js-popin-filters-loader croco-loader l-overlay flex flex--centered is-hidden">
+           <svg role="presentation" class="icon-svg js-main-loader-icon icon-croco-loader">
+             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#croco-loader"></use>
+           </svg>
+           <div class="js-loader-error loader-error is-hidden"></div>
+         </div>
+         <div class="text-center l-vspaced-row-1 l-vmargin--xsmall">
+           <h2 class="fs--medium ff-bold">
+             Sort and filter
+           </h2>
+         </div>
+         <div class="d-filter">
+           <div class="l-overflow-auto l-overflow-auto l-relative flex flex--col l-fill-height">
+<!--          <div class="l-vmargin--xxlarge offset-2 cell-9 fs--medium"> -->
+<!--            <div class="fs--medium ff-bold text-grey l-vmargin--large padding-m-2">Sort by</div> -->
+           <div id="bc-sf-filter-top-sorting"></div>
+<!--          </div> -->
+             <div id="bc-sf-filter-tree-mobile"></div>
+             <div id="bc-sf-filter-tree" class="l-vmargin--xxlarge offset-2 cell-9 fs--medium"></div>
+           </div>
+         </div>
+       {%comment%}
+         <div class="l-overflow-auto l-relative flex flex--col l-fill-height">
+           <div class="js-plp-sorting fs--medium offset-2 cell-9 offset-mt-3 cell-mt-19 offset-m-0 cell-m-25 l-vmargin--xxlarge">
+             <!---->
+             <div class="fs--medium ff-bold text-grey l-vmargin--large padding-m-2">
+               <!---->Sort by<!---->
+             </div>
+             <ul>
+               <!---->
+               <li class="l-vmargin--small padding-m-2">
+                 <input type="radio" name="sortItem" class="radio-custom" id="default" value="/on/demandware.store/Sites-GB-Site/en/SearchController-GetFilters?cgid=Lacoste_Hidden_FestivalOfChic&amp;sortBy=default">
+                 <label class="flex flex--space-between radio-label" for="default">
+                   <!---->Our selection<!---->
+                 </label>
+               </li>
+               <!----><!---->
+               <li class="l-vmargin--small padding-m-2">
+                 <input type="radio" name="sortItem" class="radio-custom" id="price-low-to-high" value="/on/demandware.store/Sites-GB-Site/en/SearchController-GetFilters?cgid=Lacoste_Hidden_FestivalOfChic&amp;sortBy=price-low-to-high">
+                 <label class="flex flex--space-between radio-label" for="price-low-to-high">
+                   <!---->Price - Low<!---->
+                 </label>
+               </li>
+               <!----><!---->
+               <li class="l-vmargin--small padding-m-2">
+                 <input type="radio" name="sortItem" class="radio-custom" id="price-high-to-low" value="/on/demandware.store/Sites-GB-Site/en/SearchController-GetFilters?cgid=Lacoste_Hidden_FestivalOfChic&amp;sortBy=price-high-to-low">
+                 <label class="flex flex--space-between radio-label" for="price-high-to-low">
+                   <!---->Price - High<!---->
+                 </label>
+               </li>
+               <!----><!---->
+               <li class="l-vmargin--small padding-m-2">
+                 <input type="radio" name="sortItem" class="radio-custom" id="best-sellers descending" value="/on/demandware.store/Sites-GB-Site/en/SearchController-GetFilters?cgid=Lacoste_Hidden_FestivalOfChic&amp;sortBy=best-sellers%20descending">
+                 <label class="flex flex--space-between radio-label" for="best-sellers descending">
+                   <!---->Best sellers<!---->
+                 </label>
+               </li>
+               <!---->
+             </ul>
+             <!---->
+           </div>
+           <div class="js-plp-filters-form js-accordion-wrapper fs--medium offset-2 cell-9 offset-mt-3 cell-mt-19 offset-m-0 cell-m-25 " data-accordion="fb0b09d9-8150-4d92-b41c-8bd09cc59a62">
+             <!----><!---->
+             <div class="l-vmargin--xxlarge">
+               <div class="fs--medium ff-bold text-grey padding-m-2">
+                 <!---->Colour <!---->
+               </div>
+               <div class="js-custom-scrollbar-wrapper custom-scrollbar-wrapper--horizontal is-begin is-disable" data-scrollbar="bbe16da9-d538-4ee5-babc-39f3a4e8ecdb">
+                 <ul class="js-custom-scrollbar-content l-m-overflow-x l-relative padding-m-2">
+                   <!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="BLACK" id="plp-filter-searchcolorid-black">
+                     <label for="plp-filter-searchcolorid-black" class="label-focusable swatch-wrapper text-white" aria-label="Colour BLACK">
+                       <span class="swatch" style="background-color:#000000;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="GREY" id="plp-filter-searchcolorid-grey">
+                     <label for="plp-filter-searchcolorid-grey" class="label-focusable swatch-wrapper text-white" aria-label="Colour GREY">
+                       <span class="swatch" style="background-color:#606060;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="WHITE" id="plp-filter-searchcolorid-white">
+                     <label for="plp-filter-searchcolorid-white" class="label-focusable swatch-wrapper text-black" aria-label="Colour WHITE">
+                       <span class="swatch" style="background-color:#ffffff;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="BROWN" id="plp-filter-searchcolorid-brown">
+                     <label for="plp-filter-searchcolorid-brown" class="label-focusable swatch-wrapper text-white" aria-label="Colour BROWN">
+                       <span class="swatch" style="background-color:#582900;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="GREEN" id="plp-filter-searchcolorid-green">
+                     <label for="plp-filter-searchcolorid-green" class="label-focusable swatch-wrapper text-white" aria-label="Colour GREEN">
+                       <span class="swatch" style="background-color:#096a09;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="BLUE" id="plp-filter-searchcolorid-blue">
+                     <label for="plp-filter-searchcolorid-blue" class="label-focusable swatch-wrapper text-white" aria-label="Colour BLUE">
+                       <span class="swatch" style="background-color:#0000ff;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="RED" id="plp-filter-searchcolorid-red">
+                     <label for="plp-filter-searchcolorid-red" class="label-focusable swatch-wrapper text-white" aria-label="Colour RED">
+                       <span class="swatch" style="background-color:#ff0000;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="PINK" id="plp-filter-searchcolorid-pink">
+                     <label for="plp-filter-searchcolorid-pink" class="label-focusable swatch-wrapper text-white" aria-label="Colour PINK">
+                       <span class="swatch" style="background-color:#fd6c9e;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="YELLOW" id="plp-filter-searchcolorid-yellow">
+                     <label for="plp-filter-searchcolorid-yellow" class="label-focusable swatch-wrapper text-white" aria-label="Colour YELLOW">
+                       <span class="swatch" style="background-color:#ffff00;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-relative l-inline-block l-hmargin--small l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="searchColorID" value="ORANGE" id="plp-filter-searchcolorid-orange">
+                     <label for="plp-filter-searchcolorid-orange" class="label-focusable swatch-wrapper text-white" aria-label="Colour ORANGE">
+                       <span class="swatch" style="background-color:#faa401;">&nbsp;</span>
+                       <svg role="presentation" class="icon-svg l-center" aria-hidden="true">
+                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-check"></use>
+                       </svg>
+                     </label>
+                   </li>
+                   <!---->
+                 </ul>
+                 <div class="custom-scrollbar">
+                   <div class="js-custom-scrollbar custom-scrollbar-thumb"></div>
+                 </div>
+               </div>
+             </div>
+             <!----><!---->
+             <div class="l-vmargin--large">
+               <div class="fs--medium ff-bold text-grey padding-m-2">
+                 <!---->Size <!---->
+               </div>
+               <div class="js-custom-scrollbar-wrapper custom-scrollbar-wrapper--horizontal is-begin is-disable" data-scrollbar="d0d0fca9-0445-41d1-b68b-5363e11ca374">
+                 <ul class="js-custom-scrollbar-content l-m-overflow-x l-relative padding-m-2">
+                   <!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="4XL / 10" id="plp-filter-size-4xl/ 10">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-4xl/ 10">
+                       4XL / 10
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="32" id="plp-filter-size-32">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-32">
+                       32
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="34" id="plp-filter-size-34">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-34">
+                       34
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="36" id="plp-filter-size-36">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-36">
+                       36
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="38" id="plp-filter-size-38">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-38">
+                       38
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="39" id="plp-filter-size-39">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-39">
+                       39
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="40" id="plp-filter-size-40">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-40">
+                       40
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="41" id="plp-filter-size-41">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-41">
+                       41
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="42" id="plp-filter-size-42">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-42">
+                       42
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="43" id="plp-filter-size-43">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-43">
+                       43
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="44" id="plp-filter-size-44">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-44">
+                       44
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="45" id="plp-filter-size-45">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-45">
+                       45
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="46" id="plp-filter-size-46">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-46">
+                       46
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="48" id="plp-filter-size-48">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-48">
+                       48
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="50" id="plp-filter-size-50">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-50">
+                       50
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="52" id="plp-filter-size-52">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-52">
+                       52
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="XS" id="plp-filter-size-xs">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-xs">
+                       XS
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="S" id="plp-filter-size-s">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-s">
+                       S
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="M" id="plp-filter-size-m">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-m">
+                       M
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="L" id="plp-filter-size-l">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-l">
+                       L
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="XL" id="plp-filter-size-xl">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-xl">
+                       XL
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="XS / 2" id="plp-filter-size-xs/ 2">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-xs/ 2">
+                       XS / 2
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="S / 3" id="plp-filter-size-s/ 3">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-s/ 3">
+                       S / 3
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="M / 4" id="plp-filter-size-m/ 4">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-m/ 4">
+                       M / 4
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="M-L / 5" id="plp-filter-size-m-l/ 5">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-m-l/ 5">
+                       M-L / 5
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="L / 6" id="plp-filter-size-l/ 6">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-l/ 6">
+                       L / 6
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="XL / 7" id="plp-filter-size-xl/ 7">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-xl/ 7">
+                       XL / 7
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="XXL / 8" id="plp-filter-size-xxl/ 8">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-xxl/ 8">
+                       XXL / 8
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="3XL / 9" id="plp-filter-size-3xl/ 9">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-3xl/ 9">
+                       3XL / 9
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="One size" id="plp-filter-size-onesize">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-onesize">
+                       One size
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="54" id="plp-filter-size-54">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-54">
+                       54
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="56" id="plp-filter-size-56">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-56">
+                       56
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="58" id="plp-filter-size-58">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-58">
+                       58
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="60" id="plp-filter-size-60">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-60">
+                       60
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="62" id="plp-filter-size-62">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-62">
+                       62
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="10.5 UK" id="plp-filter-size-10.5uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-10.5uk">
+                       10.5 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="11.5 UK" id="plp-filter-size-11.5uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-11.5uk">
+                       11.5 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="11 - 6XL" id="plp-filter-size-11- 6xl">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-11- 6xl">
+                       11 - 6XL
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="11 UK" id="plp-filter-size-11uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-11uk">
+                       11 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="12 UK" id="plp-filter-size-12uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-12uk">
+                       12 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="14½" id="plp-filter-size-14½">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-14½">
+                       14½
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="3.5 UK" id="plp-filter-size-3.5uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-3.5uk">
+                       3.5 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="5.5 UK" id="plp-filter-size-5.5uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-5.5uk">
+                       5.5 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="6.5 UK" id="plp-filter-size-6.5uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-6.5uk">
+                       6.5 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="7.5 UK" id="plp-filter-size-7.5uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-7.5uk">
+                       7.5 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="9.5 UK" id="plp-filter-size-9.5uk">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-9.5uk">
+                       9.5 UK
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="L/XL" id="plp-filter-size-l/xl">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-l/xl">
+                       L/XL
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="S/M" id="plp-filter-size-s/m">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-s/m">
+                       S/M
+                     </label>
+                   </li>
+                   <!----><!---->
+                   <li class="l-inline-block l-hmargin--large l-vmargin--medium">
+                     <input type="checkbox" class="checkbox-custom" name="size" value="Unique size" id="plp-filter-size-uniquesize">
+                     <label class="label-focusable btn-cta" for="plp-filter-size-uniquesize">
+                       Unique size
+                     </label>
+                   </li>
+                   <!---->
+                 </ul>
+                 <div class="custom-scrollbar">
+                   <div class="js-custom-scrollbar custom-scrollbar-thumb"></div>
+                 </div>
+               </div>
+             </div>
+             <!----><!---->
+             <div class="js-accordion accordion padding-m-2">
+               <button class="js-accordion-handle accordion-handle accordion-handle--large accordion-handle--no-border fs--medium ff-bold text-grey" aria-expanded="false" id="ada-filter-plp-filter-universeid-heading" data-controls="ada-filter-plp-filter-universeid" aria-controls="ada-filter-plp-filter-universeid">
+                 Collection 
+                 <svg role="presentation" class="icon-svg" aria-hidden="true">
+                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-chevron-down"></use>
+                 </svg>
+               </button>
+               <div class="js-accordion-target accordion-target" aria-hidden="true" id="ada-filter-universeID" data-labelledby="ada-filter-plp-filter-universeid-heading" aria-labelledby="ada-filter-plp-filter-universeid-heading" style="max-height: 0px;" hidden="true">
+                 <div class="js-accordion-child l-vmargin--xlarge">
+                   <ul>
+                     <!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="universeID" value="Lacoste" id="plp-filter-universeid-lacoste">
+                       <label for="plp-filter-universeid-lacoste" class="checkbox-label flex flex--space-between ">
+                         Lacoste
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="universeID" value="Lacoste Sport" id="plp-filter-universeid-lacostesport">
+                       <label for="plp-filter-universeid-lacostesport" class="checkbox-label flex flex--space-between ">
+                         Lacoste Sport
+                       </label>
+                     </li>
+                     <!---->
+                   </ul>
+                 </div>
+               </div>
+             </div>
+             <!----><!---->
+             <div class="js-accordion accordion padding-m-2">
+               <button class="js-accordion-handle accordion-handle accordion-handle--large accordion-handle--no-border fs--medium ff-bold text-grey" aria-expanded="false" id="ada-filter-plp-filter-familyid-heading" data-controls="ada-filter-plp-filter-familyid" aria-controls="ada-filter-plp-filter-familyid">
+                 Product type 
+                 <svg role="presentation" class="icon-svg" aria-hidden="true">
+                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-chevron-down"></use>
+                 </svg>
+               </button>
+               <div class="js-accordion-target accordion-target" aria-hidden="true" id="ada-filter-familyID" data-labelledby="ada-filter-plp-filter-familyid-heading" aria-labelledby="ada-filter-plp-filter-familyid-heading" style="max-height: 0px;" hidden="true">
+                 <div class="js-accordion-child l-vmargin--xlarge">
+                   <ul>
+                     <!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Polos" id="plp-filter-familyid-polos">
+                       <label for="plp-filter-familyid-polos" class="checkbox-label flex flex--space-between ">
+                         Polos
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Pullovers" id="plp-filter-familyid-pullovers">
+                       <label for="plp-filter-familyid-pullovers" class="checkbox-label flex flex--space-between ">
+                         Pullovers
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Shirts" id="plp-filter-familyid-shirts">
+                       <label for="plp-filter-familyid-shirts" class="checkbox-label flex flex--space-between ">
+                         Shirts
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Bags" id="plp-filter-familyid-bags">
+                       <label for="plp-filter-familyid-bags" class="checkbox-label flex flex--space-between ">
+                         Bags
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Coats" id="plp-filter-familyid-coats">
+                       <label for="plp-filter-familyid-coats" class="checkbox-label flex flex--space-between ">
+                         Coats
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Trousers" id="plp-filter-familyid-trousers">
+                       <label for="plp-filter-familyid-trousers" class="checkbox-label flex flex--space-between ">
+                         Trousers
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="T-Shirts" id="plp-filter-familyid-t-shirts">
+                       <label for="plp-filter-familyid-t-shirts" class="checkbox-label flex flex--space-between ">
+                         T-Shirts
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Watches" id="plp-filter-familyid-watches">
+                       <label for="plp-filter-familyid-watches" class="checkbox-label flex flex--space-between ">
+                         Watches
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Jackets" id="plp-filter-familyid-jackets">
+                       <label for="plp-filter-familyid-jackets" class="checkbox-label flex flex--space-between ">
+                         Jackets
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Leather goods" id="plp-filter-familyid-leathergoods">
+                       <label for="plp-filter-familyid-leathergoods" class="checkbox-label flex flex--space-between ">
+                         Leather goods
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Sweatshirts" id="plp-filter-familyid-sweatshirts">
+                       <label for="plp-filter-familyid-sweatshirts" class="checkbox-label flex flex--space-between ">
+                         Sweatshirts
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Caps" id="plp-filter-familyid-caps">
+                       <label for="plp-filter-familyid-caps" class="checkbox-label flex flex--space-between ">
+                         Caps
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Gloves" id="plp-filter-familyid-gloves">
+                       <label for="plp-filter-familyid-gloves" class="checkbox-label flex flex--space-between ">
+                         Gloves
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Scarves" id="plp-filter-familyid-scarves">
+                       <label for="plp-filter-familyid-scarves" class="checkbox-label flex flex--space-between ">
+                         Scarves
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Beanies" id="plp-filter-familyid-beanies">
+                       <label for="plp-filter-familyid-beanies" class="checkbox-label flex flex--space-between ">
+                         Beanies
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Dresses" id="plp-filter-familyid-dresses">
+                       <label for="plp-filter-familyid-dresses" class="checkbox-label flex flex--space-between ">
+                         Dresses
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Fragrance" id="plp-filter-familyid-fragrance">
+                       <label for="plp-filter-familyid-fragrance" class="checkbox-label flex flex--space-between ">
+                         Fragrance
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Shoes" id="plp-filter-familyid-shoes">
+                       <label for="plp-filter-familyid-shoes" class="checkbox-label flex flex--space-between ">
+                         Shoes
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Skirts" id="plp-filter-familyid-skirts">
+                       <label for="plp-filter-familyid-skirts" class="checkbox-label flex flex--space-between ">
+                         Skirts
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="familyID" value="Tracksuits" id="plp-filter-familyid-tracksuits">
+                       <label for="plp-filter-familyid-tracksuits" class="checkbox-label flex flex--space-between ">
+                         Tracksuits
+                       </label>
+                     </li>
+                     <!---->
+                   </ul>
+                 </div>
+               </div>
+             </div>
+             <!----><!---->
+             <div class="js-accordion accordion padding-m-2">
+               <button class="js-accordion-handle accordion-handle accordion-handle--large accordion-handle--no-border fs--medium ff-bold text-grey" aria-expanded="false" id="ada-filter-plp-filter-genderid-heading" data-controls="ada-filter-plp-filter-genderid" aria-controls="ada-filter-plp-filter-genderid">
+                 Gender 
+                 <svg role="presentation" class="icon-svg" aria-hidden="true">
+                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=".svg#icon-chevron-down"></use>
+                 </svg>
+               </button>
+               <div class="js-accordion-target accordion-target" aria-hidden="true" id="ada-filter-genderID" data-labelledby="ada-filter-plp-filter-genderid-heading" aria-labelledby="ada-filter-plp-filter-genderid-heading" style="max-height: 0px;" hidden="true">
+                 <div class="js-accordion-child l-vmargin--xlarge">
+                   <ul>
+                     <!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="genderID" value="Men" id="plp-filter-genderid-men">
+                       <label for="plp-filter-genderid-men" class="checkbox-label flex flex--space-between ">
+                         Men
+                       </label>
+                     </li>
+                     <!----><!---->
+                     <li class="l-vmargin--large">
+                       <input type="checkbox" class="checkbox-custom" name="genderID" value="Women" id="plp-filter-genderid-women">
+                       <label for="plp-filter-genderid-women" class="checkbox-label flex flex--space-between ">
+                         Women
+                       </label>
+                     </li>
+                     <!---->
+                   </ul>
+                 </div>
+               </div>
+             </div>
+             <!----><!---->
+           </div>
+         </div>
+       {%endcomment%}
+         <div class="bg-grey l-padding--small">
+           <div class="btn-container text-center fs--medium flex flex--space-between flex--align-center offset-2 cell-9 offset-mt-3 cell-mt-19 offset-m-2 cell-m-21 ">
+             <a href="javascript:;" class="js-plp-filters-reset reverse-link" class="bc-sf-filter-clear" onclick="clearAllFilterOptions(event)">
+               Clear all
+             </a>
+             <button class="btn-cta js-popin-close js-popin-btn js-plp-filters-submit text-white fs--medium ff-normal" id="filter-count">
+               {% for product in collection.products %}
+<script type='application/json' class='bold-product-json'>{{ product | json }}</script>
+               {% assign item_count = forloop.index %}           
+               {% endfor %}
+               
+               See {{ item_count }} products
+             </button>
+           </div>
+         </div>
+       </div>
+     </div>
+      <button class="l-popin-close js-popin-close">
+         <svg role="presentation" class="icon-svg icon-close" aria-hidden="true">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+         </svg>
+         <span class="visually-hidden">Close</span>
+      </button>
+   </div>
+   <span class="js-ada-loop-stop" tabindex="0"></span>
+</div>

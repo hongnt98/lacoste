@@ -1,0 +1,29 @@
+{% assign found_option = false %}
+{% assign option_index = 0 %}
+
+{% for option in product.options %}
+  {% if option == swatch %}
+    {% assign found_option = true %}
+    {% assign option_index = forloop.index0 %}
+    {% assign downcased_option = swatch | downcase %}
+  {% endif %}
+{% endfor %}
+
+{% case downcased_option %}
+{% when 'size' %}
+    {% for variant in product.variants %}
+      {% assign value = variant.options[option_index] %}
+      {% unless values contains value %}
+        {% assign values = values | join: ',' %}
+        {% assign values = values | append: ',' | append: value %} 
+        {% assign values = values | split: ',' %}
+        {% assign product_qty = 0 %}
+        {% for variant in product.variants %}
+          {% if variant.inventory_quantity > 0 %}
+              {% assign product_qty = product_qty | plus: variant.inventory_quantity %}
+          {% endif %}
+        {% endfor %}
+		<button class="btn-cta js-pdp-size-btn l-hmargin--small btn-size" data-size="{{ value }}"  title="{{ value }}" data-size-id="2" data-no-redirect="true">{{ value }}</button>
+      {% endunless %}
+    {% endfor %}
+{% endcase %}

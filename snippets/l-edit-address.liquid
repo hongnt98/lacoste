@@ -1,0 +1,144 @@
+<div class="editContainer unique-edit-address">
+  <div class="successCall form-wrapper">
+    <section class="form">
+      {% form 'customer_address', address %}
+      <!--                     <form id="editMyAddress" action="https://www.lacoste.com/on/demandware.store/Sites-GB-Site/en/AddressV2-Save" data-target="addressBox" method="POST" novalidate="novalidate"> -->
+      <input type="hidden" name="address-id" value="" maxlength="40">
+      <!--                       <div class="form-item form-item-half">
+<label for="address-name">Name of the Address<abbr title="this field is required">*</abbr> : </label>
+<input type="text" name="address-name" id="address-name" data-error-required="Address Name is required" data-error-wrong="Address Name is not correct" data-error-maxlength="Address Name max length is 38" value="" maxlength="40" required="" aria-required="true">
+</div>
+<div class="form-item form-item-half">
+<input id="sa-title" name="sa-title" type="hidden" value="">
+</div> -->
+
+      <div class="form-item form-item-full form-item-civility">
+        <label class="label-inline">Civility</label>
+        <div class="content-inline civilityValues">
+          <label for="salutation"><span for="salutation" class="error"></span>
+            <input name="address[salutation]" id="salutation" type="radio" value="MRS" data-error-required="Civility is required" required="" aria-required="true">
+            Mrs.
+          </label>
+          <label for="salutation"><span for="salutation" class="error"></span>
+            <input name="address[salutation]" id="salutation" type="radio" value="MS" data-error-required="Civility is required" required="" aria-required="true">
+            Ms.
+          </label>
+          <label for="salutation"><span for="salutation" class="error"></span>
+            <input name="address[salutation]" id="salutation" type="radio" value="MR" data-error-required="Civility is required" required="" aria-required="true">
+            Mr.
+          </label>
+        </div>
+      </div>                   
+
+      <div class="form-item form-item-half">
+        <label for="sa-last-name">First Name <abbr title="this field is required">*</abbr> : </label>
+        <input type="text" name="address[first_name]" id="sa-last-name" data-error-required="Last name is required" data-error-wrong="Last name cannot contain such character" data-error-maxlength="Last name must be 40 long max" value="{{ form.first_name}}" maxlength="32" required="" aria-required="true">
+      </div>
+
+      <div class="form-item form-item-half">
+        <label for="sa-first-name">Last Name <abbr title="this field is required">*</abbr> : </label>
+        <input type="text" name="address[last_name]" id="sa-first-name" data-error-required="First name is required" data-error-wrong="First name cannot contain such character" data-error-maxlength="First name must be 40 long max" value="{{ form.last_name}}" maxlength="32" required="" aria-required="true">
+      </div>
+
+      <div class="form-item form-item-full">
+        <label for="sa-last-name">Street <abbr title="this field is required">*</abbr> : </label>
+        <input type="text" name="address[address1]" id="sa-last-name" data-error-required="Last name is required" data-error-wrong="Last name cannot contain such character" data-error-maxlength="Last name must be 40 long max" value="{{ form.address1 }}" maxlength="75" required="" aria-required="true">
+      </div>
+
+      <div class="form-item form-item-full">
+        <label for="sa-first-name">Province<abbr title="this field is required">*</abbr> : </label>
+        <input type="text" name="address[province]" id="sa-first-name" data-error-required="First name is required" data-error-wrong="First name cannot contain such character" data-error-maxlength="First name must be 40 long max" value="{{ form.province }}" maxlength="32" required="" aria-required="true">
+      </div>
+
+      <div class="form-item form-item-full">
+        <label for="sa-first-name">City<abbr title="this field is required">*</abbr> : </label>
+        <input type="text" name="address[city]" id="sa-first-name" data-error-required="First name is required" data-error-wrong="First name cannot contain such character" data-error-maxlength="First name must be 40 long max" value="{{ form.city }}" maxlength="32" required="" aria-required="true">
+      </div>
+
+      <div class="form-item form-item-full">
+        <label for="sa-first-name">Country<abbr title="this field is required">*</abbr> : </label>
+        <input type="text" name="address[country]" id="sa-first-name" data-error-required="First name is required" data-error-wrong="First name cannot contain such character" data-error-maxlength="First name must be 40 long max" value="{{ form.country }}" maxlength="32" required="" aria-required="true">
+      </div>                            
+
+      <input type="hidden" class="js-address-block-module" data-activemodule="CAZipCode" data-page="account">
+      <div class="form-item form-item-half">
+        <label for="ZipCode">Zipcode<abbr title="this field is required">*</abbr> : <span for="sa-last-name" class="error"></span></label>
+        <input type="text" class="field js-field zipcode-field" data-error-wrong="Please enter a valid zipcode" data-error-service="The locality service is unavailable" name="address[zip]" value="{{ form.zip }}">
+      </div>
+
+      <!--                       <div class="form-item form-item-half zipcode-module">
+<button class="btn btn-new js-zipcode-module l-field-spaced">
+Search
+</button>
+</div> -->
+
+      <!--                       <div class="shipment-zipcode-module-addresses-wrapper js-shipment-zipcode-module-addresses">
+<div class="js-zipcode-module-addresses-result" data-zipcode-empty="Please enter a zipcode"></div>
+<div class="my-account-zipcode-module-selected-address-wrapper js-shipment-zipcode-module-selected-address">
+<div class="forms flex flex--col">
+<div class="form-item form-item-full">
+<label for="sa-number-and-street">NUMBER AND STREET <abbr title="this field is required">*</abbr> : <span for="sa-number-and-street" class="error"></span></label>
+<input type="text" name="sa-number-and-street" id="sa-number-and-street" data-error-required="Address is required" data-error-maxlength="Address max length is 38" value="" maxlength="38" required="" aria-required="true">
+</div>
+<div class="form-item form-item-full">
+<label for="sa-complementary-information">ADDITIONAL INFORMATION : <span for="sa-complementary-information" class="error"></span></label>
+<input type="text" name="sa-complementary-information" id="sa-complementary-information" data-error-maxlength="Address max length is 38" value="" maxlength="38">
+</div>
+<div class="form-item form-item-half" style="position : relative;">
+<label for="sa-zip-code">POSTCODE <abbr title="this field is required">*</abbr> : <span for="sa-zip-code" class="error"></span></label>
+<input autocomplete="nope" type="text" name="zip-code" class="js-uppercase-field" id="sa-zip-code" data-error-required="ZipCode is required" data-error-blocked="We apologize but we do not ship to {0} at this time. Please enter a UK address." data-error-wrong="ZipCode is not correct" value="" required="" aria-required="true">
+<div class="address-module"></div>
+</div>
+<div class="form-item form-item-half">
+<label for="sa-town">CITY <abbr title="this field is required">*</abbr> : <span for="sa-town" class="error"></span></label>
+<input autocomplete="nope" type="text" name="town" id="sa-town" data-error-required="Town is required" data-error-maxlength="Town max length is 38" value="" maxlength="32" required="" aria-required="true">
+<div class="address-module"></div>
+</div>
+<input id="sa-state" name="sa-country" type="hidden" value="GB">
+<input id="sa-state" name="sa-state" type="hidden" value="">
+<div class="form-item form-item-full">
+<label for="country">Country</label>
+<input type="text" class="field js-field" name="country" id="country" value="Great Britain" disabled="disabled" required="" aria-required="true">
+</div>
+</div>
+</div>
+</div> -->
+
+
+      <!--                       <div class="my-account-block-action-wrapper">
+<span class="my-account-block-action js-address-entermanually">
+Enter address manually
+</span>
+</div> -->
+
+      <div class="form-item form-item-full">
+        <label for="sa-phone">Phone : <span for="sa-phone" class="error"></span></label>
+        <input type="tel" name="address[phone]" id="sa-phone" value="{{ form.phone }}" maxlength="20" data-error-wrong="Phone number is not correct">
+      </div>
+
+      <!--                       <input type="hidden" name="needCallValidationAddress" class="suggest-address-active" value="false">
+<div class="form-item form-item-full">
+<label for="sa-default" class="check-inline-outside">
+<input type="checkbox" name="sa-default" id="sa-default">
+Make this address default
+</label>
+</div> -->
+
+      {{ form.set_as_default_checkbox }} Set as Default
+
+      <div class="form-item-add-new"></div>
+      <div class="actions">
+        <input class="btn saveLink" type="submit" data-form-validator="validateAddressForm" value="save">
+        <!--                           save -->
+        <!--                         </button> -->
+        <button class="btn cancelLink text-link address-new-toggle">
+          cancel
+        </button>
+      </div>
+      <!--                     </form> -->
+      {% endform %}
+    </section>
+    <a href="" class="cancelLink"></a>
+  </div>
+</div>        
+

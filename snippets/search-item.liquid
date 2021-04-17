@@ -1,0 +1,10 @@
+{ 
+      "title"    : {{ product.title | json }},
+      "url"      : {{ product.url | within: product.collections.last | json }},
+      "thumbnail": {{ product.featured_image.src | product_img_url: '800x800',crop:'center' | json }},
+      {% if product.images[1] %}"alt_thumb": {{ product.images[1].src | product_img_url: '800x800',crop:'center' | json }},{%endif%}
+      "availability": {{ product.available | json }},
+	  "price": {{ product.first_available_variant.price | money_without_currency | json }},
+	  "colors": {{ product.options_with_values[0].values | size | json }},
+	  "tags": {{ product.tags | json }}
+}

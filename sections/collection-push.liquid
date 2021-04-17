@@ -1,0 +1,156 @@
+{% for block in section.blocks %}
+    {% if block.settings.collection == handle %}
+        <input class="banner-data" type="hidden" data-link="{{ block.settings.banner_link }}" src-desktop="{{ block.settings.banner_image_desk | img_url: 'master' }}" src-mobile="{{ block.settings.banner_image_mobile | img_url: 'master' }}" data-count="{{ block.settings.banner_insert_count }}">
+    {%endif%}
+{% endfor %}
+<div class="container-category page-section " data-products-count="886">
+    <section class="l-vspaced-row-half">
+        <div class="l-relative">
+            <div class="l-relative flex flex--centered text-center title--large ff-bold">
+                <h1 class="upper-case">{{ collection.title }}</h1>
+                <span class="parenthesis js-products-number"></span>
+            </div>
+            <div class="col-title-desc">{{ collection.description }}</div>
+        </div>
+    </section>
+    <input type="hidden" class="categoryId" value="Lacoste_Sale_GB_Men" />
+    <div class="l-relative">
+        <form class="js-filters-form cell-23 offset-1">
+            <div id="bc-sf-filter-tree-h"></div>
+            <div id="bc-sf-filter-tree-mobile"></div>
+            <div id="bc-sf-filter-top-sorting" class="toolbar-sorter sorter"></div>
+            <div class="filters cell-23">
+                <div id="bc-sf-filter-tree" class="h"></div>
+                {% capture pageTemp %}{{ template }} {% endcapture %}
+                {% if template == 'search' %}
+                <div> <span class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</span> </div>
+                {% endif %}
+            </div>
+            <div id="default-swatch" style="display: none;">{{ 'swatch-red.png' | file_img_url: '25x' }}</div>
+            <div class="fs--medium cell-23 offset-1 l-vmargin--medium">
+            </div>
+        </form>
+    </div>
+    <div class="js-products-list" data-nbproduct="885">
+        <ol id="bc-sf-filter-products" class="bold grid">
+      		{%comment%}
+                Product list
+            {%endcomment%}
+      	</ol>
+    </div>
+    <div id="bc-sf-filter-bottom-pagination"></div>
+</div>
+
+{% if customer.tags contains 'Le Club' %}          
+	{% assign customTag = true %}
+{% else %}
+	{% assign customTag = false %}
+{% endif %}
+
+<script>
+  // Declare bcSfFilterConfig variable
+  var bcSfFilterConfig = {};
+  bcSfFilterConfig.label = {
+      refine: "Now Shopping By",
+      refine_mobile: "Filter",
+      clear: "Clear",
+      clear_all: "View All",
+      apply: "Apply",
+      breadcrumb_home: {% if product_filter_search.breadcrumb_home != blank %} {{ 'product_filter_search.breadcrumb_home' }}" {% else %} "Home" {% endif %},
+      load_more: "Load more Products",
+      sale: "On Sale",
+      sold_out: "Sold Out",
+      show_limit: "Show",
+      sorting: "Sort By",
+      sorting_best_selling: "Best Selling",
+      sorting_featured: "Featured",
+      sorting_title_ascending: "Product Name, A-Z",
+      sorting_title_descending: "Product Name, Z-A",
+      sorting_price_ascending: "Price - Low to High",
+      sorting_price_descending: "Price - High to Low",
+      sorting_date_ascending: "Newest",
+      sorting_date_descending: "Date, New to Old",
+      sorting_sale_descending: "% Off",
+      sorting_relevance: "Relevance",
+      search_general_title: 'Search',
+      search_result_header: {% raw %}'Search Results for "{{ terms }}"'{% endraw %},
+      search_result_empty: {% raw %}'Your search for "{{ terms }}"" didn\'t match any results'{% endraw %},
+      search_result_number: {% raw %}'Showing {{ count }} results for "{{ terms }}"'{% endraw %}
+  };
+  
+  bcSfFilterConfig.boldPrice = {
+    cusTag: {{ customTag }}
+  }
+</script>
+
+{% include 'l-breadcrumbs' %}
+
+<style>
+  .bc-sf-filter-clear,
+  .bc-sf-filter-clear-all {
+    display:none !important;
+  }
+  #bc-sf-filter-products #bc-sf-filter-message {
+    margin: 0px auto;
+  }
+  #bc-sf-filter-tree .bc-sf-filter-selection-wrapper .bc-sf-filter-selected-items {
+    display: flex;
+  }
+  #bc-sf-filter-tree .bc-sf-filter-selection-wrapper .bc-sf-filter-selected-items .selected-item {
+    margin-right: 10px;
+  }
+  #bc-sf-filter-tree.h {
+    width: 100%;
+  }
+  .js-filters-form .filters {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  #bc-sf-filter-top-sorting {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+</style>
+
+{% schema %}
+{
+    "name": "PLP Push",
+    "class": "plp__push",
+    "blocks": [
+        {
+            "type": "collection",
+            "name": "Collection Grid Banner" ,
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_image_desk",
+                    "label": "Grid Banner Desktop"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "banner_image_mobile",
+                    "label": "Grid Banner Mobile"
+                },
+                {
+                    "type": "text",
+                    "id": "banner_insert_count",
+                    "label": "Insert banner after product count"
+                },
+                {
+                "type": "url",
+                "id": "banner_link",
+                "label": "Link"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,300 @@
+
+<div class="js-mcontent-strate mcontent-strate mcontent-slideshow l-relative l-vmargin-row-and-half">
+    <div class="l-relative cell-25">
+        <div class="js-slideshow-wrapper cell-mt-10 cell-m-20 swiper-container-horizontal" dir="ltr">
+
+            {% if section.blocks.size != 1 %}
+                <ul class="js-slideshow-controls slideshow-controls flex controls-top text-black">
+                    <li>
+                        <button class="js-slideshow-control-left slideshow-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true">
+                        <svg role="presentation" class="icon-svg ">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-left"></use>
+                        </svg>
+                        </button>
+                    </li>
+                    <li class="fs--xlarge ff-bold">
+                        <div class="js-slideshow-indicator slideshow-indicator">1 / 5</div>
+                    </li>
+                    <li>
+                        <button class="js-slideshow-control-right slideshow-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+                        <svg role="presentation" class="icon-svg ">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use>
+                        </svg>
+                        </button>
+                    </li>
+                </ul>
+            {% endif %}
+
+            <div class="lacoste-slider">
+                {% for block in section.blocks %}
+                    <div class="lacoste-inside__wrapper fader-slide {% if forloop.index == 1 %}is-initial{% endif %}" style="background-color: {{ block.settings.background_color }};"
+                    data-id="{{ block.settings.data_id }}"
+                    data-tracking="{{ block.settings.tracking_id | escape }}">
+                        <div class="slide ">
+                            <div class="lacoste-inside__logo offset-1 title--xlarge offset-m-0 l-padding--small padding-m-2 flex flex--align-center flex-m--space-between {% if block.settings.content_color == 'white' %} text-white {% else %} text-black {% endif %}">
+                                <h2 class="l-hmargin--large">{{ block.settings.heading }}</h2>
+                                {% if block.settings.enable_crocodile_logo %}
+                                    {% include 'icon-crocodile' %}
+                                {% endif %}
+                            </div>
+
+                            <div class="grid cell-25">
+                                <div class="offset-1 image-column offset-m-0 cell-m-25 l-m-vmargin--large l-relative l-vmargin-row-and-half">
+                                    {% assign desktop_image = block.settings.desktop_image %}
+                                    {% assign mobile_image = block.settings.mobile_image %}
+
+                                    {% if block.settings.media_type == 'image' %}
+                                        <div class="no-mob">
+                                            <img src="{{ block.settings.desktop_image | img_url: 'master'}}" alt="{{ block.settings.heading }}">
+                                        </div>
+
+                                        <div class="no-desk no-tab">
+                                            <img src="{{ block.settings.mobile_image | img_url: 'master'}}" alt="{{ block.settings.heading }}">
+                                        </div>
+
+                                    {% else %}
+
+                                        <div class="js-static-video-wrapper static-video-wrapper video-wrapper-desktop js-video l-overflow-hidden l-overlay is-background is-ready">
+                                            <video playsinline="true" muted="true" loop="true" autoplay="autoplay" class="js-video-toggle l-block img-cover" src="{{ block.settings.desktop_video_url }}"></video>
+                                    
+                                            <div class="js-video-controls static-video-controls text-white flex flex--space-between flex--align-center">
+                                            <!---->
+                                            <button class="static-video-btn btn-play">
+                                                <svg role="presentation" aria-hidden="true" class="icon-svg icon-play">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play-pause"></use>
+                                                </svg>
+                                                <!---->
+                                            </button>
+                                            <!---->
+                                        </div>
+                                        </div>
+                                        <div class="js-static-video-wrapper static-video-wrapper video-wrapper-mobile js-video-mobile l-overflow-hidden l-overlay is-background is-ready">
+                                            <video playsinline="true" class="js-video-toggle l-block img-cover" src="{{ block.settings.mobile_video_url }}"></video>
+                                
+                                            <div class="js-video-controls static-video-controls text-white flex flex--space-between flex--align-center">
+                                                <!---->
+                                                <button class="static-video-btn btn-play">
+                                                    <svg role="presentation" aria-hidden="true" class="icon-svg icon-play">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play-pause"></use>
+                                                    </svg>
+                                                    <!---->
+                                                </button>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        
+                                    {% endif %}
+                                </div>
+    
+                                <div class="offset-1 lacoste-inside__content text-column offset-m-0 cell-m-25 padding-m-2 l-m-vmargin--xxlarge flex flex--align-end flex-m--align-start l-vmargin-row-and-half position-relative">
+                                    <div>
+                                        <div class="l-vmargin--large">
+                                            <div style="transition-delay: 0.2s;" class="overline fader-anim {% if block.settings.body_color == 'light' %} text-grey-light {% else %} text-grey-lighter {% endif %}">{{ block.settings.subtitle | truncate: 50, "" }}</div>
+                                            <h2 style="transition-delay: 0.25s;" class="title--xlarge fader-anim {% if block.settings.content_color == 'white' %} text-white {% else %} text-black {% endif %}">{{ block.settings.title | truncate: 50, "" }}</h2>
+                                            <div style="transition-delay: 0.3s;" class="fs--medium fader-anim {% if block.settings.body_color == 'light' %} text-grey-light {% else %} text-grey-lighter {% endif %}">
+                                                <p>{{ block.settings.text | truncate: 250, "" }}</p>
+                                            </div>
+                                        </div>
+
+                                        {% if block.settings.button_link_1 %}
+                                            <a style="transition-delay: 0.35s;" class="btn-cta fader-anim {% if block.settings.button_color == 'black' %} btn--dark {% endif %} l-hmargin--large pointer-auto fs--medium ff-normal" href="{{ block.settings.button_link_1 }}">
+                                                {{ block.settings.button_label_1 | truncate: 20, "" }}
+                                            </a>
+                                        {% endif %}
+
+                                        {% if block.settings.button_link_2 %}
+                                            <a style="transition-delay: 0.35s;" class="btn-cta fader-anim {% if block.settings.button_color == 'black' %} btn--dark {% endif %} l-hmargin--large pointer-auto fs--medium ff-normal" href="{{ block.settings.button_link_2 }}">
+                                                {{ block.settings.button_label_2 | truncate: 20, "" }}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Lacoste Inside Slider",
+    "class": "lacoste-inside__slider",
+    "max_blocks": 5,
+    "blocks": [
+        {
+            "type": "slider",
+            "name": "Slider",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Heading",
+                    "default": "Lacoste Inside"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "enable_crocodile_logo",
+                    "label": "Enable Crocodile Logo",
+                    "default": true
+                },
+                {
+                    "type": "radio",
+                    "id": "content_color",
+                    "label": "Content Color",
+                    "default": "white",
+                    "options": [
+                        {
+                            "value": "white",
+                            "label": "White"
+                        },
+                        {
+                            "value": "black",
+                            "label": "Black"
+                        }
+                    ]
+                },
+                {
+                    "type": "color",
+                    "id": "background_color",
+                    "label": "Background Color",
+                    "default": "#789873"
+                },
+                {
+                    "type": "select",
+                    "id": "media_type",
+                    "label": "Media Type",
+                    "options": [
+                        {
+                            "value": "image",
+                            "label": "Image"
+                        },
+                        {
+                            "value": "video",
+                            "label": "Video"
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "desktop_image",
+                    "label": "Desktop Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "mobile_image",
+                    "label": "Mobile Image"
+                },
+                {
+                    "type": "header",
+                    "content": "Video"
+                },
+                {
+                    "type": "text",
+                    "id": "desktop_video_url",
+                    "label": "Desktop Video URL"
+                },
+                {
+                    "type": "text",
+                    "id": "mobile_video_url",
+                    "label": "Mobile Video URL"
+                },
+                {
+                    "type": "header",
+                    "content": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "subtitle",
+                    "label": "Subtitle"
+                },
+                {
+                    "type": "textarea",
+                    "id": "text",
+                    "label": "Text"
+                },
+                {
+                    "type": "radio",
+                    "id": "body_color",
+                    "label": "Body Color",
+                    "info": "Doesn't apply in Title",
+                    "options": [
+                        {
+                            "value": "light",
+                            "label": "Light"
+                        },
+                        {
+                            "value": "lighter",
+                            "label": "Lighter"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "button_label_1",
+                    "label": "Button Label"
+                },
+                {
+                    "type": "url",
+                    "id": "button_link_1",
+                    "label": "Button Link"
+                },
+                {
+                    "type": "text",
+                    "id": "button_label_2",
+                    "label": "Button Label"
+                },
+                {
+                    "type": "url",
+                    "id": "button_link_2",
+                    "label": "Button Link"
+                },
+                {
+                    "type": "radio",
+                    "id": "button_color",
+                    "label": "Button Color",
+                    "options": [
+                        {
+                            "value": "white",
+                            "label": "White"
+                        },
+                        {
+                            "value": "black",
+                            "label": "Black"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "data_id",
+                    "label": "Data ID"
+                },
+                {
+                    "type": "text",
+                    "id": "tracking_id",
+                    "label": "Tracking ID"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Homepage Content",
+            "name": "Lacoste Inside Slider"
+        }
+    ]
+}
+{% endschema %}

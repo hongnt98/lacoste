@@ -1,0 +1,262 @@
+<main role="main" class="main-container">
+  <a class="visually-hidden" id="main-content" tabindex="-1"></a>
+  <div class="fidelityLayout standard">
+    <div class="fidelityBg"></div>
+    <div class="fidelityWrapper">
+      <section class="my-account clearfix">
+        <div class="row clearfix">
+          <div class="only-mobile loyalty-mobile-header">
+            <img class="img-loyalty-logo" src="{{ 'lp-logo.png' | asset_url }}">
+          </div>
+          {% if customer %}
+          <div class="fidelityHeader">
+            <div class="header-left">
+              <h1 class="welcome">
+                Hello, {{ customer.first_name }}
+                <span class="sub-welcome">
+                  Welcome to your account
+                </span>
+              </h1>
+              <div class="statut">
+                <span class="stat-title">Your status</span>
+                <span class="stat-points">Player - Level 1</span>
+              </div>
+            </div>
+          </div>{% endif %}
+     	 {% include 'fidelity-nav' %}
+          {% if customer.orders.size != 0 %}
+			{% assign ord_count = 0 %}
+              {% for order in customer.orders %}
+          
+                    {% assign ord_count = ord_count | plus: 1 %}
+              <section class="account-my-order">
+               <div class="order-global order-account-mobil no-return">
+                  <div class="order-title">
+                     <h3>{{ order.created_at | date: "%d %b %y" }} -
+                        <span>Order</span>
+                        <span>{{ order.name }}</span>
+                        <span class="order-only-mob">
+                        <span class="order-ico"></span>
+                        </span>
+                     </h3>
+                  </div>
+                  <div class="order-container order-only-desktop">
+                     <div class="order-container-block">
+                        <div class="order-details">
+                           <div class="order-details-left">
+                              <h3 class="order-details-title">
+                                 Being Processed
+                              </h3>
+                              <p class="order-overview">
+                                 <span class="order-overview-title">Shipped To:</span>
+                                 <span class="order-overview-subtitle"></span>
+                                 <span class="order-overview-address">
+                                   {{ order.shipping_address | format_address }}
+                                 </span>
+                              </p>
+                              <p class="order-price">
+                                 {{ 'customer.order.total' | t }}:
+                                 <span>
+                                 {{ order.total_price | money }}
+                                 </span>
+                              </p>
+                           </div>
+                           <div class="order-payment-right only-order-mob">
+                              <div class="order-right-top">
+                                 <h3>paid with:</h3>
+                                 <li>
+                                    {% for trans in order.transactions %}{{ trans.gateway }}{% endfor %}
+                                 </li>
+                                 <li>
+                                 </li>
+                              </div>
+                              <div class="order-right-bottom">
+                                 <h3>Delivery Method:</h3>
+                                 <p>{% for sm in order.shipping_methods %}{{ sm.title }}{% endfor %}</p>
+                              </div>
+                           </div>
+                           <div class="inline only-order-desktop">
+                              <a href="" parent-order="{{ord_count}}" data-order-id="5f80b546a2eb8ca6eb41e1e240" class="sku-infos-title orderDetail order-link accordion-faq" data-accordion-href="5f80b546a2eb8ca6eb41e1e240" data-accordion-scrolltoclosest=".order-global" data-accordion-group="order" data-close-text="Close details" data-show-text="View order details" style="display: block;">
+                              View order details
+                              </a>
+                             <a href="" parent-order="{{ord_count}}" data-order-id="5f80b546a2eb8ca6eb41e1e240" class="sku-infos-title orderDetail order-link accordion-faq active" data-accordion-href="5f80b546a2eb8ca6eb41e1e240" data-accordion-scrolltoclosest=".order-global" data-accordion-group="order" data-close-text="Close details" data-show-text="View order details" style="display: none;">Close details</a>
+                              <a class="product-return order-link">
+                              Request a return
+                              </a>
+                           </div>
+<!--                            <div class="row clearfix help-order-return">
+                              <p>Please select the item(s) to return</p>
+                           </div> -->
+                        </div>
+                        <div class="order-products-padding">
+                           <ul class="order-products order-content-col-wrapper order-border-bottom only-one-line" data-order-no="77064833" data-email="uktest1@yopmail.com" data-zipcode="SW1A0AA" data-token="ZGE0MDYyMmUwYzE0OWY4Zjg2MWU4NTNlNDJiNTY1NmMyODFkODc1YjYyYmZiNDI0YjQ4OGM1ZTg2MWQyOWVlMg==">
+                              <li class="order-product return-allowed" data-pliuuid="150a12655bc99643cbfbed2a94" data-plipos="1">
+                                 <div class="item-col co-product product-pic">
+                                    <div class="product-image">{% for line_item in order.line_items %}
+                                       {{ line_item | img_url: 'master' | img_tag }}
+                                    </div>
+                                    <div class="product-info">
+                                       <p class="order-product-title">{{ line_item.title }}</p>
+<!--                                        <span class="item-size order-desc">
+                                       size:
+                                       Unique size
+                                       </span>
+                                       <ul class="product-colors">
+                                          <li>
+                                             <img src="https://image1.lacoste.com/dw/image/v2/AAQM_STG/on/demandware.static/Sites-GB-Site/-/default/dw3a0ae4a2/img/noimagebasket-swatch.png" title="Sports bag" alt="Sports bag">
+                                          </li>
+                                          <span class="color-name order-desc">
+                                          White
+                                          </span>
+                                       </ul> -->
+                                       <div class="price">
+                                          <span class="normal-price order-desc">
+                                          Unit Price:
+                                          {{ line_item.original_price | money }}
+                                          </span>
+                                       </div>
+                                       <div class="quantity">
+                                          <span class="order-desc">
+                                          Quantity:
+                                          {{ line_item.quantity }}
+                                          </span>
+                                       </div>
+                                    </div>{%endfor%}
+                                    <div class="order-select"></div>
+                                   {%comment%}
+                                    <div class="return-quantity-choice">
+                                       <div class="quantity-return">
+                                          <div class="sep">
+                                             <label for="quantity-to-return-3614035348647">
+                                             Quantity:
+                                             </label>
+                                          </div>
+                                          <div class="sep right">
+                                             <select class="quantity-to-return" id="quantity-to-return-3614035348647" required="">
+                                                <option value="0" required="">0</option>
+                                                <option value="1" required="">1</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="reason">
+                                          <label for="reason-to-return-3614035348647">
+                                          Reason for the return
+                                          </label>
+                                          <select id="reason-to-return-3614035348647" class="order-return-reason" required="">
+                                             <option value="null" required="">Please Select</option>
+                                             <option value="OA" required="">Does not meet my expectations</option>
+                                             <option value="VS" required="">Size too Big</option>
+                                             <option value="LS" required="">Size too Small</option>
+                                             <option value="OC" required="">Issue with Colour</option>
+                                             <option value="OY" required="">Issue with Fit</option>
+                                             <option value="OM" required="">Incorrect Item</option>
+                                             <option value="OL" required="">Issue with Delivery Time</option>
+                                             <option value="OQ" required="">Faulty Product</option>
+                                          </select>
+                                          <div class="reason-error">
+                                             Please select your return reason
+                                          </div>
+                                       </div>
+                                    </div>
+                                   {%endcomment%}
+                                 </div>
+                                {%comment%}
+                                 <div class="check-item">
+                                    <span style="font-family: Arial; font-size: 200%;">✓</span>
+                                 </div>
+                                 <div class="return-forbidden">
+                                    <div class="help-msg">
+                                       <a class="tooltips-helper always-show">
+                                       This item cannot be returned
+                                       <span>?</span>
+                                       </a>
+                                    </div>
+                                 </div>
+                                {%endcomment%}
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                    <div class="myorderdetail5f80b546a2eb8ca6eb41e1e240 accordion-content" order-count="{{ord_count}}" data-accordion-id="5f80b546a2eb8ca6eb41e1e240" data-accordion-group="order" style="display: none;">
+                      <div class="View-order-details">
+                        <div class="order-payment">
+                          <div class="order-payment-left">
+                            <div class="order-left-top">
+                              <h3 class="order-payment-title">purchase:</h3>
+                              <p class="order-payment-desc">
+                                {{ order.created_at | date: "%b %d, 20%y" }}
+                              </p>
+                            </div>
+                            <div class="order-left-bottom">
+                              <h3 class="order-payment-title">Shipped To:</h3>
+                              <span class="order-overview-subtitle"></span>
+                              <span class="order-overview-address">
+                                {{ order.shipping_address | format_address }}
+                              </span>
+                            </div>
+                          </div>
+                          <div class="order-payment-right">
+                            <div class="order-right-top">
+                              <h3>paid with:</h3>
+                              <li>{% for trans in order.transactions %}{{ trans.gateway }}{% endfor %}</li>
+                              <li></li>
+                            </div>
+                            <div class="order-right-bottom">
+                              <h3>Delivery Method:</h3>
+                              <p>{% for sm in order.shipping_methods %}{{ sm.title }}{% endfor %}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="order-total-desc">
+                          <h3 class="order-total-title">Detail</h3>
+                          <ul class="order-total-left">
+                            <li>VAT</li>
+                            <li>Sub Total</li>
+                            <li>Promo code</li>
+                            <li>Shipping Cost</li>
+                            <li>Shipping Discount</li>
+                            <li class="order-total-bigTitle">Total order</li>
+                          </ul>
+                          <ul class="order-total-right">
+                            <li>{{ order.tax_price | money }}</li>
+                            <li>{{ order.total_refunded_amount | money }}</li>
+                            <li>{{ 0 | money }}</li>
+                            <li>{% for sm in order.shipping_methods %}{{ sm.price | money }}{%endfor%}</li>
+                            <li>{{ 0 | money }}</li>
+                            <li class="order-total-bigTitle">
+                              {{ order.total_price | money }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                     <div class="order-global order-account-mobil order-global-btn no-return">
+                        <div class="order-products order-content-col-wrapper">
+                           <div class="valid-return-wrapper">
+                              <div class="row clearfix">
+                                 <a class="btn btn-validate clearfix btn-validate-return">
+                                 Confirm the item(s) to return
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row clearfix">
+                  <div class="search-result-options">
+                     <div class="nav">
+                     </div>
+                  </div>
+               </div>
+            </section>
+              {% endfor %}
+            
+          {% else %}
+          <div class="no_orders">You Have No Online Orders.</div>
+          {% endif %}
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

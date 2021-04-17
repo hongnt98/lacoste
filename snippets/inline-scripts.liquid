@@ -1,0 +1,128 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    lazySizesConfig.throttleDelay = 200;
+    //page is optimized for fast onload event
+    lazySizesConfig.loadMode = 1;
+    window.lazySizesConfig.customMedia = {
+      '--small': '(max-width: 480px)',
+      '--medium': '(max-width: 800px)',
+      '--large': '(max-width: 1400px)',
+    };
+
+    {% if template contains 'register' %}
+    var input = document.querySelector('input[name="customer[phone]"]');
+    window.intlTelInput(input, {
+      initialCountry: "auto",
+      formatOnDisplay: true,
+      allowExtensions: true,
+      autoFormat: true,
+      autoHideDialCode: false,
+      autoPlaceholder: false,
+      defaultCountry: "auto",
+      nationalMode: false,
+      numberType: "MOBILE",
+      geoIpLookup: function(callback) {
+        $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+          var countryCode = (resp && resp.country) ? resp.country : "";
+          callback(countryCode);
+        });
+      },
+      utilsScript: "{{ 'utils.js' | asset_url }}" // just for formatting/placeholders etc
+    });
+    var cleave = new Cleave('input[name="customer[phone]"]', {
+      phone: true,
+      phoneRegionCode: 'PH'
+    });
+    $('.iti__country').click(function() {
+      var $this = $(this),
+          code = $this.data('country-code').toUpperCase()
+      cleave.setPhoneRegionCode(code);
+      cleave.setRawValue('');
+    })
+    {%endif%}
+    lazySizes.init();
+    //         {% if template contains 'product' %}
+    //         $(document).mouseup(function(e) 
+    //                             {
+    //           var a = $('.js-popin-container')
+
+    //           // if the target of the click isn't the container nor a descendant of the container
+    //           if (!a.is(e.target) && a.has(e.target).length === 0) 
+    //           {
+    //             a.hide();
+    //           } else {
+    //           }
+    //         });
+    //         {% endif %}
+    setTimeout(function() {
+      if($('body').hasClass('template-product')) {
+        var prodFlkty = productSlider.data('flickity');
+        productSlider.on( 'change.flickity', function( event, index ) {
+          var selectedColor = prodFlkty.selectedElement.dataset.color,
+              btns = $('.js-slideshow-bullet');
+          $('.js-slideshow-bullet').eq(index).addClass('is-active').siblings().removeClass('is-active');
+          //               selectedElements.removeClass('hiden').siblings('.js-slideshow-bullet[data-color]').addClass('hiden')
+          $('.js-pdp-color .js-pdp-color-item[data-color="'+ selectedColor +'"]').addClass('is-active').parent().siblings().find('.js-pdp-color-item').removeClass('is-active');
+          btns.each(function() {
+            var $this = $(this),
+                color = $this.data('color')
+            console.log(prodFlkty)
+            if(color === selectedColor){
+              $this.removeClass('hiden')
+            }else {
+              $this.addClass('hiden')
+            }
+          })
+        });
+      }
+    }, 1000)
+    
+    
+    //DEFER CSS
+
+    var head  = document.getElementsByTagName('head')[0];        
+
+    var loadDeferredStyles = function() {
+
+      var addStylesNode = document.getElementById("deferred-css");
+		
+      var replacement = document.createElement("div");
+
+      replacement.innerHTML = addStylesNode.textContent;
+
+      document.body.appendChild(replacement)
+
+      addStylesNode.parentElement.removeChild(addStylesNode);
+
+    };
+
+    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+
+    else window.addEventListener('load', function() { window.setTimeout(loadDeferredStyles, 0)});
+    
+    
+    ///
+//     function checkDOMChange()
+//     {
+//     $('.announcement-banner').parent().css('padding-bottom', $('.announcement-banner').height())
+//       setTimeout( checkDOMChange, 100 );
+//     }
+//     checkDOMChange();
+    var screenWidth = $(window).width()
+    var vid = document.getElementsByTagName('video'),
+        videos = [ ...vid ]
+    videos.forEach(video => {
+      var source = video.children[0]
+      if (screenWidth > 500) {
+        source.src = source.dataset.desktop;
+        console.log('Desktop')
+      } else {
+        source.src = source.dataset.mobile;
+        console.log('Mobile')
+      }
+      video.load();
+    })
+  })
+</script>

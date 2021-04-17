@@ -1,0 +1,34 @@
+{% include 'promotion-product-list' %}
+
+{% schema %}
+  {
+    "name": "Promotion Product List 1",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Slideshow in Full Colour"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "products",
+        "name": "Product" ,
+        "limit": 6,
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Select a product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
