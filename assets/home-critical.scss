@@ -1,0 +1,138 @@
+/* stylelint-disable */
+/* Config
+   ========================================================================== */
+/* Fonts
+   ========================================================================== */
+/* stylelint-disable */
+/* stylelint-enable */
+/**
+ * List of all webfont to import
+ * Automaticaly imported in _base.scss with help of a mixin
+ *
+ * Format:
+ * $font-face: (
+ *   (name: "metropolis-regular", file: "metropolis-regular-webfont"),
+ *   (name: "metropolis-regular", file: "metropolis-regularitalic-webfont", style: italic),
+ *   (name: "metropolis", file: "metropolis-bold-webfont", weight: bold),
+ * );
+ *
+ * - name attribute define the name of the font to used in font-family rules
+ * - file attribute is the name of the font file without the extension
+ */
+/* Colors
+   ========================================================================== */
+/**
+ * http://davidwalsh.name/sass-color-variables-dont-suck
+ * http://sachagreif.com/sass-color-variables/
+ * https://www.w3schools.com/colors/colors_hsl.asp
+ *
+ * List of all color used in the site
+ * Always use a variable or a native color name ('white')
+ *
+ * If you have to add a new color:
+ * - use directly native name if it exist (like 'white') but don't add a variable (like $white)
+ * - or give it a name using the tool (lowercase, no delimiters): http://chir.ag/projects/name-that-color/
+ *
+ * If two colors are very similar, check or ask if we can merge the two
+ */
+/* Layout
+   ========================================================================== */
+/**
+ * List of all z-index used in the site
+ *
+ * Usage (using our function z() and one key of the map):
+ * z-index: z(overlay);
+ */
+/* Responsive
+   ========================================================================== */
+/**
+ * http://mydevice.io/
+ * http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+ * http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32
+ * http://www.w3schools.com/browsers/browsers_display.asp
+ */
+/**
+ * List of all media-queries used in the site
+ * Ideally, do not add new media-queries
+ *
+ * Usage (using our mixin respond-to() and one key of the map):
+ * @include respond-to(mobile-only) {
+ *   .my-class { ... }
+ * }
+ */
+/* Other Variables
+   ========================================================================== */
+/* stylelint-disable */
+/**
+ * Media-query mixin
+ */
+/* stylelint-enable */
+/* stylelint-disable */
+/**
+ * Get z-index from $z-indexes map (by key)
+ *
+ * Usage:
+ * .class { z-index: z(modal); }
+ **/
+/**
+ * Encode SVG in background for cross-browser
+ *
+ * https://codepen.io/tigt/post/optimizing-svgs-in-data-uris
+ * https://codepen.io/jakob-e/pen/doMoML
+ *
+ * Usage:
+ * background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">[...]</svg>');
+ **/
+/* Helper function to replace characters in a string */
+/**
+ * Convert a SASS List into a SASS String
+ *
+ * https://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/
+ *
+ * Usage:
+ * $list: a, b, c d e, f, g, h;
+ * $string: join($list); // abcdefgh
+ * $string: join($list, '-'); // a-b-c-d-e-f-g-h
+ **/
+/* stylelint-enable */
+.item-flag {
+  display: inline-block;
+  vertical-align: top;
+  height: 2.2rem;
+  padding: 0 7px;
+  background-color: rgba(41, 41, 41, 0.6);
+  line-height: 2.2rem !important; }
+  .item-flag .item-flag-picto {
+    display: inline-block;
+    vertical-align: top;
+    height: 16px;
+    width: auto;
+    margin: 3px 5px 3px 0; }
+
+.dir-rtl .item-flag .item-flag-picto {
+  margin-left: 5px;
+  margin-right: 0; }
+
+.scroll-button {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 96px;
+  font-size: 5rem;
+  line-height: 11rem;
+  text-align: center; }
+  @media only screen and (max-width: 767px) {
+    .scroll-button {
+      width: 56px;
+      height: 56px;
+      font-size: 3rem;
+      line-height: 7rem; } }
+
+.mcontent-strate:last-child {
+  margin-bottom: 0; }
+
+/* stylelint-enable */
+
+/*# sourceMappingURL=../../css/critical/home-critical.css.map */

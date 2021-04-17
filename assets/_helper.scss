@@ -1,0 +1,382 @@
+$codgray: #191919;
+$mineshaft: #292929;
+$emperor: #545454;
+$boulder: #767676;
+$dustygray: #999999;
+$silver: #c8c8c8;
+$mercury: #e5e5e5;
+$wildsand: #f4f4f4;
+$jewel: #105a33;
+$jewellighten: #187c48;
+$alizarincrimson: #e72734;
+
+$success-color: $jewel;
+$error-color: $alizarincrimson;
+
+.upper-case {
+    text-transform: uppercase;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-zoom-in {
+    cursor: zoom-in;
+}
+
+.cursor-zoom-out {
+    cursor: zoom-out;
+}
+
+/**
+ * Put this class on SVG
+ * Set the svg dimension with the font-size of the parent element
+ */
+/* svg */.icon-svg {
+    width: 1em;
+    height: 1em;
+}
+
+/* img */.img-fill-width {
+    width: 100%;
+    height: auto;
+}
+
+/* img */.img-full-height {
+    width: auto;
+    height: 100%;
+}
+
+/* img */.img-auto {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+/* img */.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* img */.img-cover--top {
+    object-position: top;
+}
+
+/* ul */.dashed-list {
+    li::before {
+        content: "-";
+        display: inline-block;
+        margin: 0 5px;
+    }
+}
+
+.rounded {
+    border-radius: 50%;
+}
+
+.simple-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    a:hover &:not(:disabled) {
+        text-decoration: underline;
+    }
+}
+
+.reverse-link {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover,
+    a:hover &:not(:disabled) {
+        text-decoration: none;
+    }
+}
+
+.text-white {
+    color: white;
+}
+
+.text-black {
+    color: $mineshaft;
+}
+
+.text-grey {
+    color: $emperor;
+}
+
+.text-grey-light {
+    color: $boulder;
+}
+
+.text-grey-lighter {
+    color: $silver;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: $jewel;
+}
+
+.bg-gradient--dark {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35));
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-black--wide {
+    background-color: $codgray;
+}
+
+.bg-black {
+    background-color: $mineshaft;
+}
+
+.bg-grey {
+    background-color: $wildsand;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-start {
+    text-align: start;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.dir-ltr {
+    direction: ltr;
+}
+
+.dir-rtl {
+    direction: rtl;
+}
+
+.is-error {
+    color: $error-color !important;
+}
+
+.is-success {
+    color: $success-color !important;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.opacity0 {
+    opacity: 0;
+}
+
+.opacity1 {
+    opacity: 1;
+}
+
+/**
+ * Use this class for ADA compliance text to hide
+ * https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/
+ */
+.visually-hidden {
+    border: 0 !important;
+    clip-path: inset(100%);
+    clip: rect(1px 1px 1px 1px) !important; /* IE 6/7 */
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    height: 1px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.valign-top {
+    vertical-align: top;
+}
+
+.valign-middle {
+    vertical-align: middle;
+}
+
+.valign-bottom {
+    vertical-align: bottom;
+}
+
+.valign-sub {
+    vertical-align: sub;
+}
+
+.no-select {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+}
+
+.no-appearence {
+    -webkit-appearance: none;
+}
+
+.above {
+    z-index: 1;
+}
+
+.pointer-none {
+    pointer-events: none;
+}
+
+.pointer-auto {
+    pointer-events: auto;
+}
+
+@media only screen and (min-width: 1191px) {
+    .no-desk {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1190px) {
+    .no-tab {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 1190px) {
+    .text-mt-white {
+        color: white;
+    }
+
+    .text-mt-black {
+        color: $mineshaft;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .no-mob {
+        display: none !important;
+    }
+
+    .text-m-center {
+        text-align: center;
+    }
+
+    .text-m-left {
+        text-align: left;
+    }
+
+    .text-m-right {
+        text-align: right;
+    }
+
+    .text-m-initial {
+        text-align: initial;
+    }
+
+    .text-m-white {
+        color: white;
+    }
+
+    .text-m-black {
+        color: $mineshaft;
+    }
+
+    .text-m-grey {
+        color: $emperor;
+    }
+
+    .text-m-grey-light {
+        color: $boulder;
+    }
+
+    .text-m-grey-lighter {
+        color: $silver;
+    }
+
+    .bg-m-gradient--dark {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35));
+    }
+
+    .bg-m-white {
+        background-color: white;
+    }
+
+    .bg-m-black--wide {
+        background-color: $codgray;
+    }
+
+    .bg-m-black {
+        background-color: $mineshaft;
+    }
+
+    .bg-m-grey {
+        background-color: $wildsand;
+    }
+}
+
+// TODO TMP IE11 hack (delete when IE11 is over)
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* img */.img-cover:not(video) {
+        width: auto;
+        height: 100%;
+        min-width: 100%;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+    }
+
+    /* img */.img-cover--top:not(video) {
+        top: 0 !important;
+        transform: translate(-50%, 0);
+    }
+
+    .text-start {
+        text-align: left;
+    }
+
+    .text-end {
+        text-align: right;
+    }
+
+    .dir-rtl {
+        .text-start,
+        &.text-start {
+            text-align: right;
+        }
+
+        .text-end,
+        &.text-end {
+            text-align: left;
+        }
+    }
+}

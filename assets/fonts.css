@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "LacosteSans";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteSans.woff?v=13029572436055661513") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;}
+
+@font-face {
+  font-family: "LacosteSansBold";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteSansBold.woff?v=13767447475510377757") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "LacosteSansLight";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteSansLight.woff?v=1664429134933199903") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "LacosteSansCondensedBold";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteSansCondensedBold.woff?v=8500805087955793596") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;}
+
+@font-face {
+  font-family: "LacosteSansCondensedLight";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteSansCondensedLight.woff?8579") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+/*@font-face {
+  font-family: "LacosteSansCondensedThin";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteSansCondensedThin.ttf?8579") format("ttf");
+  font-weight: normal;
+  font-style: normal; }*/
+
+@font-face {
+  font-family: "LacosteSansLightItalic";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteSansLightItalic.woff?v=14925228056065361838") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "LacosteSansItalic";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteSansItalic.woff?v=13589293925360507503") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "LacosteFontIcons";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/LacosteFontIcons.woff?v=10062669338200656761") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "CairoLight";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/CairoLight.woff?8579") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "CairoRegular";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/CairoRegular.woff?8579") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "CairoBold";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/CairoBold.woff?v=9404397686802436653") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/Metropolis-Regular.eot?8579" );
+    src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/Metropolis-Regular.eot?8579#iefix") format('embedded-opentype'),
+        url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/Metropolis-Regular.woff2?v=7612112417675856327" ) format('woff2'),
+        url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/Metropolis-Regular.woff?v=9626820805019408318" ) format('woff'),
+        url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/Metropolis-Regular.ttf?v=11705998590374201342" ) format('truetype'),
+        url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/Metropolis-Regular.svg%23?8579Metropolis-Regular") format('svg');
+    font-weight: normal;
+    font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "metropolis-regular-webfont";
+  src: url("//cdn.shopify.com/s/files/1/0554/1937/1706/t/52/assets/metropolis-regular-webfont.woff?v=1182823662866634612") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; }
