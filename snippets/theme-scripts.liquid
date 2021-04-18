@@ -1,0 +1,10 @@
+<script src="{{ 'vendor.js' | asset_url }}" defer></script>
+{% unless template contains 'index' or template contains 'collection' %}
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  <script src="{{ 'l-custom2.js' | asset_url }}" defer></script>
+{% endunless %}
+{% unless template contains 'collection' %}
+<script src="{{ 'cookies.js' | asset_url }}" defer></script>
+{% endunless %}
+<script src="{{ 'l-custom.js' | asset_url }}" defer></script>
+<script src="{{ 'storepickup.js' | asset_url }}" defer></script>

@@ -1,0 +1,88 @@
+<div class="js-mcontent-strate mcontent-strate mcontent-croco grid flex--align-center text-white  l-relative" id="ModularContent_Strate_Croco_MarketingFW18_20181219">
+  <div class="croco-background flex flex--justify-end">
+    <div class="no-mob no-tab l-overlay" style="background-color:{{ section.settings.mob_color }};"></div>
+    <div class="no-desk l-overlay" style="background-color:{{ section.settings.desk_color }};"></div>
+    <svg role="presentation" class="icon-svg croco-bg-img" aria-hidden="true">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-croco"></use>
+    </svg>
+  </div>
+  <div class="l-relative offset-7 cell-18 offset-mt-6 offset-m-4 cell-m-21 cell-mt-19">
+    <a href="{{ section.settings.button_url }}" data-tag-id="homepage.promotionClick" data-replace="{&quot;%trackingcategory%&quot;:&quot;Homepage&quot;,&quot;%trackingbanner%&quot;:&quot;fb:7-Marketing;fc:Content;fg:all;ft:MotionFW18;fd:20181219&quot;}" class="l-vmargin--large js-track">
+      <picture class="img-fill-width">
+        <source media="(max-width: 800px)" data-srcset="{{ section.settings.mob_img | img_url: 'master' }}">
+        <source media="(min-width: 801px)" data-srcset="{{ section.settings.desk_img | img_url: 'master' }}">
+        <img class="img-fill-width lazyload" data-src="{{ section.settings.desk_image | img_url: 'master' }}" alt="{{ section.settings.title }}" width="100%" height="auto"/>
+      </picture>
+    </a>
+    <div class="cell-9 cell-mt-15 l-vspaced-row-2">
+      <h2 class="title--xlarge ff-bold l-vmargin--small">{{ section.settings.title }}</h2>
+      <p class="fs--medium text-white l-vmargin--large">{{ section.settings.subtext }}</p>
+      <ul class="grid">
+        <li class="l-hmargin--large btn--transparent l-vmargin--medium">
+          <a class="btn-cta  fs--medium ff-normal" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% include 'lacoste-globalcookies' %}
+
+
+{% schema %}
+{
+  "name": "Marketing Block",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading",
+      "default": "Planning a trip?"
+    },
+    {
+      "type": "image_picker",
+      "id": "desk_img",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_img",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Pack and go with this capsule wardrobe"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Discover"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button Link"
+    },
+	{
+		"type":"text",
+		"id":"mob_color",
+		"label":"Color For Mobile",
+		"default":"#111818"
+	},
+	{
+		"type":"text",
+		"id":"desk_color",
+		"label":"Color For Desktop",
+		"default":"#111818"
+	}
+
+  ],
+  "presets": [{
+    "name": "Featured Marketing Block",
+    "category": "Homepage Content"
+  }]
+}
+{% endschema %}

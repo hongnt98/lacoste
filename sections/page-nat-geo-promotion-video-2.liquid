@@ -1,0 +1,66 @@
+{% include 'nat-geo-promotion-video' %}
+
+{% schema %}
+{
+    "name": "Promotion 2",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Grévy's zebra individuality"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default": "BETWEEN THE LINES"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>With its graphic coat that exists nowhere else in nature, the Grévy's zebra is recognised immediately— just like the Lacoste crocodile. Even as they blend into a herd of hundreds, these slender zebras stand out in the savannah. Seen on a Lacoste backpack or embellishing the Gagnant sneaker, this print highlights your personality with a subtle touch.</p>"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "Discover"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+        },
+        {
+            "type": "header",
+            "content": "Desktop"
+        },
+        {
+            "type": "text",
+            "id": "desktop_video",
+            "label": "Video"
+        },
+        {
+            "type": "image_picker",
+            "id": "desktop_poster",
+            "label": "Image"
+        },
+        {
+            "type": "header",
+            "content": "Mobile"
+        },
+        {
+            "type": "text",
+            "id": "mobile_video",
+            "label": "Video"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_poster",
+            "label": "Image"
+        }
+    ]
+}
+{% endschema %}

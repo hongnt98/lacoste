@@ -1,0 +1,323 @@
+<style>
+  form#ContactForm {
+    line-height: 1.7;
+    position: relative;
+  }
+  
+  form#ContactForm .form-item {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin: 20px 0 0; 
+  }
+  span.subtitile-inline {
+    display: inline-block;
+}
+  
+  .form .form-item {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 0 0 0 5%;
+    vertical-align: top;
+    position: relative;
+  }
+  
+  form#ContactForm .form-item-lastname {
+    width: 50%;
+    float: left;
+    padding-right: 20px;
+  }
+  
+  .form-item label {
+    font-size: 1.3rem;
+    font-family: "LacosteSansCondensedBold";
+    text-transform: uppercase;
+    color: #292929;
+    margin: 0 10px 0 0;
+  }
+  
+  form#ContactForm input {
+    text-transform: none;
+    border: 1px solid #e5e5e5;
+    outline: none !important;
+  }
+  input#ContactFormlastname, input#ContactFormfirstname, input#ContactFormemail1, input#ContactFormphone, select#ContactFormreason, input#ContactFormsubject, textarea#ContactFormmessage {
+    width: 100%;
+    padding: 10px;
+    cursor: auto;
+} 
+
+</style>
+<div class="row clearfix" id="contactPage">
+   <div class="contactPage-title">
+      <h2 class="page-title">Contact us</h2>
+   </div>
+   <section class="faq clearfix">
+      <div class="contactPage-column-left">
+         <div class="row clearfix">
+            <h3 class="title fid">Contact form</h3>
+           	{%- assign formId = 'ContactForm' -%}
+        	{% form 'contact', id: formId %}
+          	{% include 'form-status', form_id: formId %}
+<!--                <input type="hidden" value="00D5800000048wk" name="orgid"> -->
+<!--                <input type="hidden" value="https://www.lacoste.com/gb/contactusresult.html" name="retURL"> -->
+               <!-- CIVILITY -->
+               <div class="form-item form-item-civility">
+                  <label>Title<abbr class="required-field" title="this field is required">*</abbr> :</label>
+                  <div class="pageContact-inline">
+                     <label class="Label-lowercase" for="civility" style=" font-size: 1.3rem;
+    font-family: "LacosteSansLight"; 
+    text-transform: none;
+    color: #797979 !important;
+    display: inline-block;
+    margin: 0 20px 0 0;">
+                     <input class="contact-required" id="{{ formId }}Mrs." name="contact[civility]" type="radio" value="Mrs." data-error-required="Title is mandatory" data-error-wrong="Title value is invalid" required="" aria-required="true">
+                     Mrs.
+                     </label>
+                     <label class="Label-lowercase" for="civility" style=" font-size: 1.3rem;
+    font-family: "LacosteSansLight";
+    text-transform: none;
+    color: #797979 !important;
+    display: inline-block;
+    margin: 0 20px 0 0;">
+                     <input class="contact-required" id="{{ formId }}Ms." name="contact[civility]" type="radio" value="Ms." data-error-required="Title is mandatory" data-error-wrong="Title value is invalid" required="" aria-required="true">
+                     Ms.
+                     </label>
+                     <label class="Label-lowercase" for="civility" style=" font-size: 1.3rem;
+    font-family: "LacosteSansLight"; 
+    text-transform: none;
+    color: #797979 !important;
+    display: inline-block;
+    margin: 0 20px 0 0;">
+                     <input class="contact-required" id="{{ formId }}Mr." name="contact[civility]" type="radio" value="Mr." data-error-required="Title is mandatory" data-error-wrong="Title value is invalid" required="" aria-required="true">
+                     Mr.
+                     </label>
+                  </div>
+               </div>
+               <!-- FIRST & LAST NAME -->
+               <div class="form-item form-item-name">
+                  <div class="form-item-lastname">
+                     <label for="{{ formId }}lastname">Last name<abbr class="required-field" title="this field is required">*</abbr> :</label>
+                     <input class="contact-required" name="contact[lastname]" maxlength="80" id="{{ formId }}lastname" value="{% if form[lastname] %}{{ form[lastname] }}{% elsif customer %}{{ customer.lastname }}{% endif %}" type="text" data-error-required="Name is mandatory" data-error-wrong="Name value is invalid" required="" aria-required="true">
+                  </div>
+                  <div class="form-item-firstname">
+                     <label for="{{ formId }}firstname">First name<abbr class="required-field" title="this field is required">*</abbr> :</label>
+                     <input class="contact-required" name="contact[firstname]" id="{{ formId }}firstname" value="{% if form[firstname] %}{{ form[firstname] }}{% elsif customer %}{{ customer.firstname }}{% endif %}" type="text" data-error-required="First Name is mandatory" data-error-wrong="First Name value is invalid" required="" aria-required="true">
+                  </div>
+               </div>
+               <!-- ADDRESS & CONFIRM EMAIL -->
+               <div class="form-item form-item-half">
+                  <label for="{{ formId }}email1">Email address<abbr class="required-field" title="this field is required">*</abbr> :</label>
+                  <input name="contact[email]" class="email contact-required" type="email" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" id="{{ formId }}-email" data-error-required="Email is mandatory" data-error-email="Email value is invalid" required="" aria-required="true"
+                        {%- if form.errors contains 'email' -%}
+                          class="input--error"
+                          aria-invalid="true"
+                          aria-describedby="{{ formId }}email-error"
+                        {%- endif -%} 
+                         >
+               </div>
+               <!-- PHONE NUMBER -->
+               <div class="form-item form-item-phone">
+                  <label for="{{ formId }}phone">
+                  phone number :
+                  <span class="subtitile-inline">(optional)</span>
+                  <span>
+                  In case we need to contact you faster
+                  </span>
+                  </label>
+                  <input class="input-civ" type="tel" id="{{ formId }}phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+               </div>
+               <!-- COUNTRY LIST -->
+               <!-- REASON -->
+               <div class="form-item form-item-subject">
+                  <label for="{{ formId }}reason" class="subjectchooser">Contact reason<abbr class="required-field" title="this field is required">*</abbr> :</label>
+                  <select class="contact-required" id="{{ formId }}reason" name="contact[reason]" data-error-required="Subject is mandatory" data-error-wrong="Subject is invalid" required="" aria-required="true">
+                     <option class="select-option" value="">Select a subject</option>
+                     <option class="select-option">
+                        PERSONAL DATA
+                     </option>
+                     <option class="select-option">
+                        ORDERS
+                     </option>
+                     <option class="select-option">
+                        SHIPMENTS
+                     </option>
+                     <option class="select-option">
+                        RETURNS AND REFUNDS
+                     </option>
+                     <option class="select-option">
+                        CUSTOMER ACCOUNT
+                     </option>
+                     <option class="select-option">
+                        PRODUCT &amp; STOCK
+                     </option>
+                     <option class="select-option">
+                        STORES
+                     </option>
+                     <option class="select-option">
+                        CORPORATE REQUESTS
+                     </option>
+                     <option class="select-option">
+                        SPONSORSHIP
+                     </option>
+                     <option class="select-option">
+                        RECRUITMENT
+                     </option>
+                     <option class="select-option">
+                        PROPOSAL FOR COLLABORATION
+                     </option>
+                  </select>
+               </div>
+               <!-- SUBJECT -->
+               <div class="form-item">
+                  <label for="{{ formId }}subject">Subject<abbr class="required-field" title="this field is required">*</abbr> :</label>
+                  <input class="contact-required" id="{{ formId }}subject" name="contact[subject]" placeholder="contact-subject" maxlength="80" size="20" type="text" data-error-required="Subject is mandatory" data-error-wrong="Subject is invalid" required="" aria-required="true"><br>
+               </div>
+               <!-- MESSAGE -->
+               <div class="form-item">
+                  <label for="{{ formId }}message">Message<abbr class="required-field" title="this field is required">*</abbr> :</label>
+<!--                   <textarea class="contact-required" id="{{ formId }}message" name="contact[body]" data-error-required="Message is mandatory" data-error-wrong="Message value is invalid" required="" aria-required="true">{% if form.description %}{{ form.description }}{% endif %}</textarea> -->
+                 <textarea class="contact-required" rows="10" id="{{ formId }}message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+               </div>
+               <!-- ORDER NUMBER -->
+<!--                <div id="contactus-divOrderNumber" class="form-item" style="display:none">
+                  <label for="{{ formId }}-ordernumber">Order Number :</label>
+                  <input name="contact[ordernumber]" type="text" value="{% if form.ordernumber %}{{ form.ordernumber }}{% elsif customer %}{{ customer.email }}{% endif %}" id="{{ formId }}-ordernumber">
+               </div> -->
+               <!-- RECAPTCHA -->
+<!--                <div class="form-item form-item-captcha">
+                  <div id="g-recaptcha-container">
+                     <div style="width: 304px; height: 78px;">
+                        <div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeKLmkUAAAAAL9i2yJ_FR8tnctCxLvbq7RWyWvz&amp;co=aHR0cHM6Ly93d3cubGFjb3N0ZS5jb206NDQz&amp;hl=en&amp;v=v1548052318968&amp;size=normal&amp;cb=8d333z3kgv7h" width="304" height="78" role="presentation" name="a-qij6nc89llwf" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div>
+                        <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                     </div>
+                  </div>
+               </div> -->
+               <!-- COUNTRY -->
+<!--                <div class="form-item form-item-half hidden">
+                  <label for="pays">Country:</label>
+                  <select name="00N5800000Dfl5e" id="pays">
+                     <option class="select-option" value="XXX">Select a country</option>
+                     <option class="select-option" value="AT">
+                        Austria
+                     </option>
+                     <option class="select-option" value="BE">
+                        Belgium
+                     </option>
+                     <option class="select-option" value="CA">
+                        Canada
+                     </option>
+                     <option class="select-option" value="DK">
+                        Denmark
+                     </option>
+                     <option class="select-option" value="FR">
+                        France
+                     </option>
+                     <option class="select-option" value="DE">
+                        Germany
+                     </option>
+                     <option class="select-option" value="IE">
+                        Ireland
+                     </option>
+                     <option class="select-option" value="IT">
+                        Italy
+                     </option>
+                     <option class="select-option" value="NL">
+                        Netherlands
+                     </option>
+                     <option class="select-option" value="PT">
+                        Portugal
+                     </option>
+                     <option class="select-option" value="ES">
+                        Spain
+                     </option>
+                     <option class="select-option" value="SE">
+                        Sweden
+                     </option>
+                     <option class="select-option" value="CH">
+                        Switzerland
+                     </option>
+                     <option class="select-option" selected="selected" value="GB">
+                        UK
+                     </option>
+                     <option class="select-option" value="US">
+                        USA
+                     </option>
+                  </select>
+               </div> -->
+               <!-- LANGUAGE -->
+<!--                <div class="form-item hidden">
+                  <select id="language" name="00N5800000Dfl5f" data-error-wrong="Language is wrong" required="" aria-required="true">
+                     <option class="select-option" value="-1">Choose a language</option>
+                     <option class="select-option" value="NL">
+                        Dutch
+                     </option>
+                     <option class="select-option" selected="selected" value="EN">
+                        English
+                     </option>
+                     <option class="select-option" value="FR">
+                        French
+                     </option>
+                     <option class="select-option" value="DE">
+                        German
+                     </option>
+                     <option class="select-option" value="GA">
+                        Irish
+                     </option>
+                     <option class="select-option" value="IT">
+                        Italian
+                     </option>
+                     <option class="select-option" value="PT">
+                        Portuguese
+                     </option>
+                     <option class="select-option" value="ES">
+                        Spanish
+                     </option>
+                  </select>
+               </div> -->
+               <!-- PRIORITY -->
+<!--                <div class="form-item hidden">
+                  <select id="langage" name="priority">
+                     <option class="select-option" value="Low" selected="">Low</option>
+                     <option class="select-option" value="Medium">Medium</option>
+                     <option class="select-option" value="High">High</option>
+                  </select>
+               </div> -->
+               <div class="form-item form-item-btn">
+                  <input type="submit" id="contactus-btsubmit" value="Send">
+               </div>
+<!--                <input type="hidden" id="validationErrors" value="null"> -->
+               <div class="required-field-note">* required field</div>
+           {% endform %}
+         </div>
+      </div>
+      <div class="contactPage-column-right">
+         <!-- CUSTOMER SERVICE CONTACT -->
+         <div class="content-asset">
+            <!-- dwMarker="content" dwContentID="3c39f182503cf009da18897f40" -->
+            <div class="customerInformations">
+               <div class="customerContact">
+                  <h2 class="title">Contact our customer service</h2>
+                  <p>Do you need help?</p>
+                  <p>Contact our customer service team Mondays to Sundays from 0900 to 1800. Services will be closed during holidays. Thank you for understanding.</p>
+                  <p></p>
+                  <div class="content">
+                     <h3>+632 8830 5000*</h3>
+                     <p>*Local costs apply depending on your phone provider.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- / CUSTOMER SERVICE CONTACT -->
+         <div class="customerInformations ">
+            <div class="customerContact">
+               <h3 class="title">FAQ</h3>
+               <p>You might find the answer you're looking for in our frequently asked questions.</p>
+               <div class="form-item form-item-btn faq-block">
+                  <a href="/pages/le-club-lacoste-faq" class="faq-btn contact-btn">View FAQ</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</div>

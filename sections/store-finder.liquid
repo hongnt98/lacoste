@@ -1,0 +1,186 @@
+<div class="store-locations" id="leftbar-storecols">
+  {% for block in section.blocks %}
+  {% capture day_of_week %}{{ 'now' | date: "%w" }}{% endcapture %}
+  {% capture hrs_today %}{% case day_of_week %}
+  {% when '0' %}{{ block.settings.sun_hrs }}
+  {% when '1' %}{{ block.settings.mon_hrs }}
+  {% when '2' %}{{ block.settings.tue_hrs }}
+  {% when '3' %}{{ block.settings.wed_hrs }}
+  {% when '4' %}{{ block.settings.thu_hrs }}
+  {% when '5' %}{{ block.settings.fri_hrs }}
+  {% else %}{{ block.settings.sat_hrs }}
+  {% endcase %}{% endcapture %}					
+  <div name="leftLocation" data-lat="{{ block.settings.lat }}" data-lng="{{ block.settings.lng }}" data-amid="{{ forloop.index0 }}" class="location-block">
+    <div class="location-body">
+      <div class="location_header">{{ block.settings.title }}</div>
+      Address: {{ block.settings.address }}<br>{{ block.settings.city }}, {{ block.settings.zip }}
+    </div>
+    <div class="today_schedule telephone_number">
+      <span class="time-label">Telephone Number:</span>
+      <span class="time-value">{{ block.settings.phone }}</span>
+    </div>
+    <div class="today_schedule">
+      <span class="time-label"><img src="{{ 'clock_small.png' | asset_url}}" alt="">Store Hours Today:</span>
+      <span class="time-value"> {{ hrs_today }}
+        <div class="locator_arrow"><img src="{{ 'small-arrow.png' | asset_url}}" alt=""></div>
+      </span>
+    </div>
+    <div class="all_schedule" id="schedule{{ forloop.index0 }}" style="display: none;">
+      <div><span class="time-label">Monday:</span><span class="time-value">{{ block.settings.mon_hrs }}</span></div>
+      <div><span class="time-label">Tuesday:</span><span class="time-value">{{ block.settings.tue_hrs }}</span></div>
+      <div><span class="time-label">Wednesday:</span><span class="time-value">{{ block.settings.wed_hrs }}</span></div>
+      <div><span class="time-label">Thursday:</span><span class="time-value">{{ block.settings.thu_hrs }}</span></div>
+      <div><span class="time-label">Friday:</span><span class="time-value">{{ block.settings.fri_hrs }}</span></div>
+      <div><span class="time-label">Saturday:</span><span class="time-value">{{ block.settings.sat_hrs }}</span></div>
+      <div><span class="time-label">Sunday:</span><span class="time-value">{{ block.settings.sun_hrs }}</span></div>
+    </div>
+  </div>
+
+  {% endfor %}	
+</div>
+
+{% assign openbrace = "{" %}
+{% assign endbrace = "}" %}
+<script type="text/javascript" id="store-json">
+  var storeArray = [{% for block in section.blocks %}{% capture infowindow_content %}<div style='max-width:250px;'><h2>{{ block.settings.title }}</h2>City: {{ block.settings.city }}<br>Zip: {{ block.settings.zip }}<br>Address: {{ block.settings.address }}<br>State: {{ block.settings.state }}<br>{% if block.settings.description != blank %}Description: {{ block.settings.description }}{% endif %}</div>{% endcapture %}{{ openbrace }}  	
+                    "infoContent":"{{infowindow_content}}",
+                    "lat": {{block.settings.lat}},
+                    "lng": {{block.settings.lng}}
+                    {{ endbrace }}{% if forloop.last %}{%else%},{%endif%}
+                    {% endfor %}]
+</script>
+{% schema %}  
+{
+"name":"Store Locations",
+"settings":[
+{
+"type":"text",
+"id":"title",
+"label":"Heading",
+"default":"Store Locations"
+}
+],
+"blocks":[
+{
+"type":"text",
+"name":"Store",
+"settings":[
+{
+"type":"text",
+"id":"title",
+"label":"Store Name",
+"default":"Store Name"
+},
+{
+"type":"text",
+"id":"city",
+"label":"City",
+"default":"City"
+},
+{
+"type":"text",
+"id":"zip",
+"label":"Zip Code",
+"default":"Zip Code"
+},
+{
+"type":"text",
+"id":"address",
+"label":"Line Address",
+"default":"Line Address"
+},
+{
+"type":"text",
+"id":"lat",
+"label":"Latitude Coordinate",
+"default":"0"
+},
+{
+"type":"text",
+"id":"lng",
+"label":"Longitude Coordinate",
+"default":"0"
+},
+{
+"type":"text",
+"id":"state",
+"label":"State"
+},
+{
+"type":"richtext",
+"id":"description",
+"label":"Description",
+"default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+},
+{
+"type":"text",
+"id":"phone",
+"label":"Phone Numbers"
+},
+{
+"type":"text",
+"id":"email",
+"label":"Email",
+"default":"null"
+},
+{
+"type":"text",
+"id":"mon_hrs",
+"label":"Monday Store Hours",
+"default":"10:00 - 21:00"
+},
+{
+"type":"text",
+"id":"tue_hrs",
+"label":"Tuesday Store Hours",
+"default":"10:00 - 21:00"
+},
+{
+"type":"text",
+"id":"wed_hrs",
+"label":"Wednesday Store Hours",
+"default":"10:00 - 21:00"
+},
+{
+"type":"text",
+"id":"thu_hrs",
+"label":"Thursday Store Hours",
+"default":"10:00 - 21:00"
+},
+{
+"type":"text",
+"id":"fri_hrs",
+"label":"Friday Store Hours",
+"default":"10:00 - 21:00"
+},
+{
+"type":"text",
+"id":"sat_hrs",
+"label":"Saturday Store Hours",
+"default":"10:00 - 21:00"
+},
+{
+"type":"text",
+"id":"sun_hrs",
+"label":"Sunday Store Hours",
+"default":"10:00 - 21:00"
+},
+{
+"type":"text",
+"id":"country",
+"label":"Country",
+"default":"PH"
+}
+]
+}
+],
+"presets":[
+{
+"name":"Custom content",
+"category":"Advanced layout",
+"blocks":[
+]
+}
+]
+}
+{% endschema %}

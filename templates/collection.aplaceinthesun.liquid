@@ -1,0 +1,41 @@
+
+{%comment%}{% section 'collection-combination' %}{%endcomment%}
+
+
+{% section 'l-foc-collection' %}
+
+
+<script>
+  // Declare bcSfFilterConfig variable
+  var bcSfFilterConfig = {};
+  bcSfFilterConfig.label = {
+      refine: "Now Shopping By",
+      refine_mobile: "Filter",
+      clear: "Clear",
+      clear_all: "View All",
+      apply: "Apply",
+    custom: {
+      product_grid_class: ''
+    },
+      breadcrumb_home: {% if product_filter_search.breadcrumb_home != blank %} {{ 'product_filter_search.breadcrumb_home' }}" {% else %} "Home" {% endif %},
+      load_more: "Load more Products",
+      sale: "On Sale",
+      sold_out: "Sold Out",
+      show_limit: "Show",
+      sorting: "Sort By",
+      sorting_best_selling: "Best Selling",
+      sorting_featured: "Featured",
+      sorting_title_ascending: "Product Name, A-Z",
+      sorting_title_descending: "Product Name, Z-A",
+      sorting_price_ascending: "Price - Low to High",
+      sorting_price_descending: "Price - High to Low",
+      sorting_date_ascending: "Newest",
+      sorting_date_descending: "Date, New to Old",
+      sorting_sale_descending: "% Off",
+      sorting_relevance: "Relevance",
+      search_general_title: 'Search',
+      search_result_header: {% raw %}'Search Results for "{{ terms }}"'{% endraw %},
+      search_result_empty: {% raw %}'Your search for "{{ terms }}"" didn\'t match any results'{% endraw %},
+      search_result_number: {% raw %}'Showing {{ count }} results for "{{ terms }}"'{% endraw %}
+  };
+</script>

@@ -1,0 +1,1505 @@
+section.magazine {
+    margin: 0
+}
+
+#all-size-guides h1 {
+    width: 100%;
+    padding: 1em 0.6em 0 0.6em;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: "LacosteSansCondensedBold";
+    font-size: 4rem
+}
+
+#all-size-guides h2 {
+    font-family: "LacosteSansCondensedBold"
+}
+
+.block-magazine {
+    position: relative;
+    overflow: hidden
+}
+
+.block-magazine img {
+    width: 100%
+}
+
+.block-magazine .block-content-haut {
+    padding: 30px;
+    max-width: 440px;
+    margin: 0 auto;
+    position: relative
+}
+
+.block-magazine .block-content-haut:after {
+    border-color: white transparent transparent transparent;
+    right: auto;
+    top: auto;
+    left: 50%;
+    margin: 0 0 0 -15px;
+    bottom: -30px;
+    border-width: 15px;
+    border-style: solid;
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    z-index: 20;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 52%;
+    top: 124%
+}
+
+.block-magazine .block-content-bas {
+    padding: 30px;
+    max-width: 440px;
+    margin: 0 auto;
+    position: relative
+}
+
+.block-magazine .block-content-bas:before {
+    border-color: transparent transparent white transparent;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    margin: 0 0 0 -15px;
+    top: -30px;
+    border-width: 15px;
+    border-style: solid;
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    z-index: 20;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 53%;
+    top: -130px
+}
+
+.block-magazine .block-description {
+    display: block
+}
+
+.block-magazine .spacer-magazine {
+    height: 100px;
+    width: 100%
+}
+
+.block-magazine .block-content-slider {
+    padding: 30px;
+    width: 50%;
+    margin: 0 auto
+}
+
+@media screen and (min-width: 768px) {
+    .block-magazine .block-content {
+        padding: 30px
+    }
+
+    .column-half:first-child .block-magazine .block-content {
+        width: 100%
+    }
+
+    .column-half:first-child .block-magazine .block-content:after {
+        border-color: white transparent transparent transparent;
+        right: auto;
+        top: auto;
+        left: 50%;
+        margin: 0 0 0 -15px;
+        bottom: -30px;
+        border-width: 15px;
+        border-style: solid;
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        z-index: 20
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .block-magazine .block-content {
+        padding: 45px
+    }
+
+    .column-half:first-child .block-magazine .block-image {
+        margin-top: 50px;
+        display: block
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .block-magazine .spacer-magazine {
+        display: none
+    }
+}
+
+@media screen and (max-width: 767px) {
+    section.magazine {
+        margin: 0 0 0 0
+    }
+
+    .block-magazine {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -moz-box-align: start;
+        -ms-flex-align: start;
+        -webkit-align-items: flex-start;
+        align-items: flex-start
+    }
+
+    .block-magazine .spacer-magazine {
+        height: 0;
+        width: 100%
+    }
+
+    .block-magazine .block-content-haut {
+        padding: 40px 30px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative
+    }
+
+    .block-magazine .block-content-haut:after {
+        border-color: transparent transparent white transparent;
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        margin: 0 0 0 -15px;
+        top: -30px;
+        border-width: 15px;
+        border-style: solid;
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        z-index: 20
+    }
+
+    .block-magazine .block-content-bas {
+        padding: 40px 30px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative
+    }
+
+    .block-magazine .block-content-bas:after {
+        border-color: transparent transparent white transparent;
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        margin: 0 0 0 -15px;
+        top: -30px;
+        border-width: 15px;
+        border-style: solid;
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        z-index: 20
+    }
+
+    .block-image {
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1
+    }
+
+    .row-magazine .column-quarter {
+        width: 100%
+    }
+
+    .magazine-4 .block-magazine {
+        -webkit-box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        border-bottom: 1px solid #ededed
+    }
+
+    .magazine-4 .block-content {
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
+        width: 70%;
+        padding: 0 20px
+    }
+
+    .magazine-4 .block-image {
+        -ms-flex-order: 0;
+        -webkit-order: 0;
+        order: 0;
+        float: left;
+        width: 30%;
+        overflow: hidden
+    }
+
+    .magazine-4 .block-image img {
+        width: 132px;
+        margin-left: -8px
+    }
+
+    .magazine-4 .pre-title,
+    .magazine-4 .block-description {
+        display: none
+    }
+
+    .magazine-4 .block-link {
+        margin-bottom: 15px
+    }
+
+    .magazine-4 .title-with-arrow:after {
+        border-color: #ededed transparent transparent transparent;
+        right: auto;
+        top: auto;
+        left: 50%;
+        margin: 0 0 0 -10px;
+        bottom: -20px;
+        border-width: 10px;
+        border-style: solid;
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        z-index: 20;
+        bottom: -35px
+    }
+
+    .magazine-4 .title-15 {
+        margin-top: 17px;
+        line-height: 1.3
+    }
+}
+
+.discover {
+    background: #ccc;
+    width: 25%;
+    float: right;
+    line-height: 38.6rem;
+    text-align: center;
+    background: #ededed
+}
+
+.discover .more-results {
+    color: #454545;
+    font-size: 1.2rem;
+    font-family: "LacosteSansCondensedBold";
+    text-decoration: none
+}
+
+.discover .disco-content {
+    width: 90%;
+    padding: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1.2;
+    text-align: left
+}
+
+.block-magazine .block-content {
+    padding: 30px
+}
+
+.subtitltepro {
+    display: block;
+    font-size: 1.2rem;
+    font-family: "LacosteSansCondensedLight"
+}
+
+.hide {
+    display: none
+}
+
+:checked+label span {
+    color: #285f41;
+    font-weight: bold
+}
+
+.results-big {
+    padding: 0
+}
+
+.contact-us {
+    color: #454545;
+    text-decoration: none;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.results-big {
+    width: 50%;
+    float: left
+}
+
+.results-big-l {
+    background: #ededed;
+    border-bottom: 1px solid #ededed;
+    padding: 2.4em 4em 3em 4em;
+    float: left;
+    width: 50%
+}
+
+.results-big-l .title-result {
+    font-size: 2.5rem;
+    font-family: "LacosteSansCondensedBold";
+    margin-bottom: 0;
+    display: table-cell
+}
+
+.results-big-l .title-result span {
+    font-family: "LacosteSansCondensedLight"
+}
+
+.results-big-l .results-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+.results-big-l .results-list li {
+    display: inline;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.results-big-l .results-list li a {
+    text-decoration: none;
+    color: #454545
+}
+
+.search-global {
+    display: table;
+    width: 100%
+}
+
+.search-global .your-search {
+    background: #f5f5f5
+}
+
+.search-global .results {
+    width: 25%;
+    display: table-cell;
+    border-right: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+    border-top: 1px solid #ededed;
+    position: relative;
+    padding: 2em
+}
+
+.search-global .results img,
+.search-global .results input {
+    width: 50%
+}
+
+.search-global .results .hashtag {
+    color: #285f41;
+    display: block;
+    text-decoration: none;
+    margin: 0.5em 0;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.search-global .results .title-result {
+    font-size: 2.5rem;
+    font-family: "LacosteSansCondensedBold";
+    margin-bottom: 0;
+    display: table-cell
+}
+
+.search-global .results .title-result span {
+    font-family: "LacosteSansCondensedLight"
+}
+
+.search-global .results .result-number {
+    font-family: "LacosteSansCondensedBold";
+    margin: 2em 0 0 1em
+}
+
+.search-global .results .result-number:before {
+    height: 7px;
+    width: 4px;
+    background-image: url("../img/ico-sb12a73b54b.png");
+    background-position: 0 -466px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 20px;
+    margin: 5px;
+    content: "";
+    display: inline-block
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5),
+(min--moz-device-pixel-ratio: 1.5),
+(-o-min-device-pixel-ratio: 3 / 2),
+(min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .search-global .results .result-number:before {
+        background-image: url("../img/ico-retina-sd901473a41.png");
+        background-position: 0 -462.5px;
+        -moz-background-size: 65px auto;
+        -webkit-background-size: 65px auto;
+        background-size: 65px auto
+    }
+}
+
+.search-global .form input[type="text"] {
+    border: 1px solid #ededed;
+    background-color: #fff;
+    font-family: "LacosteSansCondensedLight";
+    color: #454545;
+    padding: 1em;
+    margin: 2em 0;
+    width: 80%;
+    font-size: 1.2rem;
+    border-radius: 0
+}
+
+.search-global .form input[type="submit"] {
+    text-indent: -9999px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    position: absolute;
+    right: 140px;
+    top: 40px;
+    height: 11px;
+    width: 11px;
+    background-image: url("//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/ico-search.png?152036");
+    background-position: 97% center;
+    background-repeat: no-repeat
+}
+
+.spacer-search {
+    height: 50px;
+    width: 100%;
+    border-right: 1px solid #ededed
+}
+
+.all-results .title-result {
+    font-size: 2.5rem;
+    font-family: "LacosteSansCondensedBold";
+    margin-bottom: 0
+}
+
+.all-results .title-result span {
+    font-family: "LacosteSansCondensedLight"
+}
+
+.all-results .title-results {
+    text-align: center;
+    width: 100%;
+    height: 83px;
+    border-bottom: 1px solid #ededed
+}
+
+.all-results .filtres-criteres {
+    font-family: "LacosteSansCondensedLight"
+}
+
+.all-results .filter-by {
+    width: 75%;
+    display: inline
+}
+
+.all-results .arrows {
+    width: 25%;
+    display: inline
+}
+
+.all-results #filter {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #454545;
+    text-align: left;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.all-results #filter.active {
+    color: #ffffff;
+    background: #285f41
+}
+
+.all-results #filter .arrow {
+    background: #ededed;
+    padding: 1.7em;
+    margin: 0 0.5em 0 0
+}
+
+.all-results #filter .arrow-l {
+    border-right: 1px solid #ededed;
+    padding: 2.2em 0;
+    margin: 0 0.5em 0 0em
+}
+
+.all-results #filter .arrow-d {
+    border-right: 1px solid #ededed;
+    padding: 2.2em 0
+}
+
+.all-results #filter .arrow-active {
+    background: #285f41;
+    border: none;
+    margin: 0 0.5em 0 0;
+    padding: 1.7em
+}
+
+.all-results #filter .hide {
+    display: none
+}
+
+.all-results .open {
+    color: #ffffff
+}
+
+.all-results #results-g {
+    float: left;
+    padding: 2.5em 0;
+    width: 33%;
+    display: table-cell;
+    text-align: left;
+    margin: 0 0 0 2em
+}
+
+.all-results #results-c {
+    float: left;
+    width: 33%;
+    display: table-cell
+}
+
+.all-results #results-d {
+    padding: 2.5em 0;
+    width: 33%;
+    display: table-cell;
+    text-align: right
+}
+
+.all-results #sortby {
+    text-decoration: none;
+    color: #454545;
+    font-size: 1.5rem;
+    font-family: "LacosteSansCondensedBold";
+    padding: 0
+}
+
+.all-results #sortby:active {
+    color: #ffffff;
+    background: #285f41
+}
+
+.all-results #sortby .arrow {
+    background: #ededed;
+    padding: 1.7em;
+    margin: 0 0.5em 0 0
+}
+
+.all-results #sortby .arrow-l {
+    border-right: 1px solid #ededed;
+    padding: 2.2em 0;
+    margin: 0 0.5em 0 0em
+}
+
+.all-results #sortby .arrow-d {
+    border-right: 1px solid #ededed;
+    padding: 2.2em 0
+}
+
+.all-results #sortby .arrow-active {
+    background: #285f41;
+    border: none;
+    padding: 1.7em;
+    margin: 0 0.5em 0 0
+}
+
+.all-results .filter-bar {
+    display: table;
+    width: 100%
+}
+
+.all-results .filter-bar .active {
+    display: block
+}
+
+.all-results .filter-bar .filter-left {
+    width: 100%;
+    display: table-cell;
+    border-left: 1px solid #ededed
+}
+
+.all-results .filter-bar .filter-right {
+    width: 80%;
+    text-align: right;
+    display: table-cell
+}
+
+.all-results .global-step {
+    display: table;
+    width: 100%
+}
+
+.all-results .right .disco-guide {
+    float: right;
+    font-family: "LacosteSansCondensedBold";
+    font-size: 1.2rem;
+    margin: 0 2em
+}
+
+.all-results .right .pres {
+    margin: 2em
+}
+
+.all-results .right .inner-step:first-child {
+    padding: 0 4em
+}
+
+.all-results .step {
+    float: left;
+    width: 25%;
+    padding: 0 4em;
+    height: 400px;
+    border-right: 1px solid #ededed
+}
+
+.all-results .step .size {
+    position: relative
+}
+
+.all-results .step .inner-step .find-fit {
+    display: block;
+    color: #454545;
+    margin: 1em 0;
+    text-transform: lowercase;
+    text-decoration: underline
+}
+
+.all-results .step .size-l {
+    float: left
+}
+
+.all-results .step .size-r {
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.all-results .step .sort {
+    display: none
+}
+
+.all-results .sub-menu-result {
+    width: 100%;
+    display: none
+}
+
+.all-results .sub-menu-result form label {
+    display: block;
+    margin: 0.5em 0
+}
+
+.all-results .clear-filter {
+    width: 100%;
+    height: 64px;
+    border: 1px solid #ededed;
+    background: #ededed
+}
+
+.all-results .clear-filter .clear-all {
+    text-decoration: none;
+    color: #454545;
+    float: left;
+    padding: 2em 4em;
+    vertical-align: middle;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.all-results .clear-filter .view-results {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 2em 4em;
+    background: #285f41;
+    vertical-align: middle;
+    display: block;
+    float: left;
+    font-family: "LacosteSansCondensedBold";
+    width: 100%;
+    text-align: center
+}
+
+.all-results .clear-filter .save-pref {
+    text-decoration: none;
+    color: #454545;
+    float: right;
+    padding: 2em 4em;
+    vertical-align: middle;
+    width: 100%;
+    text-align: left;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.all-results .clear-filter .filter-g {
+    float: left;
+    width: 38%
+}
+
+.all-results .clear-filter .filter-c {
+    float: left;
+    width: 25%
+}
+
+.all-results .clear-filter .filter-d {
+    float: left;
+    width: 35%
+}
+
+.all-results .trends {
+    font-family: "LacosteSansCondensedBold";
+    width: 100%;
+    height: 75px;
+    border-right: 1px solid #ededed
+}
+
+.all-results .trends p {
+    display: inline-block
+}
+
+.all-results .trends img {
+    display: inline-block;
+    width: 75%;
+    margin: 8px 22px 0 0
+}
+
+.all-results .trends .part {
+    width: 22%;
+    float: left
+}
+
+.all-results .trends .part .view-disco {
+    display: none
+}
+
+.all-results .trends .trends-el {
+    width: 100%;
+    margin: 3em 0 0 3em
+}
+
+.all-results .trends .trends-el .point {
+    font-family: "LacosteSansCondensedBold";
+    vertical-align: middle;
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+    font-size: 2.2rem;
+    float: left
+}
+
+.black-overlay {
+    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4D000000, endColorstr=#4D000000);
+    zoom: 1;
+    position: absolute;
+    z-index: 127;
+    width: 100%;
+    height: 100%
+}
+
+.products .title-with-arrow img {
+    width: 12%;
+    margin: 0 auto
+}
+
+@media screen and (min-width: 1680px) {
+    .all-results .trends .trends-el {
+        width: 70%;
+        margin: 20px auto
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1280px) {
+    .all-results .title-result {
+        margin: 1em 0 0 1em
+    }
+
+    .all-results #filter {
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: #454545;
+        padding: 0;
+        float: none;
+        font-family: "LacosteSansCondensedBold"
+    }
+
+    .all-results #filter.active {
+        color: #ffffff;
+        background: #285f41
+    }
+
+    .all-results .clear-filter .view-results {
+        padding: 2em
+    }
+
+    .all-results .trends img {
+        margin: 12px 8px 0 0
+    }
+
+    .all-results .trends .trends-el .point {
+        display: none
+    }
+
+    .all-results .trends .trends-el .part .discover {
+        display: none
+    }
+
+    .all-results .trends .trends-el .part .view-disco {
+        display: block;
+        float: right;
+        margin: 1.3em 2em 0 0
+    }
+
+    .all-results .trends .trends-el .part .lacostelive-m {
+        margin: 7px 8px 0 0
+    }
+
+    .all-results .trends .trends-el .part span {
+        position: relative;
+        top: 7px
+    }
+
+    .all-results .step .size-r {
+        position: relative;
+        top: 7px;
+        right: -20px
+    }
+
+    .all-results .step .size-l {
+        float: left;
+        left: 0;
+        position: relative
+    }
+
+    .search-global .form .search-bar {
+        background: url("//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/ico-search.png?152036") no-repeat 205px center
+    }
+
+    .results-big-l {
+        padding: 1em 4em 1.5em 4em
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .fit-inner {
+        display: none
+    }
+
+    .product-no-mobil-swiper .swiper-slide {
+        width: 50%
+    }
+
+    .spacer-search,
+    .results {
+        display: none
+    }
+
+    .all-results .sort-by {
+        margin: 0 1em 0 0
+    }
+
+    .all-results .sub-menu-result form label {
+        border-bottom: 1px solid #ededed;
+        padding: 1em;
+        cursor: pointer;
+        margin: 0
+    }
+
+    .all-results .filter-bar .filter-left {
+        border: none
+    }
+
+    .all-results #results-c,
+    .all-results .trends {
+        display: none
+    }
+
+    .all-results #results-g {
+        width: 63%;
+        padding: 1.5em 0;
+        display: block;
+        border: 1px solid #ededed;
+        margin: 0
+    }
+
+    .all-results #results-d {
+        float: left;
+        padding: 1.55em 0;
+        width: 32%;
+        border-bottom: 1px solid #ededed
+    }
+
+    .all-results #filter .arrow-l,
+    .all-results #filter .arrow-d {
+        padding: 1.4em 0;
+        display: none
+    }
+
+    .all-results #filter .arrow-active {
+        padding: 0.7em;
+        margin: 0
+    }
+
+    .all-results #filter .arrow {
+        padding: 0.7em;
+        margin: 0
+    }
+
+    .all-results #sortby div {
+        display: none
+    }
+
+    .all-results .filtres-criteres {
+        display: none
+    }
+
+    .all-results .clear-filter .filter-g,
+    .all-results .clear-filter .filter-d {
+        display: none
+    }
+
+    .all-results .clear-filter .filter-c {
+        width: 100%
+    }
+
+    .all-results .step {
+        width: 100%;
+        float: none;
+        padding: 0;
+        height: auto
+    }
+
+    .all-results .step .size-l {
+        float: left;
+        width: 100%
+    }
+
+    .all-results .step .size-r {
+        width: 100%;
+        float: left;
+        position: initial
+    }
+
+    .all-results .step .inner-step {
+        float: left;
+        width: 100%
+    }
+
+    .all-results .step .inner-step .find-fit {
+        display: block;
+        color: #454545;
+        margin: 1em;
+        text-transform: lowercase;
+        text-decoration: underline;
+        font-family: "LacosteSansCondensedBold"
+    }
+
+    .all-results .step .extern-fit {
+        width: 100%;
+        cursor: pointer;
+        background: #ededed;
+        padding: 1em;
+        display: block;
+        float: left;
+        margin: 0;
+        border-bottom: 1px solid #fff
+    }
+
+    .all-results .step .extern-fit:after {
+        height: 7px;
+        width: 13px;
+        background-image: url("../img/ico-sb12a73b54b.png");
+        background-position: 0 -52px;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 34px;
+        margin: 5px;
+        content: "";
+        display: inline-block
+    }
+}
+
+@media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5),
+screen and (max-width: 767px) and (min--moz-device-pixel-ratio: 1.5),
+screen and (max-width: 767px) and (-o-min-device-pixel-ratio: 3 / 2),
+screen and (max-width: 767px) and (min-device-pixel-ratio: 1.5),
+screen and (max-width: 767px) and (min-resolution: 144dpi) {
+    .all-results .step .extern-fit:after {
+        background-image: url("../img/ico-retina-sd901473a41.png");
+        background-position: 0 -52px;
+        -moz-background-size: 65px auto;
+        -webkit-background-size: 65px auto;
+        background-size: 65px auto
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .all-results .step .extern-fit.active:after {
+        content: "";
+        margin-top: 5px;
+        right: 34px;
+        height: 7px;
+        width: 13px;
+        background-image: url("../img/ico-sb12a73b54b.png");
+        background-position: 0 -370px;
+        background-repeat: no-repeat
+    }
+}
+
+@media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5),
+screen and (max-width: 767px) and (min--moz-device-pixel-ratio: 1.5),
+screen and (max-width: 767px) and (-o-min-device-pixel-ratio: 3 / 2),
+screen and (max-width: 767px) and (min-device-pixel-ratio: 1.5),
+screen and (max-width: 767px) and (min-resolution: 144dpi) {
+    .all-results .step .extern-fit.active:after {
+        background-image: url("../img/ico-retina-sd901473a41.png");
+        background-position: 0 -368px;
+        -moz-background-size: 65px auto;
+        -webkit-background-size: 65px auto;
+        background-size: 65px auto
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .all-results .title-results {
+        height: auto
+    }
+
+    .all-results .filter-by {
+        float: left;
+        width: 53%;
+        margin: 0 0 0 2em
+    }
+
+    .all-results .arrows {
+        width: 17%;
+        float: right
+    }
+
+    .search-global {
+        padding: 0;
+        display: block
+    }
+
+    .search-global .results-big-l {
+        width: 100%;
+        padding: 2em
+    }
+
+    .search-global .results-big-l .results-list li a {
+        font-size: 1.8rem
+    }
+
+    .search-global .results-big {
+        display: none
+    }
+
+    .search-global .form input[type="text"] {
+        border: 1px solid #ededed;
+        background-color: #fff;
+        font-family: "LacosteSansCondensedLight";
+        color: #454545;
+        margin: 0;
+        padding: 3px 15px;
+        width: 93%;
+        font-size: 1.2rem;
+        border-radius: 0;
+        height: 50px
+    }
+
+    .search-global .form .search-bar {
+        background: url("//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/ico-mobile-search.png?152036") no-repeat 97% center
+    }
+
+    .search-global .results {
+        padding: 1em;
+        display: none
+    }
+
+    .search-global .results .result-number {
+        position: initial
+    }
+
+    .similar-products .title-with-arrow {
+        margin-top: 0
+    }
+
+    .footer-search .magazine .block-magazine .block-image img {
+        width: 100%
+    }
+}
+
+#bg_black {
+    display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 10000
+}
+
+.popup_block {
+    background: #fff;
+    padding: 20px;
+    max-width: 80%;
+    font-size: 1.2em;
+    z-index: 11000;
+    cursor: pointer;
+    display: none
+}
+
+img.btn_close {
+    float: right;
+    margin: -55px -55px 0 0
+}
+
+.sizeChart {
+    width: 100%;
+    padding: 2em;
+    max-width: 1000px;
+    margin: 0 auto
+}
+
+.content-asset .sizeChart table {
+    width: 100%
+}
+
+.sizeChart table {
+    font-family: "LacosteSansCondensedLight"
+}
+
+.sizeChart .sizeChart-title {
+    color: #454545;
+    font-size: 2.5rem;
+    margin: 0;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.sizeChart .inner-tab {
+    margin: 2em 0
+}
+
+.sizeChart .tabs.active {
+    background: none
+}
+
+.sizeChart .tabs.active:after {
+    background: none
+}
+
+.sizeChart .tabs ul {
+    list-style-type: none
+}
+
+.sizeChart .tabs ul li {
+    display: inline;
+    border: none;
+    background: none;
+    padding: 0
+}
+
+.sizeChart .tabs ul li:after {
+    background: none;
+    border: none;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.sizeChart .tabs ul li a {
+    text-decoration: none;
+    color: #454545;
+    font-size: 1.2rem;
+    display: inline;
+    font-family: "LacosteSansCondensedLight"
+}
+
+.sizeChart .tabs ul li .seperator {
+    display: inline;
+    color: #454545;
+    font-size: 1.2rem;
+    font-family: "LacosteSansCondensedLight"
+}
+
+.sizeChart .tabs ul li:after {
+    background: none
+}
+
+.sizeChart .tabs ul li.active a {
+    text-decoration: underline;
+    font-family: "LacosteSansCondensedBold"
+}
+
+.sizeChart .chest {
+    width: 100%;
+    background: #f5f5f5;
+    font-family: "LacosteSansCondensedBold";
+    padding: 1em;
+    margin: 0;
+    white-space: nowrap;
+    font-size: 1.4rem
+}
+
+.sizeChart .measurements {
+    margin: 25px 1em;
+    font-size: 1.2rem
+}
+
+.sizeChart table tr td {
+    width: 100px;
+    text-align: center;
+    border: 1px solid #efefef;
+    padding: 10px;
+    font-size: 1.4rem
+}
+
+.sizeChart table tr th.large-t {
+    width: 210px;
+    padding-left: 1em;
+    text-align: left
+}
+
+.sizeChart table tr th.large-t.chest {
+    padding-top: 0;
+    padding-bottom: 0;
+    white-space: normal
+}
+
+.sizeChart table tr th.large-t.chest p {
+    font-family: "LacosteSansCondensedLight";
+    margin: 0.5em 0
+}
+
+.sizeChart table tr th.large-t.chest p span {
+    font-family: "LacosteSansCondensedBold";
+    display: block
+}
+
+.step {
+    display: none
+}
+
+.step ul {
+    float: left;
+    width: 50%;
+    padding: 0
+}
+
+.step ul.right {
+    text-align: center
+}
+
+.step ul li {
+    font-family: "LacosteSansCondensedLight";
+    width: 100%;
+    display: block;
+    font-size: 1.4rem;
+    border: 1px solid #ededed;
+    border-width: 0 0 1px 1px;
+    padding: 5px
+}
+
+.step ul.right li {
+    border-width: 0 1px 1px
+}
+
+.step ul li.prop {
+    font-family: "LacosteSansCondensedBold";
+    border-top: 1px solid #ededed
+}
+
+.active-pop {
+    display: block
+}
+
+@media screen and (max-width: 767px) {
+    .hide {
+        display: none
+    }
+
+    .sizeChart table tr td {
+        padding: 5px
+    }
+
+    .sizeChart table tr td p {
+        margin: -5px
+    }
+
+    body .dialog-holder {
+        width: 340px;
+        max-width: 320px;
+        padding: 0 0 2em 0
+    }
+
+    .shirts ul {
+        float: left;
+        width: 50%;
+        padding: 0
+    }
+
+    .shirts ul.right {
+        text-align: center
+    }
+
+    .shirts ul li {
+        font-family: "LacosteSansCondensedLight";
+        width: 100%;
+        display: block;
+        font-size: 1.4rem
+    }
+
+    .shirts ul li.prop {
+        font-family: "LacosteSansCondensedBold"
+    }
+
+    .step {
+        display: block;
+        margin-bottom: 10px;
+        overflow: hidden
+    }
+
+    .step .dialog-holder.active {
+        width: 300px
+    }
+
+    .step .polo-gui {
+        font-size: 1.2rem;
+        font-family: "LacosteSansCondensedBold";
+        color: #454545;
+        margin: 2em 0;
+        display: block;
+        text-decoration: none
+    }
+
+    .step .collec {
+        font-style: italic
+    }
+
+    .step .title {
+        width: 100%;
+        cursor: pointer;
+        background: #ededed;
+        padding: 1em;
+        display: block;
+        float: left;
+        margin: 0;
+        border-bottom: 1px solid #fff
+    }
+
+    .step .title:after {
+        height: 7px;
+        width: 13px;
+        background-image: url("../img/ico-sb12a73b54b.png");
+        background-position: 0 -52px;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 34px;
+        margin: 5px;
+        content: "";
+        display: inline-block
+    }
+
+    .step .sub-title {
+        width: 100%;
+        cursor: pointer;
+        border: 4px solid #ededed;
+        padding: 1em;
+        margin: 1em 0;
+        display: block;
+        float: left;
+        outline: none
+    }
+
+    .step .sub-title:after {
+        height: 7px;
+        width: 13px;
+        background-image: url("../img/ico-sb12a73b54b.png");
+        background-position: 0 -52px;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 34px;
+        margin: 5px;
+        content: "";
+        display: inline-block
+    }
+
+    .step .inner-step ul {
+        float: left;
+        width: 50%;
+        padding: 0
+    }
+
+    .step .inner-step ul.right {
+        text-align: center
+    }
+
+    .step .inner-step ul li {
+        font-family: "LacosteSansCondensedLight";
+        width: 100%;
+        display: block;
+        color: #292929;
+        font-size: 1.4rem;
+        border: 1px solid #ededed
+    }
+
+    .step .inner-step ul li.prop {
+        font-family: "LacosteSansCondensedBold"
+    }
+
+    .desktop {
+        display: none
+    }
+
+    .fit-inner {
+        display: none
+    }
+
+    .active {
+        display: block
+    }
+}
+
+#all-size-guides .hidden {
+    display: block !important;
+    visibility: visible
+}
+
+#all-size-guides .close-popin {
+    display: none
+}
+
+#all-size-guides table {
+    width: 100%
+}
+
+.large-t p {
+    font-size: 1.4rem
+}

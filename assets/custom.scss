@@ -1,0 +1,599 @@
+
+// Helpers
+
+.text-center{
+  text-align: center;
+}
+
+// Private collection
+
+.private-collection{
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .guest-title{
+      font-size: 26px;
+      text-align: center;
+      padding-bottom: 2.4rem;
+      padding-top: 4rem;
+  }
+
+  .guest-message{
+    height: 80vh;
+    width: 80%;
+    margin: 0 auto;
+    background: white;
+  }
+
+  .col-title-desc{
+      margin-bottom: 2rem;
+  }
+
+  .btn-login{
+      background: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 3px;
+      font-size: 14px;
+      display: inline-block;
+  }
+
+}
+
+// Polo Merci 
+.pm-content {
+  @media screen and (max-width: 1190px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width:768px) {
+	.display-desktop {
+		display: block;
+	}
+
+	.display-mobile {
+		display: none;
+	}
+}
+
+@media only screen and (max-width:767px) {
+	.display-desktop {
+		display: none;
+	}
+
+	.display-mobile {
+    display: block;
+    width: 100%;
+	}
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+// SSI-50: Crocoseries  
+
+@media only screen and (max-width: 767px) {
+  .l-ratio-m--5-7 {
+      padding-bottom: calc(100% /(5 / 7)) !important;
+      height: 0;
+      overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #shopify-section-l-foc-collection {
+    .plp-body {
+      margin-top: calc(-5 * (100vw - 17px) / 25 - 59px);
+      margin-top: calc(-5 * (100vw - var(--scrollbar-width)) / 25 - 59px)
+    }
+  }
+}
+.video-wrapper-desktop {
+  display: block;
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.video-wrapper-mobile {
+  display: none;
+  @media only screen and (max-width: 767px) {
+    display: block;
+  }
+}
+
+#mc_embed_signup {
+  label:not(.subfield),
+  .strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 6px;
+  }
+
+  .mc-field-group {
+    padding: 10px 6px;
+  }
+
+  input,
+  select {
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 0px 0px 0px 16px;
+    height: 38px;
+    text-align: left;
+    color: #115a35;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    background-color: #fff;
+    border: 1px solid #b4bbc3;
+    outline: none;
+  }
+
+  .birthday {
+    width: 65px;
+  }
+
+  .input-group, 
+  .mergeRow {
+
+    li {
+      margin: 10px 0;
+    }
+
+    input {
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .checkbox.subfield  {
+      display: flex;
+      align-items: baseline;
+      margin: 15px 0;
+    }
+
+    label,
+    strong {
+      font-size: 16px;
+      font-weight: 700;
+      padding-bottom: 6px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    input[type='radio']:after {
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      position: relative;
+      left: -1px;
+      background-color: #e5e5e5;
+      content: '';
+      display: inline-block;
+      visibility: visible;
+      border: 2px solid #e5e5e5;
+    }
+
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        position: relative;
+        left: -1px;
+        background-color: #115a35;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid #115a35;
+    }
+  }
+
+  .button {
+    width: auto;
+    padding: 11px 10px;
+    background: #115a35;
+    border-radius: 2px;
+    border-style: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    word-break: break-word;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px 0;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.form-wrapper {
+  a {
+    color: #115a35;
+    font-weight: 700;
+  }
+}
+
+.footer-payment {
+  .payment-icon__wrapper {
+    width: 50px;
+  }
+}
+
+.footer-main {
+  a:not(.btn-cta) {
+    text-decoration: underline;
+  }
+}
+.nat-geo-link {
+  text-decoration: underline;
+  
+  &:hover {
+    color: #000;
+  }
+}
+
+.homepage-collection {
+  margin-bottom: 150px !important;
+
+  @media screen and (max-width: 796px) {
+    margin-bottom: 10px !important;
+  }
+}
+
+.template-index .slideshow .flickity-page-dots {
+  @media screen and (max-width: 796px) {
+    bottom: -20px !important;
+  }
+}
+
+// Lacoste Inside Slider
+
+.image-column {
+  width: calc(13 *(100vw - var(--scrollbar-width))/ 25);
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.text-column {
+  width: calc(6 * (100vw - var(--scrollbar-width)) / 25);
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+ 
+.lacoste-inside__wrapper {
+  width: 100%;
+}
+
+.lacoste-inside__slider {
+  .js-slideshow-controls {
+    z-index: 1;
+  }
+
+  .slideshow-controls.controls-top .slideshow-button-next, 
+  .slideshow-controls.controls-top .slideshow-button-prev {
+    top: 22px;
+  }
+
+  .icon-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slideshow-controls.controls-top {
+    top: 35px;
+  }
+
+  .flickity-page-dots {
+    display: none;
+  }
+
+  .slideshow-controls .slideshow-button-next[aria-disabled=true]:hover, 
+  .slideshow-controls .slideshow-button-prev[aria-disabled=true]:hover {
+    background-color: transparent;
+  }
+}
+
+.lacoste-inside__logo svg {
+  width: 60px;
+  height: 60px;
+}
+
+.lacoste-inside__slider img {
+  width: 100%;
+}
+
+
+.ad-2 {
+  animation-delay: 0.25s;
+}
+
+.ad-3 {
+  animation-delay: 0.3s;
+}
+
+/* flickity-fade */
+
+
+.fader-slide {
+  position: relative;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity ease-out .5s;
+
+  .fader-anim {
+      opacity: 0;
+      transform: translateX(50vw); 
+      transition: transform ease-out 0.7s, opacity ease-out 0.7s;
+  }
+
+  &.is-selected {
+      opacity: 1;
+      z-index: 1;
+      pointer-events: all !important;
+      transition: transform ease-out .7s, opacity ease-out 0.7s;
+
+      .fader-anim {
+          opacity: 1;
+          transform: translateX(0); 
+          transition: transform ease-out 0.7s, opacity ease-out 0.7s;
+      }
+
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .lacoste-inside__slider {
+    .slideshow-controls.controls-top {
+      top: auto;
+      bottom: 0;
+      margin-bottom: 40px;
+    }
+  }
+
+  .lacoste-inside__content {
+    height: 300px;
+  }
+
+  .flex-m--space-between {
+    justify-content: space-between;
+  }
+}
+
+/*brand-protection page*/ /* & brand-block-container in PDP Push */
+.brand-block-container,
+.brand-protection-container {
+    font-size: 15px;
+    line-height: 25px;
+
+    p a {
+        text-decoration: underline;
+    }
+
+    .lacoste-row {
+        margin-bottom: 50px;
+    }
+
+    .lacoste-col-inner {
+        padding: 50px;
+    }
+
+    h2 {
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 30px;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+        margin: 10px 0;
+    }
+
+    .lacoste-col-desc-wrap {
+        position: relative;
+
+        h2 {
+            font-size: 50px;
+            line-height: 50px;
+        }
+
+        .lacoste-col-desc-inner {
+            max-width: 640px;
+        }
+    }
+
+    .lacoste-col-bg-black {
+        background: #191919;
+        color: #fff;
+        text-align: center;
+        padding: 50px 10px;
+    }
+
+    .lacoste-col-bg-black-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+.lacoste-col-desc {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: auto;
+    bottom: 0;
+}
+
+.lacoste-col-text-inner-middle {
+    padding: 50px;
+}
+
+.lacoste-special-col-inner {
+    padding: 0 20px;
+}
+
+.lacoste-col-text-center {
+  	text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .lacoste-col-text-wrap-middle {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .lacoste-col-text-middle {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: auto;
+        bottom: 0;
+    }
+
+    .lacoste-special-col-inner {
+        &.special-left {
+            padding-right: 5px;
+        }
+
+        &.special-right {
+            padding-left: 5px
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .brand-protection-container {
+        .lacoste-col-desc-wrap {
+            h2 {
+                font-size: 30px;
+                line-height: 35px;
+            }
+        }
+
+        .lacoste-col-desc {
+            top: auto;
+            bottom: 30px;
+        }
+
+        .lacoste-col-inner {
+            padding: 20px;
+        }
+
+        .lacoste-row {
+            margin-bottom: 30px;
+        }
+
+    }
+
+    .lacoste-col-text-inner-middle {
+        padding: 20px;
+    }
+
+    .lacoste-special-col-inner {
+        &.special-left {
+            margin-bottom: 20px;
+        }
+    }
+
+    .authenticity {
+        text-align: center;
+    }
+
+    .mobile-sort-order {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .mobile-order-top {
+        order: -1;
+    }
+    
+    img.mobile-order-top {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* brand-block-container in PDP Push */
+.brand-block-container {
+    color: #767676;
+
+    .lacoste-col-inner {
+        padding: 15px;
+    }
+
+    h2,h3 {
+    	color: #000;      
+    }
+  
+    .lacoste-col-text-inner-middle {
+      padding: 40px; 
+    }
+  
+    .btn-cta {
+      margin-top: 10px;
+      text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+  .brand-block-container {
+    text-align: center;
+    
+	&.padding-1,
+    &.cell-25 {
+     	padding: 0; 
+    }
+    
+    .lacoste-row {
+      	margin-bottom: 20px;
+    }  
+    
+    .lacoste-col-text-inner-middle {
+    	padding: 0;
+	}
+    
+    .lacoste-col-inner {
+    	padding: 15px 0;
+	}
+    
+    .lacoste-col-text-container {
+    	padding: 15px;
+	}
+  }
+}

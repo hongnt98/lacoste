@@ -1,0 +1,87 @@
+<div class="js-modular-layer js-promotions-layer modular-layer l-relative grid cell-25 bg-white  l-padding-top-row-small l-padding-bottom-row-small" id="lacoste-crocoseries-slider-1" data-layer="layer_slider_tiles" data-tracking="">
+    <div class="l-vmargin--large padding-1 padding-m-2 cell-13 cell-mt-21 cell-m-25">
+      <h2 class="js-modular-title title--xlarge text-black">
+        {{ section.settings.title }}
+      </h2>
+      <div class="text-grey js-modular-text fs--medium">
+        {{ section.settings.text }}
+      </div>
+    </div>
+    <div class="l-relative cell-25">
+      <div class="js-slideshow-wrapper cell-mt-10 cell-m-20 offset-m-1 swiper-container-horizontal" dir="ltr">
+        <ul class="js-slideshow-controls slideshow-controls flex no-mob controls-top text-black">
+          <li>
+            <button class="js-slideshow-control-left slideshow-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true">
+              <svg role="presentation" class="icon-svg ">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-left"></use>
+              </svg>
+            </button>
+          </li>
+          <li class="fs--xlarge ff-bold">
+            <div class="js-slideshow-indicator slideshow-indicator">1 / 6</div>
+          </li>
+          <li>
+            <button class="js-slideshow-control-right slideshow-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+              <svg role="presentation" class="icon-svg ">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use>
+              </svg>
+            </button>
+          </li>
+        </ul>
+        <div class="js-slideshow l-relative" data-direction="ltr" data-slider-prev="Previous slide" data-slider-next="Next slide" data-slider-first="This is the first slide" data-slider-last="This is the last slide" data-slider-pagination="Go to slide {{index}}" data-slider-notification="">
+          {%- for block in section.blocks -%}
+          {%- assign product = all_products[block.settings.product] -%}
+  
+          <div class="slide {% if forloop.index == 3 %}is-initial{% endif %}">
+            <div class="cell-mt-9 cell-m-19 l-relative l-fill-height flex offset-1 cell-6">
+              <div class="js-modular-push js-promotions l-fill-width l-relative flex bg-white  component-push-basic" data-id="lacoste-polo-shop-slider-tiles-1-component-1">
+                <a class=" l-fill-width flex--col flex--grow" href="{{ product.url }}">
+                  <div class="l-relative l-ratio--5-7  l-vmargin--small">
+                    <div class="js-lazyload-wrapper with-placeholder l-overlay lazyload">
+                      <picture class="pict l-block l-absolute img-cover img-cover--center lazyload">
+                        <source media="(max-width: 767px)" data-srcset="{{ product.featured_image | img_url: '244x' }} 244w,{{ product.featured_image | img_url: '295x' }} 295w,{{ product.featured_image | img_url: '320x' }} 320w,{{ product.featured_image | img_url: '594x' }} 594w" sizes="(max-width: 320px) 244px,(min-width: 321px) and (max-width: 375px) 295px,(min-width: 376px) and (max-width: 414px) 320px,(min-width: 415px) and (max-width: 767px) 594px">
+                        <source media="(min-width: 768px)" data-srcset="{{ product.featured_image | img_url: '320x' }} 320w,{{ product.featured_image | img_url: '375x' }} 375w,{{ product.featured_image | img_url: '414x' }} 414w,{{ product.featured_image | img_url: '457x' }} 457w" sizes="(min-width: 768px) and (max-width: 1024px) 375px,(min-width: 1025px) and (max-width: 1190px) 414px,(min-width: 1191px) and (max-width: 1366px) 320px,(min-width: 1367px) and (max-width: 1680px) 414px,457px">
+                        <img alt="{{ product.title }}" width="100%" height="auto" data-src="{{ product.featured_image | img_url: '457x' }}" class="l-block l-absolute img-cover img-cover--center js-lazyload lazyload " data-was-processed="true">
+                      </picture>
+                      <div class="lqip l-ratio--5-7 pointer-none"></div>
+                    </div>
+                    <div class="flex flex--align-end fs--small product-tile-colors-wrapper bg-white text-grey">
+                      {% capture products_list %}
+                      {% for variant in product.variants %}
+                      {{ product.variants[forloop.index].options[0] }}
+                      {% if forloop.last == false %}::{% endif%}
+                      {% endfor %}
+                      {% endcapture %}
+                      {% assign products_array = products_list | split: '::'%}
+                      {% assign array_count =  products_array | uniq %}
+                      {% assign array_size = array_count.size %}
+                      {% assign total_colors = array_size | minus: 1 %}
+                      {% if total_colors <= 1 %}
+                      + {{ total_colors }} colour
+                      {% else %}
+                      + {{ total_colors }} colours
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="flex flex--col flex--grow">
+                    <div class="l-vmargin--small  ">
+                      <div class="text-grey fs--medium">
+                        {{ product.title }}
+                      </div>
+                    </div>
+                    <div class="ff-semibold nowrap fs--medium">
+                      <div class="text-grey" style="">
+                        {{ product.price | money }}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          {%- endfor -%}
+        </div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+      </div>
+    </div>
+</div>

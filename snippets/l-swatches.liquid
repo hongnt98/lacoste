@@ -1,0 +1,31 @@
+<!-- 
+  <h2 class="fs--medium text-grey l-vmargin--medium padding-m-2">3 colors in sales</h2>
+  <ul class="js-pdp-color-list l-m-overflow-x l-vmargin--xlarge padding-m-2">
+    <li class="l-inline-block l-vmargin--xsmall l-hmargin--small">
+      <a href="" title="Navy Blue / Black / Navy Blue - WKD" class="js-pdp-color-item swatch-wrapper is-active" data-no-redirect="true" rel="nofollow">
+        <img src="//image1.lacoste.com/dw/image/v2/AAQM_PRD/on/demandware.static/Sites-GB-Site/Sites-master/en/dw9ace9f1c/swatch_PH9396_WKD_24.jpg" alt="Navy Blue / Black / Navy Blue" class="img-fill-width swatch no-pointer" />
+      </a>
+    </li>
+    <li class="l-inline-block l-vmargin--xsmall l-hmargin--small">
+      <a href="" title="Green / White / Navy Blue - CYX" class="js-pdp-color-item swatch-wrapper " data-no-redirect="true" rel="nofollow">
+        <img src="//image1.lacoste.com/dw/image/v2/AAQM_PRD/on/demandware.static/Sites-GB-Site/Sites-master/en/dw5a906e6c/swatch_PH9396_CYX_24.jpg" alt="Green / White / Navy Blue" class="img-fill-width swatch no-pointer" />
+      </a>
+    </li>
+    <li class="l-inline-block l-vmargin--xsmall l-hmargin--small">
+      <a href="" title="White / White / White - B5L" class="js-pdp-color-item swatch-wrapper " data-no-redirect="true" rel="nofollow">
+        <img src="//image1.lacoste.com/dw/image/v2/AAQM_PRD/on/demandware.static/Sites-GB-Site/Sites-master/en/dwbd8f758a/swatch_PH9396_B5L_24.jpg" alt="White / White / White" class="img-fill-width swatch no-pointer" />
+      </a>
+    </li>
+  </ul>
+
+</div> -->
+<!-- <div style="display: none;"> -->
+<div class="js-pdp-color">
+  <ul class="js-pdp-color-list l-m-overflow-x l-vmargin--xlarge padding-m-2">
+    {% for option in product.options_with_values %}
+    {% capture option_name %}{{ option.name | handleize }}{% endcapture%}
+    {% include 'l-color-swatch' with swatch: option.name %}
+    {% endfor %}
+  </ul>
+  <hr class="no-tab no-desk l-vmargin--xlarge" />  
+</div>

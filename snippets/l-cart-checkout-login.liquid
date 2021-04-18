@@ -1,0 +1,50 @@
+<div class="checkout-inner">
+  <div class="checkout-block checkout-login-check-mail">
+    <h3 class="checkout-block-title">ENTER YOUR EMAIL ADDRESS TO CONTINUE</h3>
+    <p class="checkout-block-text">Email will be used to track your order. If you don't have an account, you will be able to create a Lacoste account later during the process.</p>
+    <form class="forms flex flex--col js-checkout-login-checkmail-form" method="POST">
+      <label class="field-wrapper is-required">
+        <input id="js-checkout-login-check-mail" class="field js-field is-filled" name="customer[email]" type="text" autofocus="" required="">
+        <span class="label label--floating">YOUR EMAIL ADDRESS</span>
+      </label>
+
+      <footer class="flex flex--justify-end l-field-margin">
+        <button class="btn btn-new btn-light js-checkout-login-checkmail" type="submit">
+          Continue
+        </button>
+      </footer>
+    </form>
+  </div>
+  <div class="checkout-block checkout-login-user-exist">
+    <h3 class="checkout-block-title">WELCOME BACK!</h3>
+    <form class="forms flex flex--col js-checkout-login-validate-form" method="POST">
+      <label class="field-wrapper l-field-margin is-required">
+        <input id="js-checkout-login-mail" class="field js-field" name="customer[email]" type="text" required="">
+        <span class="label label--floating">
+          YOUR EMAIL ADDRESS
+        </span>
+      </label>
+      <label class="field-wrapper l-field-margin is-required">
+        <input id="js-checkout-login-password" class="field js-field" name="login-password" type="password" required="">
+        <span class="label label--floating">
+          YOUR PASSWORD
+        </span>
+      </label>
+      <div class="checkout-block-action-wrapper">
+        <a href="/pages/recover-password" class="checkout-block-action">
+          Forgotten your password?
+        </a>
+      </div>
+      <p class="checkout-block-error"></p>
+      <footer class="flex flex--justify-end l-field-margin">
+        <button class="btn btn-new js-checkout-login-validate" type="submit">
+          Sign in
+        </button>
+      </footer>
+    </form>
+  </div>
+  <div class="checkout-block login-checkout-reachfive-wrapper">
+    <h3 class="checkout-block-title">Connect with your favorite social network:</h3>
+    <div class='oxi-social-login'></div>
+  </div>
+</div>

@@ -1,0 +1,233 @@
+<div class="js-popin-container">
+  <div class="popin-wrapper js-popin-wrapper is-hidden popin--atc popin--inside popin--panel">
+    <span class="js-ada-loop-start" tabindex="0"></span>
+    <div class="popin" role="dialog">
+      <div class="popin-content js-popin-content" role="document">
+        <svg class="loader-icon">
+          <circle class="loader-circle" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
+        </svg>
+      </div>
+      <button class="l-popin-close js-popin-close">
+        <svg role="presentation" class="icon-svg icon-close" aria-hidden="true">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+        </svg>
+        <span class="visually-hidden">Close</span>
+      </button>
+    </div>
+    <span class="js-ada-loop-stop" tabindex="0"></span>
+  </div>
+  <div class="popin-wrapper js-popin-wrapper is-hidden popin--fill pdp-zoom-popin">
+    <span class="js-ada-loop-start" tabindex="0"></span>
+    <div class="popin" role="dialog">
+      <div class="popin-content js-popin-content" role="document">
+        <svg class="loader-icon">
+          <circle class="loader-circle" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
+        </svg>
+      </div>
+      <button class="l-popin-close js-popin-close">
+        <svg role="presentation" class="icon-svg icon-close" aria-hidden="true">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+        </svg>
+        <span class="visually-hidden">Close the zoom window</span>
+      </button>
+    </div>
+    <span class="js-ada-loop-stop" tabindex="0"></span>
+  </div>
+  <div id="size-guide" class="popin-wrapper js-popin-wrapper popin--inside popin-m--fill popin--panel is-active is-hidden">
+    <span class="js-ada-loop-start" tabindex="0"></span>
+    <div class="popin" role="dialog" aria-labelledby="dialogName">
+      <div class="popin-content js-popin-content" role="document">
+        <div id="popin-fit-finder" class="popin-fit-finder">
+          <div class="padding-1 padding-mt-0">
+            <div class="text-center l-vspaced-row-1 l-vmargin--xsmall">
+              <div role="heading" aria-level="1" class="fs--medium ff-bold l-vmargin--xsmall" id="dialogName">
+                Size guide
+              </div>
+              <p class="fs--small text-grey-light">
+                Find your perfect size
+              </p>
+            </div>
+            <div class="dialog" data-dialog-id="dialog-size-chart">
+              <div class="size-chart">
+                <div class="tab-wrapper">
+                  <div class="flex change-fit-tabs l-vmargin--small">
+                    <button data-tab="default-size-guide" class="js-track fs--small change-fit-tab js-change-fit-tab initial-size-chart" data-tag-id="pdp.openTabSizeGuide" data-popin-close="Close the size guide">
+                      Size guide
+                    </button>
+                  </div>
+                  <div class="size-popin-tab-content">
+                    <section class="js-fit-tab fit-finder-tab is-active" id="default-size-guide">
+
+                      {% if product.tags contains 'Boys' or product.tags contains 'Girls' %}
+                        {% if product.type == 'T-Shirts' or product.type == 'Polos' or product.type == 'Dresses & Skirts' or product.type == 'Swimwear' %}
+                        	{% include 'size-guide-children' %}
+                        {% endif %}
+                      {% endif %}
+
+                      {% if product.type == 'Caps & Hats' %}
+                      	{% include 'size-guide-hats' %}
+                      {% endif %}
+
+                      {% if product.type == 'T-Shirts'%}
+                      	{% if product.tags contains 'Men' %}
+                          {% include 'size-guide-men-t-shirts' %}
+                      	{% endif %}
+                          
+                      	{% if product.tags contains 'Women' %}
+                      		{% include 'size-guide-women-shirts-tops' %}
+                      	{% elsif product.tags contains 'Boys' %}
+                      		{% include 'size-guide-children' %}
+                        {% endif %}
+                        
+                      {% endif %}
+                      {% if product.type == 'Jackets & Coats' %}
+
+                          {% if product.tags contains 'Men' %}
+                            {%include 'size-guide-men-jackets' %}
+                          {% endif %}
+                            
+                          {% if product.tags contains 'Women' %}
+                            {% include 'size-guide-women-jacket' %}
+                          {% endif %}
+
+                      {% endif %}
+                      {% if product.type == 'Shirts & Tops' or product.type == 'Sweatshirts' %}
+                        {%include 'size-guide-women-shirts-tops' %}
+                      {% endif %} 
+                      {% if product.type == 'Dresses & Skirts' %}
+                        {% if product.tags contains 'Women' %}
+                          {%include 'size-guide-women-dress' %}
+                        {% endif %}
+                      {% endif %}
+                      {% if product.type == "Men's Clothing" %}
+                      {%include 'size-guide-men-polo' %}
+                      {% endif %}
+                      {% if product.type == 'Plimsolls & Canvas' or product.type == "Trainers" or product.type == "Boots & Chukkas" or product.type == "Loafers & Boat Shoes" or product.type == 'Shoes' %}
+                      {% if product.tags contains 'Men' %}
+                      {%include 'size-guide-men-shoes' %}
+                      {% elsif product.tags contains 'Women' %}
+                      {%include 'size-guide-women-shoes' %}
+                      {% elsif product.tags contains 'Boys' or product.tags contains 'Girls' %}
+                      {%include 'size-guide-kids-shoes' %}
+                      {% endif %}
+                      {% endif %}
+                      {% if product.type == "Polos" %}
+
+                        {% if product.tags contains 'Men' %}
+                          {%include 'size-guide-men-polo' %}
+                        {% endif %}
+                        {% if product.tags contains 'Women' %}
+                          {%include 'size-guide-women-polo' %}
+                        {% endif %}
+
+                        {% if product.tags contains 'Boys' or product.tags contains 'Girls' %}
+                          {% include 'size-guide-children' %}
+                        {% endif %}
+
+                      {% endif %}
+                      {% if product.type == "Polo Shirt" %}
+                      {%include 'size-guide-men-polo' %}
+                      {% endif %}
+                      {% if product.type == "Polo" %}
+                      {%include 'size-guide-men-polo' %}
+                      {% endif %}
+                      {% if product.type == "Shirts" %}
+                      {%include 'size-guide-men-shirts' %}
+                      {% endif %}
+                      {% if product.type == "Skirts & Dresses" or product.type == 'Trousers & Shorts' %}
+                        {% if product.tags contains 'Women' %}
+                          {%include 'size-guide-women-dress' %}
+                        {% elsif product.tags contains 'Kids' %}
+                      		{% include 'size-guide-children' %}
+                        {% endif %}
+                      {% endif %}
+                      {% if product.type == "Socks" %}
+                      {%include 'size-guide-socks' %}
+                      {% endif %}
+                      {% if product.type == "Leather Goods" %}
+                      	{% if product.tags contains 'Men' or product.tags contains 'Belt' %} {% include 'size-guide-men-belt' %}
+                      	{% elsif product.tags contains 'Women' or product.tags contains 'Belts' %} {% include 'size-guide-women-belt' %}
+                      	{% endif %}
+                      {% endif %}
+                      {% if product.type == "Belts" %}
+                      	{% if product.tags contains 'Women' %}
+                      		{% include 'size-guide-women-belt' %}
+                      	{% else %}
+                      		{% include 'size-guide-men-belt' %}
+                      	{% endif %}
+                      {% endif %}
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="l-popin-close js-popin-close">
+        <svg role="presentation" class="icon-svg icon-close" aria-hidden="true">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+        </svg>
+        <span class="visually-hidden">Close the size guide</span>
+      </button>
+    </div>
+    <span class="js-ada-loop-stop" tabindex="0"></span>
+  </div>
+  <div id="size-panel" class="popin-wrapper js-popin-wrapper popin--inside popin--panel is-active is-hidden">
+    <span class="js-ada-loop-start" tabindex="0"></span>
+    <div class="popin" role="dialog">
+      <div class="popin-content js-popin-content" role="document">
+        <div id="popin-size" class="popin-size js-popin-size">
+          <div class="l-popin-size-headline fs--small l-vmargin--xlarge offset-1 text-grey-light">
+            <svg role="presentation" class="icon-svg icon-deco" aria-hidden="true">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-hanger"></use>
+            </svg>
+            <button data-popin-content-id="popin-fit-finder" data-popin-classname="popin--inside popin-m--fill popin--panel" id="swatch-size-btn" data-tag-id="pdp.openSizeGuide" data-popin-close="Close the size guide" class="reverse-link js-track">Size guide</button>
+          </div>
+          <div class="popin-size-list">
+            <div class="popin-size--check-availability">
+              <!--<h2 class="title--medium l-vmargin--medium">See boutique availability</h2>-->
+              <p class="fs--medium text-grey l-vmargin--large">Please select a size</p>
+            </div>
+            <ul class="js-pdp-popin-size-list grid flex--space-around fs--medium ff-normal ">
+              {% for option in product.options_with_values %}
+              {% capture option_name %}{{ option.name | handleize }}{% endcapture%}
+              {% include 'l-size-swatch' with swatch: option.name %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <button class="l-popin-close js-popin-close">
+        <svg role="presentation" class="icon-svg icon-close" aria-hidden="true">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+        </svg>
+        <span class="visually-hidden">Close the size list</span>
+      </button>
+    </div>
+    <span class="js-ada-loop-stop" tabindex="0"></span>
+  </div>
+  {% comment %}<div id="search-popin" class="popin-wrapper js-popin-wrapper popin--inside popin--fill is-active is-hidden">
+    <span class="js-ada-loop-start" tabindex="0"></span>
+    <div class="popin" role="dialog">
+      <div class="popin-content js-popin-content" role="document">
+        <aside id="search-render" data-search-url="" data-search="Find a product" data-search-title="Suggestions" data-search-autocomplete-url="" class="isearch container js-search-container">
+          <form action="" method="get">
+            <input itemprop="query-input" type="text" class="q" name="q" placeholder="Find a product" autocomplete="off" />
+            <input class="qsubmit nav-ico" type="submit" value="Find a product" />
+          </form>
+          <div class="search-suggestions">
+            <p>Suggestions</p>
+            <div class="results overlay-noout"></div>
+          </div>
+        </aside>
+      </div>
+      <button class="l-popin-close js-popin-close">
+        <svg role="presentation" class="icon-svg icon-close" aria-hidden="true">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/on/demandware.static/Sites-GB-Site/-/en/v1551316993772/img/svg/critical.svg#icon-close"></use>
+        </svg>
+        <span class="visually-hidden">Close the search window</span>
+      </button>
+    </div>
+  </div>{% endcomment %}
+</div>

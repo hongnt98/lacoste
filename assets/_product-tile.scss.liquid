@@ -1,0 +1,132 @@
+.product-tile:hover a {
+    text-decoration: underline
+}
+
+.product-tile-image-hover {
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s linear
+}
+
+.product-tile-image-hover.is-visible {
+    opacity: 1
+}
+
+.product-tile-colors-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 4px 8px;
+    border: 5px solid transparent;
+    background-clip: padding-box
+}
+
+.dir-rtl .product-tile-colors-wrapper {
+    left: auto;
+    right: 0
+}
+
+.product-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    list-style: none;
+    color: #292929;
+    text-transform: none
+}
+
+.product-box .product-box-image-wrapper {
+    position: relative;
+    min-height: 100px;
+    margin-bottom: 10px;
+    line-height: 0;
+    overflow: hidden
+}
+
+.product-box .product-box-image-wrapper .loader-container {
+    display: flex;
+    z-index: 0
+}
+
+.product-box .product-box-image-wrapper:hover .product-box-image-hover {
+    opacity: 1
+}
+
+.product-box .product-box-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.product-box .product-box-image.product-box-image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s linear
+}
+
+.product-box .product-box-colors-container {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    padding: 4px 8px;
+    background-color: white
+}
+
+.product-box .product-box-swatches {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    list-style: none
+}
+
+.product-box .product-box-swatch {
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    background-color: black;
+    cursor: pointer
+}
+
+.product-box .product-box-image-swatch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s linear
+}
+
+.product-box .product-box-image-swatch.is-visible {
+    opacity: 1
+}
+
+.product-box .tile-swatch-wrapper {
+    display: inline-block;
+    vertical-align: bottom;
+    overflow: hidden;
+    width: 18px;
+    height: 18px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    font-size: 0;
+    transition: border 0.4s ease
+}
+
+.dir-rtl .product-box-colors-container {
+    left: auto;
+    right: 5px
+}
+
+.dir-rtl .product-box .product-box-swatch {
+    margin-left: 5px;
+    margin-right: 0
+}

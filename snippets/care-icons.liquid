@@ -1,0 +1,76 @@
+
+
+{% capture washing_desc %}{% case product.metafields.specs.care_washing%}
+  {% when 'A' %}HANDWASH
+  {% when 'B' %}MACHINE WASH, WATER TEMP 30DEGC, GENTLE/DELICATE
+  {% when 'C' %}MACHINE WASH, WATER TEMP 30DEGC PERMANENT PRESS
+  {% when 'D' %}MACHINE WASH, WATER TEMP 30DEGC
+  {% when 'E' %}MACHINE WASH, WATER TEMP 40DEGC, GENTLE/DELICATE
+  {% when 'F' %}MACHINE WASH, WATER TEMP 40DEGC PERMANENT PRESS
+  {% when 'G' %}MACHINE WASH, WATER TEMP 40DEGC
+  {% when 'H' %}MACHINE WASH, WATER TEMP 50DEGC PERMANENT PRESS
+  {% when 'I' %}MACHINE WASH, WATER TEMP 50DEGC
+  {% else %}DO NOT WASH
+{% endcase %}{%endcapture%}
+
+{% capture bleaching_desc %}{% case product.metafields.specs.care_bleaching %}
+  {% when 'A' %}NON-CHLORINE BLEACH IF NEEDED
+  {% when 'B' %}BLEACH IF NEEDED
+  {% else %}DO NOT BLEACH
+{% endcase %}{%endcapture%}
+
+{% capture tumbledrying_desc %}{% case product.metafields.specs.care_tumbledrying %}
+  {% when 'A' %}DRY NORMAL, LOW HEAT
+  {% when 'B' %}DRY NORMAL, MEDIUM HEAT
+  {% else %}DO NOT TUMBLE DRY
+{% endcase %}{%endcapture%}
+
+{% capture drying_desc %}{% case product.metafields.specs.care_drying %}
+  {% when 'A' %}DRY FLAT IN THE SHADE
+  {% when 'B' %}DRY FLAT
+  {% when 'C' %}HANG TO DRY
+  {% when 'D' %}HANG TO DRY IN THE SHADE
+  {% else %}DRIP DRY
+{% endcase %}{%endcapture%}
+
+{% capture drycleaning_desc %}{% case product.metafields.specs.care_drycleaning %}
+  {% when 'A' %}DRY CLEAN, PETROLEUM ONLY, DELICATE
+  {% when 'B' %}DRY CLEAN, PETROLEUM ONLY
+  {% when 'C' %}DRY CLEAN, ANY SOLVENT EXCEPT TRICHLOROETHYLENE, VERY DELICATE
+  {% when 'D' %}DRY CLEAN, ANY SOLVENT EXCEPT TRICHLOROETHYLENE, DELICATE
+  {% when 'D' %}DRY CLEAN, ANY SOLVENT EXCEPT TRICHLOROETHYLENE
+  {% else %}DO NOT DRY CLEAN
+{% endcase %}{%endcapture%}
+
+{% capture ironing_desc %}{% case product.metafields.specs.care_ironing %}
+  {% when 'A' %}IRON, LOW TEMP
+  {% when 'B' %}IRON, MEDIUM TEMP
+  {% when 'C' %}IRON, HIGH TEMP
+  {% else %}DO NOT IRON
+{% endcase %}{%endcapture%}
+
+<div class="care-icon flex flex--align-center flex--space-between flex-mt--col flex-mt--align-start">
+  <h2 class="title--medium l-vmargin--medium">
+    Care
+  </h2>
+  <ul class="flex">{% if product.metafields.specs.care_washing %}
+    <li class="l-hmargin--small">{% capture lavage %}lavage{{ product.metafields.specs.care_washing }}.png{%endcapture%}
+      <img src="{{ lavage | asset_url }}" alt="{{ washing_desc }}" title="{{ washing_desc }}" width="30" height="30" />
+    </li>{% endif %}{% if product.metafields.specs.care_bleaching %}
+    <li class="l-hmargin--small">{% capture chlorage %}chlorage{{ product.metafields.specs.care_bleaching }}.png{%endcapture%}
+      <img src="{{ chlorage | asset_url }}" alt="{{ bleaching_desc }}" title="{{ bleaching_desc }}" width="30" height="30" />
+    </li>{% endif %}{% if product.metafields.specs.care_tumbledrying %}
+    <li class="l-hmargin--small">{% capture sechage_tambour %}sechage_tambour{{ product.metafields.specs.care_tumbledrying }}.png{%endcapture%}
+      <img src="{{ sechage_tambour | asset_url }}" alt="{{ tumbledrying_desc }}" title="{{ tumbledrying_desc }}" width="30" height="30" />
+    </li>{% endif %}{% if product.metafields.specs.care_ironing %}
+    <li class="l-hmargin--small">{% capture repassage %}repassage{{ product.metafields.specs.care_ironing }}.png{%endcapture%}
+      <img src="{{ repassage | asset_url }}" alt="{{ ironing_desc }}" title="{{ ironing_desc }}" width="30" height="30" />
+    </li>{% endif %}{% if product.metafields.specs.care_drycleaning %}
+    <li class="l-hmargin--small">{% capture nettoyage_sec %}nettoyage_sec{{ product.metafields.specs.care_drycleaning }}.png{%endcapture%}
+      <img src="{{ nettoyage_sec | asset_url }}" alt="{{ drycleaning_desc }}" title="{{ drycleaning_desc }}" width="30" height="30" />
+    </li>{% endif %}{% if product.metafields.specs.care_drying %}
+    <li class="l-hmargin--small">{% capture sechage_naturel %}sechage_naturel{{ product.metafields.specs.care_drying }}.png{%endcapture%}
+      <img src="{{ sechage_naturel | asset_url }}" alt="{{ drying_desc }}" title="{{ drying_desc }}" width="30" height="30" />
+    </li>{% endif %}
+  </ul>
+</div>

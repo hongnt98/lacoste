@@ -1,0 +1,77 @@
+<!-- Prep dataLayer =================================================== -->  
+  <script>
+  	dataLayer = [];
+  </script>
+  <script>
+  {% assign collection_titles = product.collections | map: 'title' %}
+    
+  var dataLayer = window.dataLayer = window.dataLayer || [];
+  
+    
+  {% if template contains 'cart' %}
+    dataLayer.push({
+      'ecommerce': {
+        'cart': {
+          'products': [
+            {% for item in cart.items %}
+            {% unless forloop.index0 == 0 %},{% endunless %}{
+              'name': '{{ item.product.title | escape }}',
+              'price': '{{ item.price | money_without_currency  }}',
+              'brand': '{{ item.vendor }}',
+              'categories': "{% for collection in item.product.collections %}{% unless forloop.index0 == 0 %},{% endunless %}{{ collection.title }}{% endfor %}",
+              'variant': "{{ item.variant.title }}",
+              'quantity': {{ item.quantity }}
+            }
+            {% endfor %}
+          ],
+          'currencyCode': 'PHP'
+        }
+      }
+    });
+  {% elsif template contains 'product'  %}
+    var dataLayerArr = [
+      {
+        "event": "productDetails",
+        "ecommerce": {
+          "detail": {
+            "products": [
+              {
+                'name': "{{ product.title }}",
+                'id': "{{ product.id }}",
+                'categories': "{{ product.type }}",
+                'brand': "{{ product.vendor }}",
+                'price': "{{ product.price | money_without_currency  }}"
+              }
+            ]
+          },
+          'impressions': [
+            {
+              'categories': "{{ collection.title }}",
+              'brand': "{{ product.vendor }}"
+            }
+          ],
+          'currencyCode': 'PHP'
+        },
+        "page": {
+          "environment": "production",
+          "type": "product",
+          "title": "{{ product.title }}"
+        }
+      }
+    ];
+    dataLayer.push(dataLayerArr[0]);
+  {% elsif template contains 'collection'  %}
+    dataLayer.push({
+      'ecommerce': {
+        'impressions': [
+      	  {
+            'categories': "{{ collection.title }}",
+            'brand': "{{ product.vendor }}"
+	      }
+        ],
+        'currencyCode': 'PHP'
+       }
+    });
+  {% endif %}
+  </script>
+  <!-- End prep dataLayer =================================================== -->  

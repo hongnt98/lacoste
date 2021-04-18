@@ -1,0 +1,603 @@
+@keyframes show {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.btn-print {
+    float: right;
+    margin-top: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #454545;
+    margin-top: 24px
+}
+
+.btn-print:before {
+    background-image: url(//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/sprite-ico.png?v=2576683338878110648);
+    background-position: -517px -276px;
+    width: 20px;
+    height: 17px;
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    top: 3px
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5),
+(min--moz-device-pixel-ratio: 1.5),
+(-o-min-device-pixel-ratio: 3 / 2),
+(min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .btn-print:before {
+        background-image: url(//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/retina-sprite-ico.png?152036);
+        background-position: -235px -204px;
+        background-size: 457px 446px
+    }
+}
+
+.btn-print:hover {
+    text-decoration: underline
+}
+
+.faq .column-three-quarter {
+    border-right: 1px solid #ededed
+}
+
+.faq .page-title {
+    font-size: 4rem;
+    margin: 30px 20px 0 0
+}
+
+.faq .page-title.newslettersub {
+    margin: 0
+}
+
+.faq .print {
+    display: block;
+    position: relative;
+    text-align: right;
+    top: -47px;
+    font-size: 1.6rem;
+    right: 0
+}
+
+.faq .sku-info-gray {
+    margin: 0 20px 30px 0px
+}
+
+.faq .box-infos {
+    border: 0
+}
+
+.faq .box-infos .btn {
+    margin-bottom: 20px
+}
+
+.faq .btn-faq {
+    padding-top: 10px
+}
+
+.faq .btn-faq .picto-title-faq {
+    text-decoration: none;
+    padding: 10px 40px;
+    position: relative
+}
+
+.faq .btn-faq .picto-title-faq:before {
+    position: absolute;
+    left: 14px;
+    top: 8px
+}
+
+.faq .btn-faq .faqmail:before {
+    top: 11px
+}
+
+.faq .column-quarter .accordion-content {
+    max-height: 1500px
+}
+
+.faq .column-quarter .btn-plus-faq {
+    display: none
+}
+
+.faq .column-quarter .title-sidebar {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #454545
+}
+
+.faq .column-quarter .btn-plus-faq-help {
+    display: none
+}
+
+.faq .title-sidebar-faq {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #454545;
+    text-decoration: none;
+    text-align: left;
+    margin: 1em 2em 0 0
+}
+
+.faq .active .picto-title-faq {
+    margin-right: 0
+}
+
+.faq-subheader {
+    width: 81%;
+    margin: 0 auto;
+    padding: 0 30px
+}
+
+.view-details-faq {
+    font-size: 1.2rem;
+    color: #797979;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 26px
+}
+
+.view-details-faq:after {
+    border-color: #f5f5f5 transparent transparent transparent;
+    right: auto;
+    top: auto;
+    left: 50%;
+    margin: 0 0 0 -15px;
+    bottom: -30px;
+    border-width: 15px;
+    border-style: solid;
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    z-index: 20;
+    bottom: -56px;
+    visibility: hidden
+}
+
+.block-title-faq {
+    font-size: 2.5rem;
+    color: #454545;
+    margin: 21px 0 4px 0;
+    padding: 0 30px
+}
+
+.ordering-faq {
+    border: 1px solid #ededed;
+    border-right: 0;
+    text-align: center;
+    cursor: pointer;
+    margin: 0;
+    background: #f5f5f5
+}
+
+.ordering-faq.active {
+    cursor: default
+}
+
+.ordering-faq-bg {
+    background: url("//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/product-faq2.png?152036") #f5f5f5 left top no-repeat
+}
+
+.payment-faq-bg {
+    background: url("//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/payment-faq.png?152036") #f5f5f5 right top no-repeat
+}
+
+.delivery-faq-bg {
+    background: url("//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/delivery-faq.png?152036") #f5f5f5 left top no-repeat
+}
+
+.account-faq-bg {
+    background: url("//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/faq-account.png?152036") #f5f5f5 right top no-repeat
+}
+
+.use-faq-bg {
+    background: url("//cdn.shopify.com/s/files/1/0233/9713/8496/t/152/assets/use-faq.png?152036") #f5f5f5 left top no-repeat
+}
+
+.btn-plus-faq {
+    float: none;
+    margin-top: 10px;
+    display: inline-block
+}
+
+.cgv-page .page-title {
+    font-size: 4rem;
+    margin: 20px auto 30px;
+    text-align: center;
+    font-family: "metropolis", Arial, Helvetica, sans-serif;
+    font-weight: bold
+}
+
+.cgv-page h2 {
+    font-family: "metropolis", Arial, Helvetica, sans-serif !important
+}
+
+.btn-plus-faq:after {
+    float: none
+}
+
+.accordion-faq {
+    text-align: center
+}
+
+.accordion-faq .btn-plus .close {
+    display: none
+}
+
+.accordion-faq.active .view-details-faq:after {
+    visibility: visible
+}
+
+.accordion-faq.active .btn-plus .open {
+    display: none
+}
+
+.accordion-faq.active .btn-plus .close {
+    display: inline
+}
+
+.help-use {
+    text-align: left
+}
+
+.spacer-faq-title {
+    display: none
+}
+
+.accordion-content-faq {
+    width: 100%;
+    padding: 0 20%;
+    margin: 26px auto 0 0;
+    font-size: 1.2rem;
+    color: #797979;
+    line-height: 1.9;
+    background: #fff
+}
+
+.accordion-content-faq.active,
+.active .accordion-content-faq {
+    padding: 20px 20% 10px
+}
+
+.title-info-faq {
+    text-transform: uppercase;
+    margin: 1em 0
+}
+
+.faq-list {
+    margin: 0
+}
+
+.faq-list li {
+    list-style-type: none
+}
+
+.faq-minimized {
+    text-transform: lowercase;
+    color: #797979
+}
+
+.picto-faq {
+    margin: 0 5px 0 0
+}
+
+.picto-faq img {
+    position: relative;
+    top: -6px
+}
+
+.terms {
+    text-transform: none
+}
+
+.terms ol {
+    padding: 0 16px
+}
+
+.terms ol li {
+    list-style: decimal;
+    padding-bottom: 20px;
+    font-weight: bold;
+    color: #454545
+}
+
+.terms ol li span {
+    display: block;
+    position: relative;
+    left: -15px;
+    font-weight: normal;
+    color: #797979
+}
+
+.column-half-tablet:first-child {
+    border-bottom: 1px solid #ededed
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .accordion-content-faq {
+        font-size: 1rem
+    }
+
+    .faq-subheader {
+        width: 100%
+    }
+
+    .column-quarter .accordion-content {
+        display: block
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .faq .column-three-quarter {
+        width: 100%
+    }
+
+    .faq .column-quarter {
+        width: 100%
+    }
+
+    .faq .column-quarter .accordion {
+        display: block
+    }
+
+    .faq .column-quarter .accordion-content.active,
+    .faq .column-quarter .active .accordion-content {
+        max-height: 600px
+    }
+
+    .faq .column-quarter .accordion-content {
+        float: left;
+        width: 100%;
+        text-align: left
+    }
+
+    .faq .column-quarter .accordion-content .infos-faq {
+        width: 60%;
+        float: left
+    }
+
+    .faq .column-quarter .accordion-content .btn-faq {
+        width: 40%;
+        float: left
+    }
+
+    .faq .column-quarter .accordion-content .column-half-tablet .infos-faq,
+    .faq .column-quarter .accordion-content .column-half-tablet .btn-faq {
+        width: auto;
+        float: none
+    }
+
+    .faq .column-quarter .btn-plus-faq-help {
+        display: block;
+        margin: 2.5em
+    }
+
+    .faq .help-use-accordion {
+        border-top: 1px solid #ededed;
+        width: 100%;
+        bottom: 0;
+        cursor: pointer;
+        background: #ffffff;
+        display: block;
+        z-index: 126;
+        left: 0;
+        overflow: hidden
+    }
+
+    .faq .title-sidebar-faq {
+        display: block;
+        float: left;
+        margin: 1.5em 0 1.5em 2em;
+        padding: 0
+    }
+
+    .faq .title-sidebar-faq.no-tablet {
+        display: none
+    }
+
+    .faq .picto-title-faq {
+        float: right;
+        width: 50%;
+        width: 46.3%;
+        margin-right: 0
+    }
+
+    .faq .title-sidebar-faq-content {
+        display: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #454545;
+        text-decoration: none
+    }
+
+    .faq .column-half-tablet:first-child {
+        border: 0
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .btn-print {
+        display: none
+    }
+
+    .accordion-content-faq {
+        padding: 0 30px
+    }
+
+    .accordion-content-faq img {
+        max-width: 100%
+    }
+
+    .faq-subheader {
+        width: auto
+    }
+
+    .faq .page-title {
+        font-size: 2.4rem
+    }
+
+    .faq .no-mobile {
+        display: none
+    }
+
+    .faq .column-quarter {
+        width: 100%
+    }
+
+    .faq .column-quarter .accordion-content .btn-faq {
+        width: auto;
+        float: none
+    }
+
+    .faq .column-quarter .box-infos {
+        padding-top: 12px
+    }
+
+    .faq .column-quarter .btn-faq {
+        padding-top: 3px
+    }
+
+    .faq .column-quarter .box-infos:last-child {
+        padding-bottom: 0
+    }
+
+    .faq .column-quarter .btn-plus-faq-help {
+        display: block;
+        margin: 2.5em
+    }
+
+    .faq .column-half-tablet:first-child {
+        border-bottom: 1px solid #ededed
+    }
+
+    .faq .title-sidebar-faq.no-tablet {
+        display: block;
+        float: none;
+        width: auto
+    }
+
+    .help-use {
+        border-top: 1px solid #ededed;
+        width: 100%;
+        bottom: 0;
+        cursor: pointer;
+        background: #ffffff;
+        position: fixed;
+        z-index: 10
+    }
+
+    .accordion-content-faq {
+        width: 100%
+    }
+
+    .faqchat,
+    .spacer-faq-title {
+        display: none
+    }
+
+    .ordering-faq-bg,
+    .payment-faq-bg,
+    .delivery-faq-bg,
+    .account-faq-bg,
+    .use-faq-bg {
+        background: none
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .faq-subheader {
+        padding: 0
+    }
+
+    .faq .column-quarter .accordion-content {
+        display: block
+    }
+
+    .btn-print {
+        margin-right: -6%
+    }
+}
+
+@media screen and (min-width: 1680px) {
+    .fixed-desktop {
+        position: fixed;
+        right: 1.5%;
+        width: 20%;
+        top: 8%;
+        text-align: left
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1680px) {
+    .fixed-desktop {
+        position: fixed;
+        right: 0.5%;
+        width: 20%;
+        top: 10%;
+        text-align: left
+    }
+}
+
+.sitemap ol {
+    padding: 0 !important;
+    margin: 15px 0;
+    list-style-type: decimal
+}
+
+.sitemap li {
+    margin: 3px 0
+}
+
+.sitemap a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.3rem
+}
+
+.sitemap .sitemap-header {
+    font-size: 4rem;
+    margin: 30px 20px 30px 0;
+    padding-left: 30px
+}
+
+.sitemap .column-quarter {
+    padding-left: 50px
+}
+
+.sitemap .subtitle {
+    font-size: 1.8rem;
+    position: relative
+}
+
+.sitemap .subtitle:after {
+    content: "";
+    display: block;
+    background: black;
+    margin-top: 5px;
+    width: 25px;
+    height: 3px
+}
+
+div.accordion-content.accordion-content-faq dd {
+    display: block;
+    margin: 0
+}

@@ -1,0 +1,45 @@
+<li class="cell-7 cell-m-11 offset-1 l-vmargin-row-1">{% capture imgurl %}{{ product.images[0] | img_url: 'master' }}{% endcapture %}
+  <div class="product-box js-product-box" data-pid="PH9396-00-WKD" data-original-image="{{ imgurl }}" data-index="0.0">{% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+    <a href="{{ product.url }}" class="js-product-track">
+      <div class="product-box-image-wrapper">
+        <div class="loader-wrapper l-overlay js-product-loader">
+          <svg class="loader-icon">
+            <circle class="loader-circle" cx="50" cy="50" r="10" fill="none" strokeMiterlimit="10" />
+          </svg>
+        </div>
+        <picture class="product-box-image js-product-image-load">
+          <source media="(min-width: 801px)" srcset="{{ imgurl }}">
+          <img class="product-box-image js-product-image-load" src="{{ imgurl }}" alt="" width="100%" height="auto" />
+        </picture>
+        <img src="{{ product.images.last | img_url: 'master' }}" class="product-box-image product-box-image-hover js-product-image-hover" width="100%" height="auto" />
+      </div>
+    </a>
+    <div class="product-box-infos">
+      <div class="fs--small">
+        <a href="{{ product.url }}" class="product-box-link js-product-track">{{ product.title }}</a>
+      </div>
+      <div class="product-box-price-wrapper">
+        <div data-uprice="130.0" data-currency-code="GBP" class="ff-bold fs--small">
+          <div class="nowrap strikethrough fs--xsmall text-grey-light">{{ product.compare_at_price | money }}</div>
+          <div class="nowrap" style="color: #0d564d">{{ product.price | money }}</div>
+        </div>
+      </div>
+      <div class="flex flex--align-center fs--medium">
+        {% assign variants = '' %}
+        {% for variant in product.variants %}
+          {% if variant.available %}
+            {% assign variants = variants | append: ' ' | append: variant.option1 %}
+          {% endif %}
+        {% endfor %}
+        {% assign variants = variants | split: ' ' | uniq | join: ' ' %}
+        {% assign available_colors = variants | split: ' ' %}
+        {% assign colors = available_colors.size | minus: 1 %}
+        {% if colors > 2 %}
+        <span>+ {{ colors }} colors</span>
+        {% elsif colors > 1 %}
+        <span>+ 1 color</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</li>

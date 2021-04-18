@@ -1,0 +1,395 @@
+<div class="fidelityLayout {% if customer.tags contains 'Level4' %}vip{% elsif customer.tags contains 'Level3' %}gold{% elsif customer.tags contains 'Level2' %}silver{%else%}standard{%endif%}">
+    <div class="fidelityBg"></div>
+    <div class="fidelityWrapper">
+       <div class="only-mobile loyalty-mobile-header">
+          <img class="img-loyalty-logo" src="{{ 'lp-logo.png' | asset_url }}">
+       </div>
+      {% if customer %}
+       <div class="fidelityHeader">
+          <div class="header-left">
+             <h1 class="welcome">
+                Hello, {{ customer.first_name }}
+                <span class="sub-welcome">
+                Welcome to your account
+                </span>
+             </h1>
+             <div class="statut">
+                <span class="stat-title">Your status</span>
+                <span class="stat-points">Player - Level 1</span>
+             </div>
+          </div>
+       </div>
+      {% endif %}
+       {% include 'fidelity-nav' %}
+      <div class="cust-total-spent hidden">{{ customer.total_spent | money }}</div>
+       <!-- MONPROFIL PANELS -->
+      {% include 'lcl-fidelity-area' %}
+       <section class="accountOverviewArea">
+         
+ <div class="editContainer unique-add-address">
+                 <div class="successCall form-wrapper">
+                   <section class="form">
+                     {% form 'customer_address', customer.new_address %}
+ <!--                     <form id="editMyAddress" action="https://www.lacoste.com/on/demandware.store/Sites-GB-Site/en/AddressV2-Save" data-target="addressBox" method="POST" novalidate="novalidate"> -->
+                       <input type="hidden" name="address-id" value="" maxlength="40">
+ <!--                       <div class="form-item form-item-half">
+                         <label for="address-name">Name of the Address<abbr title="this field is required">*</abbr> : </label>
+                         <input type="text" name="address-name" id="address-name" data-error-required="Address Name is required" data-error-wrong="Address Name is not correct" data-error-maxlength="Address Name max length is 38" value="" maxlength="40" required="" aria-required="true">
+                       </div>
+                       <div class="form-item form-item-half">
+                         <input id="sa-title" name="sa-title" type="hidden" value="">
+                       </div> -->
+                     
+                       <div class="form-item form-item-full form-item-civility">
+                         <label class="label-inline">Civility</label>
+                         <div class="content-inline civilityValues">
+                           <label for="salutation"><span for="salutation" class="error"></span>
+                             <input name="customr[salutation]" id="salutation" type="radio" value="MRS" data-error-required="Civility is required" required="" aria-required="true">
+                             Mrs.
+                           </label>
+                           <label for="salutation"><span for="salutation" class="error"></span>
+                             <input name="customr[salutation]" id="salutation" type="radio" value="MS" data-error-required="Civility is required" required="" aria-required="true">
+                             Ms.
+                           </label>
+                           <label for="salutation"><span for="salutation" class="error"></span>
+                             <input name="customr[salutation]" id="salutation" type="radio" value="MR" data-error-required="Civility is required" required="" aria-required="true">
+                             Mr.
+                           </label>
+                         </div>
+                       </div>                   
+                     
+                       <div class="form-item form-item-half">
+                         <label for="sa-last-name">First Name <abbr title="this field is required">*</abbr> : </label>
+                         <input type="text" name="address[first_name]" id="sa-last-name" data-error-required="Last name is required" data-error-wrong="Last name cannot contain such character" data-error-maxlength="Last name must be 40 long max" value="" maxlength="32" required="" aria-required="true">
+                       </div>
+                     
+                       <div class="form-item form-item-half">
+                         <label for="sa-first-name">Last Name <abbr title="this field is required">*</abbr> : </label>
+                         <input type="text" name="address[last_name]" id="sa-first-name" data-error-required="First name is required" data-error-wrong="First name cannot contain such character" data-error-maxlength="First name must be 40 long max" value="" maxlength="32" required="" aria-required="true">
+                       </div>
+                     
+                       <div class="form-item form-item-full">
+                         <label for="sa-last-name">Street <abbr title="this field is required">*</abbr> : </label>
+                         <input type="text" name="address[address1]" id="sa-last-name" data-error-required="Last name is required" data-error-wrong="Last name cannot contain such character" data-error-maxlength="Last name must be 40 long max" value="" maxlength="75" required="" aria-required="true">
+                       </div>
+                     
+                       <div class="form-item form-item-full">
+                         <label for="sa-first-name">Province<abbr title="this field is required">*</abbr> : </label>
+                         <input type="text" name="address[province]" id="sa-first-name" data-error-required="First name is required" data-error-wrong="First name cannot contain such character" data-error-maxlength="First name must be 40 long max" value="" maxlength="32" required="" aria-required="true">
+                       </div>
+                     
+                       <div class="form-item form-item-full">
+                         <label for="sa-first-name">City<abbr title="this field is required">*</abbr> : </label>
+                         <input type="text" name="address[city]" id="sa-first-name" data-error-required="First name is required" data-error-wrong="First name cannot contain such character" data-error-maxlength="First name must be 40 long max" value="" maxlength="32" required="" aria-required="true">
+                       </div>
+                     
+                       <div class="form-item form-item-full">
+                         <label for="sa-first-name">Country<abbr title="this field is required">*</abbr> : </label>
+                         <input type="text" name="address[country]" id="sa-first-name" data-error-required="First name is required" data-error-wrong="First name cannot contain such character" data-error-maxlength="First name must be 40 long max" value="" maxlength="32" required="" aria-required="true">
+                       </div>                            
+                      
+                       <input type="hidden" class="js-address-block-module" data-activemodule="CAZipCode" data-page="account">
+                       <div class="form-item form-item-half">
+                         <label for="ZipCode">Zipcode<abbr title="this field is required">*</abbr> : <span for="sa-last-name" class="error"></span></label>
+                         <input type="text" class="field js-field zipcode-field" data-error-wrong="Please enter a valid zipcode" data-error-service="The locality service is unavailable" name="address[zip]">
+                       </div>
+                     
+ <!--                       <div class="form-item form-item-half zipcode-module">
+                         <button class="btn btn-new js-zipcode-module l-field-spaced">
+                           Search
+                         </button>
+                       </div> -->
+                     
+ <!--                       <div class="shipment-zipcode-module-addresses-wrapper js-shipment-zipcode-module-addresses">
+                         <div class="js-zipcode-module-addresses-result" data-zipcode-empty="Please enter a zipcode"></div>
+                         <div class="my-account-zipcode-module-selected-address-wrapper js-shipment-zipcode-module-selected-address">
+                           <div class="forms flex flex--col">
+                             <div class="form-item form-item-full">
+                               <label for="sa-number-and-street">NUMBER AND STREET <abbr title="this field is required">*</abbr> : <span for="sa-number-and-street" class="error"></span></label>
+                               <input type="text" name="sa-number-and-street" id="sa-number-and-street" data-error-required="Address is required" data-error-maxlength="Address max length is 38" value="" maxlength="38" required="" aria-required="true">
+                             </div>
+                             <div class="form-item form-item-full">
+                               <label for="sa-complementary-information">ADDITIONAL INFORMATION : <span for="sa-complementary-information" class="error"></span></label>
+                               <input type="text" name="sa-complementary-information" id="sa-complementary-information" data-error-maxlength="Address max length is 38" value="" maxlength="38">
+                             </div>
+                             <div class="form-item form-item-half" style="position : relative;">
+                               <label for="sa-zip-code">POSTCODE <abbr title="this field is required">*</abbr> : <span for="sa-zip-code" class="error"></span></label>
+                               <input autocomplete="nope" type="text" name="zip-code" class="js-uppercase-field" id="sa-zip-code" data-error-required="ZipCode is required" data-error-blocked="We apologize but we do not ship to {0} at this time. Please enter a UK address." data-error-wrong="ZipCode is not correct" value="" required="" aria-required="true">
+                               <div class="address-module"></div>
+                             </div>
+                             <div class="form-item form-item-half">
+                               <label for="sa-town">CITY <abbr title="this field is required">*</abbr> : <span for="sa-town" class="error"></span></label>
+                               <input autocomplete="nope" type="text" name="town" id="sa-town" data-error-required="Town is required" data-error-maxlength="Town max length is 38" value="" maxlength="32" required="" aria-required="true">
+                               <div class="address-module"></div>
+                             </div>
+                             <input id="sa-state" name="sa-country" type="hidden" value="GB">
+                             <input id="sa-state" name="sa-state" type="hidden" value="">
+                             <div class="form-item form-item-full">
+                               <label for="country">Country</label>
+                               <input type="text" class="field js-field" name="country" id="country" value="Great Britain" disabled="disabled" required="" aria-required="true">
+                             </div>
+                           </div>
+                         </div>
+                       </div> -->
+                     
+                     
+ <!--                       <div class="my-account-block-action-wrapper">
+                         <span class="my-account-block-action js-address-entermanually">
+                           Enter address manually
+                         </span>
+                       </div> -->
+                     
+                       <div class="form-item form-item-full">
+                         <label for="sa-phone">Phone : <span for="sa-phone" class="error"></span></label>
+                         <input type="tel" name="address[phone]" id="sa-phone" value="" maxlength="20" data-error-wrong="Phone number is not correct">
+                       </div>
+                     
+ <!--                       <input type="hidden" name="needCallValidationAddress" class="suggest-address-active" value="false">
+                       <div class="form-item form-item-full">
+                         <label for="sa-default" class="check-inline-outside">
+                           <input type="checkbox" name="sa-default" id="sa-default">
+                           Make this address default
+                         </label>
+                       </div> -->
+                     
+                     
+                       <div class="form-item-add-new"></div>
+                       <div class="actions">
+                         <input class="btn saveLink" type="submit" data-form-validator="validateAddressForm" value="save">
+ <!--                           save -->
+ <!--                         </button> -->
+                         <button class="btn cancelLink text-link address-new-toggle">
+                           cancel
+                         </button>
+                       </div>
+ <!--                     </form> -->
+                     {% endform %}
+                   </section>
+                   <a href="" class="cancelLink"></a>
+                 </div>
+               </div>        
+         
+          <section>
+             <div class="box box-left infosBox">
+                <h3 class="title">
+                   My personal information
+                </h3>
+                <h3 class="subtitle">
+                   Knowing you better means serving you better.
+                </h3>
+                <div class="successCall">
+                   <p>
+                      {{ customer.first_name }}
+                      {{ customer.last_name }}
+ 
+                      <br> {{ customer.email }}
+                      <br>
+                      Date of birth : {{ customer.metafields.customr.birthday_month }}-{{ customer.metafields.customr.birthday_day }}-{{ customer.metafields.customr.birthday_year }}
+                      <span class="birthday"></span>
+                      <br>
+                      Phone : <span class="phonenumber">{{ customer.phone }}</span><br>
+                      Password : **********
+                   </p>
+                   <a href="#" class="editLink edit-info-btn" data-form-validator="validateForm" data-url="https://www.lacoste.com/on/demandware.store/Sites-GB-Site/en/AccountV2-EditProfile">
+                   edit
+                   </a>
+                </div>    
+               {% include 'edit-info' %}
+               
+             </div>
+          </section>
+ <!--          <section>
+             <div class="box box-right storeBox">
+                <h3 class="successCall title">My Lacoste boutique</h3>
+                <h3 class="subtitle">The place you do your best shopping.</h3>
+                <div class="no-store no-item">
+                   Click on the link below to choose your favourite boutique
+                </div>
+                <a href="" class="addLink btn-edit-store" data-url="#">Add a favourite boutique</a>
+                <div class="editContainer"></div>
+             </div>
+          </section> -->
+          <section>
+             <div class="box box-right addressBox">
+                <h3 class="title">My addresses</h3>
+                <h3 class="subtitle">The places you do your best couch-shopping.</h3>
+                <div class="successCall form-wrapper">
+                   <div class="no-item no-address">
+ <!--                      No known address -->
+                     {% for address in customer.addresses %}
+                     {% if address%}                    
+                     <div class="address" style="display: block;">
+ 
+                       <p>
+                         
+                         {{ address | format_address }}
+ 
+                       </p>
+ 
+                       <p>
+                         
+                         {% comment %}<a href="#" class="editLink unique" data-form-validator="validateAddressForm" data-url="/on/demandware.store/Sites-GB-Site/en/AddressV2-Edit?AddressID=paranaque%2520city">
+                           My addresses
+                         </a>{% endcomment %}
+                       </p>
+                       <p class="links">
+                         <a href="" class="deleteLink  address-delete" data-form-id="{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}">{{ 'customer.addresses.delete' | t }} this address</a>
+ <!--                          <button type="button" class="deleteLink" data-form-id="{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}">{{ 'customer.addresses.delete' | t }} this address</button> -->
+                       </p>
+                     </div>
+                     {% include 'l-edit-address' %}
+                     {% else %}  No known address
+                     {% endif %}
+ 
+                     {% endfor %}                    
+                   </div>
+                   <a href="#" id="modal-popup" class="addLink" data-form-validator="validateAddressForm" data-url="#">Add an address</a>
+                </div>
+                <div class="editContainer"></div>
+             </div>
+          </section>
+          <section>
+             <div class="box box-left newsletterBox">
+                <div class="successCall form-wrapper">
+                   <h3 class="title">
+                      Newsletter
+                   </h3>
+                   <h3 class="subtitle">
+                      News and tips dispensed with style.
+                   </h3>
+                   {{ settings.newsletter_text }}
+                </div>
+                <div class="editContainer newsletter-form" style="display: none;">
+                  <div class="successCall form-wrapper">
+                    <div class="title">
+                      Newsletter
+                    </div>
+                    <div class="form-wrapper">
+                      <div class="form editNewsletter">
+                        <form action="" data-target="newsletterBox" method="POST" id="account-newsletter-form">
+                          <label class="js-account-profile-newsletter">
+                            <input class="js-profile-newsletter-hidden profile-newsletter-hidden" name="subscription" type="checkbox" checked="&quot;checked&quot;">
+                            <button id="togg-active" type="button" class="switch active"></button>
+                            Yes, I want to receive news from Lacoste
+                          </label>
+                          <div class="actions">
+                            <button class="btn saveLink saveNews" type="submit" name="confirm">
+                              save
+                            </button>
+                            <button class="btn cancelLink">
+                              cancel
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <a href="" class="cancelLink" title="back"></a>
+                  </div>
+               </div>
+             </div>
+          </section>
+          <section class="socialLogin">
+             <div class="box box-left socialBox">
+                <h3 class="title">
+                   Social networks
+                </h3>
+                <h3 class="subtitle">
+                   Style is also about networking.
+                </h3>
+                <p>Link your social networks to make it easier to connect to Lacoste.com</p>
+                <ul class="social-link" data-externalid="false" data-url="#" data-url-token="#" data-domain="#">
+                   <li id="social-login-facebook" class="nav-ico-before {% if customer.tags contains 'oxi_social_login' %}active{% endif %}">Facebook
+                      <button class="switch {% if customer.tags contains 'oxi_social_login' %}active{% endif %}"></button>
+                   </li>
+                   <li id="social-login-google" class="nav-ico-before">
+                      <span id="gum-google-btn" class="social-google-icon"></span> Google
+                      <button class="switch"></button>
+                   </li>
+                </ul>
+             </div>
+          </section>{%comment%}
+ <!--          <section>
+             <div class="box box-left cardBox">
+                <div class="choosing-card">
+                   <h3 class="title">Last credit cards used</h3>
+                   <h4 class="subtitle">100%-secure payment guaranteed.</h4>
+                   <div class="no-card no-item ">
+                      You have no credit card on file
+                   </div>
+                </div>
+             </div>
+          </section> -->{% endcomment %}
+          <div id="accountOverlay"></div>
+          <div class="overlay-loader">
+             <div class="sprite-loading bg-puce"></div>
+          </div>
+       </section>
+    </div>
+    <div class="customerInformations">
+       <div class="customer-left">
+          <div class="customerContact top">
+             <h3 class="title">
+                Contact Customer Service
+             </h3>
+             <div class="content">
+                <span class="bold">
+                  +632 8830 5000*
+                </span>
+                <br>
+                *Local costs apply depending on your phone provider.
+             </div>
+          </div>
+          <div class="customer-bottom">
+             <div class="link">
+                <a href="/pages/contact-us">
+                Contact us by email
+                </a>
+             </div>
+          </div>
+       </div>
+       <div class="customer-right">
+          <div class="orders top">
+             <h3 class="title">
+                Online orders &amp; returns
+             </h3>
+             <div class="content">
+                Return any product free of charge within 14 days of delivery date.
+             </div>
+          </div>
+          <div class="customer-bottom">
+             <div class="link">
+                <a href="/pages/orders">
+                See my orders
+                </a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div style="display:none;position:absolute;opacity:0">
+   {% include 'customer-fields' %}
+ </div>
+
+ {% schema %}
+ {
+    "name": "Account",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Private Sale"
+        },
+        {
+            "type": "text",
+            "id": "sale_title",
+            "label": "Title"
+        },
+        {
+            "type": "url",
+            "id": "sale_link",
+            "label": "Link"
+        }
+    ]
+ }
+ {% endschema %}
+ 
+ 

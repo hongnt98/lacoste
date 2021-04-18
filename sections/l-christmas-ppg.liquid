@@ -1,0 +1,115 @@
+<div class="js-modular-layer modular-layer l-relative grid cell-25 bg-white  l-padding-top-row-large l-padding-bottom-row-small" id="gift-guide-noel-2019-slider-2" data-layer="layer_slider_tiles" data-tracking="">
+  <div class="l-vmargin--large padding-1 padding-m-2 cell-13 cell-mt-21 cell-m-25">
+    <h2 class="js-modular-title title--xlarge text-black">
+      5. Penny-Pincher Gifts
+    </h2>
+    <div class="text-grey js-modular-text fs--medium">
+      Small prices. Big impact. Make the most of these brilliant gift ideas.
+    </div>
+  </div>
+  <div class="l-relative cell-25">
+    <div class="js-slideshow-wrapper l-overflow-visible cell-mt-20 offset-m-1 swiper-container-horizontal" dir="ltr">
+      <ul class="js-slideshow-controls slideshow-controls slideshow-modular-controls flex controls-top no-mob  text-black">
+        <li>
+          <button class="js-slideshow-control-left slideshow-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Slide précédente" aria-disabled="true">
+            <svg role="presentation" class="icon-svg ">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-left"></use>
+            </svg>
+          </button>
+        </li>
+        <li class="fs--xlarge ff-bold">
+          <div class="js-slideshow-indicator slideshow-indicator"></div>
+        </li>
+        <li>
+          <button class="js-slideshow-control-right slideshow-button-next" tabindex="0" role="button" aria-label="Slide suivante" aria-disabled="false">
+            <svg role="presentation" class="icon-svg ">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <div class="js-slideshow l-christmas-petite">
+      {%- assign collection = collections[section.settings.collection] -%}
+        {% for product in collection.products limit: 8 %}
+        <div class="slide {% if forloop.index == 3 %}is-initial{%endif%}">
+          <div class="cell-mt-9 cell-m-19 slide-content flex offset-1 cell-6">
+            <div class="js-modular-push l-fill-width l-relative flex bg-white  component-push-product" data-id="gift-guide-noel-2019-slider-2-component-product-1">
+              <a class=" l-fill-width flex--col flex--grow " href="{{ product.url }}" data-type="product">
+                <div class="l-relative l-ratio--5-7  l-vmargin--small">
+                  <div class="js-lazyload-wrapper with-placeholder l-overlay lazyloaded">
+                    {% capture img_thumb %}{{ product.images[0] | img_url: '414x579' }}{% endcapture %}
+                    <picture class="pict l-block img-cover img-cover--center lazyload">
+                      <source media="(max-width: 767px)" data-srcset="{{ img_thumb }}?imwidth=244&amp;impolicy=custom 244w,{{ img_thumb }}?imwidth=295&amp;impolicy=custom 295w,{{ img_thumb }}?imwidth=320&amp;impolicy=custom 320w,{{ img_thumb }}?imwidth=594&amp;impolicy=custom 594w" sizes="(max-width: 320px) 244px,(min-width: 321px) and (max-width: 375px) 295px,(min-width: 376px) and (max-width: 414px) 320px,(min-width: 415px) and (max-width: 767px) 594px" srcset="{{ img_thumb }}?imwidth=244&amp;impolicy=custom 244w,{{ img_thumb }}?imwidth=295&amp;impolicy=custom 295w,{{ img_thumb }}?imwidth=320&amp;impolicy=custom 320w,{{ img_thumb }}?imwidth=594&amp;impolicy=custom 594w">
+                      <source media="(min-width: 768px)" data-srcset="{{ img_thumb }}?imwidth=320&amp;impolicy=custom 320w,{{ img_thumb }}?imwidth=375&amp;impolicy=custom 375w,{{ img_thumb }}?imwidth=414&amp;impolicy=custom 414w,{{ img_thumb }}?imwidth=457&amp;impolicy=custom 457w" sizes="(min-width: 768px) and (max-width: 1024px) 375px,(min-width: 1025px) and (max-width: 1190px) 414px,(min-width: 1191px) and (max-width: 1366px) 320px,(min-width: 1367px) and (max-width: 1680px) 414px,457px" srcset="{{ img_thumb }}?imwidth=320&amp;impolicy=custom 320w,{{ img_thumb }}?imwidth=375&amp;impolicy=custom 375w,{{ img_thumb }}?imwidth=414&amp;impolicy=custom 414w,{{ img_thumb }}?imwidth=457&amp;impolicy=custom 457w">
+                      <img alt="image" width="100%" height="auto" data-src="{{ img_thumb }}" class="l-block img-cover img-cover--center js-lazyload lazyload lazyloaded" data-was-processed="true">
+                    </picture>
+                    <noscript>
+                      <img class="noscript-content" src="{{ img_thumb }}" alt="image" width="auto" height="auto" />
+                    </noscript>
+                    <div class="lqip l-ratio--5-7 pointer-none"></div>
+                  </div>
+                  <div class="flex flex--align-end fs--small product-tile-colors-wrapper bg-white text-grey">
+                    {% capture products_list %}
+                    {% for variant in product.variants %}
+                    {{ product.variants[forloop.index].options[0] }}
+                    {% if forloop.last == false %}::{% endif%}
+                    {% endfor %}
+                    {% endcapture %}
+                    {% assign products_array = products_list | split: '::'%}
+                    {% assign array_count =  products_array | uniq %}
+                    {% assign array_size = array_count.size %}
+                    {% assign total_colors = array_size | minus: 1 %}
+                    {% if total_colors <= 1 %}
+                    + {{ total_colors }} colour
+                    {% else %}
+                    + {{ total_colors }} colours
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="flex flex--col flex--grow">
+                  <div class="l-vmargin--small  ">
+                    <div class="text-grey fs--medium">
+                      {{ product.title }}
+                    </div>
+                  </div>
+                  <div class="ff-bold nowrap fs--medium">
+                    <div class="text-grey" style="">
+                      {{ product.price | money }}
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Penny-Pincher Gifts",
+    "class": "page-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading" ,
+        "default": "Penny-Pincher Gifts" 
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

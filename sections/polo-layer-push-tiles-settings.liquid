@@ -1,0 +1,111 @@
+{%- if section.settings.layer_title or section.settings.layer_description -%}
+<div class="l-vmargin--large padding-1 padding-m-2 cell-13 cell-mt-21 cell-m-25">
+  <h2 class="js-modular-title title--xlarge text-black">
+    {{ section.settings.layer_title }}
+  </h2>
+  <div class="text-grey js-modular-text fs--medium">
+    {{ section.settings.layer_description }}
+  </div>
+</div>
+{%- endif -%}
+<div class="grid cell-25">
+{%- for tile in section.blocks -%}
+  <div class="offset-1 cell-7 offset-m-2 cell-m-21 {%- unless forloop.last -%}l-vmargin-row-m-3{%- endunless -%}">
+    <div class="js-modular-push js-promotions l-fill-width l-relative flex bg-white  component-push-basic" data-id="lacoste-polo-shop-push-1-tiles-basic-component-1">
+      <a class=" l-fill-width flex--col flex--grow" href="{{ tile.settings.layer_tile_link }}" target="" data-tag-id="promotions.onPromoClick" data-tracking="" data-type="category">
+        {%- if tile.settings.layer_tile_img -%}
+        <div class="l-relative l-ratio--1  l-vmargin--small">
+          <div class="js-lazyload-wrapper with-placeholder l-overlay lazyload">
+            <picture class="pict l-block l-absolute img-cover img-cover--center lazyload">
+              <source media="(max-width: 767px)" data-srcset="{{ tile.settings.layer_tile_img | img_url: '295x' }} 295w,{{ tile.settings.layer_tile_img | img_url: '320x' }} 320w,{{ tile.settings.layer_tile_img | img_url: '375x' }} 375w,{{ tile.settings.layer_tile_img | img_url: '640x' }} 640w" sizes="(max-width: 320px) 295px,(min-width: 321px) and (max-width: 375px) 320px,(min-width: 376px) and (max-width: 414px) 375px,(min-width: 415px) and (max-width: 767px) 640px">
+              <source media="(min-width: 768px)" data-srcset="{{ tile.settings.layer_tile_img | img_url: '295x' }} 295w,{{ tile.settings.layer_tile_img | img_url: '320x' }} 320w,{{ tile.settings.layer_tile_img | img_url: '375x' }} 375w,{{ tile.settings.layer_tile_img | img_url: '457x' }} 457w,{{ tile.settings.layer_tile_img | img_url: '524x' }} 524w" sizes="(min-width: 768px) and (max-width: 1024px) 295px,(min-width: 1025px) and (max-width: 1190px) 320px,(min-width: 1191px) and (max-width: 1366px) 375px,(min-width: 1367px) and (max-width: 1680px) 457px,524px">
+              <img alt="lacoste-polo-shop-push-1-tiles-basic-component-1" width="100%" height="auto" data-src="{{ tile.settings.layer_tile_img | img_url }}" class="l-block l-absolute img-cover img-cover--center js-lazyload lazyload" data-was-processed="true">
+            </picture>
+            <noscript>
+              <img class="noscript-content" src="{{ tile.settings.layer_tile_img | img_url }}" alt="lacoste-polo-shop-push-1-tiles-basic-component-1" width="auto" height="auto" />
+            </noscript>
+            <div class="lqip l-ratio--1 pointer-none"></div>
+          </div>
+        </div>
+        {%- endif -%}
+        <div class="flex flex--col flex--grow">
+          {%- if tile.settings.layer_tile_title or tile.settings.layer_tile_description -%}
+          <div class="l-vmargin--small  ">
+            <h3 class="title--large l-vmargin--xsmall text-black">
+              {{ tile.settings.layer_tile_title }}
+            </h3>
+            <div class="text-grey fs--medium">
+              {{ tile.settings.layer_tile_description }}
+            </div>
+          </div>
+          {%- endif -%}
+          {%- if tile.settings.layer_tile_linktext -%}
+          <span class="reverse-link fs--medium text-grey">
+            {{ tile.settings.layer_tile_linktext }}
+          </span>
+          {%- endif -%}
+        </div>
+      </a>
+    </div>
+  </div>
+{%- endfor -%}
+</div>
+{% schema %}
+  {
+    "name": "Layer Push Tiles",
+    "settings": [
+      {
+        "type": "text",
+        "id": "layer_title",
+        "label": "Layer Title" ,
+        "default": "Your colour" 
+      },
+      {
+        "type": "textarea",
+        "id": "layer_description",
+        "label": "Layer Description" ,
+        "default": "Over 100 inimitable colours developed by Lacoste. Discover the polo in every hue." 
+      }
+    ],
+    "blocks": [
+      {
+        "type": "tiles",
+        "name": "Tile with images" ,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "layer_tile_img",
+            "label": "Tile Image"
+          },
+          {
+            "type": "text",
+            "id": "layer_tile_title",
+            "label": "Tile Title"
+          },
+          {
+            "type": "textarea",
+            "id": "layer_tile_description",
+            "label": "Tile Description"
+          },
+          {
+            "type": "text",
+            "id": "layer_tile_linktext",
+            "label": "Tile Button",
+			"default": "Discover"
+          },
+          {
+            "type": "url",
+            "id": "layer_tile_link",
+            "label": "Tile Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

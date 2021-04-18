@@ -1,0 +1,40 @@
+{% assign found_option = false %}
+{% assign is_color = false %}
+{% assign option_index = 0 %}
+
+{% for option in product.options %}
+  {% if option == swatch %}
+    {% assign found_option = true %}
+    {% assign option_index = forloop.index0 %}
+    {% assign downcased_option = swatch | downcase %}
+    {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
+	    {% assign is_color = true %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+
+{% case option_name %}
+
+{% when 'size' %}
+
+    {% for variant in product.variants %}
+      {% assign value = variant.options[option_index] %}
+      {% unless values contains value %}
+        {% assign values = values | join: ',' %}
+        {% assign values = values | append: ',' | append: value %} 
+        {% assign values = values | split: ',' %}
+        {% assign product_qty = 0 %}
+        {% for variant in product.variants %}
+          {% if variant.inventory_quantity > 0 %}
+              {% assign product_qty = product_qty | plus: variant.inventory_quantity %}
+          {% endif %}
+        {% endfor %}
+
+        <li class="l-vmargin--xxlarge l-hmargin--small">
+          <button class="btn-cta js-pdp-size-btn btn-size" data-size="{{ value }}" data-no-redirect="true" aria-label="Select size: {{ value }}">{{ value }}</button>
+        </li>
+      {% endunless %}
+    {% endfor %}
+
+{% endcase %}

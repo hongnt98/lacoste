@@ -1,0 +1,75 @@
+$codgray: #191919;
+$mineshaft: #292929;
+$emperor: #545454;
+$boulder: #767676;
+$dustygray: #999999;
+$silver: #c8c8c8;
+$mercury: #e5e5e5;
+$wildsand: #f4f4f4;
+$jewel: #105a33;
+$jewellighten: #187c48;
+$alizarincrimson: #e72734;
+
+$success-color: $jewel;
+$error-color: $alizarincrimson;
+
+/* stylelint-disable selector-no-qualifying-type, selector-class-pattern */
+img.js-lazyload:not([src]) {
+    visibility: hidden;
+    font-size: 0;
+}
+/* stylelint-enable */
+
+.no-js {
+    /* stylelint-disable selector-class-pattern */
+    .js-lazyload {
+        display: none;
+    }
+    /* stylelint-enable */
+
+    .lqip {
+        opacity: 0;
+    }
+}
+
+// IE11 display content of noscript when javascript is activated
+// So, if js is activated don't display content of noscript tag
+.js .noscript-content {
+    display: none;
+}
+
+/* stylelint-disable selector-class-pattern */
+.js-lazyload:not([src]) {
+    min-height: 1px; // Fix Chrome bug for arbitrarily unloaded images
+}
+/* stylelint-enable */
+
+.with-placeholder {
+    overflow: hidden;
+    line-height: 0;
+
+    .pict {
+        position: absolute !important;
+    }
+
+    .lazyload {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .lqip {
+        position: relative;
+        width: 100%;
+        transition: opacity 0.25s ease-out;
+        background-color: $wildsand;
+    }
+
+    &.lazyloading .lqip {
+        opacity: 1;
+    }
+
+    &.lazyloaded .lqip {
+        opacity: 0;
+    }
+}

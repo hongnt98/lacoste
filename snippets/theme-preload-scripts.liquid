@@ -1,0 +1,13 @@
+{%- unless template.name == 'cart' -%}
+<link rel="preload" href="{{ 'vendor.js' | asset_url }}" as="script">
+<link rel="preload" href="{{ 'local-mc-validate.js' | asset_url }}" as="script">
+<link rel="preload" href="{{ 'l-custom.js' | asset_url }}" as="script">
+{% unless template contains 'collection' %}
+	<link rel="preload" href="{{ 'cookies.js' | asset_url }}" as="script">
+	<link rel="preload" href="{{ 'storepickup.js' | asset_url }}" as="script">
+{% endunless %}
+{% if template.name == 'collection' %}
+	<link rel="preload" href="{{ 'bc-sf-filter-lib.js' | asset_url }}" as="script">
+<!-- 	<link rel="preload" href="{{ 'bc-sf-filter.js' | asset_url }}" as="script"> -->
+{% endif %}
+{%- endunless -%}

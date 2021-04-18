@@ -1,0 +1,56 @@
+<section class="info-section locator">
+	<div class="wrapper locator">
+		<div class="info-sidebar locator">
+			<div class="side-scroller">
+				<h3 class="locator-title">
+					MY STORE LOCATOR
+				</h3>
+				{% section 'store-finder' %}
+			</div>
+		</div>
+
+		<div class="info-main locator">
+			<div class="filter-section">
+				<div class="title">Filter</div>
+				<div class="filter-fields">
+					<div class="current-address input-boxes">
+						<label for="address">Current Location</label>
+						<input type="text" value="" class="input-text address-text" id="amlocator-search" name="address" placeholder="Enter a location" autocomplete="off">
+					</div>
+
+					<div class="search-radius input-boxes">
+						<label for="radius">Search Radius</label>
+						<div class="drop-container">
+							<select title="" class="select" id="amlocator-radius" name="radius">
+								<option value="">Everywhere</option>
+								<option value="1">1KM</option>
+								<option value="3">3KM</option>
+								<option value="5">5KM</option>
+								<option value="10">10KM</option>
+								<option value="15">15KM</option>
+								<option value="25">25KM</option>
+								<option value="50">50KM</option>
+								<!--<option value="100">100KM</option>-->
+								<!--<option value="500">500KM</option>-->
+							</select>
+							<img src="{{ 'select-bg.svg' | asset_url}}" alt="">
+						</div>
+					</div>
+					<div class="input-boxes filter-buttons amlocator_input">
+						<button class="button-search" title="Filter" id="sortByFilter">
+						 	Search
+						</button>		
+						<button class="button-search" title="sort" id="locateNearBy">
+						 	Locate Nearby
+						</button>								
+					</div>
+				</div>
+			</div>
+			<div class="map-container">
+				<div id="amlocator-map-canvas">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

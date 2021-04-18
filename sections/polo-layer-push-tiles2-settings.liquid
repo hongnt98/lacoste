@@ -1,0 +1,119 @@
+<div class="js-modular-layer js-promotions-layer modular-layer l-relative bg-white l-padding-top-row-small l-padding-bottom-row-small" id="lacoste-polo-shop-title-3" data-layer="layer_title" data-tracking="">
+  <div class="js-promotions offset-1 text-left cell-11 cell-m-21 offset-m-2 ">
+    {%- if section.settings.layer_title or section.settings.layer_description -%}
+      <div class="l-vmargin--large">
+        <h2 class="title--xlarge text-black">
+          {{ section.settings.layer_title }}
+        </h2>
+        <div class="text-grey fs--medium">
+          <div>
+            {{ section.settings.layer_description }}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+    {%- if section.settings.layer_button_text and section.settings.layer_button_url -%}
+      <a class="btn-cta text-white l-hmargin--small l-vmargin--small fs--medium ff-normal" href="{{ section.settings.layer_button_url }}">
+        {{ section.settings.layer_button_text }}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+<div class="js-modular-layer js-promotions-layer modular-layer l-relative grid cell-25 bg-white  l-padding-top-row-small l-padding-bottom-row-small" id="lacoste-polo-shop-push-2" data-layer="layer_push_tiles">
+  <div class="grid cell-25">
+    {%- for tile in section.blocks -%}
+    <div class="offset-1 cell-7 offset-m-2 cell-m-21 {%- unless forloop.last -%}l-vmargin-row-m-3{%- endunless -%}">
+      <div class="js-modular-push js-promotions l-fill-width l-relative flex bg-white  component-push-basic" data-id="lacoste-polo-shop-push-2-tiles-basic-component-1">
+        <div class=" l-fill-width flex--col flex--grow" data-tracking="">
+          {%- if tile.settings.layer_tile_img -%}
+            <div class="l-relative l-ratio--1  l-vmargin--small">
+              <div class="js-lazyload-wrapper with-placeholder l-overlay lazyload">
+                <picture class="pict l-block l-absolute img-cover img-cover--center lazyload">
+                  <source media="(max-width: 767px)" data-srcset="{{ tile.settings.layer_tile_img | img_url: '295x' }} 295w,{{ tile.settings.layer_tile_img | img_url: '320x' }} 320w,{{ tile.settings.layer_tile_img | img_url: '375x' }} 375w,{{ tile.settings.layer_tile_img | img_url: '640x' }} 640w" sizes="(max-width: 320px) 295px,(min-width: 321px) and (max-width: 375px) 320px,(min-width: 376px) and (max-width: 414px) 375px,(min-width: 415px) and (max-width: 767px) 640px">
+                  <source media="(min-width: 768px)" data-srcset="{{ tile.settings.layer_tile_img | img_url: '295x' }} 295w,{{ tile.settings.layer_tile_img | img_url: '320x' }} 320w,{{ tile.settings.layer_tile_img | img_url: '375x' }} 375w,{{ tile.settings.layer_tile_img | img_url: '457x' }} 457w,{{ tile.settings.layer_tile_img | img_url: '524x' }} 524w" sizes="(min-width: 768px) and (max-width: 1024px) 295px,(min-width: 1025px) and (max-width: 1190px) 320px,(min-width: 1191px) and (max-width: 1366px) 375px,(min-width: 1367px) and (max-width: 1680px) 457px,524px">
+                  <img alt="lacoste-polo-shop-push-2-tiles-basic-component-1" width="100%" height="auto" data-src="{{ tile.settings.layer_tile_img | img_url }}" class="l-block l-absolute img-cover img-cover--center js-lazyload lazyload">
+                </picture>
+                <noscript>
+                  <img class="noscript-content" src="{{ tile.settings.layer_tile_img | img_url }}" alt="lacoste-polo-shop-push-2-tiles-basic-component-1" width="auto" height="auto" />
+                </noscript>
+                <div class="lqip l-ratio--1 pointer-none"></div>
+              </div>
+            </div>
+          {%- endif -%}
+          <div class="flex flex--col flex--grow">
+            {%- if tile.settings.layer_tile_title or tile.settings.layer_tile_description -%}
+            <div class=" ">
+              <h3 class="title--large l-vmargin--xsmall text-black">
+                {{ tile.settings.layer_tile_title }}
+              </h3>
+              <div class="text-grey fs--medium">
+                {{ tile.settings.layer_tile_description }}
+              </div>
+            </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+    {%- endfor -%}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Layer Push Tiles",
+    "settings": [
+      {
+        "type": "text",
+        "id": "layer_title",
+        "label": "Layer Title" ,
+        "default": "The polo, a unique savoir-faire" 
+      },
+      {
+        "type": "textarea",
+        "id": "layer_description",
+        "label": "Layer Description" ,
+        "default": "Signature fabric, tailored details and the iconic crocodile." 
+      },
+      {
+        "type": "text",
+        "id": "layer_button_text",
+        "label": "Layer Title Button Text" ,
+        "default": "Open your eyes" 
+      },
+      {
+        "type": "url",
+        "id": "layer_button_url",
+        "label": "Layer Title Button Url" 
+      }
+    ],
+    "blocks": [
+      {
+        "type": "tiles",
+        "name": "Tile with images" ,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "layer_tile_img",
+            "label": "Tile Image"
+          },
+          {
+            "type": "text",
+            "id": "layer_tile_title",
+            "label": "Tile Title"
+          },
+          {
+            "type": "textarea",
+            "id": "layer_tile_description",
+            "label": "Tile Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

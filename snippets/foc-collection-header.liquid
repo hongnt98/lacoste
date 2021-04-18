@@ -1,0 +1,97 @@
+{% for block in section.blocks %}
+  {% if block.type == 'collection' %}
+    {% if block.settings.collection == handle %}
+      <input class="banner-data" type="hidden" data-link="{{ block.settings.banner_link }}" src-desktop="{{ block.settings.banner_image_desk | img_url: 'master' }}" src-mobile="{{ block.settings.banner_image_mobile | img_url: 'master' }}" data-count="{{ block.settings.banner_insert_count }}">
+    {%endif%}
+  {% elsif block.type == 'headers' %}
+	{% if block.settings.collection == handle %}
+		<header class="plp-header grid cell-25">
+          <div class="cell-12 cell-m-25 l-relative l-overflow-hidden">
+            {% if block.settings.banner_video_desk != blank %}
+            <div id="static-player-2ff96d081f4ddeb20dfbc10791" class="js-static-video-wrapper static-video-wrapper is-muted l-overflow-hidden is-background l-overlay l-m-relative is-loaded is-ready" data-src-desktop="{{ block.settings.banner_video_url }}" data-src-mobile="{{ block.settings.banner_video_url }}" data-type="video/mp4" data-autoplay="true" data-background="true" data-staticvideo="249a1209-4a0a-4463-a175-6981431d6495"> 
+              <video playsinline="true" muted="true" class="js-static-video static-video l-block img-cover img-cover--top l-block" width="100%" height="auto" loop="&quot;true&quot;" autoplay="&quot;autoplay&quot;">
+                <source data-desktop="{{ block.settings.banner_video_desk }}" data-mobile="{{ block.settings.banner_video_mob }}" type="video/mp4">
+              </video>
+              <div class="js-video-controls static-video-controls text-white flex flex--space-between flex--align-center">
+                <!---->
+                <button class="static-video-btn btn-play">
+                  <svg role="presentation" aria-hidden="true" class="icon-svg icon-play">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play-pause"></use>
+                  </svg>
+                </button>
+                <!---->
+              </div>
+              <div class="js-video-poster l-overlay poster">
+                <div class="js-lazyload-wrapper with-placeholder l-block lazyloaded">
+                  <picture class="pict img-cover img-cover--top l-block lazyload">
+                    <source media="(max-width: 767px)" data-srcset="{{ block.settings.video_image_overlay_mobile | img_url: 'master' }}?imwidth=320&amp;impolicy=custom 320w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=375&amp;impolicy=custom 375w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=414&amp;impolicy=custom 414w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=767&amp;impolicy=custom 767w" sizes="(max-width: 320px) 320px,(min-width: 321px) and (max-width: 375px) 375px,(min-width: 376px) and (max-width: 414px) 414px,(min-width: 415px) and (max-width: 767px) 767px" srcset="{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=320&amp;impolicy=custom 320w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=375&amp;impolicy=custom 375w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=414&amp;impolicy=custom 414w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=767&amp;impolicy=custom 767w">
+                    <source media="(min-width: 768px)" data-srcset="{{ block.settings.video_image_overlay_desktop | img_url: 'master' }}?imwidth=492&amp;impolicy=custom 492w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=572&amp;impolicy=custom 572w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=640&amp;impolicy=custom 640w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=799&amp;impolicy=custom 799w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=914&amp;impolicy=custom 914w" sizes="(min-width: 768px) and (max-width: 1024px) 492px,(min-width: 1025px) and (max-width: 1190px) 572px,(min-width: 1191px) and (max-width: 1366px) 640px,(min-width: 1367px) and (max-width: 1680px) 799px,914px" srcset="{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=492&amp;impolicy=custom 492w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=572&amp;impolicy=custom 572w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=640&amp;impolicy=custom 640w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=799&amp;impolicy=custom 799w,{{ block.settings.video_image_overlay | img_url: 'master' }}?imwidth=914&amp;impolicy=custom 914w">
+                    <img alt="null" width="100%" height="auto" data-src="{{ block.settings.video_image_overlay_desktop | img_url: 'master' }}" class="img-cover img-cover--top l-block js-lazyload lazyload lazyloaded" data-zoom-url="null" src="{{ block.settings.video_image_overlay | img_url: 'master' }}" data-was-processed="true">
+                  </picture>
+                  <noscript>
+                    <img class="noscript-content" src="{{ block.settings.video_image_overlay_desktop | img_url: 'master' }}" alt="null" width="auto" height="auto" />
+                  </noscript>
+                  <div class="lqip l-ratio--1.17 pointer-none"></div>
+                </div>
+                <div class="btn-big-play l-overlay flex flex--justify-center flex--align-center text-white">
+                  <svg role="presentation" class="icon-svg ">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play-pause"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="static-video-loader l-overlay flex flex--justify-center flex--align-center bg-black--wide">
+                <svg class="loader-icon">
+                  <circle class="loader-circle" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
+                </svg>
+              </div>
+            </div>
+            {% else %}
+            <div>
+              <picture>
+                <source media="(max-width: 767px)" srcset="{{ block.settings.video_image_overlay_mobile | img_url: '320x' }} 320w,{{ block.settings.video_image_overlay_mobile | img_url: '375x' }} 375w,{{ block.settings.video_image_overlay_mobile | img_url: '414x' }} 414w,{{ block.settings.video_image_overlay_mobile | img_url: '767x' }} 767w" sizes="(max-width: 320px) 320px,(min-width: 321px) and (max-width: 375px) 375px,(min-width: 376px) and (max-width: 414px) 414px,(min-width: 415px) and (max-width: 767px) 767px">
+                <source media="(min-width: 768px)" srcset="{{ block.settings.video_image_overlay_desktop | img_url: '492x' }} 492w,{{ block.settings.video_image_overlay_desktop | img_url: '572x' }} 572w,{{ block.settings.video_image_overlay_desktop | img_url: '640x' }} 640w,{{ block.settings.video_image_overlay_desktop | img_url: '799x' }} 799w,{{ block.settings.video_image_overlay_desktop | img_url: '914x' }} 914w" sizes="(min-width: 768px) and (max-width: 1024px) 492px,(min-width: 1025px) and (max-width: 1190px) 572px,(min-width: 1191px) and (max-width: 1366px) 640px,(min-width: 1367px) and (max-width: 1680px) 799px,914px">
+                <img alt="SpringOffer" width="100%" height="auto" src="{{ block.settings.video_image_overlay_desktop | img_url: '900x' }}" class="img-cover img-cover--top">
+              </picture>
+            </div>
+            {% endif %}
+          </div>
+          <div class="plp-description cell-11 offset-1 cell-m-25 offset-m-0 l-vmargin-row-5 l-vmargin-row-m-0">
+            <div class="l-vmargin--xlarge padding-m-1 l-m-no-margin l-m-padding--small">
+              <h1 class="title--xlarge l-vmargin--medium">
+                {{ collection.title }}
+              </h1>
+              {% if collection.description %}
+              <div class="js-ellipsis-wrapper ellipsis-wrapper is-collapsed fs--medium cell-7 cell-m-23">
+                <div>
+                  {{ collection.description }}
+                </div>
+                <div class="js-ellipsis-btn"></div>
+              </div>
+              {% endif %}
+            </div>
+            <div class="js-custom-scrollbar-wrapper custom-scrollbar-wrapper--horizontal l-vmargin-row-2 is-disable is-begin" data-scrollbar="21a1c687-359b-4a46-bf79-512ea53e4cac">
+              <ul class="js-custom-scrollbar-content js-plp-categories l-m-overflow-x l-relative fs--medium cell-11 cell-m-25 plp-categories flex">
+                <div class="plp-categories">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'links' %}
+                      {% if block.settings.collection == handle %}
+                      <li class="l-m-inline-block padding-m-1">
+                        <a href="{{ block.settings.nav_url }}" class="simple-link l-inline-block plp-category-link">
+                          {{ block.settings.nav_txt }}
+                        </a>
+                      </li>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </ul>
+              <div class="custom-scrollbar">
+                <div class="js-custom-scrollbar custom-scrollbar-thumb"></div>
+              </div>
+            </div>
+          </div>
+        </header>
+	{% endif %}
+  {% endif %}
+{%endfor%}
+

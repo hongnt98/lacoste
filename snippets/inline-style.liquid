@@ -1,0 +1,18 @@
+<style type="text/css">
+  {%- render 'header.css' -%}
+  {%- render 'footer.css' -%}
+  {%- render 'global.css' -%}
+  {%- if template.name == 'index' -%}
+  	{%- render 'preload-css-homepage' -%}
+  {%- elsif template.name == 'collection' -%}
+  	{%- if template.suffix == 'foc' %}
+  		{%- render 'preload-css-collection.foc' -%}
+    {%- else -%}
+  		{%- render 'preload-css-collection' -%}
+  	{%- endif -%}
+  {%- elsif template.name == 'product' -%}
+  	{%- render 'preload-css-product' -%}
+  {%- elsif template.name == 'cart' -%}
+  	{%- render 'preload-css-cart' -%}
+  {%- endif -%}
+</style>

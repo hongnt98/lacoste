@@ -1,0 +1,107 @@
+<div class="js-modular-layer js-promotions-layer modular-layer l-relative grid cell-25 bg-white  l-padding-top-row-small" id="polaroid" data-layer="layer_blocks" data-tracking="">
+    <div class="grid cell-25">
+
+        <div class="cell-25 text-center padding-2">
+            <div class="l-vmargin--xxlarge">
+                <h2 class="title--xlarge ">
+                {{ section.settings.heading }}
+                </h2>
+            </div>
+        </div>
+
+        {% for block in section.blocks %}
+            <div class="offset-m-0 cell-m-25 offset-1 cell-11 l-vmargin-row-1 {% if forloop.index == 1 or forloop.index == 3 %}l-vmargin-row-m-1{% endif %}">
+                <div class="js-modular-push js-promotions l-relative l-fill-height" data-id="polaroid-component-1" data-tracking="">
+                    <div class="l-ratio--1 l-ratio-m--5-7 l-block l-fill-height" data-tracking="">
+                        <div class="js-lazyload-wrapper with-placeholder l-overlay lazyload">
+                            <picture class="pict l-absolute img-cover img-cover--center lazyload">
+                            <source media="(max-width: 767px)" data-srcset="{{ block.settings.mobile_image | img_url: '320x' }} 320w,{{ block.settings.mobile_image | img_url: '375x' }} 375w,{{ block.settings.mobile_image | img_url: '414x' }} 414w,{{ block.settings.mobile_image | img_url: '767x' }} 767w" sizes="(max-width: 320px) 320px,(min-width: 321px) and (max-width: 375px) 375px,(min-width: 376px) and (max-width: 414px) 414px,(min-width: 415px) and (max-width: 767px) 767px">
+                            <source media="(min-width: 768px)" data-srcset="{{ block.settings.desktop_image | img_url: '1024x' }} 1024w,{{ block.settings.desktop_image | img_url: '1190x' }} 1190w,{{ block.settings.desktop_image | img_url: '594x' }} 594w,{{ block.settings.desktop_image | img_url: '732x' }} 732w,{{ block.settings.desktop_image | img_url: '838x' }} 838w" sizes="(min-width: 768px) and (max-width: 1024px) 1024px,(min-width: 1025px) and (max-width: 1190px) 1190px,(min-width: 1191px) and (max-width: 1366px) 594px,(min-width: 1367px) and (max-width: 1680px) 732px,838px">
+                            <img alt="{{ block.settings.title }}" width="100%" height="auto" data-src="{{ block.settings.desktop_image | img_url: '838x' }}" class="l-absolute img-cover img-cover--center js-lazyload lazyload" data-was-processed="true">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="js-video-overlay l-overlay padding-1 padding-m-2 l-vspaced-row-1 l-vspaced-row-m-2  flex flex--col flex--justify-end flex--align-start pointer-none text-white">
+                        {% if block.settings.title %}
+                            <div class="l-vmargin--large">
+                                <h2 class="title--xlarge ">
+                                {{ block.settings.title }}
+                                </h2>
+                            </div>
+                        {% endif %}
+                        {% if block.settings.text %}
+                            <div class="l-vmargin--large fs--medium">
+                                <div>
+                                {{ block.settings.text }}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if block.settings.button_link %}
+                            <div>
+                                <a class="btn-cta  l-hmargin--small pointer-auto l-vmargin--small fs--medium ff-normal" href="{{ block.settings.button_link }}" data-type="category">
+                                    {{ block.settings.button_label }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+ </div>
+
+{% schema %}
+{
+    "name": "Grid Collection",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "These images are digitally created by Lacoste for advertising purposes."
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Collection",
+            "type": "collection",
+            "limit": 4,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "The complete Lacoste wardrobe for her"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Text"
+                },
+                {
+                    "type": "text",
+                    "id": "button_label",
+                    "label": "Button label",
+                    "default": "Explore"
+                },
+                {
+                    "type": "url",
+                    "id": "button_link",
+                    "label": "Button Link"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "desktop_image",
+                    "label": "Desktop Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "mobile_image",
+                    "label": "Mobile Image"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

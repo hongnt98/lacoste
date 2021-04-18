@@ -1,0 +1,88 @@
+<div class="js-mcontent-strate mcontent-strate mcontent-presentation l-vmargin-row-and-half grid flex--align-center text-black text-mt-white l-relative" id="ModularContent_Strate_Presentation_ProductPushFW19_CrocoCrew">
+  <a href="{{ section.settings.btn_link }}" class="order-2 cell-14 cell-mt-25 offset-mt-0 anim-enterview-wrapper js-anim-enterview">
+    <div class="js-lazyload-wrapper with-placeholder l-relative lazyloaded">
+      <video playsinline="true" autoplay="true" muted="true" loop="true" class="img-cover img-cover--top" width="101%" height="auto">
+        <source data-desktop="{{ section.settings.desktop_video }}" data-mobile="{{ section.settings.mobile_video }}" type="video/mp4">
+      </video>
+    </div>
+  </a>
+  <div class="order-1 offset-r-2 offset-2 cell-6 cell-mt-21 offset-mt-2 l-vspaced-row-2 presentation-title  anim-enterview-wrapper js-anim-enterview">
+    <h2 class="title--large cell-mt-16 l-vmargin--large anim-from-v-end">
+      {{ section.settings.title }}
+    </h2>
+    <ul class="grid anim-from-v-end">
+      <li class="l-hmargin--large l-vmargin--medium">
+        <a class="btn-cta {% if section.settings.button_color == 'black' %}btn--dark {% elsif section.settings.button_color == 'transparent' %}btn-transparent{% endif %} fs--medium ff-normal" href="{{ section.settings.btn_link }}" data-tag-id="" data-replace="">
+          {{ section.settings.btn_txt}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+{% schema %}
+{
+  "name":  "Home Feature Video",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Styled To Go"
+    },
+    {
+      "type": "text",
+      "id": "desktop_video",
+      "label": "Desktop Video",
+      "default": "https://cdn.shopify.com/s/files/1/0233/9713/8496/files/200323_LACOSTE_05s_grading_SQUARE_v01_f0a44569-448d-4372-828e-a05969305ca1.mp4?v=1591251089"
+    },
+    {
+      "type": "text",
+      "id": "mobile_video",
+      "label": "Mobile Video",
+      "default": "https://cdn.shopify.com/s/files/1/0233/9713/8496/files/200323_LACOSTE_05s_VERTICAL_grading_v02_3a7d83f2-2307-425f-909e-46c503cf42d9.mp4?v=1591251124"
+    },
+    {
+      "type": "text",
+      "id": "btn_txt",
+      "label": "Button Label",
+      "default": "Discover"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "white",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        },
+        {
+          "value": "transparent",
+          "label": "Transparent"
+        }
+      ]
+    }
+  ],
+"presets": [{
+      "name": "Home Feature Video",
+      "category": "Advanced layout"
+	}]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
